@@ -25,7 +25,7 @@
 -has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
 -has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
-## deliverys
+## deliveries
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false |
