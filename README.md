@@ -102,7 +102,7 @@
 -has_ancestry
 
 
-##　brandes
+## brandes
 |Column|Type|Options|
 |------|----|-------|
 |brand_name|string|
