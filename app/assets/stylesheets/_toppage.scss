@@ -1,0 +1,62 @@
+/* メルカリのwidthは1440 */
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  height: 5540px;
+  width: 100%;
+  background-color: pink;
+
+}
+.contents {
+  height: 2770px;
+  width: 100%;
+  background-color: greenyellow;
+
+}
+.category {
+  height: 170px;
+  width: 100%;
+  background-color: blueviolet;
+}
+.new_box {
+  height: 830px;
+  width: 70%;
+  margin: auto;
+  background-color: aqua;
+}
+.name {
+  height: 100px;
+  width: 100%;
+  background-color: brown;
+}
+.item {
+  height: 540px;
+  width: 100%;
+  background-color: azure;
+}
+.bottomitem {
+  height: 580px;
+  width: 100%;
+  background-color: azure;
+}
+
+
+.adv {
+  height: 267px;
+  width: 100%;
+  background-color: red;
+
+
+}
+
+/* .footer {
+  height: 385px;
+  width: 100%;
+  background-color: gray;
+
+
+} */
+
