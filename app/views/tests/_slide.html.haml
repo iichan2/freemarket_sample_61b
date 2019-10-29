@@ -1,9 +1,14 @@
-.slider
-  %ul.slider-list
-    %li
-      %a{:href => "#"}
-        %img{:alt => "camp", :src => "assets/camp.png", :class => "camp"}/
-    %li
-      %a{:href => "#"}
-        %img{:alt => "free", :src => "assets/free.png", :class => "free"}/
+-# .slider
+-#   %ul.slider-list
+-#     %li
+-#       %a{:href => "#"}
+-#         %img{:alt => "camp", :src => "assets/camp.png", :class => "camp"}/
+-#     %li
+-#       %a{:href => "#"}
+-#         %img{:alt => "free", :src => "assets/free.png", :class => "free"}/
 
+
+.slider
+  .slider-list
+    = image_tag 'camp.png'
+    = image_tag 'free.png'
