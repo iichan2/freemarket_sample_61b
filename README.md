@@ -10,7 +10,7 @@
 |email|string|null: false |
 |password|string|null: false |
 |birthday|datetime|null: false|
-|tel_number|integer|null: false |
+|tel_number|string|null: false |
 |profile|text|
 |nickname|string|null: false |
 ### Association
