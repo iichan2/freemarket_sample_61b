@@ -91,23 +91,28 @@
 -belongs_to :saler, class_name: "User"
 -belongs_to :buyer, class_name: "User"
 
+
 ## categorys
+|Column|Type|Options|
+|------|----|-------|
 |category|string|
 |ancetory|integer|
-
 ### Association
 -has_many :items
 -has_ancestry
 
 
-
 ##　brandes
+|Column|Type|Options|
+|------|----|-------|
 |brand_name|string|
 ### Association
 -has_many :items
 
 
 ## reviews
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false |
 |item_id|integer|null: false |
 |good|text|
@@ -119,6 +124,8 @@
 
 
 ## comments
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false |
 |item_id|integer|null: false |
 |text|text|null: false |
@@ -127,6 +134,8 @@
 -belongs_to :item
 
 ## banks
+|Column|Type|Options|
+|------|----|-------|
 |first_name|string|null: false |
 |last_name|string|null: false |
 |kana_first_name|string|null: false |
@@ -141,6 +150,8 @@
 -belongs_to :user
 
 ## likes
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false |
 |item_id|integer|null: false |
 ### Association
