@@ -101,26 +101,69 @@
   height: 2600px;
   width: 70%;
   margin: auto;
-  background-color: aqua;
   .name {
     height: 100px;
     width: 100%;
-    background-color: pink;
     .title {
       width:70%;
       height:40%;
-      background-color: green;
-
+      float:left;
+      margin-top: 50px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .more {
+      width: 10%;
+      height:20px;
+      float:right;
+      font-size: 15px;
+      text-decoration: none;
+      color:rgb(0,149,238);
+      margin-top: 60px;
     }
   }
   .item {
     height: 540px;
     width: 100%;
-    background-color:#EEEEEE;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .itembox {
+      height:45%;
+      width:180px;
+      background-color: white;
+      .itemtop {
+        height:75%;
+        width:100%;
+        background-color: white;
+      }  
+      .itembottom {
+        height:25%;
+        width:100%;
+        background-color: white;
+        text-decoration: none;
+        color: black;
+        .itembottom2 {
+          height: 18%;
+          width: 85%;
+          background-color: white;
+          font-size: 14px;
+          margin: auto;
+          text-decoration: none;
+        }
+      }
+    }
   }
-  .bottomitem {
-    height: 580px;
-    width: 100%;
-    background-color:#EEEEEE;
-  }
+  
+  .price {
+    height: 20px;
+    width: 40px;
+    background: black;
+    opacity: 0.4;
+    border-radius: 0 14px 14px 0;
+    color: white;
+    font-size: 17px;
+    // %span.price ￥1,500
+  } 
 }
