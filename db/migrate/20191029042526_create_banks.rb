@@ -11,7 +11,7 @@ class CreateBanks < ActiveRecord::Migration[5.2]
       t.string           :birthday, null: false
       t.string           :sex, null: false
       t.string           :country, null: false
-      t.references       :user_id, foreign_key: true
+      t.references       :user, foreign_key: true
       t.timestamps
     end
   end
