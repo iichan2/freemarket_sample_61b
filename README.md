@@ -92,7 +92,7 @@
 -belongs_to :buyer, class_name: "User"
 
 
-## categorys
+## categories
 |Column|Type|Options|
 |------|----|-------|
 |category|string|
