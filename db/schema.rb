@@ -35,5 +35,5 @@ ActiveRecord::Schema.define(version: 2019_10_30_045048) do
     t.string "birth_month"
     t.string "birth_day"
   end
-
+  
 end
