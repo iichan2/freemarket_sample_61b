@@ -1,7 +1,8 @@
 .slider {
-  height: 390px;
-  overflow: scroll;
+  height: auto;
+  overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .slider-list {
@@ -13,8 +14,22 @@
   height: auto;
   width: 100%;
 }
-/*slick setting*/
-.slick-prev:before,
-.slick-next:before {
-  color: #000;
+
+.slider-prev {
+  position: absolute;
+  top: 47%;
+  left: 50px;
+  font-size: 2em;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
+}
+.slider-next {
+  position: absolute;
+  top: 47%;
+  right: 50px;
+  font-size: 2em;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
 }

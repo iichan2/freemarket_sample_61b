@@ -1,14 +1,6 @@
--# .slider
--#   %ul.slider-list
--#     %li
--#       %a{:href => "#"}
--#         %img{:alt => "camp", :src => "assets/camp.png", :class => "camp"}/
--#     %li
--#       %a{:href => "#"}
--#         %img{:alt => "free", :src => "assets/free.png", :class => "free"}/
-
-
 .slider
   .slider-list
-    = image_tag 'camp.png'
-    = image_tag 'free.png'
+    = image_tag 'camp.jpg'
+    = image_tag 'free.jpg'
+= fa_icon 'chevron-left', class: 'slider-prev'
+= fa_icon 'chevron-right', class: 'slider-next'
