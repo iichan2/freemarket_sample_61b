@@ -70,10 +70,11 @@ gem 'zeitwerk'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-rails'
-gem 'device'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
+gem 'devise'
+gem 'erb2haml'
+# gem 'omniauth-facebook'
+
+# gem 'omniauth-google-oauth2'
 gem 'faraday'
 
 group :production do
