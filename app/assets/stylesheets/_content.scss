@@ -8,7 +8,6 @@
   height: 2770px;
   width: 100%;
   background-color:#EEEEEE;
-
 }
 .category {
   height: 170px;
@@ -23,71 +22,74 @@
     margin: auto;
     font-weight: 600;
     text-align: center;
-    margin-top: 55px;
+    margin-top: 40px;
     font-weight: bold;
     color: black;
     .categorybox {
       height: 30px;
       width: 50%;
-      margin-top: 15px;
+      margin-top: 40px;
       font-size: 14px;
       display: flex;
       margin: auto;
       text-align: center;
       color: black;
-      .bar7 {
-        background-color: #EEEEEE;
-        font-size: 12px;
-        border-radius: 30px;
-        padding: 8px 16px;
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 100px;
+      .qaz {
+        margin-top: 20px;
+        .bar7 {
+          background-color: #EEEEEE;
+          font-size: 12px;
+          border-radius: 30px;
+          padding: 8px 16px;
+          color: black;
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 100px;
+        }
+        .bar8 {
+          background-color: #EEEEEE;
+          font-size: 12px;
+          border-radius: 30px;
+          padding: 8px 16px;
+          color: black;;
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 10px;
+  
+        }
+        .bar9 {
+          background-color: #EEEEEE;
+          font-size: 12px;
+          border-radius: 30px;
+          padding: 8px 16px;
+          color: black;;
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+        .bar10 {
+          background-color: #EEEEEE;
+          font-size: 12px;
+          border-radius: 30px;
+          padding: 8px 16px;
+          color: black;;
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+        .bar11{
+          background-color: #EEEEEE;
+          font-size: 12px;
+          border-radius: 30px;
+          padding: 8px 16px;
+          color: black;;
+          text-decoration: none;
+          font-weight: bold;
+          margin-left: 150px;
+        }
       }
-      .bar8 {
-        background-color: #EEEEEE;
-        font-size: 12px;
-        border-radius: 30px;
-        padding: 8px 16px;
-        color: black;;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 10px;
-
-      }
-      .bar9 {
-        background-color: #EEEEEE;
-        font-size: 12px;
-        border-radius: 30px;
-        padding: 8px 16px;
-        color: black;;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 10px;
-      }
-      .bar10 {
-        background-color: #EEEEEE;
-        font-size: 12px;
-        border-radius: 30px;
-        padding: 8px 16px;
-        color: black;;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 10px;
-      }
-      .bar11{
-        background-color: #EEEEEE;
-        font-size: 12px;
-        border-radius: 30px;
-        padding: 8px 16px;
-        color: black;;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 150px;
-      }
-    }
-  }
+    } 
+  }  
 }
 
 
@@ -96,23 +98,29 @@
 
 
 .new_box {
-  height: 830px;
+  height: 2600px;
   width: 70%;
   margin: auto;
   background-color: aqua;
-}
-.name {
-  height: 100px;
-  width: 100%;
-  background-color: brown;
-}
-.item {
-  height: 540px;
-  width: 100%;
-  background-color:#EEEEEE;
-}
-.bottomitem {
-  height: 580px;
-  width: 100%;
-  background-color:#EEEEEE;
+  .name {
+    height: 100px;
+    width: 100%;
+    background-color: pink;
+    .title {
+      width:70%;
+      height:40%;
+      background-color: green;
+
+    }
+  }
+  .item {
+    height: 540px;
+    width: 100%;
+    background-color:#EEEEEE;
+  }
+  .bottomitem {
+    height: 580px;
+    width: 100%;
+    background-color:#EEEEEE;
+  }
 }
