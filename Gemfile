@@ -75,6 +75,9 @@ gem 'erb2haml'
 gem 'faraday'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'ransack'
 
 group :production do
   gem 'unicorn', '5.4.1'
