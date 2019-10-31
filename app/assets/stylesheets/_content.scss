@@ -33,6 +33,8 @@
           color: black;
           .qaz {
             margin-top: 20px;
+            text-decoration: none;
+            color: black;
             .bar7 {
               background-color: #EEEEEE;
               font-size: 12px;
@@ -41,7 +43,7 @@
               color: black;
               text-decoration: none;
               font-weight: bold;
-              margin-left: 100px;
+              margin-left: 80px;
             }
             .bar8 {
               background-color: #EEEEEE;
@@ -104,12 +106,19 @@
         }
         .more {
           width: 10%;
-          height:20px;
+          height:10px;
           float:right;
-          font-size: 15px;
+          font-size: 13px;
           text-decoration: none;
           color:rgb(0,149,238);
-          margin-top: 60px;
+          margin-top: 65px;
+          text-decoration: none;
+          .more2 {
+            text-decoration: none;
+            color:rgb(0,149,238);
+            font-size: 13px;
+            font-weight: bold;
+          }
         }
       }
       .item {
@@ -131,18 +140,23 @@
             z-index: 0;
           }  
           .itembottom {
-            height:25%;
+            height:20%;
             width:100%;
             background-color: white;
             text-decoration: none;
             color: black;
             .itembottom2 {
-              height: 18%;
+              height: 20%;
               width: 85%;
               background-color: white;
               font-size: 14px;
               margin: auto;
               text-decoration: none;
+              margin-top: 13px;
+              .explanation {
+                text-decoration: none;
+                color: black;
+              }
             }
           }
         }

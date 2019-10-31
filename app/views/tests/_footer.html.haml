@@ -14,10 +14,8 @@
             = link_to('公式ブログ', root_path, class: 'color')
           %li.opa
             = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'color')
-          %a{:href => "#"}
-            = fa_icon 'twitter-square', class: 't-icon'
-          %a{:href => "#"} 
-            = fa_icon 'facebook-square', class: 'f-icon'
+          =fa_icon 'twitter-square', class: 't-icon'
+          =fa_icon 'facebook-square', class: 'f-icon'
       .info
         %h2.asi ヘルプ＆ガイド
         %ul.fo
@@ -66,6 +64,6 @@
           %li.opa
             = link_to('United States', root_path, class: 'color')
     .f-under
-      %a.color{:href => "#"}
-        %img{:src => "assets/mercari1.jpg",:alt => "mercari1", :class => "mercari1"}/
+      = link_to "" do
+        =image_tag "mercari1.jpg", size: "140x35"
       %span.f ©︎2019 Mercari
