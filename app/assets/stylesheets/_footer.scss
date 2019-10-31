@@ -3,86 +3,84 @@ footer {
   bottom: 0;
   height: 450px;
   padding: 0 auto;
-}
-
-nav {
-  margin: 0 auto;
-  display: flex;
-}
-
-h2.asi {
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-}
-
-.info {
-  padding-right: 40px;
-  margin-top: 18px;
-}
-.help-guide {
-  margin-top: 18px;
-  padding-right: 40px;
-}
-.privacy {
-  margin-top: 18px;
-  padding-right: 40px;
-}
-.bullet {
-  display: flex;
-}
-.bullet-left {
-  padding-right: 10px;
-}
-.bullet-right {
-  padding-left: 10px;
-}
-.country {
-  margin-top: 18px;
-  padding-right: 40px;
-}
-
-
-li.opa {
-  margin-top: 16px;
-  cursor: pointer;
-  font-size: 11.7px;
-  opacity: 0.7;
-}
-
-
+  .boxis {
+    width:70%;
+    height:100%;
+    margin:auto;
+    nav {
+      margin: 0 auto;
+      display: flex;
+      .info {
+        padding-right: 40px;
+        margin-top: 18px;
+        h2.asi {
+          font-size: 16px;
+          font-weight: 600;
+          color: white;
+        }
+        .fo {
+          li.opa {
+            margin-top: 16px;
+            cursor: pointer;
+            font-size: 11.7px;
+            opacity: 0.7;
+            text-decoration: none;
+          }
+          .f-icon {
+            color: white;
+            font-size: 40px;
+          }
+          .t-icon {
+            font-size: 40px;
+            background-color: #222222;
+            margin-top: 30px;
+            padding-right: 20px;
+            color: white;
+          }      
+        }
+      }
+        .bullet {
+          display: flex;
+          cursor: pointer;
+          font-size: 11.7px;
+          opacity: 0.7;
+          text-decoration: none;
+          .bullet-left {
+            padding-right: 10px;
+            li.opa {
+              margin-top: 16px;
+            }
+          }
+          .bullet-right {
+            padding-left: 10px;
+            li.opa {
+              margin-top: 16px;
+            }
+          }
+        }
+      .f-under {
+        margin: 25px auto 20px;
+        img.mercari1 {
+          height: 25px;
+          width: 100px;
+        }
+        // span.f {
+        //   color: white;
+        //   font-size: 12px;
+        //   display: block;
+        //   text-align: center;
+        // }
+      }
+    }
+  }
 a.color {
   color: white;
+  text-decoration: none;
 }
-
-
-.f-under {
-  margin: 30px auto 20px;
 }
-
-
 span.f {
   color: white;
   font-size: 12px;
   display: block;
   text-align: center;
-}
-
-.mercari1 {
-  height: 33px;
-  width: 120px;
-  margin-left: 30px;
-}
-
-.t-icon {
-  font-size: 300px;
-  background-color: #222222;
-  margin-top: 30px;
-  margin-left: 30px;
-  padding-right: 20px;
-  color: white;
-}
-
-.f-icon {
-  color: white;
 }

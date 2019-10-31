@@ -1,70 +1,71 @@
 %footer
-  %nav.color
-    .info
-      %h2.asi メルカリについて
-      %ul.fo
-        %li.opa
-          %a.color{:href => "#"} 会社概要（運営会社）
-        %li.opa
-          %a.color{:href => "#"} 採用情報
-        %li.opa
-          %a.color{:href => "#"} プレスリリース
-        %li.opa
-          %a.color{:href => "#"} 公式ブログ
-        %li.opa
-          %a.color{:href => "#"} メルカリロゴ利用ガイドライン
-        %a{:href => "#"}
-          = fa_icon 'twitter-square', class: 't-icon'
-        %a{:href => "#"} 
-          = fa_icon 'facebook-square', class: 'f-icon'
-    .help-guide
-      %h2.asi ヘルプ＆ガイド
-      %ul.fo
-        %li.opa
-          %a.color{:href => "#"} メルカリガイド
-        %li.opa
-          %a.color{:href => "#"} らくらくメルカリ便
-        %li.opa
-          %a.color{:href => "#"} ゆうゆうメルカリ便
-        %li.opa
-          %a.color{:href => "#"} 大型メルカリ便
-        %li.opa
-          %a.color{:href => "#"} 車体取引ガイド
-        %li.opa
-          %a.color{:href => "#"} メルカリあんしん・あんぜん宣言！
-        %li.opa
-          %a.color{:href => "#"} 偽ブランド品撲滅への取り組み
-        %li.opa
-          %a.color{:href => "#"} メルカリボックス
-    .privacy
-      %h2.asi プライバシーと利用規約
-      %ul.bullet
-        .bullet-left
+  %div.boxis
+    %nav.color
+      .info
+        %h2.asi メルカリについて
+        %ul.fo
           %li.opa
-            %a.color{:href => "#"} プライバシーポリシー
+            = link_to('会社概要（運営会社)', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} メルカリ利用規約
+            = link_to('採用情報', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} あんしんスマホサポート制度に関する利用特約
+            = link_to('プレスリリース', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} コンプライアンスポリシー
-        .bullet-right
+            = link_to('公式ブログ', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} 個人データの安全管理に係る基本方針
+            = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'color')
+          %a{:href => "#"}
+            = fa_icon 'twitter-square', class: 't-icon'
+          %a{:href => "#"} 
+            = fa_icon 'facebook-square', class: 'f-icon'
+      .info
+        %h2.asi ヘルプ＆ガイド
+        %ul.fo
           %li.opa
-            %a.color{:href => "#"} 特定商取引に関する表記
+            = link_to('メルカリガイド', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} 資金決済法に基づく表示
+            = link_to('らくらくメルカリ便', root_path, class: 'color')
           %li.opa
-            %a.color{:href => "#"} 法令順守と犯罪抑止のために
-    .country    
-      %h2.asi 国
-      %ul.fo
-        %li.opa
-          %a.color{:href => "#"} 日本
-        %li.opa
-          %a.color{:href => "#"} United States
-  .f-under
-    %a.color{:href => "#"}
-      %img{:src => "assets/mercari1.jpg",:alt => "mercari1", :class => "mercari1"}/
-    %span.f ©︎2019 Mercari
+            = link_to('ゆうゆうメルカリ便', root_path, class: 'color')
+          %li.opa
+            = link_to('大型メルカリ便', root_path, class: 'color')
+          %li.opa
+            = link_to('車体取引ガイド', root_path, class: 'color')
+          %li.opa
+            = link_to('メルカリあんしん・あんぜん宣言！', root_path, class: 'color')
+          %li.opa
+            = link_to('偽ブランド品撲滅への取り組み', root_path, class: 'color')
+          %li.opa
+            = link_to('メルカリボックス', root_path, class: 'color')
+      .info
+        %h2.asi プライバシーと利用規約
+        %ul.bullet
+          .bullet-left
+            %li.opa
+              = link_to('プライバシーポリシー', root_path, class: 'color')
+            %li.opa
+              = link_to('メルカリ利用規約', root_path, class: 'color')
+            %li.opa
+              = link_to('あんしんスマホサポート制度に関する利用特約', root_path, class: 'color')
+            %li.opa
+              = link_to('コンプライアンスポリシー', root_path, class: 'color')
+          .bullet-right
+            %li.opa
+              = link_to('個人データの安全管理に係る基本方針', root_path, class: 'color')
+            %li.opa
+              = link_to('特定商取引に関する表記', root_path, class: 'color')
+            %li.opa
+              = link_to('資金決済法に基づく表示', root_path, class: 'color')
+            %li.opa
+              = link_to('法令順守と犯罪抑止のために', root_path, class: 'color')
+      .info    
+        %h2.asi 国
+        %ul.fo
+          %li.opa
+            = link_to('日本', root_path, class: 'color')
+          %li.opa
+            = link_to('United States', root_path, class: 'color')
+    .f-under
+      %a.color{:href => "#"}
+        %img{:src => "assets/mercari1.jpg",:alt => "mercari1", :class => "mercari1"}/
+      %span.f ©︎2019 Mercari
