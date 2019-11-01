@@ -70,12 +70,13 @@ gem 'zeitwerk'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-rails'
-gem 'device'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
+gem 'devise'
+gem 'erb2haml'
 gem 'faraday'
 gem "jquery-rails"
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
+
 
 group :production do
   gem 'unicorn', '5.4.1'
