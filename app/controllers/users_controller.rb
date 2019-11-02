@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   # end
   # def create 
   #   @user = User.new(
-
   #     session[:nickname] = user_params[:nickname],
   #     session[:email] = user_params[:email],
   #     session[:password] = user_params[:password],
