@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_params, only: :edit, :update
   def new
     @user = User.new
   # session[:nickname] = user_params[:nickname]
@@ -46,10 +46,6 @@ class UsersController < ApplicationController
   # def create 
   #   @user = User.new(
 
-def new
-  # @user = User.new
-end
-
 def show
 end
   #     session[:nickname] = user_params[:nickname],
@@ -89,6 +85,25 @@ end
   # #   )
   
   # # end
-  
-  
+
+  def edit
+  end
+
+  def update
+    
+    if @user.save
+      render :edit
+    else
+      flash[:notice] = "入力してください"
+      render :edit
+    end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:nickname,:profile)
+  end
+  def set_params
+    @user = User.find(params[:id])
+  end
 end
