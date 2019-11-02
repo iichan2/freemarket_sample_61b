@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_params, only: :edit, :update
   def new
     @user = User.new
   # session[:nickname] = user_params[:nickname]
@@ -86,11 +87,10 @@ end
   # # end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    
     if @user.save
       render :edit
     else
@@ -101,6 +101,9 @@ end
 
   private
   def user_params
-    params.require(:user).permit(:nickname,:comments,:email,:profile)
+    params.require(:user).permit(:nickname,:profile)
+  end
+  def set_params
+    @user = User.find(params[:id])
   end
 end
