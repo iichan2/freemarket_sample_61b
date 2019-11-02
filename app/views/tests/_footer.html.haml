@@ -14,8 +14,10 @@
             = link_to('公式ブログ', root_path, class: 'color')
           %li.opa
             = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'color')
-          =fa_icon 'twitter-square', class: 't-icon'
-          =fa_icon 'facebook-square', class: 'f-icon'
+          =link_to "https://twitter.com/login?lang=ja", class: "t-icon" do
+            =fa_icon 'twitter-square'
+          =link_to "https://ja-jp.facebook.com/", class: "f-icon" do
+            =fa_icon 'facebook-square'
       .info
         %h2.asi ヘルプ＆ガイド
         %ul.fo
