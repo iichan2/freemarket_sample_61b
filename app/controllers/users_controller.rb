@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
    
   # session[:nickname] = user_params[:nickname]
@@ -44,6 +45,14 @@ class UsersController < ApplicationController
   # end
   # def create 
   #   @user = User.new(
+=======
+def new
+  @user = User.new
+end
+
+def show
+end
+
 
   #     session[:nickname] = user_params[:nickname],
   #     session[:email] = user_params[:email],
