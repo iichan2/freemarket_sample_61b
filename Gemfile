@@ -44,6 +44,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'devise'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -53,7 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
+  
 end
 
 group :test do
@@ -70,7 +74,6 @@ gem 'zeitwerk'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-rails'
-gem 'devise'
 gem 'erb2haml'
 gem 'faraday'
 gem "jquery-rails"
@@ -81,3 +84,5 @@ gem 'omniauth-rails_csrf_protection'
 group :production do
   gem 'unicorn', '5.4.1'
 end
+gem 'active_hash'
+
