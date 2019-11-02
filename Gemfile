@@ -73,8 +73,10 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'erb2haml'
 gem 'faraday'
+gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+
 
 group :production do
   gem 'unicorn', '5.4.1'

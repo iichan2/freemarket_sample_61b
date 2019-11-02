@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
-@import 'font-awesome';
+@import "reset";
+@import "slick-theme";
+@import "slick";
+@import "footer";
+@import "header";
+@import "font-awesome";
+@import "item-circle";
+@import "slide";
+@import "adv";
 @import 'myp-side';
 @import 'myp-content';
