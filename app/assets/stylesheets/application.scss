@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "reset";
 @import "slick-theme";
 @import "slick";
@@ -21,5 +22,14 @@
 @import "font-awesome";
 @import "item-circle";
 @import "slide";
-@import "adv";
 @import "transaction";
+@import 'profile';
+@import "adv";
+@import 'myp-side';
+@import 'myp-content';
+@import "users/signup-footer";
+@import "users/ue";
+@import "users/new";
+@import "users/juusyo";
+@import "users/card";
+@import "users/ok";

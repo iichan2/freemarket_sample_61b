@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   # devise_for :users
-  resources :users
-  root 'tests#index' 
-  resources :tests do
+  resources :users, only:[:new] do
     collection do
-      get 'transaction'
+      get "tel"
+      get "juusyo"
+      get "card"
+      get "ok"
+      
     end
+  end
+    root 'tests#index'
+    resources :tests do
+      collection do
+        get 'transaction'
+      end
   end
 end
