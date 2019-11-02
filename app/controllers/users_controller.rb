@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def new
-   
+    @user = User.new
   # session[:nickname] = user_params[:nickname]
   # session[:email] = user_params[:email]
   # session[:password] = user_params[:password]
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   #   @user = User.new(
 
 def new
-  @user = User.new
+  # @user = User.new
 end
 
 def show
