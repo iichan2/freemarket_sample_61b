@@ -13,9 +13,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
 
-  before_action :basic_auth, if: :production?
-  protect_from_forgery with: :exception
-
+  
   private
 
   def production?
@@ -26,8 +24,8 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
-
   end
+
   config.generators do |g|
     # 色々な記述があるので、一番下に追記する
     g.test_framework :rspec,
@@ -41,8 +39,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-end
 
-  end
+
+  
 end
 
