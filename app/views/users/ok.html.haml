@@ -1,0 +1,32 @@
+.single-container
+  .single-header
+    %h1.single-header__logo
+      = link_to do
+        =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
+    %nav.progress-bar
+      %ol.clearfix
+        %li.through
+          会員情報
+          .progress-status
+        %li.through
+          電話番号認証 
+          .progress-status
+        %li.through
+          お届け先住所入力
+          .progress-status
+        %li.through
+          支払い方法
+          .progress-status
+        %li.active
+          完了
+          .progress-status
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 会員登録完了
+      %form.registration-form
+        .registration-form__content
+          %p.done.message ありがとうございます。
+          %p.done.message 会員登録が完了しました。
+          %button.btn-default.btn-red{type: "submit"} メルカリをはじめる 
+          %image.image__kari
+= render 'signup-footer'

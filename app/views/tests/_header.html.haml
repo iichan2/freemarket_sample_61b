@@ -1,0 +1,32 @@
+.header
+  .header_box
+    .h_topbox
+    .h_center_topbox
+      .left_imagbox
+        = link_to "" do
+          =image_tag "merucari.png", size: "140x35"
+      %form.rightsearch
+        %input.hoge{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
+        %button.hogehoge
+          =fa_icon "search"
+    .h_bottombox
+    .h_center_bottombox
+      .left_box
+        .bar
+          =link_to "" do
+            =image_tag "bar.png", size:"15x15"
+        .bar2
+          = link_to('カテゴリーから探す', root_path, class: 'bar2')
+      .left_box2
+        .bar3
+          =link_to ""do
+            =image_tag "tag.png", size:"15x15"
+        .bar4
+          =link_to "", class: "bar4" do
+            &nbsp ブランドから探す
+      .touroku
+        .bar5
+          = link_to('新規会員登録', root_path, class: 'touroku')
+      .login
+        .bar6
+          = link_to('ログイン', root_path, class: 'login')

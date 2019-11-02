@@ -96,7 +96,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|
-|ancetory|integer|
+|ancestry|integer|
 ### Association
 -has_many :items
 -has_ancestry
