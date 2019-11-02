@@ -4,7 +4,9 @@ class User < ApplicationRecord
 devise :database_authenticatable, :registerable, :recoverable, :rememberable
 
 
-
+extend ActiveHash::Associations::ActiveRecordExtensions
+belongs_to_active_hash :prefecture
+  
 VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 belongs_to :card, dependent: :destroy
