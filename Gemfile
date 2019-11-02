@@ -74,6 +74,8 @@ gem 'devise'
 gem 'erb2haml'
 gem 'faraday'
 
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
 
 
 group :production do
