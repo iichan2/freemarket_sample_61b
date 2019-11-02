@@ -73,7 +73,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'erb2haml'
 gem 'faraday'
-gem 'omniauth-rails_csrf_protection'
+
 
 
 group :production do
