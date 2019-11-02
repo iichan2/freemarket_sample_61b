@@ -44,7 +44,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'devise'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
@@ -79,6 +78,7 @@ gem 'faraday'
 gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'devise'
 
 
 group :production do

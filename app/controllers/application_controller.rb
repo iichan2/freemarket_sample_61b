@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
       authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
       end
-  end
+  end 
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birthday, :tel_number, :postal_code, :ken, :map, :banchi, :building, :tel_number])
   end
 end
 
