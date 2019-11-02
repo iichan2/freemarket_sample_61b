@@ -1,0 +1,88 @@
+.zenntai
+  .atamanoe
+    =image_tag("signup-mercari.png",class: "gazou",height: "90px")
+  .main
+    .atama
+      商品の情報を入力
+    = form_for @item,url: new_item_path do |f|
+      .gazoushuppinn
+        .bun-matome
+          .bunn2  出品画像
+          .hissu  必須
+        .saidai10  最大5枚までアップロードできます
+        .gazou-okurtokoro
+          = f.fields_for :images, @images do |i|
+            .dropzone-container.clearfix
+              .sell-uploads-drop
+                #exhibit-images-preview
+              .dropzone-area
+                = i.label :image, for: 'create-image' do
+                  .sell_upload__area
+                    = i.file_field :image_id, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+
+      .shouhinmei
+        .bun-matome
+          .bunn  商品名
+          .hissu  必須
+        .shouhinnmei-kakutokoro
+          = f.text_field :item_name
+        .bun-matome
+          .bunn  商品の説明
+          .hissu  必須
+        .shouhinsetumei-kakutokoro
+          = f.text_area :item_info
+      .shouhinnoshousai
+        .setumei  商品の詳細
+        .bun-matome
+          .bunn  カテゴリー
+          .hissu  必須
+        .kategory-box
+          = f.select :category_id,[["レディース",1],["メンズ",2]],prompt: "--"
+        .bun-matome
+          .bunn  商品の詳細
+          .hissu  必須
+        .jyoutai-box
+          = f.select :status,[["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れなし",4],["傷や汚れあり",5],["全体的に状態が悪い",6]],prompt: "--"
+      .haisounituite
+        .setumei  配送について
+        .bun-matome
+          .bunn  配送量の負担
+          .hissu  必須
+        .kategory-box
+          = f.select :delivery_fee,[["送料込み (出品者負担)",1],["着払い(購入者負担)",2]],prompt: "--"
+        .bun-matome
+          .bunn  発送元の地域
+          .hissu  必須
+        .kategory-box
+          = f.collection_select :area, Prefecture.all, :id, :name,prompt: "--"
+        .bun-matome
+          .bunn  発送までの日数
+          .hissu  必須
+        .kategory-box
+          = f.select :delivery_day,[["1~2日で発送",1],["3~4日で発送",2],["5~6日で発送",3]],prompt: "--"
+      .hannbaikakaku
+        .setumei  販売価格(300~9,999,999)
+        .keisann
+          .bun-matome
+            .bunn  価格
+            .hissu  必須
+          .kakaku-kakutokoro
+            = f.label '¥'
+            = f.number_field :price, class: 'kakaku-kakumasu',id: 'kakaku-kakumasu'
+          .kakaku-tesuuryou 
+            .bunn 販売手数料(10%)
+            .tesuuryou 
+          .kakaku-rieki 
+            .bunn 販売利益
+            .rieki
+      .hanbaityuui
+        .tyuuibunn  禁止されている出品、行為を必ずご確認ください。<br>またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。<br>また、出品をもちまして加盟店規約に同意したことになります。
+        .buttonyou
+          = f.submit "出品する", class: "buttonda"
+        .buttonyou2
+          .modorubutton
+            = link_to "/"  do
+              %a.modo もどる
+          
+
+

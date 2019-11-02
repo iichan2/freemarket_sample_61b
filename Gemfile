@@ -75,6 +75,10 @@ gem 'erb2haml'
 gem 'faraday'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
