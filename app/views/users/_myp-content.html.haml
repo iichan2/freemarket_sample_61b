@@ -1,0 +1,40 @@
+.my-content
+  %section.myp-user-icon
+    = link_to root_path, class: 'user-icon-link'
+    %figure.center
+      = image_tag src='prof.jpg', alt: 'プロフィール', height: '60', width: '60', class: 'prof-circle'
+    %h2.bold name
+    .myp-num
+      %div.hyo 評価
+      %span.bold 0
+      %div.hyo 出品数
+      %span.bold 0
+  %section.myp-tab-con-noti-todo
+    %ul.myp-tabs
+      %li.news
+        %h3.myp  お知らせ
+        = link_to root_path
+      %li.news.active
+        %h3.myp やることリスト
+        = link_to root_path
+    .myp-tab-hako
+      %ul#mypage-tab-todo.mypage-item-list
+        %li.myp-item-not-found_old 
+          %h3.to-do-list 現在、やることリストはありません
+          .mercari-image
+  %h2.purchaseditem-item 購入した商品  
+  %section.myp-tab-container
+    %ul.myp-tabs
+      %li.news.active
+        %h3.myp  取引中
+        = link_to root_path
+      %li.news
+        %h3.myp 過去の取引
+        = link_to root_path
+    .myp-tab-hako
+      %ul#mypage-tab-todo.mypage-item-list
+        %li.myp-item-not-found_old 
+          %h3.to-do-list 現在、やることリストはありません
+          .mercari-image
+  -# %aside.modal
+  -# %section.myp-tab-container
