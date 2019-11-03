@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: :edit, :update
+  before_action :set_params, only: [:edit, :update]
   def new
     @user = User.new
   # session[:nickname] = user_params[:nickname]
@@ -29,9 +29,6 @@ class UsersController < ApplicationController
   def ok
   end
 
-  def show
-   
-  end
   # def step3
   #   session[:last_name] = user_params[:last_name]
   #   session[:first_name] = user_params[:first_name]
@@ -97,6 +94,9 @@ end
       flash[:notice] = "入力してください"
       render :edit
     end
+  end
+
+  def logout
   end
 
   private
