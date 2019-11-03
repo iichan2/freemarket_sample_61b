@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # devise_for :users
-  resources :users, only:[:new] do
+  resources :users do
     collection do
       get "tel"
       get "juusyo"
       get "card"
       get "ok"
-      
+      get "logout"
     end
   end
     root 'tests#index'
