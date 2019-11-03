@@ -78,7 +78,11 @@ gem 'faraday'
 gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'ransack'
 gem 'devise'
+
 
 
 group :production do
