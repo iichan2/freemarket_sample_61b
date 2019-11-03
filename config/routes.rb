@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get "card"
       get "ok"
       get "logout"
+      get "payment"
     end
   end
     root 'tests#index'
