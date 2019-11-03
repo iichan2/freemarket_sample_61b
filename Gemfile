@@ -82,7 +82,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'ransack'
 gem 'devise'
-
+gem 'dotenv-rails'
 
 
 group :production do
