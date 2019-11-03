@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 
-
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
@@ -28,7 +27,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birthday, :tel_number, :postal_code, :ken, :map, :banchi, :building, :tel_number])
   end
+
 end
-
-
 
