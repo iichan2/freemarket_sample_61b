@@ -1,2 +1,0 @@
-class Brande < ApplicationRecord
-end
