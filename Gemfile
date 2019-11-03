@@ -79,10 +79,12 @@ gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'active_hash'
-
+gem 'dotenv-rails'
