@@ -3,7 +3,14 @@
   width: 100vw;
   background-color:#f5f5f5;
 
-
+input[type="text"] {
+    width: 350px;
+    height: 20px;
+}
+.select_boxyou{
+  width: 350px;
+  height: 30px;
+}
 .dropzone-container {
     display: flex;
     height: 160px;
@@ -12,7 +19,13 @@
     border: 1px dashed #ccc;
 
 }
+.setumei {
+  width: 30%;
+}
+.migiyose{
+  flex-grow: 1;
 
+}
 
 .dropzone-area {
     height: 160px;
@@ -198,7 +211,8 @@
     }
     
     .shouhinnoshousai{
-      height: 200px;
+      display:flex;
+      height: 180px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;   
       .setumei{
@@ -215,7 +229,8 @@
       }
     }
     .haisounituite{
-      height: 220px;
+      display:flex;
+      height: 200px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px; 
       .setumei {
@@ -237,7 +252,7 @@
         .setumei {
           width: 30%;
         }
-        .keisann{
+        .migiyose{
           flex-grow: 1;
         
           .kakaku-kakutokoro{

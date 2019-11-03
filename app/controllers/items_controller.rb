@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @images = @item.images.build
+    @item.images.build
   end
 
 
@@ -27,8 +27,7 @@ end
 private
 
   def item_params
-    cate = Category.find(params(:category_id))
-    params.require(:item).permit(:item_name, :item_info, :size, :brand_id, :status, :delivery_fee, :area, :delivery_day, :price, images_attributes: [:image_url]).merge(cate)
+    params.require(:item).permit(:item_name, :item_info, :size, :brand_id, :status, :delivery_fee, :area, :delivery_day, :price, images_attributes: [:image_url])
   end
 end
 
