@@ -1,0 +1,26 @@
+.circle {
+  height: 160px;
+  width: 160px;
+  background-color: #EA352D;
+  border-radius: 50%;
+  z-index: 500;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  color: white;
+  .exhibit {
+    text-align: center;
+    padding-top: 1em;
+    color: white;
+    font-size: 20px;
+  }
+  .c-icon {
+    padding: 0 auto;
+    font-size: 65px;
+    margin-left: 10px;
+    padding-left: 35px;
+    height: 10px;
+    width: 15px;
+  }
+}

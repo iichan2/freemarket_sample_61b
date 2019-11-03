@@ -1,0 +1,144 @@
+.header {
+  height: 100px;
+  width: 100%;
+  .header_box {
+    height: 100%;
+    width:70%;
+    margin: auto;
+    .h_topbox {
+      height:8%;
+      width:100%;
+    }
+    .h_center_topbox {
+      height: 40%;
+      width :100%;
+      .left_imagbox {
+        float: left;
+      }
+      .rightsearch {
+        height: 100%;
+        width: 100%;
+        margin-left: 20%;
+        .hoge {
+          background-color: rgb(245, 245, 245);
+          font-size: 16px;
+          height: 100%;
+          width: 80%;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(204, 204, 204);
+          border-radius: 4px;   
+          padding: 0px 50px 0px 10px;
+        }
+        .hogehoge {
+          height: 40%;
+          width: 40px;
+          position: absolute;
+          border-style: none;
+          right: 215px;
+          top: 1%;
+          border-color: initial;
+          border-image: initial;
+          border-width: initial;
+          -webkit-appearance: none;
+          background-color: transparent;
+          font-size: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+    .h_bottombox {
+      height: 5px;
+      width:100%;
+      float: bottom;
+    }
+    .h_center_bottombox {
+      height: 40%;
+      width :100%;
+      display: flex;
+      .left_box {
+        height: 30%;
+        width: 200px;
+        padding-top: 5px;
+        display: flex;
+        .bar {
+          float: left;
+          margin-top: 2%;
+          text-decoration: none;
+          width: 10px;
+        }
+        .bar2 {
+          font-size: 14px;
+          width: 100%;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+          margin-left: 5%;
+          margin-top: 2%;
+        }
+      }
+      .left_box2 {
+        height: 30px;
+        width: 200px;
+        padding-top: 1%;
+        .bar3 {
+          float: left;
+        }
+        .bar4 {
+          font-size: 14px;
+          width: 100%;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+        }
+      }
+      .touroku {
+        color: white;
+        text-decoration: none;
+        .bar5 {
+          background-color: rgb(234, 53, 45);
+          color: white;
+          display: block;
+          font-size: 13px;
+          border-width: 1px;
+          border-style: solid;
+          background-color: rgb(234, 53, 45);
+          border-image: initial;
+          border-radius: 5px;
+          padding: 5px 10px;
+          text-decoration-line: none;
+          letter-spacing: 1px;
+          margin-left: 410px;
+        }
+      }
+      .login {
+        color: rgb(0, 149, 238);
+        text-decoration: none;
+        .bar6 {
+          width: 60px;
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 149, 238);
+          display: block;
+          font-size: 13px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(0, 149, 238);
+          border-image: initial;
+          border-radius: 5px;
+          padding: 5px 10px;
+          transition: all 0.3s ease-out 0s;
+          text-decoration-line: none;
+          margin-left: 10px;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+        .bar6:hover {
+          background-color:rgb(0, 149, 238);
+          color: white;
+        }
+      }
+    } 
+  }
+}
+
+        

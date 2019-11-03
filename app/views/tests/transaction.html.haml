@@ -1,0 +1,50 @@
+.wrapper
+  %header.st-header
+    = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
+
+  %main.st-main
+    %section.st-buy-container
+      %h2.st-head 購入内容の確認
+      %section.st-buy-item
+        .st-buy-item-in
+          %h3.st-buy-item-image
+          = image_tag 'umi.jpg', alt: '海を売っています', height: '64', width: '64', class: 'umi'
+          %p.buy-item-name 超美品アディダス黒ピンクS
+          %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
+            %p.bprice ¥1,900
+            %span.bbprice 送料込み
+            .a-toggle ポイントはありません
+            .bp-cell1 支払い金額
+            .bp-cell2 ¥1,900
+            %p.he-text 配送先と支払い方法の入力を完了してください。
+            %button.default-btn 購入する
+      %section.stb-info
+        .stb-info-container
+          %h3.z 配送先
+          %address.bu-text-info 〒-
+          = link_to "#", class: 'changing' do  
+            %span.x 変更する
+            = fa_icon "chevron-right", class: "arrow-right"
+      %section.stb-info
+        .stb-info-container
+          %h3.z 支払い方法
+          %address.bu-text-info
+          %p.user-input-field-text /
+          %figure
+          = image_tag 'app.png', alt: '空', height: '0', width: '0', class: 'carappo'
+          = link_to "#", class: 'changing' do
+            %span.x 変更する
+            = fa_icon "chevron-right", class: "arrow-right"
+
+  %footer.st-footer
+    %ul.privacy
+      %li.pf
+        = link_to('プライバシーポリシー', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('メルカリ利用規約', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
+    .img-hako
+      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+    %p.ff 
+      %small ©︎2019 Mercari
