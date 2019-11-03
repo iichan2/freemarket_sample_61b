@@ -1,0 +1,42 @@
+.slider {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  .slider-list {
+    cursor: pointer;
+    display: flex;
+    .slider img{
+      position: relative;
+      height: auto;
+      width: 100%;
+      .appbo {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+      }
+      .googlebo {
+        width: 100px;
+      }
+    }
+  }
+}
+.slider-prev {
+  position: absolute;
+  top: 37%;
+  left: 56px;
+  font-size: 3em;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
+}
+.slider-next {
+  position: absolute;
+  top: 37%;
+  right: 56px;
+  font-size: 3em;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
+}

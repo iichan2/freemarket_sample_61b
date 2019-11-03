@@ -1,0 +1,131 @@
+.my-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+section.myp-user-icon {
+  width: 600px;
+  height: 160px;
+  float: right;
+  background-image: url(user-bg.jpg);
+  padding: 20px;
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  figure.center {
+    text-align: center;
+    color: #333333;
+    margin: 0 auto;
+    img.prof-circle {
+      border-radius: 50%;
+    }
+  }
+  h2.bold {
+    text-align: center;
+    font-size: 14px;
+    margin: 3px 0 0;
+  }
+  .myp-num {
+    display: flex;
+    width: 25%;
+    height: 16px;
+    margin: 10px auto 0;
+    .hyo {
+      color: #333333;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    span.bold {
+      margin-left: 15px;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+  }
+}
+a {
+  color: transparent;
+}
+
+section.myp-tab-con-noti-todo {
+  width: 640px;
+  height: 300px;
+  background-color: #fafafa;
+  float: right;
+  position: absolute;
+  top: 220px;
+  right: 57px;
+  position: relative;
+}
+
+ul.myp-tabs {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  li.news {
+    float: left;
+    width: 50%;
+    height: 80px;
+    background-color: #dddddd;
+    padding-left: 0;
+    text-align: center;
+    line-height: 80px;
+    &.active {
+      border-top: 2px solid #ea352d;
+      height: 78px;
+      background-color: #fafafa;
+    }
+    h3.myp {
+      font-size: 16px;
+      color: #333333;
+      margin: 0 auto;
+    }
+  }
+}
+
+ul.mypage-item-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+h3.to-do-list {
+  margin-top: 240px;
+  text-align: center;
+  color: #CCCCCC;
+  bottom: 0;
+}
+.mercari-image {
+  height: 80px;
+  width: 80px;
+  background-image: url("logo-gray-icon.svg");
+  margin: 0 auto;
+  position: absolute;
+  bottom: 90px;
+  left: 285px;
+  background-repeat: no-repeat;
+}
+
+
+section.myp-tab-container {
+  width: 640px;
+  height: 300px;
+  background-color: #fafafa;
+  float: right;
+  position: absolute;
+  top: 520px;
+  right: 57px;
+  position: relative;
+}
+
+h2.purchaseditem-item {
+  position: absolute;
+  top: 726px;
+  right: 57px;
+  width: 608px;
+  height: 80px;
+  padding: 0 16px;
+  line-height: 80px;
+  background-color: #f2f2f2;
+  color: #333333;
+  font-size: 16px;
+}

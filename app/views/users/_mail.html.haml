@@ -1,0 +1,32 @@
+.nv-warapper
+  .nv-header
+    .nv-header-image-box
+      = link_to "root_path" do
+        =image_tag "/images/signup-mercari.png", size: "185x49"
+  .nv-content
+    .nv-contents
+      .nv-contents-box1 新規会員登録
+      .nv-contents-box2
+        .nv-mail-btn
+          .mail-btn-icon
+          =link_to "https://www.facebook.com/", class: "" do
+            = fa_icon 'envelope', class: "mail-icon"
+          .mail-btn-text
+          =link_to "https://www.facebook.com/", class: "nv-link-text" do
+            メールアドレスで登録する
+        .nv-facebook-btn
+          .facebook-btn-icon
+        = link_to"https://www.facebook.com/", target: "_blank"
+            = fa_icon 'facebook-square', class: "facebook-icon"
+          .facebook-btn-text
+          = link_to"https://www.facebook.com/", target: "_blank",class: "nv-link-text", Facebookで登録する
+        .nv-google-btn
+          .google-btn-icon
+        = link_to"https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com&as=Z5dxNqS3f9JsAV58ov4kGw&destination=https%3A%2F%2Fwww.mercari.com&approval_state=!ChQ5eTkyWEZMRHV3NTIxTXROaHYyaBIfUTBkX1pXR1FkWUFZNEJxcmlYbTVkb255cTlsXzRSWQ%E2%88%99AJDr988AAAAAXbmizmByNx5k5htFPvF73td22WZDSZ8B&oauthgdpr=1&xsrfsig=ChkAeAh8T5zU0jkl5xWix9XUA5RD_twNQKVoEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&flowName=GeneralOAuthFlow", :target: "_blank"
+            = fa_icon 'google', class: "google-icon"
+          .facebook-btn-text
+          = link_to"https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com&as=Z5dxNqS3f9JsAV58ov4kGw&destination=https%3A%2F%2Fwww.mercari.com&approval_state=!ChQ5eTkyWEZMRHV3NTIxTXROaHYyaBIfUTBkX1pXR1FkWUFZNEJxcmlYbTVkb255cTlsXzRSWQ%E2%88%99AJDr988AAAAAXbmizmByNx5k5htFPvF73td22WZDSZ8B&oauthgdpr=1&xsrfsig=ChkAeAh8T5zU0jkl5xWix9XUA5RD_twNQKVoEg5hcHByb3ZhbF9zdGF0ZRILZGVzdGluYXRpb24SBXNvYWN1Eg9vYXV0aHJpc2t5c2NvcGU&flowName=GeneralOAuthFlow", :target: "_blank",class: "nv-link-text2", Googleで登録する
+            
+            -# = link_to "ログアウト",method: :delete
+  .signup-footer
+  = render 'signup-footer'
