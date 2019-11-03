@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function(){
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
-    var img = $(`<div class="img_view"><img></div>`);
+    var img = $(`<div><img></div>`);
     reader.onload = function(e) {
       var btn_wrapper = $('<div class="btn_wrapper"><div class="xxxxxbtn delete">削除</div></div>');
       img.append(btn_wrapper);
@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="images[goods_picture][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
+    var new_image = $(`<input class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
     input_area.prepend(new_image);
   });
 
@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function(){
         }
       }
     })
-    var new_image = $(`<input multiple= "multiple" name="images[goods_picture][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
+    var new_image = $(`<input class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
     input_area.prepend(new_image);
     $.each(inputs, function(index, input) {
       var input = $(this)

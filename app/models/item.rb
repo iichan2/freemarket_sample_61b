@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :brands
   belongs_to :category
-  has_many :images
+  has_many :images, inverse_of: :item
   accepts_nested_attributes_for :images
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User"
