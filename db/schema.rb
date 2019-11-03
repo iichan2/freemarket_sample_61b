@@ -151,12 +151,12 @@ ActiveRecord::Schema.define(version: 2019_11_02_043053) do
     t.string "birth_year"
     t.string "birth_month"
     t.string "birth_day"
-    t.text "profile"
     t.integer "postal_code"
     t.integer "ken"
     t.string "map"
     t.integer "banchi"
     t.string "building"
+    t.text "profile"
   end
 
   add_foreign_key "banks", "users"

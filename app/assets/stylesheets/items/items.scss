@@ -197,7 +197,7 @@ input[type="text"] {
       }
     }
     .shouhinmei{
-      height: 150px;
+      height: 300px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;
       .shouhinnmei-kakutokoro{
@@ -228,7 +228,7 @@ input[type="text"] {
     }
     .haisounituite{
       display:flex;
-      height: 200px;
+      height: 300px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px; 
       .setumei {
@@ -243,7 +243,7 @@ input[type="text"] {
     }
     
     .hannbaikakaku{
-      height: 220px;
+      height: 240px;
       padding:40px 30px;
       display:flex;
       border-bottom: solid #bbb 1px; 
@@ -260,7 +260,7 @@ input[type="text"] {
           }
       
           .kakaku-tesuuryou{
-            height: 40px;
+            height: 50px;
             line-height: 40px;
             padding-bottom: 20px;
             border-bottom: solid #bbb 1px; 
@@ -270,9 +270,9 @@ input[type="text"] {
             }
           }
           .kakaku-rieki{
-            height: 40px;
+            height: 50px;
             line-height: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             display:flex;
             .rieki{
               margin-left: auto;
@@ -316,9 +316,11 @@ input[type="text"] {
             .modo{
               width: 100px;
               height: 50px;
+              line-height:50px;
               background-color: gray;
+              color: white;
               display: block;
-              font-size: 30px;
+              font-size: 20px;
               border: solid #bbb 1px;
               text-decoration: none;
             }
