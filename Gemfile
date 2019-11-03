@@ -44,7 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
 end
@@ -82,7 +82,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'ransack'
 gem 'devise'
-
+gem 'dotenv-rails'
 
 
 group :production do
