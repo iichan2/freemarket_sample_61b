@@ -12,8 +12,14 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
 
-    @item.save
-   end
+    respond_to do |format|
+      if @item.save
+        format.html{redirect_to root_path}
+      else
+        format.html{render action: 'new'}
+      end
+  end
+
 
 
 private
