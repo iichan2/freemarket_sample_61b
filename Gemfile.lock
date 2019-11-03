@@ -385,7 +385,7 @@ DEPENDENCIES
   rails (~> 5.2.2, >= 5.2.2.1)
   rails-controller-testing
   ransack
-  rspec-rails (~> 2.14.0)
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
