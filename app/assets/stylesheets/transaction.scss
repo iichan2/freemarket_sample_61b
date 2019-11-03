@@ -1,0 +1,186 @@
+.wrapper {
+  height: 1050px;
+  width: 100%;
+  background-color: #eeeeee;
+}
+header.st-header {
+  height: 130px;
+  position: relative;
+  .mercari-logo-st {
+    position: absolute;
+    left: 42%;
+    top: 30%;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+}
+
+main.st-main {
+  height: 725px;
+}
+
+section.st-buy-container {
+  height: 100%;
+  width: 50vw;
+  margin: 0 auto;
+  background-color: white;
+  h2.st-head {
+    height: 60px;
+    width: 100%;
+    color: #333333;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #eeeeee;
+  }
+}
+section.st-buy-item {
+  padding: 24px 25% 0;
+  p.buy-item-name {
+    float: right;
+  }
+}
+
+form.b-form {
+  height: 270px;
+  width: 100%;
+  position: relative;
+  p.bprice {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+  }
+  span.bbprice {
+    position: absolute;
+    right: 20px;
+    bottom: 245px;
+  }
+  .a-toggle {
+    margin-top: 25px;
+    background-color: #dddddd;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+  }
+  .bp-cell1 {
+    padding: 25px 0 10px;
+    float: left;
+    width: 50%;
+    font-size: 19px;
+    font-weight: bold;
+    color: #333333;
+  }
+  .bp-cell2 {
+    padding: 25px 0 10px;
+    float: left;
+    width: 50%;
+    font-size: 21px;
+    font-weight: bold;
+    color: #333333;
+    text-align: end;
+  }
+  p.he-text {
+    width: 100%;
+    font-size: 13px;
+    color: #EA352D;
+    margin-top: 8px;
+  }
+  button.default-btn{
+    width: 100%;
+    height: 50px;
+    margin-top: 8px;
+    background-color: #888888;
+    color: white;
+    padding: 0;
+    font-size: 15px;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+} 
+
+section.stb-info {
+  width: 50%;
+  height: 100px;
+  margin-top: 1rem;
+  padding: 3% 25% 0;
+  font-size: 14px;
+  border-top: 1px solid #eeeeee;
+  position: relative;
+  h3.z {
+    font-weight: 600;
+  }
+  p.user-input-field-text {
+    margin-top: 8px;
+    position: absolute;
+    bottom: 25%;
+  }
+  a.changing {
+    text-decoration: none;
+    color: #0099EB;
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    &:hover {
+      opacity: 0.7;
+      text-decoration: #0099EB;
+    }
+  }
+}
+
+footer.st-footer {
+  width: 50%;
+  height: 100px;
+  bottom: 0;
+  background-color: #eeeeee;
+  padding: 40px 0;
+  margin: 0 auto;
+  ul.privacy {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    li.pf {
+      font-size: 12px;
+    }
+  }
+  .img-hako {
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  P.ff {
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    small {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 12px;
+      color: #333333;
+    }
+  }
+  a.privacypolicy {
+    text-decoration: none;
+    color: #333333;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+      text-decoration: #333333;
+    }
+  }
+  img.gray:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}

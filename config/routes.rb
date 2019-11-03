@@ -10,4 +10,9 @@ Rails.application.routes.draw do
     end
   end
     root 'tests#index'
+    resources :tests do
+      collection do
+        get 'transaction'
+      end
   end
+end
