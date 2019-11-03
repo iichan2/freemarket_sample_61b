@@ -1,0 +1,335 @@
+.zenntai{
+  height: 100%;
+  width: 100vw;
+  background-color:#f5f5f5;
+
+// 画像投稿分
+.dropzone-container {
+    display: flex;
+    height: 160px;
+    width: 610px;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+}
+.setumei {
+  width: 30%;
+}
+.migiyose{
+  flex-grow: 1;
+}
+.dropzone-area {
+    height: 160px;
+    width: auto;
+    overflow: hidden;
+}
+.upload-image {
+    height: 160px;
+    width: 600px;
+}
+#exhibit-images-preview {
+    display: flex;
+}
+#exhibit-images-preview2 {
+    display: flex;
+}
+.sell-uploads-drop {
+    padding: 5px;
+}
+.sell_upload__area {
+    display: flex;
+    height: 160px;
+}
+
+.img_view {
+    padding: 5px;
+}
+
+.xxxxxbtn {
+    display: inline;
+}
+
+.xxxxxbtn.delete{
+    float: right;
+    margin-right: 10px;
+    color: deepskyblue;
+}
+
+.xxxxxbtn.edit{
+    margin-left: 10px;
+    color: deepskyblue;
+}
+
+#edit-images-preview {
+    display: flex;
+}
+
+  //共通部分
+input[type="text"] {
+    width: 350px;
+    height: 20px;
+}
+.select_boxyou{
+  width: 350px;
+  height: 30px;
+}
+  .bun-matome{
+    display: flex;
+    .bunn{
+      padding-right: 50px;
+      font-size: 15px;
+      padding-bottom: 10px;
+    }
+    .hissu{
+      height: 24px;
+      width: 40px;
+      font-size:15px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      border-radius: 2px;
+    }
+  }
+
+// 以下上から順番
+  .atamanoe{
+    height: 100px;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding:10px;
+    text-align: center;
+  }
+  .atama{
+   height: 100px;
+   width: 100%;
+   border-bottom: solid #bbb 1px;
+   line-height: 100px; 
+   text-align: center;
+   font-size: 30px;
+  }
+  .main{
+    height:100%;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    .gazoushuppinn{
+      height: 200px;
+      width: 100%;
+      padding:20px 30px;
+      .bunn2{
+        padding-right: 50px;
+
+        font-size: 20px;
+      }
+      .gazou-okurtokoro{
+          width: 700px;
+          margin: 0 auto;
+          background: gr;
+          &__sell-container{
+              padding: 32px 16px;
+              font-size:  22px;
+              font-weight: 600;
+              text-align: center;
+              border-bottom: 1px solid #eee;
+          }
+          &__form-list{
+              height: auto;
+              overflow: hidden;
+              width: 700px;
+              &__upload-box{
+                  padding: 40px 40px 40px 40px;
+                  height: auto;
+                  overflow: hidden;
+                  &__image-text{
+                      height: 30px;
+                      width:  70px;
+                      font-weight: bold;
+                      float: left;
+                  }
+                  .form-require{
+                      margin-right: 510px;
+                      background: #ea352d;
+                      padding: 2px 4px;
+                      border-radius: 2px;
+                      color: #fff;
+                      font-size: 12px;
+                      vertical-align: top;
+                      float: right;
+                      font-weight: 600;
+                  }
+                  .capture {
+                      padding-top: 30px;
+                      height: 20px;
+                      width: 500px;
+                      font-size: 12px;
+                      text-align: left;
+                  }
+              }
+              &__drop-box{
+                  background: #f5f5f5;
+                  height: 162px;
+                  width: 620px;
+                  margin: 0 auto;
+                  border: 1px dashed;
+                  border-color: #ccc;
+                  &__item{
+                      box-sizing: border-box;
+                      height: 100%;
+                      width: 100%;
+                      padding: 40px;
+                      &__upload-file{
+                          display: none;
+                      }
+                      &__text {
+                          text-align: center;
+                          font-size: 14px;
+                          line-height: 1.5;
+                          transform: translate(0, -50%);
+                          pointer-events: none;
+                          white-space: pre-wrap;
+                          word-wrap: break-word;
+                          margin-top: 30px;
+                      }
+                  }
+              }
+              &__space{
+                  height: 50px;
+                  border-bottom: 1px solid #eee;
+              }
+          
+        }
+      }
+    }
+    .shouhinmei{
+      height: 300px;
+      padding:40px 30px;
+      border-bottom: solid #bbb 1px;
+      .shouhinnmei-kakutokoro{
+        padding-bottom: 20px;
+      }
+      .shouhinsetumei-kakutokoro{
+    
+      }
+    }
+    
+    .shouhinnoshousai{
+      display:flex;
+      height: 210px;
+      padding:40px 30px;
+      border-bottom: solid #bbb 1px;  
+
+      .setumei{
+        padding-bottom: 30px;
+    
+      }
+    
+      .kategory-box{
+        padding-bottom: 20px;
+      }
+    
+      .jyoutai-box{
+    
+      }
+    }
+    .haisounituite{
+      display:flex;
+      height: 400px;
+      padding:40px 30px;
+      border-bottom: solid #bbb 1px; 
+      .setumei {
+        padding-bottom: 20px;
+      }
+      .kategory-box{
+        padding-bottom: 20px;
+      }
+          
+    
+          
+    }
+    
+    .hannbaikakaku{
+      height: 240px;
+      padding:40px 30px;
+      display:flex;
+      border-bottom: solid #bbb 1px; 
+        .setumei {
+          width: 30%;
+        }
+        .migiyose{
+          flex-grow: 1;
+        
+          .kakaku-kakutokoro{
+            widows: 100%;
+            padding-bottom: 20px;
+            border-bottom: solid #bbb 1px; 
+          }
+      
+          .kakaku-tesuuryou{
+            height: 50px;
+            line-height: 40px;
+            padding-bottom: 20px;
+            border-bottom: solid #bbb 1px; 
+            display:flex;
+            .tesuuryou{
+              margin-left: auto;
+            }
+          }
+          .kakaku-rieki{
+            height: 50px;
+            line-height: 40px;
+            padding-bottom: 30px;
+            display:flex;
+            .rieki{
+              margin-left: auto;
+            }
+          }
+        }
+      }
+      .hanbaityuui{
+        height: 250px;
+        width: 100%;
+        .tyuuibunn{
+          height: 150px;
+          width: 80%;
+          margin:6% auto 0;
+        }
+        .buttonyou{
+          text-align: center;
+        
+          .buttonda{
+            font-size: 14pt;       
+            text-align: center;     
+            cursor: pointer;     
+            padding : 13px 200px;   
+            background : #ff0000;    
+            color: #ffffff;    
+            line-height: 1em;       
+            transition: .3s;     
+            margin :0 auto 20px;  
+          }
+        }
+        .buttonyou2{
+          text-align: center;
+          padding-left: 45%;
+          .modorubutton{
+            width: 100px;
+            height: 50px;
+            background-color: gray;
+            border: solid #bbb 1px;
+            text-decoration: none;
+            text-align: center;
+            .modo{
+              width: 100px;
+              height: 50px;
+              line-height:50px;
+              background-color: gray;
+              color: white;
+              display: block;
+              font-size: 20px;
+              border: solid #bbb 1px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }

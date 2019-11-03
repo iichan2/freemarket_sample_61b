@@ -78,11 +78,16 @@ gem 'faraday'
 gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'active_hash'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ransack'
+
 gem 'devise'
 gem 'dotenv-rails'
+
 
 
 group :production do
