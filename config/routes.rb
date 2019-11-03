@@ -9,5 +9,5 @@ Rails.application.routes.draw do
       get "logout"
     end
   end
-    root 'tests#index'
+    root 'items#index'
   end
