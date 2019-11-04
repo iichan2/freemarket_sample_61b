@@ -12,5 +12,3 @@ class Item < ApplicationRecord
 
   mount_uploaders :image_url, ImageUploader
 end
-
-
