@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get "ok"
       get "logout"
     end
+    member do
+      get "identification"
+    end
   end
     root 'tests#index'
   end

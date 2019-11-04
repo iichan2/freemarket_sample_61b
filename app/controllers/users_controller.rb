@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: [:edit, :update]
+  before_action :set_params, only: [:identification,:edit, :update]
   def new
     @user = User.new
   # session[:nickname] = user_params[:nickname]
@@ -83,11 +83,14 @@ end
   
   # # end
 
+  def identification
+    @user = User.find(params[:id])
+  end
+
   def edit
   end
 
-  def update
-    
+  def update    
     if @user.save
       render :edit
     else
