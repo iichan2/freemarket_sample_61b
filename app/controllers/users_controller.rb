@@ -29,6 +29,9 @@ class UsersController < ApplicationController
   def ok
   end
 
+  def payment
+  end
+
   # def step3
   #   session[:last_name] = user_params[:last_name]
   #   session[:first_name] = user_params[:first_name]
