@@ -74,10 +74,12 @@ gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-rails'
 gem 'erb2haml'
+
 gem 'faraday'
 gem "jquery-rails"
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-facebook'
 gem 'devise'
 
 gem 'dotenv-rails'
