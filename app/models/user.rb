@@ -17,7 +17,7 @@ has_many :likes, dependent: :destroy
 has_many :comments, through: :items
 has_many :reviews, dependent: :destroy
 has_one :delivery, dependent: :destroy
-validates :postal_code, presence: true, format: { with: /A\d{3}-\d{4}\z }
+validates :postal_code, presence: true, format: { with: /A\d{3}-\d{4}\z/ }
 validates :ken, presence: true
 validates :map, presence: true
 validates :nickname, presence: true, length: { minimum: 1, maximum: 20}
