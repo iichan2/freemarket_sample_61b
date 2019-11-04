@@ -1,5 +1,5 @@
-jQuery(document).ready(function(){
-  jQuery('.slider-list').slick({
+$(document).ready(function(){
+  $('.slider-list').slick({
     autoplaySpeed: 3000,
     arrows: false,
     dots:true,

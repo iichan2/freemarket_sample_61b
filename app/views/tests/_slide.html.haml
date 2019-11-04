@@ -1,6 +1,20 @@
 .slider
   .slider-list
+    .s_1
+      = image_tag 'aplication_hand.png', size:'440x390',class: "application_hand"
+      .s_1_textarea
+        .s_1_large_words
+          スマホで&nbsp;かんたん
+          %br
+          フリマアプリ
+        .s_1_small_words
+          メルカリはスマホカメラからすぐに出品できる
+          %br
+          購入時も安心な独自システムのアプリです
+        .s_1_logo_box
+          = image_tag 'app_store.svg' ,class: 'apple_store_logo', size:'170x50'
+          = image_tag 'google_play.svg', class: 'google_play_logo', size:'170x50'
     = image_tag 'camp.jpg'
-    = image_tag 'easy.png'
-= fa_icon 'chevron-left', class: 'slider-prev'
-= fa_icon 'chevron-right', class: 'slider-next'
+    -# = image_tag 'easy.png'
+  = fa_icon 'chevron-left', class: 'slider-prev'
+  = fa_icon 'chevron-right', class: 'slider-next'
