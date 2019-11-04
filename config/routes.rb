@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       get "logout"
       get "payment"
     end
+    member do
+      get "identification"
+    end
   end
     root 'tests#index'
     resources :tests do
