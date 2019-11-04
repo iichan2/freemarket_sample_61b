@@ -1,0 +1,71 @@
+.identification_main
+  .identification_header
+  .identification_sidebar
+  .identification_content
+    %section.identification_container
+      %h2.identification_head 本人情報の登録
+    .identification_form_container
+      = form_with model:@user, local: true do |f|
+        %p.identification_description
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .identification_explanation
+            = link_to :back, class: 'identification_link' do
+              %span.identification_link_position
+                本人確認書類のアップロードについて
+              = fa_icon 'angle-right', class: 'identification_angle_right'
+        .identification_group
+          %label.identification_label
+            お名前
+        .identification_text
+          = @user.first_name + " " + @user.last_name
+        .identification_group
+          %label.identification_label
+            お名前カナ
+        .identification_text
+          = @user.kana_first_name + " " + @user.kana_last_name
+        .identification_group
+          %label.identification_label
+            生年月日
+        .identification_text
+          = @user.birth_year + "/" + @user.birth_month + "/" + @user.birth_day
+        .identification_group
+          %label.identification_label
+            郵便番号
+          %span.identification_arbitrary
+            任意
+        = f.text_field :postal_code, placeholder:"例）1234567",class:'identification_box'
+          
+        .identification_group
+          %label.identification_label
+            都道府県
+          %span.identification_arbitrary
+            任意
+        = f.select :ken, [["--","0"],["北海道","1"],["青森"]],{},{class:'identification_box'}
+        .identification_group
+          %label.identification_label
+            市区町村
+          %span.identification_arbitrary
+            任意
+        = f.text_field :map, placeholder:"例）横浜市緑区",class:'identification_box'
+        .identification_group
+          %label.identification_label
+            番地
+          %span.identification_arbitrary
+            任意
+        = f.text_field :banchi, placeholder:"例）青山1-1-1",class:'identification_box'
+        .identification_group
+          %label.identification_label
+            建物名
+          %span.identification_arbitrary
+            任意
+        = f.text_field :building, placeholder:"例）柳ビル103",class:'identification_box'
+        = f.submit "変更する",class: "identification_btn"
+        .identification_group
+          .identification_explanation
+            = link_to :back, class: 'identification_link' do
+              %span.identification_link_position
+                本人情報の登録について
+              = fa_icon 'angle-right', class: 'identification_angle_right'
+  .identification_footer
