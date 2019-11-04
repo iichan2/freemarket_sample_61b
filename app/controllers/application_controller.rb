@@ -2,8 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+<<<<<<< Updated upstream
   # before_action :authenticate_user! 
+=======
+　　
+>>>>>>> Stashed changes
 
+  before_action :authenticate_user! # 追記 (userの部分はmodel名)
   private
 
   def production?

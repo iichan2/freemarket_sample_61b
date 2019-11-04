@@ -1,0 +1,15 @@
+current directory: /Users/tubasaa/projects/freemarket_sample_61b/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/tubasaa/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20191104-25918-1g3w1xt.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tubasaa/projects/freemarket_sample_61b/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/tubasaa/projects/freemarket_sample_61b/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/tubasaa/projects/freemarket_sample_61b/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20191104-25918-1j45hgg/skiptrace/internal
