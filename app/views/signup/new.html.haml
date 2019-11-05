@@ -24,7 +24,7 @@
     %section.single-main__container
       %h2.single-main__container__header 会員情報入力
       %form.registration-form
-      = form_for @user, url: tel_users_path, method: :get, html: {class: 'registration-form'} do |f|
+      = form_for @user, url: tel_signup_index_path, method: :get, html: {class: 'registration-form'} do |f|
         .registration-form__content
           .form-group
             = f.label "ニックネーム"
@@ -229,10 +229,10 @@
                 「次へ進む」のボタンを押すことにより、
                 =link_to "https://www.mercari.com/jp/tos_list/" do
                   .decolation-blue 利用規約に同意したものとみなします
-                  =link_to tel_users_path  do
+                  =link_to tel_signup_index_path  do
                     %button.btn-default{type: "submit"} 次へ進む
                   .form-group.text-right
                   =link_to "本人情報の登録について", "https://www.mercari.com/jp/help_center/article/423/",class: "decolation-blue"
                     
--# = render 'signup-footer'
+= render 'users/signup-footer'
 -# %script{:src => “https://www.google.com/recaptcha/api.js“}
