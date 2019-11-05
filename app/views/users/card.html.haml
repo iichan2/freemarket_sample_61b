@@ -94,7 +94,8 @@
                 カード裏面の番号とは？
           
             %p.has-error-text
-            =link_to ok_users_path do
+            =link_to "/users", method: :post do
               .form-btn{type:"button",id:"submit_btn"}
                 次へ進む
 = render 'signup-footer'
+-# = link_to(users_path, method: :post) do

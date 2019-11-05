@@ -1,35 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_params, only: [:identification,:edit, :update]
   
-  def create
-    @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name: session[:last_name], 
-      first_name: session[:first_name], 
-      last_name_kana: session[:last_name_kana], 
-      first_name_kana: session[:first_name_kana], 
-      birth_year: session[:birth_year],
-      birth_month: session[:birth_month],
-      birth_day: session[:birth_day],
-      postal_code: session[:postal_code],
-      ken: session[:ken],
-      map: session[:map],
-      banchi: session[:banchi],
-      tel_number: session[:tel_number],
+  # def create
+    
+  #     redirect_to logout_users_path
+  #   # elselogo
+  #   #   render '/signup/registration'
 
-      
-    )
-    if @user.save
-    # ログインするための情報を保管
-      session[:id] = @user.id
-      redirect_to edit_users_path
-    # else
-    #   render '/signup/registration'
-    end
-  end
+  #   end
+  # end
   def mail
     # ログインペーじ新規
   end
@@ -72,8 +51,33 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def ok 
+    @user = User.new(
+      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      last_name: session[:last_name], 
+      first_name: session[:first_name], 
+      kana_last_name: session[:kana_last_name], 
+      kana_first_name: session[:kana_first_name], 
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day],
+      postal_code: session[:postal_code],
+      ken: session[:ken],
+      map: session[:map],
+      banchi: session[:banchi],
+      tel_number: session[:tel_number],
 
-    sign_in User.find(session[:id]) unless user_signed_in?
+      
+    )
+    
+    if @user.save
+    # ログインするための情報を保管
+      session[:id] = @user.id
+      sign_in User.find(session[:id]) unless user_signed_in?
+    end
+    
   end
   
   
