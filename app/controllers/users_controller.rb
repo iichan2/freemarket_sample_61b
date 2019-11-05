@@ -39,18 +39,18 @@ class UsersController < ApplicationController
   end
 
   def tel
-  session[:nickname] = user_params[:nickname]
-  session[:email] = user_params[:email]
-  session[:password] = user_params[:password]
-  session[:password_confirmation] = user_params[:password_confirmation]
-  session[:first_name] = user_params[:first_name]
-  session[:last_name] = user_params[:last_name]
-  session[:kana_first_name] = user_params[:kana_first_name]
-  session[:kana_last_name]= user_params[:kana_last_name]
-  session[:birth_year] = user_params[:birth_year]
-  session[:birth_month] = user_params[:birth_month]
-  session[:birth_day] = user_params[:birth_day]
-  @user = User.new
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name] = user_params[:last_name]
+    session[:kana_first_name] = user_params[:kana_first_name]
+    session[:kana_last_name]= user_params[:kana_last_name]
+    session[:birth_year] = user_params[:birth_year]
+    session[:birth_month] = user_params[:birth_month]
+    session[:birth_day] = user_params[:birth_day]
+    @user = User.new
   end
 
 # sessionに渡された値をインスタンスに渡す
