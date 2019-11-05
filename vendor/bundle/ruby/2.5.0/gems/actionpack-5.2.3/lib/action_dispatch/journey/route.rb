@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ActionDispatch
-  # :stopdoc:
+  # :stopdoc:routes
   module Journey
     class Route
       attr_reader :app, :path, :defaults, :name, :precedence

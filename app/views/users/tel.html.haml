@@ -24,13 +24,14 @@
     %section.single-main__container
       %h2.single-main__container__header 電話番号の確認
       %form.registration-form
-
-        .registration-form__content
-          .form-group
-            %label{for: "tel_number"} 携帯電話の番号
-            %input.input-default{name: "tel_number", placeholder: "    携帯電話の番号を入力", type: "text", value: ""}
-
- 
+        = form_for @user, url: juusyo_users_path, method: :get, html: {class: 'registration-form'} do |f|
+          .registration-form__content
+            .form-group
+              = f.label "携帯の番号",class: "label"
+              %span.require 必須
+              = f.text_field :tel_number, placeholder: "携帯の番号を入力",required: 'true',class: "input-default"
+            =link_to juusyo_users_path do
+              %button.btn-default{type: "submit"} 次へ進む
 = render 'signup-footer'
 
 

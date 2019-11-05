@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
-  def configure_permitted_parameters
-    added_attrs = [ :email, :nickname, :password, :password_confirmation]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-    devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
-  end
+  # def configure_permitted_parameters
+  #   added_attrs = [ :email, :nickname, :password, :password_confirmation]
+  #   devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+  #   devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  #   devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
+  # end
 
   private
 
@@ -25,7 +25,23 @@ class ApplicationController < ActionController::Base
   end 
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birthday, :tel_number, :postal_code, :ken, :map, :banchi, :building, :tel_number])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, 
+        :password, 
+        :password_confirmation,
+        :first_name, 
+        :last_name, 
+        :kana_first_name, 
+        :kana_last_name, 
+        :birth_year, 
+        :birth_month,
+        :birth_day,  
+        :tel_number, 
+        :postal_code, 
+        :ken, 
+        :map, 
+        :banchi, 
+        :building, 
+        :tel_number])
   end
 
 end
