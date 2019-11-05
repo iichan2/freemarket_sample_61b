@@ -1,5 +1,5 @@
 .slider {
-  height: auto;
+  height: 390px;
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -10,12 +10,7 @@
       position: relative;
       height: auto;
       width: 100%;
-      .appbo {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        background-color: aqua;
-      }
+
       .googlebo {
         width: 100px;
       }
@@ -24,7 +19,7 @@
 }
 .slider-prev {
   position: absolute;
-  top: 37%;
+  top: 45%;
   left: 56px;
   font-size: 3em;
   z-index: 3;
@@ -33,10 +28,47 @@
 }
 .slider-next {
   position: absolute;
-  top: 37%;
+  top: 45%;
   right: 56px;
   font-size: 3em;
   z-index: 3;
   color: white;
   cursor: pointer;
+}
+.s_1{
+  background-image:url(free.jpg);
+  width:100%;
+  height: 390px;
+  padding-bottom: 30px;
+  position: relative;
+  .s_1_textarea{
+    padding:20px 40px;
+    width:860px;
+    height:360px;
+    margin: auto;
+    .s_1_large_words{
+      width:780px;
+      height:168px;
+      margin-bottom:24px;
+      font-size: 60px;
+      font-weight: bold;
+    }
+    .s_1_small_words{
+      font-size: 18px;
+      width:860px;
+      max-width: 760px;
+      margin-bottom: 24px;
+      line-height: 30px;
+    }
+  }
+  .s_1_logo_box{
+    display: flex;
+    .google_play_logo{
+      margin-left:8px;
+  }
+  }
+}
+.application_hand{
+  position: absolute;
+  right: 20%;
 }

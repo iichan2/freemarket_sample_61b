@@ -9,6 +9,11 @@
         %input.hoge{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
         %button.hogehoge
           =fa_icon "search"
+      #input-search.hoge
+        = form_with(url: items_path, method: :get, local: true) do |f|
+          = f.text_field :search
+          = f.submit "search"
+          =fa_icon "search"
     .h_bottombox
     .h_center_bottombox
       .left_box
