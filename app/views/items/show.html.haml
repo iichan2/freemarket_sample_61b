@@ -1,0 +1,198 @@
+.header
+  .header-top
+    =link_to "" do
+      =image_tag "merucari.png", size: "140x35",class: "inoue"
+    %form.top_right
+      %input.search{:placeholder => "何かお探しですか？", :name => "keyword",:type => "search", :value => ""}/
+      %button.megane
+        =fa_icon "search"
+  .header-center
+    =link_to "" do
+      =image_tag "bar.png", size: "15x15", class: "minami"
+    =link_to('カテゴリーから探す', root_path, class: 'per')
+    =link_to "" do
+      =image_tag "tag.png", size: "17x15", class: "tag"
+    =link_to('ブランドから探す', root_path, class: 'pbr')
+    =link_to('新規会員登録', root_path, class: 'touroku1')
+    =link_to('ログイン', root_path, class: 'login1')
+  .header-bottom
+    =link_to('メルカリ', root_path, class:'mercari')
+    %p.icon
+      >
+    =link_to('カテゴリー一覧', root_path, class:'mercari1')
+    %p.icon
+      >
+    =link_to('レディース', root_path, class:'mercari1')
+    %p.icon
+      >
+    =link_to('バッグ', root_path, class:'mercari1')
+    %p.icon
+      >
+    =link_to('ショルダーバッグ', root_path, class:'mercari1')
+    %p.icon
+      >
+    %p.numb
+      m70068440240
+  .content_g
+    .left_auto
+      =link_to "" do
+        =image_tag "alltag.png", size: "300x250",class: "masa"
+    %p.midasi
+      m70068440240 この商品は削除されました
+    .main_contents
+      =link_to('コーチのショルダーバッグ その他の商品',root_path,class:'kotoba')
+      .main_content
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+        .boxa1
+          =link_to "" do
+            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+          =link_to "" do
+            .textarea
+              .top
+                %p.namess
+                  COACHのカバン非常に高いやつ
+              .bottom
+                %p.valuess
+                  ¥6,800
+                %p.heart
+                  ♡  10
+  .adv
+    .imagebox
+      = link_to "" do
+        =image_tag "app.png", size: "135x42"
+    .imagebox2
+      = link_to "" do
+        =image_tag "google.png", size: "138x42"
+  .foot
+    .resize
+      %ul.one
+        %li.daimoku
+          メルカリについて
+        = link_to('会社概要（運営会社)', root_path, class: 'ai')
+        %br
+        = link_to('採用情報', root_path, class: 'ai')
+        %br
+        = link_to('プレスリリース', root_path, class: 'ai')
+        %br
+        = link_to('公式ブログ', root_path, class: 'ai')
+        %br
+        = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'ai')
+        %br
+        = link_to "https://twitter.com/login?lang=ja", class: "t-icon" do
+          =fa_icon 'twitter-square'
+        = link_to "https://ja-jp.facebook.com/", class: "f-icon" do
+          =fa_icon 'facebook-square'
+      %ul.two
+        %li.daimoku
+          ヘルプ&ガイド
+        = link_to('メルカリガイド', root_path, class: 'ai')
+        %br
+        = link_to('らくらくメルカリ便', root_path, class: 'ai')
+        %br
+        = link_to('ゆうゆうメルカリ便', root_path, class: 'ai')
+        %br
+        = link_to('大型メルカリ便', root_path, class: 'ai')
+        %br
+        = link_to('車体取引ガイド', root_path, class: 'ai')
+        %br
+        = link_to('メルカリあんしん・あんぜん宣言！', root_path, class: 'ai')
+        %br
+        = link_to('偽ブランド品撲滅への取り組み', root_path, class: 'ai')
+        %br
+        = link_to('メルカリボックス', root_path, class: 'ai')
+      %ul.three
+        %li.daimoku
+          プライバシーと利用規約
+        = link_to('プライバシーポリシー', root_path, class: 'ai')
+        %br
+        = link_to('メルカリ利用規約', root_path, class: 'ai')
+        %br
+        = link_to('あんしんスマホサポート制度に関する利用特約', root_path, class: 'ai')
+        %br
+        = link_to('コンプライアンスポリシー', root_path, class: 'ai')
+      %ul.four
+        %li.daimoku
+          %br
+        = link_to('個人データの安全管理に係る基本方針', root_path, class: 'ai')
+        %br
+        = link_to('特定商取引に関する表記', root_path, class: 'ai')
+        %br
+        = link_to('資金決済法に基づく表示', root_path, class: 'ai')
+        %br
+        = link_to('法令遵守と犯罪抑制のために', root_path, class: 'ai')
+      %ul.five
+      %ul.six
+        %li.daimoku
+          国
+        = link_to('日本', root_path, class: 'ai')
+        %br
+        = link_to('United States', root_path, class: 'ai')
+      
+    .last
+      = link_to "" do
+        =image_tag "mercari1.jpg", size: "140x35",class: "lastmark"
+      %p.lastname ©︎2019 Mercari

@@ -76,6 +76,7 @@
           text-decoration: none;
           margin-left: 5%;
           margin-top: 2%;
+          white-space: nowrap;
         }
       }
       .left_box2 {
@@ -91,11 +92,14 @@
           font-weight: bold;
           color: black;
           text-decoration: none;
+          white-space: nowrap;
         }
       }
       .touroku {
         color: white;
         text-decoration: none;
+        white-space: nowrap;
+        text-align: center;
         .bar5 {
           background-color: rgb(234, 53, 45);
           color: white;
@@ -115,8 +119,10 @@
       .login {
         color: rgb(0, 149, 238);
         text-decoration: none;
+        white-space: nowrap;
+        text-align: center;
         .bar6 {
-          width: 60px;
+          width: 80px;
           background-color: rgb(255, 255, 255);
           color: rgb(0, 149, 238);
           display: block;

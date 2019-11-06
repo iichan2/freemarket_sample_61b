@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, password_length: 7..128
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  VALID_EMAIL_REGEX = (/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
+
 
   belongs_to :card, dependent: :destroy
   belongs_to :bank, dependent: :destroy
@@ -21,8 +21,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { minimum: 1, maximum: 20}
   validates :email, presence: true
   validates :first_name, :last_name,  presence: true, length: { minimum: 1, maximum: 20 }
-  validates :kana_first_name, presence: true, length: { minimum: 1, maximum: 20 }
-  validates :kana_last_name, presence: true, length: { minimum: 1, maximum: 20 }
+  validates :kana_first_name, presence: true, length: { minimum: 1, maximum: 20 }, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_last_name, presence: true, length: { minimum: 1, maximum: 20 }, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true, numericality: { only_integer:true }, length: { is: 8 }    
   validates :password, presence: true, length: { minimum: 7, maximum: 128 }
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
