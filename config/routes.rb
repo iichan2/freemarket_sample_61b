@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
-    root 'tests#index'
+    root 'items#show'
     resources :tests do
       collection do
         get 'transaction'
