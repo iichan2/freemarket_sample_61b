@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 // configフォルダ以下
 @import "config/reset";
 // itemsフォルダ以下
@@ -45,4 +46,5 @@
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
+// Gem以下
 @import "font-awesome";
