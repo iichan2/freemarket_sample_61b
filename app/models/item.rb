@@ -12,10 +12,6 @@ class Item < ApplicationRecord
 
 
   # mount_uploaders :image_url, ImageUploader
-end
-
-
-  mount_uploaders :image_url, ImageUploader
 
   def self.search(item_name)
     if item_name

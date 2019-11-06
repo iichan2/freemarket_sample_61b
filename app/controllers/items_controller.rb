@@ -21,6 +21,10 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
   end
+  
+  def show
+  end
+  
 
 end
 
