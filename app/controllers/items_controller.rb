@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
   end
   
   def transaction
+    @item = Item.find(params[:id])
   end
 
 end
