@@ -12,6 +12,10 @@ def create
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
+    l_name: session[:l_name], 
+    f_name: session[:f_name], 
+    kana_l_name: session[:kana_l_name], 
+    kana_f_name: session[:kana_f_name], 
     birth_year: session[:birth_year],
     birth_month: session[:birth_month],
     birth_day: session[:birth_day],
@@ -19,25 +23,29 @@ def create
     ken: session[:ken],
     map: session[:map],
     banchi: session[:banchi],
-    tel_number: session[:tel_number],
-
-    
+    tel_number: session[:tel_number]
   )
+
   
   if @user.save
+    
   # ログインするための情報を保管
     session[:id] = @user.id
-    redirect_to done_signup_index_path
+
+    redirect_to ok_signup_index_path
+
   end
 end
-def mail
-  # ログイン新規ページ
-end
+
+  def mail
+    # 新規登録ページ
+  end
   def new
     @user = User.new
   end
 
   def tel
+    # binding.pry
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -49,7 +57,9 @@ end
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
+
     @user = User.new
+  
   end
 
 # sessionに渡された値をインスタンスに渡す
@@ -58,10 +68,11 @@ end
     @user = User.new
   end
   def card
-    session[:first_name] = user_params[:first_name]
-    session[:last_name] = user_params[:last_name]
-    session[:kana_first_name] = user_params[:kana_first_name]
-    session[:kana_last_name]= user_params[:kana_last_name]
+    
+    session[:f_name] = user_params[:first_name]
+    session[:l_name] = user_params[:last_name]
+    session[:kana_f_name] = user_params[:kana_first_name]
+    session[:kana_l_name]= user_params[:kana_last_name]
     session[:postal_code]= user_params[:postal_code]
     session[:ken]= user_params[:ken]
     session[:map]= user_params[:map]
@@ -71,21 +82,25 @@ end
     @user = User.new
   end
   def ok 
-  
     sign_in User.find(session[:id]) unless user_signed_in?
+    
+    
   end
   
-  
- 
   private
   
   def user_params
+    
     params.require(:user).permit(
       :nickname,
       :last_name, 
       :first_name, 
-      :last_name_kana, 
-      :first_name_kana,
+      :kana_last_name, 
+      :kana_first_name,
+      :l_name, 
+      :f_name, 
+      :kana_l_name, 
+      :kana_f_name,
       :email,
       :tel_number,
       :birth_month,
@@ -96,6 +111,8 @@ end
       :map,
       :banchi,
       :building,
+      :password,
+      :password_confirmation
       )
   end
 
