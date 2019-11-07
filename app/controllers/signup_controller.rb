@@ -1,7 +1,4 @@
 class SignupController < ApplicationController
-  
-  
-
 def create
   @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
