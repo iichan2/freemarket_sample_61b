@@ -1,26 +1,26 @@
-.content-signin{
+.content-signin {
   width: 700px;
   margin: 0 auto;
-  &__1{
+  &__1 {
     background-color: #fff;
-    &__top{
+    &__top {
       border-bottom: 1px solid #f5f5f5;
       text-align: center;
       font-size: 24px;
       font-weight:bold;
       padding: 32px 16px;
     }
-    .card-form{
+    .card-form {
       padding: 64px;
-      &__box{
+      &__box {
         max-width: 320px;
         margin: 0 auto;
-        .form-number{
+        .form-number {
           margin: 0;
-          &__card{
+          &__card {
             font-weight: 600;
           }
-          &__require{
+          &__require {
             background: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
@@ -29,7 +29,7 @@
             font-size: 12px;
             vertical-align: top;
           }
-          &__input{
+          &__input {
             width: 100%;
             margin: 8px 0 0;
             height: 48px;
@@ -40,55 +40,53 @@
             line-height: 1.5;
             font-size: 16px;
           }
-          &__card-list{
+          &__card-list {
             list-style: none;
             margin: 8px 0 0;
-            &__visa{
+            &__visa {
               width:45px;
               height:20px;
             }
-            &__master{
+            &__master {
               width:30px;
               height:20px;
             }
-            &__saison{
+            &__saison {
               width:30px;
               height:20px;
             }
-            &__jcb{
+            &__jcb {
               width:30px;
               height:20px;
             }
-            &__american{
+            &__american {
               width:21px;
               height:20px;
             }
-            &__dainers{
+            &__dainers {
               width:30px;
               height:20px;
             }
-            &__discover{
+            &__discover {
               width:30px;
               height:20px;
             }
-            li{
+            li {
               display: inline-block;
-            
               vertical-align: middle;
             }
           }
         }
-        .form-signup{
+        .form-signup {
           margin: 40px 0 0;
           padding-top: 20px;
-          
-          &__str{
+          &__str {
             margin:0 8px;
           }
-          &__expire{
+          &__expire {
             font-weight: 600;
           }
-          &__require{
+          &__require {
             background: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
@@ -97,18 +95,18 @@
             font-size: 12px;
             vertical-align: top;
           }
-          &__month{
+          &__month {
             display: inline-block;
             position: relative;
             width: 35%;
             margin: 8px 0 0;
-            select{
+            select {
               width: 100%;
               -webkit-appearance: button;
               -moz-appearance: button;
               appearance: button;
             }
-            &__select{
+            &__select {
               outline:0;
               z-index: 2;
               height: 48px;
@@ -120,7 +118,7 @@
               line-height: 1.5;
               cursor: pointer;
             }
-            &__icon{
+            &__icon {
               font: 14px FontAwesome;
               position: absolute;
               right: 16px;
@@ -131,7 +129,7 @@
               cursor: pointer;
             }
           }
-          &__year{
+          &__year {
             display: inline-block;
             position: relative;
             width: 35%;
@@ -142,7 +140,7 @@
               -moz-appearance: button;
               appearance: button;
             }
-            &__select{
+            &__select {
               position: relative;
               z-index: 2;
               height: 48px;
@@ -154,7 +152,7 @@
               line-height: 1.5;
               cursor: pointer;
             }
-            &__icon{
+            &__icon {
               font: 14px FontAwesome;
               position: absolute;
               right: 16px;
@@ -166,12 +164,12 @@
             }
           }
         }
-        .form-security{
+        .form-security {
           margin: 40px 0 0;
-          &__expire{
+          &__expire {
             font-weight: 600;
           }
-          &__require{
+          &__require {
             background: #ea352d;
             margin: 0 0 0 8px;
             padding: 2px 4px;
@@ -180,7 +178,7 @@
             font-size: 12px;
             vertical-align: top;
           }
-          &__input{
+          &__input {
             width: 100%;
             margin: 8px 0 0;
             height: 48px;
@@ -191,10 +189,10 @@
             line-height: 1.5;
             font-size: 16px;
           }
-          &__info{
+          &__info {
             text-align: right;
             color: #0099e8;
-            &__question{
+            &__question {
               display: inline-block;
               width: 14px;
               height: 14px;
@@ -207,18 +205,18 @@
             }
           }
         }
-          .form-btn{
-            margin: 40px 0 0;
-            background-color:#ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            cursor: pointer;
-            text-align: center;
-          }
+        .form-btn {
+          margin: 40px 0 0;
+          background-color:#ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
       }
     }
   }
