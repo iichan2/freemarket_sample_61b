@@ -27,10 +27,11 @@
         .registration-form__content
           %p.done.message ありがとうございます。
           %p.done.message 会員登録が完了しました。
-          = form_for @user, url: logout_users_path, method: :post do |f|
+          =link_to signup_index_path,method: :post do
             %button.btn-default.btn-red{type: "submit"} メルカリをはじめる
           
 -#           %image.image__kari
--# = render 'signup-footer'
+= render 'users/signup-footer'
 
 -# = f.submit "メルカリを始める",
+  -# = form_for @user, url: logout_users_path, method: :post do |f|

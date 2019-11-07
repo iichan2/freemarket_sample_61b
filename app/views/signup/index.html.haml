@@ -1,0 +1,18 @@
+  -# %head
+  -#   %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+   
+  -#   %title reCAPTCHAテスト
+  -#   %script{:src => "https://www.google.com/recaptcha/api.js"}
+  -#   %script{:src => "https://code.jquery.com/jquery-2.1.4.min.js", :type => "text/javascript"}
+  -# %body
+  -#   %form{:action => "mail.php", :method => "post"}
+  -#     %input{:name => "名前", :type => "text"}/
+  -#     %input{:name => "email", :type => "text"}/
+  -#     .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6Ld29r8UAAAAAF74ri3cqGjQVOPanIaA_vC5sB2h"}
+  -#     %input{:disabled => "disabled", :name => "button", :type => "submit", :value => "送信"}/
+  -#   :javascript
+  -#     function clearcall(code) {
+  -#       if(code !== ""){
+  -#         $(':submit[name=button]').removeAttr("disabled");
+  -#       }
+  -#     }
