@@ -1,0 +1,161 @@
+.content
+  .contents
+    .category
+      %div.comment
+        人気のカテゴリー
+        %ul.categorybox
+          %li.qaz
+            .bar7
+              = link_to('レディース', root_path, class: 'qaz')
+          %li.qaz
+            .bar8
+              = link_to('メンズ', root_path, class: 'qaz')
+          %li.qaz
+            .bar9
+              = link_to('家電・スマホ・カメラ', root_path, class: 'qaz')
+          %li.qaz
+            .bar10
+              = link_to('おもちゃ・ホビー・グッズ', root_path, class: 'qaz')
+
+    .new_box
+      .name
+        %h1.title
+          レディース新着アイテム
+        .more          
+          = link_to('もっと見る　＞', root_path, class: 'more2')
+      %ul.item
+        - @ladies_items.each do |ladies|
+          %li.itembox
+            %span.price ￥#{ladies.price}
+            .itemtop
+              - ladies.images.each do |ladies_image|
+                =link_to "" do
+                  = image_tag("#{ladies_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{ladies.item_name}", "items/show/#{ladies.id}", class: 'explanation')
+      .name
+        %h1.title
+          メンズ新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @mens_items.each do |mens|
+          %li.itembox
+            %span.price ￥#{mens.price}
+            .itemtop
+              - mens.images.each do |mens_image|
+                =link_to "" do
+                  = image_tag("#{mens_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{mens.item_name}", "items/show/#{mens.id}", class: 'explanation')
+      .name
+        %h1.title
+          家電・スマホ・カメラ新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @appliance_items.each do |appliance|
+          %li.itembox
+            %span.price ￥#{appliance.price}
+            .itemtop
+              - appliance.images.each do |appliance_image|
+                =link_to "" do
+                  = image_tag("#{appliance_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{appliance.item_name}", "items/show/#{appliance.id}", class: 'explanation')
+      .name
+        %h1.title
+          おもちゃ・ホビー・グッズ新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @toys_items.each do |toys|
+          %li.itembox
+            %span.price ￥#{toys.price}
+            .itemtop
+              - toys.images.each do |toys_image|
+                =link_to "" do
+                  = image_tag("#{toys_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{toys.item_name}", "items/show/#{toys.id}", class: 'explanation')
+  .contents
+    .category
+      .category
+        %div.comment
+          人気のブランド
+          %ul.categorybox
+            %li.qaz
+              .bar11
+                = link_to('窪田', root_path, class: 'qaz')
+            %li.qaz
+              .bar8
+                = link_to('井上', root_path, class: 'qaz')
+            %li.qaz
+              .bar9
+                = link_to('塩谷', root_path, class: 'qaz')
+            %li.qaz
+              .bar10
+                = link_to('外内', root_path, class: 'qaz')
+    .new_box
+      .name
+        %h1.title
+          窪田新着アイテム
+        .more          
+          = link_to('もっと見る　＞', root_path, class: 'more2')
+      %ul.item
+        - @kubota_items.each do |kubota|
+          %li.itembox
+            %span.price ￥#{kubota.price}
+            .itemtop
+              - kubota.images.each do |kubota_image|
+                =link_to "" do
+                  = image_tag("#{kubota_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{kubota.item_name}", "items/show/#{kubota.id}", class: 'explanation')
+      .name
+        %h1.title
+          井上新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @inoue_items.each do |inoue|
+          %li.itembox
+            %span.price ￥#{inoue.price}
+            .itemtop
+              - inoue.images.each do |inoue_image|
+                =link_to "" do
+                  = image_tag("#{inoue_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{inoue.item_name}", "items/show/#{inoue.id}", class: 'explanation')
+      .name
+        %h1.title
+          塩谷新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @shioya_items.each do |shioya|
+          %li.itembox
+            %span.price ￥#{shioya.price}
+            .itemtop
+              - shioya.images.each do |shioya_image|
+                =link_to "" do
+                  = image_tag("#{shioya_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{shioya.item_name}", "items/show/#{shioya.id}", class: 'explanation')
+      .name
+        %h1.title
+          外内新着アイテム
+        %a.more{href: ""} もっと見る ＞
+      %ul.item
+        - @tonochi_items.each do |tonochi|
+          %li.itembox
+            %span.price ￥#{tonochi.price}
+            .itemtop
+              - tonochi.images.each do |tonochi_image|
+                =link_to "" do
+                  = image_tag("#{tonochi_image.image_url}", size:"180x190")
+            .itembottom
+              .itembottom2
+                = link_to("#{tonochi.item_name}", "items/show/#{tonochi.id}", class: 'explanation')

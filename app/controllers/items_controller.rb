@@ -1,8 +1,15 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
     @items = Item.search(params[:search])
+    @ladies_items = Item.where(category_id: 1).limit(10)
+    @mens_items = Item.where(category_id: 2).limit(10)
+    @appliance_items = Item.where(category_id: 8).limit(10)
+    @toys_items = Item.where(category_id: 6).limit(10)
+    @kubota_items = Item.where(brand_id: 1).limit(10)
+    @inoue_items = Item.where(brand_id: 3).limit(10)
+    @shioya_items = Item.where(brand_id: 2).limit(10)
+    @tonochi_items = Item.where(brand_id: 5).limit(10)
   end
   
   def new

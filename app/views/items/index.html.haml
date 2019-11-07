@@ -1,23 +1,7 @@
-= render "tests/header"
-= @items.each do |item|
-  %tr
-    %td
-      = item.item_name
-    -# %td
-    -#   = item.item_info
-    -# %td
-    -#   = item.category
-    -# %td
-    -#   = item.size
-    -# %td
-    -#   = item.status
-    -# %td
-    -#   = item.delivery_fee
-    -# %td
-    -#   = item.delivery_way
-    -# %td
-    -#   = item.area
-    -# %td
-    -#   = item.delivery_day
-    -# %td
-    -#   = item.price
+.wrapper
+  = render 'header'
+  = render 'slide'
+  = render 'content'
+  = render 'adv'
+  = render 'footer'
+  = render 'item-circle'
