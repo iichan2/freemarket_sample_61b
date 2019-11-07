@@ -7,7 +7,6 @@
   background-color: rgb(244, 244, 244);
   height: 100%;
 }
-
 .single-header {
   height: 128px;
   text-align: center;
@@ -17,8 +16,7 @@
     height: 49px;
     line-height: 49px;
     display: inline-block;
-    
-    }
+  }
 }
 .single-main {
   display: block;
@@ -27,7 +25,6 @@
     margin: 0 auto;
     background-color: #fff;
     &__top {
-      
       text-align: center;
       padding: 30px 16px;
       line-height: 1;
@@ -53,7 +50,6 @@
       padding: 64px;
       &__content {
         max-width: 320px;
-
         &__icon{
           background-color: rgb(245, 240, 207);
           font: normal 30px ;
@@ -110,7 +106,6 @@
     }
   }
 }
-
 .single-footer {
   text-align: center;
   width: 456px;

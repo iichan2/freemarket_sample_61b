@@ -29,8 +29,11 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:stop'
-    invoke 'unicorn:start'
+    invoke 'unicorn:restart'
   end
   after :finishing, 'deploy:cleanup'
 end
+set :default_env, {
+  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
+  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
+}
