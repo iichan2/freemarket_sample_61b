@@ -29,7 +29,7 @@ def create
   # ログインするための情報を保管
     session[:id] = @user.id
 
-    redirect_to ok_signup_index_path
+    redirect_to newend_signup_index_path
 
   end
 end
@@ -42,7 +42,7 @@ end
   end
 
   def tel
-    # binding.pry
+  
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -60,7 +60,7 @@ end
   end
 
 # sessionに渡された値をインスタンスに渡す
-  def juusyo
+  def address
     session[:tel_number] = user_params[:tel_number]
     @user = User.new
   end
@@ -78,7 +78,7 @@ end
     session[:tel_number]= user_params[:tel_number]
     @user = User.new
   end
-  def ok 
+  def newend 
     sign_in User.find(session[:id]) unless user_signed_in?
     
     

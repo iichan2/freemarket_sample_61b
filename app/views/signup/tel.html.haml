@@ -24,7 +24,7 @@
     %section.single-main__container
       %h2.single-main__container__header
         電話番号の確認 
-      = form_with model: @user, url: juusyo_signup_index_path , method: :get, class: 'registration-form', local: true do |f|
+      = form_with model: @user, url: address_signup_index_path , method: :get, class: 'registration-form', local: true do |f|
         .registration-form__content
           .form-group
             = f.label "携帯の番号",class: "label"

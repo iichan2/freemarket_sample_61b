@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       get 'mail'
       get 'new'
       get 'tel'
-      get 'juusyo'
+      get 'address'
       get 'card'
-      get 'ok' # ここで、入力の全てが終了する
+      get 'newend' # ここで、入力の全てが終了する
     end
   end
   resources :users do
