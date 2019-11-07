@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items, only: [:index,:new, :create]
 
+
   post 'signup'  => 'signup#create', as: 'signup'
   
 
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
       get 'newend' # ここで、入力の全てが終了する
     end
   end
+
   resources :users do
     collection do
       
