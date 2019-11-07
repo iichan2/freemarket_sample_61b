@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:new, :create]
 
   post 'signup'  => 'signup#create', as: 'signup'
-  # as: Prefixを指定
+  
 
   resources :signup do
     collection do
