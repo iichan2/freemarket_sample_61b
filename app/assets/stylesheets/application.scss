@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
+.red{
+  background-color: #ea352d;
+  color: #FFFFFF;
+}
 @import "reset";
 @import "slick-theme";
 @import "slick";

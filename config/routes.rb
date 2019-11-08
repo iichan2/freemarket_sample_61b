@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :items, only: [:index,:new, :create]
-
+  resources :categories
 
   resources :users do
     collection do
