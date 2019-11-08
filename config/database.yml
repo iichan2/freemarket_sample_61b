@@ -13,12 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: freemarket_sample_61b_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
-  # password:
-  # socket: /tmp/mysql.sock
+  password:
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
