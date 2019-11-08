@@ -37,7 +37,6 @@
 // usersフォルダ以下
 @import 'users/identification';
 @import 'users/logout';
-@import 'users/my-page';
 @import 'users/myp-content';
 @import 'users/myp-side';
 @import 'users/notification';
@@ -50,4 +49,5 @@
   background-color: #ea352d;
   color: #FFFFFF;
 }
-// Gem以下@import "font-awesome";
+// Gem以下
+@import "font-awesome";

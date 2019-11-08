@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: [:identification,:edit, :update]
+  before_action :set_params, only: [:identification,:edit, :update, :payment, :logout]
   
   def index
   end
@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   def show
   end
 
-  def identification
-    @user = User.find(params[:id])
+  def identification    
   end
 
   def edit
