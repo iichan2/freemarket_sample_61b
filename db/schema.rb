@@ -164,6 +164,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_122405) do
     t.string "kana_l_name"
     t.string "keyword"
     t.string "keyword2"
+    t.string "provider"
+    t.string "uid"
   end
 
   add_foreign_key "banks", "users"
