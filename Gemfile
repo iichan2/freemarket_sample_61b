@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
 end
 
@@ -87,7 +88,6 @@ gem 'ransack'
 
 gem 'devise'
 gem 'dotenv-rails'
-
 
 
 group :production do

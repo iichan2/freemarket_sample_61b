@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   post 'signup'  => 'signup#create', as: 'signup'
-  # as: Prefixを指定
+  
 
   resources :signup do
     collection do
