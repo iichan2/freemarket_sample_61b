@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_122405) do
     t.string "map"
     t.integer "banchi"
     t.string "building"
+    t.string "tel_number2"
     t.text "profile"
     t.string "f_name"
     t.string "l_name"
