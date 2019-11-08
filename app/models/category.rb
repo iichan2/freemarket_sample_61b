@@ -15,3 +15,4 @@ class Category < ActiveHash::Base
     {id: 34, name: '女の子'}, {id: 35, name: 'その他'}, {id: 36, name: 'ウルトラマン'},
     {id: 37, name: 'ポケモン'}, {id: 38, name: 'その他'}
   ]
+end
