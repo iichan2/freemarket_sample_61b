@@ -31,7 +31,9 @@ namespace :deploy do
   task :db_seed do
     on roles(:db) do
       within current_path do
-        execute :bundle, :exec, :rake, :'db:seed'
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :rake, :'db:seed'
+        end
       end
     end
   end
