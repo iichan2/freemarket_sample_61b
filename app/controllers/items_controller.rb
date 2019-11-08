@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
       else
         format.html{render action: 'new'}
       end
+    end
   end
 
   def show
@@ -46,6 +47,4 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:item_name, :item_info, :size, :brand_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: {image_url: []})
     end
-  end
-
 end
