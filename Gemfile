@@ -77,6 +77,8 @@ gem 'font-awesome-rails'
 gem 'erb2haml'
 gem 'faraday'
 gem "jquery-rails"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'active_hash'
@@ -85,7 +87,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ransack'
-
+gem 'faraday'
 gem 'devise'
 gem 'dotenv-rails'
 

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :items, only: [:index,:new, :create]
+  resources :categories
 
   post 'signup'  => 'signup#create', as: 'signup'
-  
+
 
   resources :signup do
     collection do
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      
+
       get "logout"
       get "payment"
     end

@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 // configフォルダ以下
 @import "config/reset";
 // itemsフォルダ以下
@@ -47,6 +46,8 @@
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
-// Gem以下
-@import "font-awesome";
-
+.red{
+  background-color: #ea352d;
+  color: #FFFFFF;
+}
+// Gem以下@import "font-awesome";
