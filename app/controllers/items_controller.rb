@@ -11,17 +11,17 @@ class ItemsController < ApplicationController
     @shioya_items = Item.where(brand_id: 2).limit(10)
     @tonochi_items = Item.where(brand_id: 5).limit(10)
   end
-  
+
   def new
     @item = Item.new
     @item.images.build
   end
 
+
   def edit
     @item = Item.find(params[:id])
     @item.images.build
   end
-
 
   def create
     @item = Item.new(item_params)
@@ -33,19 +33,19 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
   end
-  
+
   def show
   end
-  
+
   def transaction
     @item = Item.find(params[:id])
   end
 
-end
 
-private
-  def item_params
-    params.require(:item).permit(:item_name, :item_info, :size, :brand_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: {image_url: []})
+  private
+    def item_params
+      params.require(:item).permit(:item_name, :item_info, :size, :brand_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: {image_url: []})
+    end
   end
-end
 
+end
