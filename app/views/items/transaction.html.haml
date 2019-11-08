@@ -3,20 +3,22 @@
     = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
   %main.st-main
     %section.st-buy-container
-      %h2.st-head 購入内容の確認
+      %h2.st-head
       %section.st-buy-item
         .st-buy-item-in
-          %h3.st-buy-item-image
-          = image_tag 'umi.jpg', alt: '海を売っています', height: '64', width: '64', class: 'umi'
-          %p.buy-item-name 超美品アディダス黒ピンクS
-          %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
-            %p.bprice ¥1,900
-            %span.bbprice 送料込み
-            .a-toggle ポイントはありません
-            .bp-cell1 支払い金額
-            .bp-cell2 ¥1,900
-            %p.he-text 配送先と支払い方法の入力を完了してください。
-            %button.default-btn 購入する
+          - @item.images.each do |image|
+            %h3.st-buy-item-image
+            = image_tag "#{image.image_url}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
+            %p.buy-item-name #{@item.item_name}
+            %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
+              %p.bprice ¥#{@item.price}
+              %span.bbprice 送料込み
+              .a-toggle ポイントはありません
+              .bp-cell1 支払い金額
+              .bp-cell2 ¥#{@item.price}
+              %p.he-text 配送先と支払い方法の入力を完了してください。
+              = form_tag(action: :pay, method: :post) do
+                %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b7bd30e3dc029eebfe3a726e"}
       %section.stb-info
         .stb-info-container
           %h3.z 配送先

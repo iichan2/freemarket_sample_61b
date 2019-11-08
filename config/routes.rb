@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   end
     root 'items#index'
     resources :items do
-      collection do
-        get 'transaction'
+      member do
+        post 'transaction/:id' => 'items#transaction', as: 'transaction'
       end
   end
 end

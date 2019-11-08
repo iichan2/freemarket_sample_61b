@@ -40,6 +40,12 @@ class ItemsController < ApplicationController
 
   def transaction
     @item = Item.find(params[:id])
+    Payjp.api_key = 'sk_test_52281f87bff3f0226bcdfee1'
+    charge = Payjp::Charge.create(
+    :amount => @item.price,#購入する値段
+    :card => params['payjp-token'],#フォームを送信すると作成・送信されてくるトークン
+    :currency => 'jpy',
+)
   end
 
 

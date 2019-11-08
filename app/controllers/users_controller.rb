@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_params, only: [:identification,:edit, :update]
-  
+  before_action :
   def index
   end
 
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def identification
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -33,4 +32,33 @@ class UsersController < ApplicationController
     def set_params
       @user = User.find(params[:id])
     end
+
+    def user_params
+    
+      params.require(:user).permit(
+        :nickname,
+        :last_name, 
+        :first_name, 
+        :kana_last_name, 
+        :kana_first_name,
+        :l_name, 
+        :f_name, 
+        :kana_l_name, 
+        :kana_f_name,
+        :email,
+        :tel_number,
+        :birth_month,
+        :birth_year,
+        :birth_day,
+        :postal_code,
+        :ken,
+        :map,
+        :banchi,
+        :building,
+        :password,
+        :password_confirmation
+        )
+    end
+  
+
 end
