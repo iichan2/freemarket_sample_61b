@@ -17,6 +17,12 @@ class ItemsController < ApplicationController
     @item.images.build
   end
 
+
+  def edit
+    @item = Item.find(params[:id])
+    @item.images.build
+  end
+
   def create
     @item = Item.new(item_params)
 
