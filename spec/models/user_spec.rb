@@ -1,7 +1,6 @@
-
-  require 'rails_helper'
-  describe User do
-    describe '#create' do
+require 'rails_helper'
+describe User do
+  describe '#create' do
 # バリデーション
       it "is valid with a nickname, email, password, password_confirmation, postl_code, ken, map, banchi" do
         user = build(:user)
@@ -136,4 +135,3 @@
     end
   end
 
-end
