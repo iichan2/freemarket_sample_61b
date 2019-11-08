@@ -20,10 +20,11 @@ def create
     ken: session[:ken],
     map: session[:map],
     banchi: session[:banchi],
-    tel_number: session[:tel_number]
+    tel_number: session[:tel_number],
+    tel_number2: session[:tel_number2]
   )
 
-  
+
   if @user.save
     
   # ログインするための情報を保管
@@ -36,7 +37,9 @@ end
 
   def mail
     # 新規登録ページ
+    
   end
+
   def new
     @user = User.new
   end
@@ -75,7 +78,7 @@ end
     session[:map]= user_params[:map]
     session[:banchi]= user_params[:banchi]
     session[:building]= user_params[:building]
-    session[:tel_number]= user_params[:tel_number]
+    session[:tel_number2]= user_params[:tel_number2]
     @user = User.new
   end
   def newend 
@@ -100,6 +103,7 @@ end
       :kana_f_name,
       :email,
       :tel_number,
+      :tel_number2,
       :birth_month,
       :birth_year,
       :birth_day,
