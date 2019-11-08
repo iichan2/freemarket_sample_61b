@@ -11,6 +11,13 @@
     background: #f5f5f5;
     border: 1px dashed #ccc;
 }
+.dropzone-container2 {
+  display: flex;
+  max-height:160px;
+  width: 610px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+}
 .setumei {
   width: 30%;
 }
@@ -19,6 +26,11 @@
 }
 .dropzone-area {
     height: 160px;
+    width: auto;
+    overflow: hidden;
+}
+.dropzone-area2 {
+    max-height: 160px;
     width: auto;
     overflow: hidden;
 }
@@ -38,6 +50,10 @@
 .sell_upload__area {
     display: flex;
     height: 160px;
+}
+.sell_upload__area2 {
+  display: flex;
+  max-height: 160px;
 }
 
 .img_view {
@@ -99,12 +115,12 @@ input[type="text"] {
     text-align: center;
   }
   .atama{
-    height: 100px;
-    width: 100%;
-    border-bottom: solid #bbb 1px;
-    line-height: 100px; 
-    text-align: center;
-    font-size: 30px;
+   height: 100px;
+   width: 100%;
+   border-bottom: solid #bbb 1px;
+   line-height: 100px; 
+   text-align: center;
+   font-size: 30px;
   }
   .main{
     height:100%;
@@ -112,7 +128,7 @@ input[type="text"] {
     margin: 0 auto;
     background-color: white;
     .gazoushuppinn{
-      height: 200px;
+      min-height: 200px;
       width: 100%;
       padding:20px 30px;
       .bunn2{
@@ -165,36 +181,37 @@ input[type="text"] {
                   }
               }
               &__drop-box{
-                background: #f5f5f5;
-                height: 162px;
-                width: 620px;
-                margin: 0 auto;
-                border: 1px dashed;
-                border-color: #ccc;
-                &__item{
-                  box-sizing: border-box;
-                  height: 100%;
-                  width: 100%;
-                  padding: 40px;
-                  &__upload-file{
-                    display: none;
+                  background: #f5f5f5;
+                  height: 162px;
+                  width: 620px;
+                  margin: 0 auto;
+                  border: 1px dashed;
+                  border-color: #ccc;
+                  &__item{
+                      box-sizing: border-box;
+                      height: 100%;
+                      width: 100%;
+                      padding: 40px;
+                      &__upload-file{
+                          display: none;
+                      }
+                      &__text {
+                          text-align: center;
+                          font-size: 14px;
+                          line-height: 1.5;
+                          transform: translate(0, -50%);
+                          pointer-events: none;
+                          white-space: pre-wrap;
+                          word-wrap: break-word;
+                          margin-top: 30px;
+                      }
                   }
-                  &__text {
-                    text-align: center;
-                    font-size: 14px;
-                    line-height: 1.5;
-                    transform: translate(0, -50%);
-                    pointer-events: none;
-                    white-space: pre-wrap;
-                    word-wrap: break-word;
-                    margin-top: 30px;
-                  }
-                }
               }
-          &__space{
-              height: 50px;
-              border-bottom: 1px solid #eee;
-          }
+              &__space{
+                  height: 50px;
+                  border-bottom: 1px solid #eee;
+              }
+          
         }
       }
     }
@@ -206,20 +223,27 @@ input[type="text"] {
         padding-bottom: 20px;
       }
       .shouhinsetumei-kakutokoro{
+    
       }
     }
+    
     .shouhinnoshousai{
       display:flex;
       height: 210px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;  
+
       .setumei{
         padding-bottom: 30px;
+    
       }
+    
       .kategory-box{
         padding-bottom: 20px;
       }
+    
       .jyoutai-box{
+    
       }
     }
     .haisounituite{
@@ -233,7 +257,11 @@ input[type="text"] {
       .kategory-box{
         padding-bottom: 20px;
       }
+          
+    
+          
     }
+    
     .hannbaikakaku{
       height: 240px;
       padding:40px 30px;
@@ -244,11 +272,13 @@ input[type="text"] {
         }
         .migiyose{
           flex-grow: 1;
+        
           .kakaku-kakutokoro{
             widows: 100%;
             padding-bottom: 20px;
             border-bottom: solid #bbb 1px; 
           }
+      
           .kakaku-tesuuryou{
             height: 50px;
             line-height: 40px;
@@ -280,6 +310,7 @@ input[type="text"] {
         }
         .buttonyou{
           text-align: center;
+        
           .buttonda{
             font-size: 14pt;       
             text-align: center;     

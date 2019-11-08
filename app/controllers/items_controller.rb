@@ -20,14 +20,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
-    respond_to do |format|
+    binding.pry
       if @item.save
-        format.html{redirect_to root_path}
+        redirect_to root_path
       else
-        format.html{render action: 'new'}
+        render action: 'new'
       end
-  end
+    end
   
   def show
   end
@@ -35,8 +34,6 @@ class ItemsController < ApplicationController
   def transaction
     @item = Item.find(params[:id])
   end
-
-end
 
 private
   def item_params

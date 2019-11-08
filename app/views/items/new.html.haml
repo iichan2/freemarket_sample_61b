@@ -9,9 +9,9 @@
         .bun-matome
           .bunn2  出品画像
           .hissu  必須
-        .saidai10  最大5枚までアップロードできます
+        .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
-          = f.fields_for :images, @images do |i|
+          = f.fields_for :images do |i|
             .dropzone-container.clearfix
               .sell-uploads-drop
                 #exhibit-images-preview
@@ -19,6 +19,14 @@
                 = i.label :image_url, for: 'create-image' do
                   .sell_upload__area
                     = i.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+            .dropzone-container2.clearfix
+              .sell-uploads-drop2
+                #exhibit-images-preview2
+              .dropzone-area2
+                .sell_upload__area2
+
+
+
       .shouhinmei
         .bun-matome
           .bunn  商品名
@@ -89,3 +97,6 @@
           .modorubutton
             = link_to "/"  do
               %a.modo もどる
+          
+
+
