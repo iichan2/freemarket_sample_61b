@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_params, only: [:identification,:edit, :update]
   
-  
-  
-  
+  def index
+  end
+
   def payment
   end
 
-
-def show
-end
-
-  
+  def show
+  end
 
   def identification
     @user = User.find(params[:id])
@@ -33,9 +30,7 @@ end
   end
 
   private
-  
- 
-  def set_params
-    @user = User.find(params[:id])
-  end
+    def set_params
+      @user = User.find(params[:id])
+    end
 end
