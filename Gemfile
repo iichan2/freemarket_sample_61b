@@ -94,7 +94,6 @@ gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
-  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 gem 'ancestry'
 gem 'active_hash'
