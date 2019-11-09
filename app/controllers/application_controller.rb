@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
-  bau = ENV.fetch('BASIC_AUTH_USER', 'nu')
-  bap = ENV.fetch('BASIC_AUTH_PASSWORD', 'ha')
+  bau = ENV['BASIC_AUTH_USER']
+  bap = ENV['BASIC_AUTH_PASSWORD']
 
   def basic_auth
       authenticate_or_request_with_http_basic do |username, password|
