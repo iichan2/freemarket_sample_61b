@@ -86,7 +86,6 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ransack'
-gem 'faraday'
 gem 'devise'
 gem 'dotenv-rails'
 

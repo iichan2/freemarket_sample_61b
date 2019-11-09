@@ -1,125 +1,49 @@
-.login__container
-  .login__container__panel
-    .login__container__panel__no-account
+.single-container
+  .single-header
+    %h1.single-header__logo
+      = link_to do
+        =image_tag  "/images/signup-mercari.png", size: "185x49", class: "mercari-logo"
+  .login-panel
+    .login-no-account
       %p アカウントをお持ちでない方はこちら
-      = link_to new_user_registration_path, class: "login__container__panel__no-account--a",data: {"turbolinks" => false} do
-        %p 新規会員登録
-    .login__container__panel__inner
-      .login__container__panel__inner__fb
-        = link_to '/users/auth/facebook', id: "facebook_signin_button" do
-          .btn--default
-            %i.fab.fa-facebook-square
-            %p Facebookで登録
-      .login__container__panel__inner__google
-        = link_to '/users/auth/google_oauth2',id: "google_signin_button" do
-          .btn--default
-            %i.fab.fa-google
-            %p Googleで登録
-    = form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: "login__container__panel__form"}) do |f|
-      .login__container__panel__form__inner
-        .login__container__panel__form__inner--group
-          = f.email_field :email, placeholder: "メールアドレス", class: "input--default"
-        .login__container__panel__form__inner--groups
-          = f.password_field :password, placeholder: "パスワード", class: "input--default"
-        .login__container__panel__form__inner--groups
-          .g-recaptcha{'data-callback': "clearcall", 'data-sitekey': "6LcyHZ8UAAAAAKzqYXfBLyWitD8NCgRybJuofGcz"}
-          = f.submit "ログイン", type: "submit", class: "btn--default"
-          %a.login__container__panel__form__inner--groups--a{href: "#"} パスワードをお忘れの方
-
-%footer.signup__footer
-  %nav.signup__footer__nav
-    %ul.signup__footer__nav--ul
-      %li.signup__footer__nav--ul--li プライバシーポリシー
-      %li.signup__footer__nav--ul--li メルカリ利用規約
-      %li.signup__footer__nav--ul--li 特定商取引に関する表記
-  = link_to "#", class:"signup__footer--a"  do
-    %img{ src: "/images/logo-gray.svg", class: "signup__footer--a--img"}
-  %p.signup__footer--p
-    %small © 2019 Mecrari
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--# .single-container
--#   .single-header
--#     %h1.single-header__logo
--#       = link_to do
--#         =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313", alt: "mercari", class: "mercari-logo"
--#   .login-panel
--#     .login-no-account
--#       %p アカウントをお持ちでない方はこちら
--#       .sign-up
--#         =link_to new_user_registration_path, method: :get, class: "sign-up-btn"  do
--#           新規会員登録 
--#     .single-main__container__inner__content
--#       = link_to user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
--#         %i.single-main__container__inner__content__icon.fab.fa-facebook-square
--#         Facebookでログイン
--#       = link_to "#", class: "contents__btn__google__logo" do
--#         Googleでログイン
+      .sign-up
+        =link_to  signup_index_path, method: :get, class: "sign-up-btn"  do
+          新規会員登録 
+    .single-main__container__inner__content
+      = link_to  user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
+        %i.single-main__container__inner__content__icon.fab.fa-facebook-square
+        Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
+        =image_tag "", class: "contents__btn__google__logo"
+        Googleでログイン
         
--#     .login-form-inner
--#       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#         .form-group
--#           .field
--#           = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
--#         .form-group
--#           .field
--#             = f.password_field :password, autocomplete: "current-password", class: "input-default", placeholder: "パスワード"
--#           .form-group
--#           -# =image_tag "#", alt: "robot", class: "robot_img"
--#         .actions
--#           = f.submit "ログイン", class: "login"
+    .login-form-inner
+      = form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f|
+        .form-group
+          .field
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
+        .form-group
+          .field
+            = f.password_field :password, autocomplete: "current-password", class: "input-default", placeholder: "パスワード"
+          .form-group
+          =image_tag "", alt: "robot", class: "robot_img"
+        .actions
+          = f.submit "ログイン", class: "login"
       
-
-  
--# = render "devise/shared/links"
--# = render 'users/signup-footer'
-
-    
-
-
-
-
-
-
-
-
-
--# -# -# %h2 Log in
--# -# -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--# -# -#   .field
--# -# -#     = f.label :email
--# -# -#     %br/
--# -# -#     = f.email_field :email, autofocus: true, autocomplete: "email"
--# -# -#   .field
--# -# -#     = f.label :password
--# -# -#     %br/
--# -# -#     = f.password_field :password, autocomplete: "current-password"
--# -# -#   - if devise_mapping.rememberable?
--# -# -#     .field
--# -# -#       = f.check_box :remember_me
--# -# -#       = f.label :remember_me
--# -# -#   .actions
--# -# -#     = f.submit "Log in"
--# -# -# = render "devise/shared/links"
+      -# ⬇︎session/linkをそのまま持ってきてる⬇︎
+      - if controller_name != 'sessions'
+        = link_to "login", new_session_path(resource_name)
+        %br/
+      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+        = link_to "パスワードをお忘れの方", class: "password-forget"
+        %br/
+      - if devise_mapping.confirmable? && controller_name != 'confirmations'
+        = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
+        %br/
+      - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+        = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
+        %br/
+      -# -if devise_mapping.omniauthable?
+      -#   - resource_class.omniauth_providers.each do |provider|
+      -#     = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+      -#     %br/
