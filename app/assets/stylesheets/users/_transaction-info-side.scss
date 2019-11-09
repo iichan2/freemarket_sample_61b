@@ -1,0 +1,73 @@
+.tran-info-side-container {
+  width: 21vw;
+  background-color: white;
+  margin: 5% 20% 20% 15%;
+}
+h3.tran-info-head {
+  background: #eeeeee;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 1%;
+}
+ul.tran-info-content {
+  height: 100%;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  li.tran-info-item-list {
+    height: 30%;
+    display: flex;
+    position: relative;
+    .tran-info-item-top {
+      width: 50%;
+      position: relative;
+      span.tran-info-item-name {
+        position: absolute;
+        top: 15%;
+        left: 15%;
+      }
+    }
+    .tran-info-item-image {
+      width: 50%;
+      padding-bottom: 5%;
+      p.tran-info-item-name {
+        padding-top: 3%;
+        color: #0099EB;
+      }
+      p.tran-info-item-price {
+        padding-top: 3%;
+        color: #0099EB;
+      }
+    }
+  }
+  li.item-info-gray {
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70px;
+    position: relative;
+    p.key {
+      position: absolute;
+      left: 7%;
+    }
+    p.value {
+      position: absolute;
+      left: 45%;
+    }
+  }
+  li.item-info-white {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80px;
+    position: relative;
+    p.key {
+      position: absolute;
+      left: 7%;
+    }
+    p.value {
+      position: absolute;
+      left: 45%;
+    } 
+  }
+}

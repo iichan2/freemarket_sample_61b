@@ -45,9 +45,7 @@ class ItemsController < ApplicationController
   end
 
   def transaction
-    @item = Item.find(params[:id])
   end
-
 
   private
     def item_params
