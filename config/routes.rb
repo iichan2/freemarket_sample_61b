@@ -28,8 +28,9 @@ Rails.application.routes.draw do
   end
     root 'items#index'
     resources :items do
-      collection do
+      member do
         get 'transaction'
+        get 'buyed'
       end
   end
 end

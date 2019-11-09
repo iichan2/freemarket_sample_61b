@@ -1,0 +1,62 @@
+.buyed_wrapper
+  %header.st-header
+    = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
+  %main.buyed-main
+    %section.buyed_notification
+      .buyed_notification_message1
+        = fa_icon "check-circle", class: "buyed_notification_message_icon"
+        %h2.buyed_message 発送をお待ちください
+      .buyed_notification_message2
+        出品者からの発送通知をお待ちください
+    %section.st-buy-container
+      %h2.buyed_head 購入が完了しました
+      %section.buyed_item_box
+        .buyed_item_in
+          - @item.images.each do |image|
+            %h3.buyed_item_image
+            = image_tag "#{image.image_url}", height: '150', width: '150'
+            %p.buyed_item_name #{@item.item_name}
+      %section.buyed_price
+        %span.buyed_item_price ¥#{@item.price}
+        %span.buyed_postage 送料込み
+      %section.buyed_info
+        .stb-info-container
+          %h3.z 配送先
+          %address.bu-text-info
+            %p.buyed_postal_cord
+              〒#{@item.saler.delivery.postal_code}
+            %p.buyed_addless
+              大阪府大阪市
+            %p.buyed_name
+              aaa aaaa
+      %section.buyed_info
+        .stb-info-container
+          %h3.z 支払い方法
+          %p.cards_cord aaa
+          %p.cards 00/00
+      %section.buyed_info_flow
+        .stb-info-container
+          %h3.z 発送通知後の流れ
+          = image_tag 'review_icon.png', height: '40%' , width: '40%',class: 'review_icon'
+          %p.buyed_flow
+            商品を受け取ったら
+            %br
+            出品者の評価をしましょう。
+            %br
+            購入代金が出品者に振り込まれます。
+            %br
+            評価後に取引は完了です。
+          = link_to "#", class: 'changing' do  
+            %span.buyed_link マイページへ戻る
+  %footer.st-footer
+    %ul.privacy
+      %li.pf
+        = link_to('プライバシーポリシー', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('メルカリ利用規約', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
+    .img-hako
+      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+    %p.ff 
+      %small ©︎2019 Mercari

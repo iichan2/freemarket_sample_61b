@@ -13,13 +13,15 @@
  *= require_tree .
  *= require_self
  */
-
 // configフォルダ以下
 @import "config/reset";
+// Gem以下
+@import "font-awesome";
 // itemsフォルダ以下
 @import "items/show";
 @import "items/items";
 @import "items/transaction";
+@import "items/buyed";
 // modulesフォルダ以下
 @import "modules/adv";
 @import "modules/content";
@@ -50,4 +52,3 @@
   background-color: #ea352d;
   color: #FFFFFF;
 }
-// Gem以下@import "font-awesome";

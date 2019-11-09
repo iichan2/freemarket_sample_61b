@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def buyed
+    @item = Item.find(params[:id])
+  end
+
   def transaction
     @item = Item.find(params[:id])
   end
