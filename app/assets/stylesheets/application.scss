@@ -19,7 +19,7 @@
 @import "font-awesome";
 // itemsフォルダ以下
 @import "items/show";
-@import "items/items";
+@import "items/new";
 @import "items/transaction";
 @import "items/bought";
 // modulesフォルダ以下
@@ -31,6 +31,8 @@
 @import "modules/slide";
 // sign_upフォルダ以下
 @import "sign_up/card";
+@import "sign_up/log_in";
+@import "sign_up/mail";
 @import "sign_up/address";
 @import "sign_up/new";
 @import "sign_up/newend";
@@ -39,7 +41,6 @@
 // usersフォルダ以下
 @import 'users/identification';
 @import 'users/logout';
-@import 'users/my-page';
 @import 'users/myp-content';
 @import 'users/myp-side';
 @import 'users/notification';

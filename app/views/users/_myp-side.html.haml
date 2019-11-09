@@ -2,7 +2,7 @@
   %nav.myp-nav
     %ul.myp-nav-list 
       %li.myp-nav-list-item
-        =link_to "マイページ", root_path, class: "myp-nav-list-link"
+        =link_to "マイページ", users_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
         =link_to "お知らせ", root_path, class: "myp-nav-list-link"
@@ -14,7 +14,7 @@
         =link_to "いいね！一覧", root_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "出品する", root_path, class: "myp-nav-list-link"
+        =link_to "出品する", new_item_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
         =link_to "出品した商品 - 出品中", root_path, class: "myp-nav-list-link"
@@ -54,23 +54,23 @@
     %h3.myp-nav-head 設定
     %ul.myp-nav-list
       %li.myp-nav-list-item
-        =link_to "プロフィール", root_path, class: "myp-nav-list-link"
+        = link_to "プロフィール", edit_user_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "発送元・お届け先住所変更", root_path, class: "myp-nav-list-link"
+        = link_to "発送元・お届け先住所変更", root_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "支払い方法", root_path, class: "myp-nav-list-link"
+        = link_to "支払い方法", payment_user_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "メール/パスワード", root_path, class: "myp-nav-list-link"
+        = link_to "メール/パスワード", root_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "本人情報", root_path, class: "myp-nav-list-link"
+        = link_to "本人情報", identification_user_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "電話番号の確認", root_path, class: "myp-nav-list-link"
+        = link_to "電話番号の確認", root_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "ログアウト", root_path, class: "myp-nav-list-link"
+        = link_to "ログアウト", logout_user_path, class: "myp-nav-list-link"
         = fa_icon 'angle-right', class: 'icon-angle-right'

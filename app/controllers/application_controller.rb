@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :basic_auth, if: :production?
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :authenticate_user!
   protect_from_forgery with: :exception
 
@@ -19,14 +19,16 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
+
   def basic_auth
       authenticate_or_request_with_http_basic do |username, password|
-        username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+        username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
       end
   end 
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, 
+      devise_parameter_sanitizer.permit(:sign_up, keys: [
+        :nickname, 
         :password, 
         :password_confirmation,
         :first_name, 
@@ -42,7 +44,8 @@ class ApplicationController < ActionController::Base
         :map, 
         :banchi, 
         :building, 
-        :tel_number])
+        :tel_number
+        ])
   end
 
 end
