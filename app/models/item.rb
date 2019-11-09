@@ -5,8 +5,8 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :brands
   belongs_to :category
-  has_many :images, inverse_of: :item
-  accepts_nested_attributes_for :images
+  has_many :images, dependent: :destroy, inverse_of: :item
+  accepts_nested_attributes_for :images, allow_destroy: true
   # belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
   # mount_uploaders :image_url, ImageUploader
