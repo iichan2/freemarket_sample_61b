@@ -1,4 +1,4 @@
-.single-container
+..single-container
   .single-header
     %h1.single-header__logo
       = link_to do
@@ -14,11 +14,11 @@
         %i.single-main__container__inner__content__icon.fab.fa-facebook-square
         Facebookでログイン
       = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
-        =image_tag "", class: "contents__btn__google__logo"
+        =image_tag "https://apis.google.com/js/api:client.js", class: "contents__btn__google__logo"
         Googleでログイン
         
     .login-form-inner
-      = form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           .field
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
@@ -30,20 +30,4 @@
         .actions
           = f.submit "ログイン", class: "login"
       
-      -# ⬇︎session/linkをそのまま持ってきてる⬇︎
-      - if controller_name != 'sessions'
-        = link_to "login", new_session_path(resource_name)
-        %br/
-      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-        = link_to "パスワードをお忘れの方", class: "password-forget"
-        %br/
-      - if devise_mapping.confirmable? && controller_name != 'confirmations'
-        = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
-        %br/
-      - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-        = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
-        %br/
-      -# -if devise_mapping.omniauthable?
-      -#   - resource_class.omniauth_providers.each do |provider|
-      -#     = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
-      -#     %br/
+= render 'users/signup-footer'
