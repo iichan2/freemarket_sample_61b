@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def show
   end
 
-  def identification    
+
+  def identification
   end
 
   def edit
