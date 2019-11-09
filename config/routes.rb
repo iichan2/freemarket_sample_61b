@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' ,omniauth_callbacks: 'users/omniauth_callbacks' }
-
   resources :items, only: [:index,:new, :create]
-
+  resources :categories
 
   post 'signup'  => 'signup#create', as: 'signup'
-  
+
 
   resources :signup do
     collection do
@@ -18,18 +17,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    collection do
-      
+  resources :users, only: [:index, :edit] do
+    member do
       get "logout"
       get "payment"
-    end
-    member do
       get "identification"
     end
   end
     root 'items#index'
-    resources :items do
+    resources :items, only: [:index, :edit, :new, :create, :show] do
       collection do
         get 'transaction'
       end
