@@ -1,16 +1,15 @@
 .zenntai
-  .header
-    .atamanoe
-      =image_tag("signup-mercari.png",class: "gazou",height: "50px")
+  .atamanoe
+    =image_tag("signup-mercari.png",class: "gazou",height: "90px")
   .main
     .atama
-      商品の情報を入力
+      商品情報編集
     = form_for @item do |f|
-      .gazoushuppinn
+      .gazoushuppin
         .bun-matome
-          .bunn2  出品画像
+          .bunn2 出品画像
           .hissu  必須
-        .saidai10  最大5枚までアップロードできます
+        .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
           = f.fields_for :images, @images do |i|
             .dropzone-container.clearfix
@@ -20,6 +19,11 @@
                 = i.label :image_url, for: 'create-image' do
                   .sell_upload__area
                     = i.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+            .dropzone-container2.clearfix
+              .sell-uploads-drop2
+                #exhibit-images-preview2
+              .dropzone-area2
+                .sell_upload__area2
       .shouhinmei
         .bun-matome
           .bunn  商品名
@@ -30,7 +34,7 @@
           .bunn  商品の説明
           .hissu  必須
         .shouhinsetumei-kakutokoro
-          = f.text_area :item_info, size: "80x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）<br>2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :item_info, size: "100x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）<br>2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .shouhinnoshousai
         .setumei  商品の詳細
         .migiyose
@@ -38,7 +42,7 @@
             .bunn  カテゴリー
             .hissu  必須
           .kategory-box
-            -# = f.collection_select :category_id, Category.all, :name, :name,{}, {class: 'select_boxyou'} 
+            = f.collection_select :category_id, Category.all, :id, :name,{}, {class: 'select_boxyou'} 
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
@@ -90,12 +94,3 @@
           .modorubutton
             = link_to "/"  do
               %a.modo もどる
-  .footer
-    .kiyaku
-      .kiya  プライバシーポリシー
-      .kiya  メルカリ利用規約
-      .kiya  特定商取引に関する規約
-    .mark
-      = link_to "" do
-        =image_tag "mercari1.jpg", size: "140x35",class: "lastmark"
-      %p.lastname ©︎2019 Mercari

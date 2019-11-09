@@ -1,6 +1,6 @@
 .wrapper
-  = render 'tests/header'
-  = render 'show'
+  = render 'items/header'
+  = render 'myp-side'
   %section.ic-container
     %h2.ic-head 支払い方法
     .is-in
@@ -17,5 +17,5 @@
         = link_to "#", class: 'payment-to-info' do  
           %span.pa 支払い方法について
           = fa_icon "chevron-right", class: "arrow-right2"          
-  = render 'tests/adv'
-  = render 'tests/footer'
+  = render 'items/adv'
+  = render 'items/footer'
