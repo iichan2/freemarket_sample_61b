@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :items do
       member do
         get 'transaction'
-        get 'buyed'
+        get 'bought'
       end
   end
 end
