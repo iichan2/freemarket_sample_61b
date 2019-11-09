@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2019_11_09_040826) do
 
+ActiveRecord::Schema.define(version: 2019_11_09_040826) do
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.integer "postal_code"
     t.integer "ken"
     t.string "map"
-    t.integer "banchi"
+    t.string "banchi"
     t.string "building"
     t.string "tel_number2"
     t.text "profile"
