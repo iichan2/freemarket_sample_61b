@@ -1,0 +1,117 @@
+.back-ground {
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+.trading-container {
+  position: absolute;
+  top: 0.1%;
+  right: 5%;
+  height: 70%;
+  width: 45vw;
+  background-color: white;
+  margin: 5% 10% 5% 10%;
+}
+.trading-screen {
+  height: 50px;
+  width: 100%;
+  h2.tr-sc  {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 5px;
+  }
+}
+.trading-completed {
+  height: 100px;
+  width: 100%;
+  background-color: #FFF8DC;
+  .tr-co-container {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 2%;
+    i.check {
+      color: #ea352D;
+      font-size: 40px;
+      margin-left: auto;
+    }
+    p.tr-co {
+      color: #ea352D;    
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: auto;
+      padding: 3%;
+    }
+  }
+  p.thanks {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+.sales-price-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5% 2% 0 5%;  
+  font-size: 13px;
+  .sales-price {
+    color: #0099EB;
+  }
+  i.arrow-right-trading-and-sending {
+    padding: 0.6%;
+    padding-left: 1.3%;
+  }
+}
+.user-comment-bar {
+  padding: 3%;
+  font-size: 14px;
+  .comment-box {
+    background: #FFF8DC;
+    height: 100px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 3%;
+    border-radius: 30px / 20px;
+  }
+}
+.office-confirmation {
+  height: 200px;
+  p.comment-content {
+    background: #FFF8DC;
+    font-size: 14px;
+    padding: 1%;
+    margin: 0 auto 1%;
+    width: 90%;
+  }
+  .comment-form {
+    .comment-field {
+      display: block;
+      height: 100px;
+      width: 90%;
+      margin: 0 auto 1%;
+    }
+    .comment-send {
+      display: block;
+      margin: 0 auto 3%;
+      width: 90%;
+      background: gray;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      padding: 2%;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.88;
+      }
+    }
+  }
+}
+p.some-question {
+  font-size: 14px;
+  padding: 2% 0;
+  margin: 7% 5% 0;
+}

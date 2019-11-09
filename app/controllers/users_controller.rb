@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: [:identification,:edit, :update, :payment, :logout]
+  before_action :set_params, 
+  only: [:identification,:edit, :update, :payment, :logout, :trading, :sending]
   
+  before_action :set_item_image_params, only: [:sending, :trading]
+
   def index
   end
 
@@ -14,6 +17,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def trading
+  end
+
+  def sending
   end
 
   def update    
@@ -31,5 +40,10 @@ class UsersController < ApplicationController
   private
     def set_params
       @user = User.find(params[:id])
+    end
+
+    def set_item_image_params
+      @item = Item.find(params[:id])
+      @image = Image.find(params[:id])
     end
 end

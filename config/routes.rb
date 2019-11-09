@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       get "logout"
       get "payment"
       get "identification"
+      get "trading"
+      get "sending"
     end
   end
     root 'items#index'
