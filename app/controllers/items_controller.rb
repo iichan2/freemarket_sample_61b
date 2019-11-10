@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def show_deleted
+    
   end
 
   def bought
