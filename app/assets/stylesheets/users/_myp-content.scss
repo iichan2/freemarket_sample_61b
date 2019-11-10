@@ -1,49 +1,51 @@
-.my-content {
+.my-contents { 
   width: 100%;
   height: 100%;
   position: relative;
 }
-section.myp-user-icon {
-  width: 600px;
-  height: 160px;
-  float: right;
-  background-image: url(user-bg.jpg);
-  padding: 20px;
+.my-content-over {
   position: absolute;
   top: 1%;
   right: 5%;
-  figure.center {
-    text-align: center;
-    color: #333333;
-    margin: 0 auto;
-    img.prof-circle {
-      border-radius: 50%;
-    }
-  }
-  h2.bold {
-    text-align: center;
-    font-size: 14px;
-    margin: 3px 0 0;
-  }
-  .myp-num {
-    display: flex;
-    width: 25%;
-    height: 16px;
-    margin: 10px auto 0;
-    .hyo {
+  .myp-user-icon {
+    width: 600px;
+    height: 160px;
+    float: right;
+    background-image: url(user-bg.jpg);
+    padding: 20px;
+    figure.center {
+      text-align: center;
       color: #333333;
-      font-size: 14px;
-      margin-left: 10px;
+      margin: 0 auto;
+      .prof-circle {
+        border-radius: 50%;
+      }
     }
-    span.bold {
-      margin-left: 15px;
+    h2.bold {
+      text-align: center;
       font-size: 14px;
-      font-weight: bolder;
+      margin: 3px 0 0;
+    }
+    .myp-num {
+      display: flex;
+      width: 25%;
+      height: 16px;
+      margin: 10px auto 0;
+      .hyo {
+        color: #333333;
+        font-size: 14px;
+        margin-left: 10px;
+      }
+      span.bold {
+        margin-left: 15px;
+        font-size: 14px;
+        font-weight: bolder;
+      }
     }
   }
 }
 
-section.myp-tab-con-noti-todo {
+.myp-tab-con-noti-todo {
   width: 640px;
   height: 300px;
   background-color: #fafafa;
@@ -97,7 +99,7 @@ h3.to-do-list {
   left: 285px;
   background-repeat: no-repeat;
 }
-section.myp-tab-container {
+.myp-tab-container {
   width: 640px;
   height: 300px;
   background-color: #fafafa;

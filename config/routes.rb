@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :edit] do
+  resources :users do
     member do
       get "logout"
       get "payment"

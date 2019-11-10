@@ -21,9 +21,9 @@ class User < ApplicationRecord
   # validates :tel_number, presence: true, numericality: { only_integer:true }, length: { is: 11 }
 
   # validates :password, presence: true, length: { minimum: 7, maximum: 128 }
-  # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-  # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
+  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+  has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
+  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
