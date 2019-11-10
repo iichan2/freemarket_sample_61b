@@ -1,7 +1,7 @@
 .zenntai{
   height: 100%;
   width: 100vw;
-  background-color:#f5f5f5;
+  background-color:#eeeeee;;
 
 // 画像投稿分
 .dropzone-container {
@@ -85,8 +85,8 @@ input[type="text"] {
     height: 20px;
 }
 .select_boxyou{
-  width: 350px;
-  height: 30px;
+  width: 400px;
+  height: 50px;
 }
   .bun-matome{
     display: flex;
@@ -107,12 +107,18 @@ input[type="text"] {
   }
 
 // 以下上から順番
-  .atamanoe{
+  .header{
     height: 100px;
     width: 100%;
-    background-color: #f5f5f5;
-    padding:10px;
+    background-color: #eeeeee;
     text-align: center;
+    .atamanoe{
+      height: 100px;
+      width: 100%;
+      background-color: #eeeeee;
+      padding:10px;
+      text-align: center;
+    }
   }
   .atama{
    height: 100px;
@@ -124,7 +130,7 @@ input[type="text"] {
   }
   .main{
     height:100%;
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     background-color: white;
     .gazoushuppinn{
@@ -216,7 +222,7 @@ input[type="text"] {
       }
     }
     .shouhinmei{
-      height: 300px;
+      min-height: 300px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;
       .shouhinnmei-kakutokoro{
@@ -229,7 +235,7 @@ input[type="text"] {
     
     .shouhinnoshousai{
       display:flex;
-      height: 210px;
+      min-height: 210px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;  
 
@@ -240,6 +246,10 @@ input[type="text"] {
     
       .kategory-box{
         padding-bottom: 20px;
+        .kategory-box-wrapper{
+          padding-top: 15px;
+
+        }
       }
     
       .jyoutai-box{
@@ -248,7 +258,7 @@ input[type="text"] {
     }
     .haisounituite{
       display:flex;
-      height: 400px;
+      min-height: 400px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px; 
       .setumei {
@@ -301,7 +311,7 @@ input[type="text"] {
         }
       }
       .hanbaityuui{
-        height: 250px;
+        min-height: 300px;
         width: 100%;
         .tyuuibunn{
           height: 150px;

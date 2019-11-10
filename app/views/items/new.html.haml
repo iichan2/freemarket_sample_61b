@@ -1,6 +1,7 @@
 .zenntai
-  .atamanoe
-    =image_tag("signup-mercari.png",class: "gazou",height: "90px")
+  .header
+    .atamanoe
+      =image_tag("signup-mercari.png",class: "gazou",height: "60px")
   .main
     .atama
       商品の情報を入力
@@ -35,7 +36,7 @@
           .bunn  商品の説明
           .hissu  必須
         .shouhinsetumei-kakutokoro
-          = f.text_area :item_info, size: "100x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）<br>2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :item_info, size: "70x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .shouhinnoshousai
         .setumei  商品の詳細
         .migiyose
@@ -43,7 +44,10 @@
             .bunn  カテゴリー
             .hissu  必須
           .kategory-box
-            = f.select :category_id, @parents.category
+            .kategory-serectbox
+              .kategory-box-wrapper
+              = f.select :category_id, @category_parents, {}, {class: 'select_boxyou', id: 'parent_category'}
+              -# = f.select :category_id, @category_parent_array, {}, {class: 'select_boxyou', id: 'parent_category'}
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
@@ -95,6 +99,17 @@
           .modorubutton
             = link_to "/"  do
               %a.modo もどる
-          
+  %footer.st-footer
+    %ul.privacy
+      %li.pf
+        = link_to('プライバシーポリシー', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('メルカリ利用規約', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
+    .img-hako
+      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+    %p.ff 
+      %small ©︎2019 Mercari
 
 
