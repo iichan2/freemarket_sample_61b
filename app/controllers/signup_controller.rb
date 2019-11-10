@@ -29,7 +29,7 @@ def create
   # ログインするための情報を保管
     session[:id] = @user.id
 
-    redirect_to newend_signup_index_path
+    redirect_to root_path
 
   end
 end
