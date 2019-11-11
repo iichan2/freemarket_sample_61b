@@ -1,152 +1,155 @@
-.login__header{
-  width: 100vw;
+* {
+  text-decoration: none;
+}
+
+.single-container {
+  position: relative;
+  height: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1;
+  background-color: rgb(245, 245, 245);
+}
+
+.single-header {
   height: 128px;
   text-align: center;
-  &--h1{
-    width: 193px;
-    margin-top: 40px;
+  &__logo {
+    margin: 40px 0 0;
+    width: 185px; 
+    height: 49px;
+    line-height: 49px;
     display: inline-block;
-    &--img{
-      width: 185px;
-      height: 49px;
-      margin-right: 8px;
+    img.mercari-logo:hover {
+      opacity: 0.7 ;
+    }
+    }
+}
+.single-main {
+  display: block;
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__top {
+      background-color: rgb(247, 239, 207);
+      text-align: center;
+      padding: 30px 16px;
+      line-height: 2;
+      &__red {
+        font-weight: bold;
+        color: rgb(180, 21, 21);
+        font-size: 20px;
+      }
+    }
+    &__header {
+      border-top: 1px solid #f5f5f5;
+      font-weight: bold;
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      margin: 0px;
+      text-align: center;
+    }
+    &__inner {
+      text-align: center;
+      border-top: 1px solid #f5f5f5;
+      padding: 64px;
+      &__content {
+        max-width: 320px;
+        margin: 0 auto;
+        &__icon{
+          position: absolute;
+          font: normal 30px FontAwesome;
+          margin-left: 5px;
+          top: 50%;
+          left: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          color: white;
+        }
+        &__mail {
+          position: absolute;
+          font: normal 20px FontAwesome;
+          margin-left: 5px;
+          top: 50%;
+          left: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          color: gray;
+        }
+        .contents__btn{
+          display: block;
+          font-size: 14px;
+          color:#fff;
+          text-decoration: none;
+          text-align: center;
+          line-height: 48px;
+          &__mail{
+            position: relative;
+            background: #eee;
+            color: #000;
+          }
+          &__facebook{
+            position: relative;
+            margin: 16px 0 0;
+            background: #385185;
+            color: #fff;
+          }
+          &__google{
+            position: relative;
+            margin: 16px 0 0;
+            border: #979797 solid 1px;
+            color: #333;
+            &__logo {
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+            }
+          }
+        }
+      }
     }
   }
 }
 
-.login__container{
-  width: 100vw;
-  height: 731px;
-  &__panel{
-    width: 456px;
-    height: 731px;
-    margin: 0 auto;
-    background-color: white;
-    &__no-account{
-      width: 328px;
-      height: 64px;
-      padding: 40px 64px;
-      p{
-        width: 100%;
-        height: 14px;
-        text-align: center;
-      }
-      &--a{
-        width: 325px;
-        height: 40px;
-        margin-top: 8px;
-        border: 1px solid transparent;
-        background-color: dodgerblue;
-        outline: none;
-        display: flex;
-        align-items: center;
-        color: white;
-        p{
-          display: inline-block;
-        }
+.single-footer {
+  text-align: center;
+  width: 456px;
+  height: 220px;
+  margin: 0 auto 40px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 80px;
+  &__menu {
+    font-size: 12px;
+    list-style: none;
+    &__content {
+      display: inline-block;
+      margin: 0 0 0 16px;
+      &__portion {
+        color: black;
       }
     }
-    &__inner{
-      width: 328px;
-      height: 116px;
-      padding: 32px 64px;
-      border-top: 1px solid #f5f5f5;
-      &__fb{
-        .btn--default{
-          box-sizing: border-box;
-          width: 318px;
-          height: 48px;
-          border: none;
-          background-color: rgb(56, 88,133);
-          outline: none;
-          padding-left: 20px;
-          display: flex;
-          align-items: center;
-          i{
-            color: white;
-            font-size: 22px;
-            display: inline-block;
-          }
-          p{
-            margin-left: 70px;
-            display: inline-block;
-            color: white;
-            line-height: 5px;
-          }
-        }
-      }
-      &__google{
-        margin-top: 16px;
-        .btn--default{
-          box-sizing: border-box;
-          width: 318px;
-          height: 48px;
-          border: 0.5px solid #000;
-          background-color: #fff;
-          outline: none;
-          padding-left: 20px;
-          display: flex;
-          align-items: center;
-          i{
-            color: gray;
-            font-size: 22px;
-            display: inline-block;
-          }
-          p{
-            margin-left: 80px;
-            display: inline-block;
-            line-height: 5px;
-          }
-        }
-      }
+    li.single-footer__menu__content:hover {
+      opacity: 0.7 ;
+      text-decoration: underline;
     }
-    &__form{
-      &__inner{
-        width: 328px;
-        height: 211px;
-        padding: 24px 64px 32px 64px;
-        &--group{
-          height: 56px;
-          .input--default{
-            padding: 10px 16px 8px 16px;
-            border: 1px solid ;
-            margin-top: 8px;
-            outline: none;
-            border-radius: 0.2em;
-          }
-        }
-        &--groups{
-          height: 56px;
-          margin-top: 24px;
-          .input--default{
-            padding: 10px 16px 8px 16px;
-            border: 1px solid ;
-            margin-top: 8px;
-            outline: none;
-            border-radius: 0.2em;
-          }
-          .btn--default{
-            width: 100%;
-            height: 48px;
-            border: 1px solid;
-            margin-top: 24px;
-            background-color: crimson;
-            font-size: 14px;
-            color: white;
-            outline: none;
-            transition: 500ms;
-          }
-          .btn--default:active{
-              background-color: gray;
-          }
-          &--a{
-            height: 14px;
-            color: royalblue;
-            display: block;
-            margin-top: 30px;
-          }
-        }
-      }
-    }
+  }
+  .footer-logo {
+    padding-top: 40px;
+    height: 65 ;
+    width: 80px; 
+  }
+  img.footer-logo:hover {
+    opacity: 0.7 ;
+  }
+  .footer-century {
+    margin: 8px 0 0;
   }
 }

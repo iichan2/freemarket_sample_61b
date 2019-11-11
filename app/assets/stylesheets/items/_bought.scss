@@ -1,0 +1,125 @@
+.bought_wrapper{
+  height: 1480px;
+  width: 100%;
+  background-color: #eeeeee;
+}
+
+main.bought-main {
+  height: 1149px;
+}
+
+section.bought_notification{
+  height:120px;
+  width:50%;
+  background-color: cornsilk;
+  margin:0 auto;
+  padding: 20px 0;
+  text-align: center;
+  .bought_notification_message1 {
+    color:red;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 15px;
+    .bought_notification_message_icon{
+      display: block;
+      font-size:36px;
+      margin-right:10px;
+    }
+    h2.bought_message{
+      font-weight: 600;
+    }
+  }
+}
+
+h2.bought_head{
+  height:110px;
+  width: 100%;
+  color: #333333;
+  text-align: center;
+  line-height: 110px;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+}
+
+section.bought_item_box{
+  height:250px;
+  padding: 30px 0;
+}
+
+.bought_item_in{
+  text-align: center;
+  p.bought_item_name{
+    margin-top:10px;
+    text-align: center;
+  }
+
+}
+
+.bought_item_name{
+  display:block;
+  font-weight:600;
+}
+
+.bought_price{
+  text-align: center;
+  margin-top: 8px;
+  color: #333333;
+  height: 130px;
+  width:100%;
+  border-top: 1px solid #eeeeee;
+  .bought_item_price{
+    font-size: 18px;
+    font-weight: 600;
+    font-size: 25px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 130px;
+    margin-right: 10px;
+  }
+}
+
+section.bought_info {
+  width: 100%;
+  height: 140px;
+  padding: 3% 25% 3%;
+  font-size: 14px;
+  border-top: 1px solid #eeeeee;
+  position: relative;
+  h3.z {
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+}
+
+section.bought_info_flow{
+  width: 100%;
+  height: 250px;
+  padding: 3% 25% 3%;
+  font-size: 14px;
+  border-top: 1px solid #eeeeee;
+  position: relative;
+  text-align: center;
+  h3.z {
+    font-weight: 600;
+  }
+  a.changing {
+    text-decoration: none;
+    color: #0099EB;
+    font-weight: 600;
+    &:hover {
+      opacity: 0.7;
+      text-decoration: #0099EB;
+    }
+  }
+}
+
+.review_icon{
+  margin:10px 0;
+}
+
+span.bought_link{
+  display:block;
+  margin-top:15px;
+}

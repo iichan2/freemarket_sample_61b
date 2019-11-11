@@ -132,7 +132,7 @@ section.stb-info {
 }
 footer.st-footer {
   width: 50%;
-  height: 100px;
+  height: 200px;
   bottom: 0;
   background-color: #eeeeee;
   padding: 40px 0;
@@ -152,6 +152,7 @@ footer.st-footer {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    background-color: #eeeeee;
   }
   P.ff {
     color: #333333;
