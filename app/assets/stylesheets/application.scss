@@ -42,10 +42,10 @@
 @import 'users/identification';
 @import 'users/logout';
 @import 'users/myp-content';
+@import 'users/myp-edit';
 @import 'users/myp-side';
 @import 'users/notification';
 @import 'users/payment';
-@import 'users/profile';
 @import 'users/sending';
 @import 'users/trading';
 @import 'users/transaction-info-side';
@@ -57,7 +57,7 @@
   color: #FFFFFF;
 }
 .wrapper {
-  height: 100%;
+  height: 250vh;
   width: 100%;
   overflow: hidden;
   background-color: #eeeeee;

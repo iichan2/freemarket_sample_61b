@@ -1,10 +1,11 @@
-.my-contents
+.my-contents  
   .my-content-over
     .myp-user-icon
-      = link_to root_path, class: 'user-icon-link' do
-        %figure.center
+      = link_to root_path, class: "user-icon-link" do
+        .center
           = image_tag src='prof.jpg', alt: 'プロフィール', height: '60', width: '60', class: 'prof-circle'
-      %h2.bold name
+      %h2.bold 
+        = @user.nickname
       .myp-num
         .hyo 評価
         %span.bold 0
@@ -16,11 +17,10 @@
           %h3.myp  お知らせ
         %li.news.active
           %h3.myp やることリスト
-      .myp-tab-hako
-        %ul#mypage-tab-todo.mypage-item-list
-          %li.myp-item-not-found_old 
-            %h3.to-do-list 現在、やることリストはありません
-            .mercari-image
+      %ul#mypage-tab-todo.myp-item-list
+        %li.myp-item-not-found_old 
+          .mercari-image
+      %h3.to-do-list 現在、やることリストはありません
   %h2.purchaseditem-item 購入した商品  
   .myp-tab-container
     %ul.myp-tabs
@@ -28,8 +28,7 @@
         %h3.myp  取引中
       %li.news
         %h3.myp 過去の取引
-    .myp-tab-hako
-      %ul#mypage-tab-todo.mypage-item-list
-        %li.myp-item-not-found_old 
-          %h3.to-do-list 現在、やることリストはありません
-          .mercari-image
+    %ul#mypage-tab-todo.myp-item-list
+      %li.myp-item-not-found_old 
+        .mercari-image
+    %h3.to-do-list 現在、やることリストはありません
