@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load",function(){
   $('.slider-list').slick({
     autoplaySpeed: 5000,
     arrows: false,
