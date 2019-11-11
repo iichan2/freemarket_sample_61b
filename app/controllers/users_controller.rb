@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
   
   before_action :set_item_image_params, only: [:sending, :trading]
-
+  
   def payment
   end
 

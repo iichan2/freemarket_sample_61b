@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
       post 'create_user'
+      get 'choice_new'
     end
   end
 
