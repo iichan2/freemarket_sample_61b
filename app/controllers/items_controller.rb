@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @category_parents = Category.all.order("id ASC").limit(13)
   end
 
@@ -33,7 +32,7 @@ class ItemsController < ApplicationController
       else
         redirect_to action: :new
       end
-    end
+    
   end
 
     def get_category_children
