@@ -15,12 +15,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    @category_parents = Category.all.order("id ASC").limit(13)
   end
 
 
   def create
     @item = Item.create(item_params)
+    binding.pry
       if @item.save
         redirect_to action: :index
       else
@@ -44,7 +46,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:item_name, :item_info, :size, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url])
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url])
   end
 end
-# .merge(seller_id: current_user.id)
+# .merge(saler_id: current_user.id)

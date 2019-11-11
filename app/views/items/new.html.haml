@@ -46,13 +46,14 @@
           .kategory-box
             .kategory-serectbox
               .kategory-box-wrapper
-              = f.select :category_id, @category_parents, {}, {class: 'select_boxyou', id: 'parent_category'}
+              -# = f.select :category_id, @category_parents, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
               -# = f.select :category_id, @category_parent_array, {}, {class: 'select_boxyou', id: 'parent_category'}
+              = f.collection_select :category_id, @category_parents, :id, :category, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
           .jyoutai-box
-            = f.select :status,[["---" ],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{}, {class: 'select_boxyou'} 
+            = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .haisounituite
         .setumei  配送について
         .migiyose
@@ -60,12 +61,12 @@
             .bunn  配送量の負担
             .hissu  必須
           .kategory-box
-            = f.select :delivery_fee,[["---"],["送料込み (出品者負担)"],["着払い(購入者負担)"]],{},{class: 'select_boxyou'}
+            = f.select :delivery_fee,[["送料込み (出品者負担)"],["着払い(購入者負担)"]],{prompt: "---" },{class: 'select_boxyou'}
           .bun-matome
             .bunn  配送量の方法
             .hissu  必須
           .kategory-box
-            = f.select :delivery_way,[["---" ],["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{}, {class: 'select_boxyou'} 
+            = f.select :delivery_way,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{prompt: "---" }, {class: 'select_boxyou'} 
           .bun-matome
             .bunn  発送元の地域
             .hissu  必須
@@ -75,7 +76,7 @@
             .bunn  発送までの日数
             .hissu  必須
           .kategory-box
-            = f.select :delivery_day,[["---" ],["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{}, {class: 'select_boxyou'} 
+            = f.select :delivery_day,[["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .hannbaikakaku
         .setumei  販売価格(300~9,999,999)
         .migiyose
