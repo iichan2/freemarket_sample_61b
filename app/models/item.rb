@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :brands
 
-  # belongs_to :category
+  belongs_to :category
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
   # belongs_to :saler, class_name: "User"
