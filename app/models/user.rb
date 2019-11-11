@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   # validates :postal_code, presence: true, format: { with: /A\d{3}-\d{4}\z/}
-  validates :ken, presence: true
-  validates :map, presence: true
-  validates :nickname, presence: true, length: { minimum: 1, maximum: 20}
-  validates :email, presence: true
-  # validates :first_name, :last_name,  presence: true
+  # validates :ken, presence: true
+  # validates :map, presence: true
+  # validates :nickname, presence: true, length: { minimum: 1, maximum: 20}
+  # validates :email, presence: true
+  # # validates :first_name, :last_name,  presence: true
   # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :tel_number, presence: true, numericality: { only_integer:true }, length: { is: 11 }

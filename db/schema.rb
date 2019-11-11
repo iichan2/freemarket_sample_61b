@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "last_name", null: false
     t.string "kana_first_name", null: false
     t.string "kana_last_name", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "ken", null: false
     t.string "map", null: false
-    t.integer "banchi", null: false
+    t.string "banchi", null: false
     t.string "building"
     t.string "tel_number"
     t.bigint "user_id"
@@ -151,6 +151,12 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "likes"
     t.text "comments"
     t.text "reviews"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.string "keyword"
+    t.string "keyword2"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -158,22 +164,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "birth_year"
-    t.string "birth_month"
-    t.string "birth_day"
-    t.integer "postal_code"
-    t.integer "ken"
-    t.string "map"
-    t.string "banchi"
-    t.string "building"
-    t.string "tel_number2"
-    t.text "profile"
-    t.string "f_name"
-    t.string "l_name"
-    t.string "kana_f_name"
-    t.string "kana_l_name"
-    t.string "keyword"
-    t.string "keyword2"
     t.string "provider"
     t.string "uid"
   end
