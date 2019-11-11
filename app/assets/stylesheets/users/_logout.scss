@@ -1,17 +1,13 @@
-.logout_main{
-  height:100vh;
-  width:100%;
-  background-color: #f5f5f5;
-
-  .logout_content{
-    padding-top: 100px;
-    height:178.24px;
-    width:700px;
-    padding:64px;
-    background-color: #fff;
-    float: right;
-  }
-
+.logout_content{
+  padding-top: 100px;
+  height:178.24px;
+  width:700px;
+  padding:64px;
+  background-color: #fff;
+  position: absolute;
+  top: 3%;
+  right: 5%;
+}
 .logout_test{
   display: block;
   width:320px;
@@ -22,5 +18,4 @@
   font-size: 14px;
   text-align: center;
   line-height: 48px;
-}
 }
