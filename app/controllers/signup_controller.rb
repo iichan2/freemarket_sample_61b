@@ -7,7 +7,6 @@ class SignupController < ApplicationController
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
-    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
@@ -56,7 +55,7 @@ class SignupController < ApplicationController
       banchi: @info_user[:banchi],
       tel_number: @info_user[:tel_number2],
       building: @info_user[:building],
-      user_id: current_user.id
+      user_id: @user.id
     )
       
     if @delivery.save
@@ -76,7 +75,6 @@ class SignupController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
     session[:first_name] = user_params[:first_name]
     session[:last_name] = user_params[:last_name]
     session[:kana_first_name] = user_params[:kana_first_name]
@@ -124,7 +122,6 @@ class SignupController < ApplicationController
       :first_name, 
       :kana_last_name, 
       :kana_first_name,
-
       :l_name, 
       :f_name, 
       :kana_l_name, 
@@ -141,7 +138,6 @@ class SignupController < ApplicationController
       :banchi,
       :building,
       :password,
-      :password_confirmation
       )
   end
 
