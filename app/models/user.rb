@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   # belongs_to :card, dependent: :destroy
   # belongs_to :bank, dependent: :destroy
-  belongs_to :delivery
+  has_one :delivery
   has_many :likes, dependent: :destroy
   has_many :comments, through: :items
   has_many :sns_credentials, dependent: :destroy
