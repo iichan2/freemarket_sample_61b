@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :comments, through: :items
   has_many :sns_credentials, dependent: :destroy
   has_many :reviews, dependent: :destroy
-
   # validates :postal_code, presence: true, format: { with: /A\d{3}-\d{4}\z/}
   # validates :ken, presence: true
   # validates :map, presence: true

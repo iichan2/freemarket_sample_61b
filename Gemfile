@@ -94,4 +94,6 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'ancestry'
+gem 'active_hash'
 gem 'rake', '< 11.0'
+gem 'payjp'

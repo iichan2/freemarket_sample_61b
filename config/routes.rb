@@ -4,7 +4,7 @@ Rails.application.routes.draw do
                 registrations: 'users/registrations' }
   resources :items, only: [:index,:new, :create]
   resources :categories
-
+  resources :cards
   post 'signup'  => 'signup#create', as: 'signup'
 
 
@@ -36,7 +36,6 @@ Rails.application.routes.draw do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
-
       end
   end
 end
