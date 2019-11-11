@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   # belongs_to :card, dependent: :destroy
   # belongs_to :bank, dependent: :destroy
+  belongs_to :delivery
   has_many :likes, dependent: :destroy
   has_many :comments, through: :items
   has_many :sns_credentials, dependent: :destroy
@@ -19,7 +20,6 @@ class User < ApplicationRecord
   # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :tel_number, presence: true, numericality: { only_integer:true }, length: { is: 11 }
-
   # validates :password, presence: true, length: { minimum: 7, maximum: 128 }
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
