@@ -29,7 +29,7 @@ $(document).on("turbolinks:load",function(){
     }
     // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
-      var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+      var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーのidを取得
       if (parentCategory != 0){ //親カテゴリーが初期値でないことを確認
         $.ajax({
           url: 'get_category_children',
