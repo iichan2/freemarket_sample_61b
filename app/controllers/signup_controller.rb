@@ -27,7 +27,8 @@ class SignupController < ApplicationController
     map: session[:map],
     banchi: session[:banchi],
     building: session[:building],
-    tel_number: session[:tel_number]
+    tel_number: session[:tel_number],
+    tel_number2: session[:tel_number2]
   )
     
     if @user.save
@@ -60,15 +61,15 @@ class SignupController < ApplicationController
     # end
     
     @delivery = Delivery.new(
-      first_name: @info_user[:f_name], 
-      last_name: @info_user[:l_name], 
-      kana_last_name: @info_user[:kana_l_name], 
-      kana_first_name: @info_user[:kana_f_name], 
+      f_name: @info_user[:f_name], 
+      l_name: @info_user[:l_name], 
+      kana_l_name: @info_user[:kana_l_name], 
+      kana_f_name: @info_user[:kana_f_name], 
       postal_code: @info_user[:postal_code],
       ken: @info_user[:ken],
       map: @info_user[:map],
       banchi: @info_user[:banchi],
-      tel_number: @info_user[:tel_number2],
+      tel_number2: @info_user[:tel_number2],
       building: @info_user[:building],
       user_id: current_user.id
     )
@@ -139,8 +140,6 @@ class SignupController < ApplicationController
       :kana_last_name, 
       :kana_first_name,
 
-
-      
       :l_name, 
       :f_name, 
       :kana_l_name, 

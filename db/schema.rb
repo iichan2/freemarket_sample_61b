@@ -100,6 +100,10 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.integer "price", null: false
     t.integer "saler_id"
     t.integer "buyer_id"
+    t.string "stopping"
+    t.string "deleted"
+    t.string "sold"
+    t.string "exhibit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
