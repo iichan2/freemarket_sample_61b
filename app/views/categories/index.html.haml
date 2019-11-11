@@ -1,0 +1,37 @@
+.wrapper
+  = render 'items/header'
+  :javascript
+      $(function(){
+        $('a[href^="#"]').click(function() {
+          var speed = 400;
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+  .gretel_area
+  .category_wrapper
+    .category_main_box
+      .category_block_area
+        %h1 カテゴリー一覧
+        .category_boxes
+          - @parents.each do |parent|
+            .category_box
+              = link_to "#{parent.category}","##{parent.id}",class: "category"
+      - @parents.each do |parent|
+        .category_p_area.red
+          %h1{id:parent.id}
+            = parent.category
+        .category_c_area 
+          = link_to "すべて", "", class: "grandchild"
+          - parent.children.each do |child|
+            %h2 
+              = child.category
+            .grandchild_area
+              = link_to "すべて", "", class: "grandchild"
+              - child.children.each do |grandchild|
+                = link_to "#{grandchild.category}", "", class: "grandchild"
+          -# = render "grandchildren", 
+          -# {: @username, listname: @listname} 

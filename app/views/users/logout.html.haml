@@ -1,16 +1,11 @@
-
 .logout_main
-  =render "users/login"
+  = render "users/login"
   .logout_header
     = link_to "ログアウト", :back, class: 'logout_test'
   .logout_side
-    =render "users/show"
-  
+    = render "myp-side"
   .logout_footer
-    =render "tests/footer"
-
+    = render "items/footer"
 -# =render "tests/footer"
-
 -# =render "tests/item_circle"" 
 -# .logout_content
-   

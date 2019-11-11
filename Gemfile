@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -47,6 +51,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+
 end
 
 group :development do
@@ -56,7 +61,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  
 end
 
 group :test do
@@ -76,6 +80,8 @@ gem 'font-awesome-rails'
 gem 'erb2haml'
 gem 'faraday'
 gem "jquery-rails"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'active_hash'
@@ -84,15 +90,11 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ransack'
-
 gem 'devise'
 gem 'dotenv-rails'
-
-
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'ancestry'
-gem 'active_hash'
 gem 'rake', '< 11.0'

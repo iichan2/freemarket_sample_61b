@@ -2,6 +2,7 @@
   .header
     .atamanoe
       =image_tag("signup-mercari.png",class: "gazou",height: "60px")
+
   .main
     .atama
       商品の情報を入力
@@ -37,6 +38,7 @@
           .hissu  必須
         .shouhinsetumei-kakutokoro
           = f.text_area :item_info, size: "70x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
       .shouhinnoshousai
         .setumei  商品の詳細
         .migiyose
@@ -46,9 +48,8 @@
           .kategory-box
             .kategory-serectbox
               .kategory-box-wrapper
-              -# = f.select :category_id, @category_parents, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
-              -# = f.select :category_id, @category_parent_array, {}, {class: 'select_boxyou', id: 'parent_category'}
               = f.collection_select :category_id, @category_parents, :id, :category, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
+
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
@@ -112,5 +113,3 @@
       = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
     %p.ff 
       %small ©︎2019 Mercari
-
-

@@ -13,14 +13,15 @@
  *= require_tree .
  *= require_self
  */
-
-
 // configフォルダ以下
 @import "config/reset";
+// Gem以下
+@import "font-awesome";
 // itemsフォルダ以下
 @import "items/show";
-@import "items/items";
+@import "items/new";
 @import "items/transaction";
+@import "items/bought";
 // modulesフォルダ以下
 @import "modules/adv";
 @import "modules/content";
@@ -30,6 +31,8 @@
 @import "modules/slide";
 // sign_upフォルダ以下
 @import "sign_up/card";
+@import "sign_up/log_in";
+@import "sign_up/mail";
 @import "sign_up/address";
 @import "sign_up/new";
 @import "sign_up/newend";
@@ -38,15 +41,14 @@
 // usersフォルダ以下
 @import 'users/identification';
 @import 'users/logout';
-@import 'users/my-page';
 @import 'users/myp-content';
 @import 'users/myp-side';
 @import 'users/notification';
 @import 'users/payment';
 @import 'users/profile';
+@import 'users/sending';
+@import 'users/trading';
+@import 'users/transaction-info-side';
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
-// Gem以下
-@import "font-awesome";
-

@@ -1,0 +1,24 @@
+i.truck {
+  color: #ea352D;
+  font-size: 40px;
+  font-weight: 100;
+  margin-left: auto;
+}
+.seller-q {
+  color: #0099EB;
+  padding-left: 5%;
+}
+button.send-msg {
+  background: #ea352D;
+  width: 90%;
+  margin: 6%;
+  padding: 3%;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.88;
+  }
+}
