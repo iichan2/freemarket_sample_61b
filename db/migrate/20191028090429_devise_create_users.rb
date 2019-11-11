@@ -20,7 +20,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :keyword 
       t.string :keyword2
       t.text :profile
-
+      t.string :password_confirmation
       
       ## Database authenticatable
       t.string :email,           null: false, default: ""

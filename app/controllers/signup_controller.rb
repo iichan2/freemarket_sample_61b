@@ -17,6 +17,10 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+
+
+  
+
     if @user.save
     else
       # ログインするための情報を保管
@@ -24,7 +28,7 @@ class SignupController < ApplicationController
       
     end
   end
-
+ 
   def create
     # require "payjp"
       
@@ -45,6 +49,7 @@ class SignupController < ApplicationController
     #     redirect_to action: "pay"
     #   end
     # end
+ 
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -124,7 +129,6 @@ class SignupController < ApplicationController
       :first_name, 
       :kana_last_name, 
       :kana_first_name,
-
       :l_name, 
       :f_name, 
       :kana_l_name, 
