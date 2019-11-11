@@ -4,13 +4,14 @@ class Item < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :brands
+
   belongs_to :category
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
   # belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
-  # mount_uploaders :image_url, ImageUploader
-
+  
+  validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, :saler_id, presence: true
   def self.search(item_name)
     if item_name
       Item.where(['item_name LIKE ?', "%#{item_name}%"])
