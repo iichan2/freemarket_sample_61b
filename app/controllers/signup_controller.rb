@@ -112,8 +112,8 @@ class SignupController < ApplicationController
     @user = User.new
   end
   def newend 
-    sign_in User.find(session[:id]) unless user_signed_in?
     
+    # newend_signup_index
     
   end
   
