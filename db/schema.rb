@@ -63,16 +63,16 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
   end
 
   create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "kana_first_name", null: false
-    t.string "kana_last_name", null: false
+    t.string "f_name", null: false
+    t.string "l_name", null: false
+    t.string "kana_f_name", null: false
+    t.string "kana_l_name", null: false
     t.string "postal_code", null: false
     t.integer "ken", null: false
     t.string "map", null: false
     t.string "banchi", null: false
     t.string "building"
-    t.string "tel_number"
+    t.string "tel_number2"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
