@@ -2,6 +2,11 @@
 	TODO will need to remove settings on HTML since we can't namespace it.
 	TODO with the prefix, should I group by selector or property for weight savings?
 */
+*{
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  box-sizing: border-box;
+  margin:0;
+}
 html{
 	color:#000;
 	background:#FFF;

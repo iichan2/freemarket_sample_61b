@@ -24,13 +24,11 @@ class User < ApplicationRecord
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
-
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     # binding.pry
-
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
@@ -43,7 +41,6 @@ class User < ApplicationRecord
       end
       sns = snscredential
       #binding.pry
-
     else #sns登録 未
       user = User.where(email: auth.info.email).first
       if user.present? #会員登録 済
