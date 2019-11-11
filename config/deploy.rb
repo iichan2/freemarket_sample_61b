@@ -28,11 +28,24 @@ set :keep_releases, 5
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+  task :db_seed do
+    on roles(:db) do
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :rake, :'db:seed'
+        end
+      end
+    end
+  end
   task :restart do
-    invoke 'unicorn:restart'
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'unicorn:stop'
+      invoke 'unicorn:start'
+    end
   end
   after :finishing, 'deploy:cleanup'
 end
+
 set :default_env, {
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]

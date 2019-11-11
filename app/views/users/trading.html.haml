@@ -1,0 +1,26 @@
+= render "items/header"
+.back-ground
+  = render "items/transaction-info-side"
+  .trading-container
+    .trading-screen
+      %h2.tr-sc 取引画面
+    .trading-completed
+      .tr-co-container
+        = fa_icon "check", class: "check"
+        %p.tr-co 取引が終了しました
+      %p.thanks このたびはメルカリのご利用ありがとうございました
+    .sales-price-box
+      .sales-price 販売代金の受け取りについて
+      = fa_icon "chevron-right", class: "arrow-right-trading-and-sending"
+    .user-comment-bar
+      = image_tag 'mercari-face', alt: 'mercari-face', height: '30px', width: '30px', class: 'mercari-face'
+      = @user.nickname 
+      .comment-box 素晴らしい取引でした！
+    .office-confirmation
+      %p.comment-content 取引メッセージの内容は、必要に応じて事務局で確認しています
+      = form_with local: true, class: "comment-form" do |f|
+        = f.text_field :text, class: "comment-field"
+        = f.submit "取引メッセージを送る", class: "comment-send"
+    %p.some-question ※お困りの際はよくある質問をご確認ください。
+= render 'items/adv'
+= render 'items/footer'

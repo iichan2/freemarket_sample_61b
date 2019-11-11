@@ -1,0 +1,34 @@
+.tran-info-side-container
+  %h3.tran-info-head 取引情報
+  %ul.tran-info-content
+    %li.tran-info-item-list
+      .tran-info-item-top
+        %span.tran-info-item-name 商品
+      .tran-info-item-image
+        = image_tag "#{@image.image_url}", height: '100', width: '100', class: 'tran-item-image'
+        %p.tran-info-item-name
+          = @item.item_name
+        %p.tran-info-item-price
+          = "¥#{@item.price}"
+    %li.item-info-gray 
+      %p.key 送料      
+      %p.value 着払い(購入者負担） 
+    %li.item-info-white
+      %p.key 販売手数料
+      %p.value
+        = "¥#{@item.price / 10}"
+    %li.item-info-gray
+      %p.key 販売利益
+      %p.value
+        = "¥#{@item.price - @item.price / 10}"      
+    %li.item-info-white
+      %p.key 購入日時
+      %p.value 11月8日 18:51
+    %li.item-info-gray
+      %p.key 商品ID
+      %p.value
+        = @item.id
+    %li.item-info-white
+      %p.key お届け先
+      %p.value
+        = @user.delivery.postal_code

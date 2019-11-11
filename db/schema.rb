@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_11_10_033934) do
-
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -67,10 +66,10 @@ ActiveRecord::Schema.define(version: 2019_11_10_033934) do
     t.string "last_name", null: false
     t.string "kana_first_name", null: false
     t.string "kana_last_name", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "ken", null: false
     t.string "map", null: false
-    t.integer "banchi", null: false
+    t.string "banchi", null: false
     t.string "building"
     t.string "tel_number"
     t.bigint "user_id"
@@ -128,6 +127,15 @@ ActiveRecord::Schema.define(version: 2019_11_10_033934) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -140,6 +148,12 @@ ActiveRecord::Schema.define(version: 2019_11_10_033934) do
     t.string "likes"
     t.text "comments"
     t.text "reviews"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.string "keyword"
+    t.string "keyword2"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -153,8 +167,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_033934) do
     t.integer "postal_code"
     t.integer "ken"
     t.string "map"
-    t.integer "banchi"
+    t.string "banchi"
     t.string "building"
+    t.string "tel_number2"
     t.text "profile"
     t.string "f_name"
     t.string "l_name"
@@ -178,4 +193,5 @@ ActiveRecord::Schema.define(version: 2019_11_10_033934) do
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sns_credentials", "users"
 end

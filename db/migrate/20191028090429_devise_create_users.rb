@@ -14,8 +14,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :likes
       t.text :comments
       t.text :reviews
-
-
+      t.string :birth_year 
+      t.string :birth_month
+      t.string :birth_day
+      t.string :keyword 
+      t.string :keyword2
+      t.text :profile
 
       
       ## Database authenticatable

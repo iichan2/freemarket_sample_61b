@@ -27,9 +27,7 @@
         .registration-form__content
           %p.done.message ありがとうございます。
           %p.done.message 会員登録が完了しました。
-          =link_to signup_index_path,method: :post do
+          =link_to root_path,method: :post do
             %button.btn-default.btn-red{type: "submit"} メルカリをはじめる
-          
-
-= render 'users/signup-footer'
+= render 'signup/signup-footer'
 
