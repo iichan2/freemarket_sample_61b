@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get 'address'
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
-      # post 'create_user'
+      post 'create_user'
     end
   end
 

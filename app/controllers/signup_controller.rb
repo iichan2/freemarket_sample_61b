@@ -12,23 +12,11 @@ class SignupController < ApplicationController
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
-
-    l_name: session[:l_name], 
-    f_name: session[:f_name], 
-    kana_l_name: session[:kana_l_name], 
-    kana_f_name: session[:kana_f_name], 
     birth_year: session[:birth_year],
     birth_month: session[:birth_month],
     birth_day: session[:birth_day],
-    postal_code: session[:postal_code],
-    ken: session[:ken],
-    map: session[:map],
-    banchi: session[:banchi],
-    building: session[:building],
-    tel_number: session[:tel_number],
-    tel_number2: session[:tel_number2]
+    tel_number: session[:tel_number]
   )
-    
     if @user.save
     else
       # ログインするための情報を保管
@@ -57,7 +45,6 @@ class SignupController < ApplicationController
     #     redirect_to action: "pay"
     #   end
     # end
-    
     @delivery = Delivery.new(
       f_name: @info_user[:f_name], 
       l_name: @info_user[:l_name], 
