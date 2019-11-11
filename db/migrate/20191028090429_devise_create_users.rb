@@ -18,7 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :birth_month
       t.string :birth_day
       t.text :profile
-
+      t.string :password_confirmation
       
       ## Database authenticatable
       t.string :email,           null: false, default: ""
