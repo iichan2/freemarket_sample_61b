@@ -29,11 +29,11 @@
             %span.price ￥#{ladies.price}
             .itemtop
               - ladies.images.each do |ladies_image|
-                =link_to "" do
+                =link_to "items/#{ladies.id}" do
                   = image_tag("#{ladies_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{ladies.item_name}", "items/#{ladies.id}/show", class: 'explanation')
+                = link_to("#{ladies.item_name}", "items/#{ladies.id}", class: 'explanation')
       .name#mens_new
         %h1.title
           メンズ新着アイテム
@@ -44,11 +44,11 @@
             %span.price ￥#{mens.price}
             .itemtop
               - mens.images.each do |mens_image|
-                =link_to "" do
+                =link_to "items/#{mens.id}" do
                   = image_tag("#{mens_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{mens.item_name}", "items/#{mens.id}/show", class: 'explanation')
+                = link_to("#{mens.item_name}", "items/#{mens.id}", class: 'explanation')
       .name#elect
         %h1.title
           家電・スマホ・カメラ新着アイテム
@@ -59,11 +59,11 @@
             %span.price ￥#{appliance.price}
             .itemtop
               - appliance.images.each do |appliance_image|
-                =link_to "" do
+                =link_to "items/#{appliance.id}" do
                   = image_tag("#{appliance_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{appliance.item_name}", "items/#{appliance.id}/show", class: 'explanation')
+                = link_to("#{appliance.item_name}", "items/#{appliance.id}", class: 'explanation')
       .name#toy
         %h1.title
           おもちゃ・ホビー・グッズ新着アイテム
@@ -74,11 +74,11 @@
             %span.price ￥#{toys.price}
             .itemtop
               - toys.images.each do |toys_image|
-                =link_to "" do
+                =link_to "items/#{toys.id}" do
                   = image_tag("#{toys_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{toys.item_name}", "items/#{toys.id}/show", class: 'explanation')
+                = link_to("#{toys.item_name}", "items/#{toys.id}", class: 'explanation')
   .contents
     .category
       .category
@@ -87,20 +87,20 @@
           %ul.categorybox
             %li.qaz
               .bar11
-                = link_to('窪田', href="#kubota", class: 'qaz')
+                = link_to('KubooTA', href="#kubota", class: 'qaz')
             %li.qaz
               .bar8
-                = link_to('井上', href="#inoue", class: 'qaz')
+                = link_to('エウオーニ', href="#inoue", class: 'qaz')
             %li.qaz
               .bar9
-                = link_to('塩谷', href="#sioya", class: 'qaz')
+                = link_to('NAHCII', href="#sioya", class: 'qaz')
             %li.qaz
               .bar10
-                = link_to('外内', href="#tonochi", class: 'qaz')
+                = link_to('トノッチ', href="#tonochi", class: 'qaz')
     .new_box
       .name#kubota
         %h1.title
-          窪田新着アイテム
+          KubooTA新着アイテム
         .more          
           = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
@@ -109,14 +109,14 @@
             %span.price ￥#{kubota.price}
             .itemtop
               - kubota.images.each do |kubota_image|
-                =link_to "" do
+                =link_to "items/#{kubota.id}" do
                   = image_tag("#{kubota_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{kubota.item_name}", "items/#{kubota.id}/show", class: 'explanation')
+                = link_to("#{kubota.item_name}", "items/#{kubota.id}", class: 'explanation')
       .name#inoue
         %h1.title
-          井上新着アイテム
+          エウオーニ新着アイテム
         %a.more{href: ""} もっと見る ＞
       %ul.item
         - @inoue_items.each do |inoue|
@@ -124,14 +124,14 @@
             %span.price ￥#{inoue.price}
             .itemtop
               - inoue.images.each do |inoue_image|
-                =link_to "" do
+                =link_to "items/#{inoue.id}" do
                   = image_tag("#{inoue_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{inoue.item_name}", "items/#{inoue.id}/show", class: 'explanation')
+                = link_to("#{inoue.item_name}", "items/#{inoue.id}", class: 'explanation')
       .name#sioya
         %h1.title
-          塩谷新着アイテム
+          NAHCII新着アイテム
         %a.more{href: ""} もっと見る ＞
       %ul.item
         - @shioya_items.each do |shioya|
@@ -146,7 +146,7 @@
                 = link_to("#{shioya.item_name}", "items/#{shioya.id}/show", class: 'explanation')
       .name#tonochi
         %h1.title
-          外内新着アイテム
+          トノッチ新着アイテム
         %a.more{href: ""} もっと見る ＞
       %ul.item
         - @tonochi_items.each do |tonochi|

@@ -13,11 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null: false
       t.integer :saler_id
       t.integer :buyer_id
-      t.string :stopping
-      t.string :deleted
-      t.string :sold
-      t.string :deleted
-      t.string :exhibit
+      t.string :exhibition_state
       t.timestamps
     end
     add_reference :items, :brand, foreign_key: true
