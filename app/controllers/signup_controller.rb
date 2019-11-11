@@ -13,8 +13,6 @@ class SignupController < ApplicationController
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
 
-
-
     l_name: session[:l_name], 
     f_name: session[:f_name], 
     kana_l_name: session[:kana_l_name], 
