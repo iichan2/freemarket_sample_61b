@@ -73,7 +73,6 @@ class SignupController < ApplicationController
 
   def mail
     # 新規登録ページ
-    
   end
 
   def new

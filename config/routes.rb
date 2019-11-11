@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' ,omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users,
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                registrations: 'users/registrations' }
   resources :items, only: [:index,:new, :create]
   resources :categories
 
@@ -31,7 +33,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :edit, :new, :create, :show] do
       member do
         get 'transaction'
+        get 'get_category_children', defaults: { format: 'json' }
+        get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
+
       end
   end
 end

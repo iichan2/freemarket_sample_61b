@@ -24,9 +24,29 @@
         .bar4
           =link_to "", class: "bar4" do
             &nbsp ブランドから探す
-      .touroku
-        .bar5
-          = link_to('新規会員登録', signup_index_path, class: 'touroku')
-      .login
-        .bar6
-          = link_to('ログイン', root_path, class: 'login')
+      .right_boxxx
+        - if user_signed_in?
+          =link_to "",class:"qbox" do
+            %p.heart
+              =fa_icon "heart-o"
+            %p.iine
+              いいね！一覧
+          =link_to "",class:"wbox" do
+            %p.bell
+              =fa_icon "bell-o"
+            %p.osirase
+              お知らせ
+          =link_to "",class:"ebox" do
+            %p.check
+              =fa_icon "check"
+            %p.yarukotorisuto
+              やることリスト
+          =link_to "",class:"rbox" do
+            %p.my
+              =fa_icon "futbol-o"
+            %p.mymypage
+              マイページ        
+        - else
+          =link_to('新規会員登録', root_path, class: 'touroku')
+          =link_to('ログイン', root_path, class: 'login')
+

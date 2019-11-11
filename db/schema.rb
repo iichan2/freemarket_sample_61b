@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.string "last_name", null: false
     t.string "kana_first_name", null: false
     t.string "kana_last_name", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "ken", null: false
     t.string "map", null: false
     t.string "banchi", null: false
@@ -151,6 +151,12 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.string "likes"
     t.text "comments"
     t.text "reviews"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.string "keyword"
+    t.string "keyword2"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
