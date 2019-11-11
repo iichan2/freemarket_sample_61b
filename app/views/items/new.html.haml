@@ -48,7 +48,7 @@
           .kategory-box
             .kategory-serectbox
               .kategory-box-wrapper
-              = f.collection_select :category_id, @category_parents, :category, :category, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
+              = f.collection_select :category_id, @category_parents, :id, :category, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
 
           .bun-matome
             .bunn  商品の詳細
