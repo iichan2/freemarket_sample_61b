@@ -7,59 +7,65 @@ describe Item do
 
 
     end
-    it "サイズの必要性" do
+    it "サイズは不必要" do
       item = build(:item, size: nil)
       expect(item).to be_valid
 
     end
 
-    it "ブランドの必要性" do
+    it "ブランドは不必要" do
       item = build(:item, brand_id: nil)
       expect(item).to be_valid
     end
 
-    it "名前の必要性" do
+    it "名前は必要" do
       item = build(:item, item_name: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:item_name]).to include("can't be blank")
     end
 
-    it "アイテム説明の必要性" do
+    it "アイテム説明は必要" do
       item = build(:item, item_info: nil)
-      expect(item).to be_valid
-      # item.valid?
-      # expect(item.errors[:item_name]).to include("が足りません")
+      item.valid?
+      expect(item.errors[:item_info]).to include("can't be blank")
     end
 
-    it "状態の必要性" do
+    it "状態は必要" do
       item = build(:item, status: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:status]).to include("can't be blank")
     end
-    it "発送料支払者の必要性" do
+    it "発送料支払者は必要" do
       item = build(:item, delivery_fee: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:delivery_fee]).to include("can't be blank")
     end
 
-    it "発送方法の必要性" do
+    it "発送方法は必要" do
       item = build(:item, delivery_way: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:delivery_way]).to include("can't be blank")
     end
 
-    it "発送時間の必要性" do
+    it "発送時間は必要" do
       item = build(:item, delivery_day: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:delivery_day]).to include("can't be blank")
     end
 
-    it "発送地域の必要性" do
+    it "発送地域は必要" do
       item = build(:item, area: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:area]).to include("can't be blank")
     end
 
-    it "買い手の必要性" do
+    it "買い手は必要" do
       item = build(:item, saler_id: nil)
-      expect(item).to be_valid
+      item.valid?
+      expect(item.errors[:saler_id]).to include("can't be blank")
     end
 
-    it "売り手の必要性" do
+    it "売り手は不必要" do
       item = build(:item, buyer_id: nil)
       expect(item).to be_valid
     end
