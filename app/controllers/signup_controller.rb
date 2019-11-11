@@ -46,15 +46,15 @@ class SignupController < ApplicationController
     #   end
     # end
     @delivery = Delivery.new(
-      f_name: @info_user[:f_name], 
-      l_name: @info_user[:l_name], 
-      kana_l_name: @info_user[:kana_l_name], 
-      kana_f_name: @info_user[:kana_f_name], 
+      first_name: @info_user[:f_name], 
+      last_name: @info_user[:l_name], 
+      kana_last_name: @info_user[:kana_l_name], 
+      kana_first_name: @info_user[:kana_f_name], 
       postal_code: @info_user[:postal_code],
       ken: @info_user[:ken],
       map: @info_user[:map],
       banchi: @info_user[:banchi],
-      tel_number2: @info_user[:tel_number2],
+      tel_number: @info_user[:tel_number2],
       building: @info_user[:building],
       user_id: current_user.id
     )
