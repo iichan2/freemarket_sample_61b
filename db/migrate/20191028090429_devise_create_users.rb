@@ -17,8 +17,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :birth_year 
       t.string :birth_month
       t.string :birth_day
-      t.string :keyword 
-      t.string :keyword2
       t.text :profile
       t.string :password_confirmation
       
