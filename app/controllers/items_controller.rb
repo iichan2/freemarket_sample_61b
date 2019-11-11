@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    binding.pry
       if @item.save
         redirect_to action: :index
       else
@@ -43,6 +42,9 @@ class ItemsController < ApplicationController
       @category_grandchildren = Category.find(params[:child_id]).children
     end
 
+    def transaction
+      @item = Item.find(params[:id])
+    end
   def show
   end
 

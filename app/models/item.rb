@@ -4,7 +4,6 @@ class Item < ApplicationRecord
   has_many :likes
   has_many :comments
   has_many :brands
-
   belongs_to :category
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
