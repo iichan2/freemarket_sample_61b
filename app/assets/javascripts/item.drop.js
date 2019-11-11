@@ -7,6 +7,12 @@ $(document).on('turbolinks:load', function(){
 
 
   $(document).on('change', 'input[type= "file"].upload-image',function() {
+    if(images.length <= 3){
+      var input_area = $('.sell_upload__area');
+    }else{
+      var input_area = $('.sell_upload__area2');
+    }
+ 
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
@@ -16,28 +22,34 @@ $(document).on('turbolinks:load', function(){
       img.append(btn_wrapper);
       img.find('img').attr({
         src: e.target.result,
-        width: '110px',
-        height: '110px'
+        width: '120px',
+        height: '120px'
       })
     }
     reader.readAsDataURL(file);
     images.push(img);
       $.each(images, function(index, image) {
         image.attr('data-image', index);
+        if(index <= 4){
+          var preview = $('#exhibit-images-preview');
+        }else{
+          var preview = $('#exhibit-images-preview2');
+        }
         preview.append(image);
       })
 
-    if(images.length == 5) {
-      dropzone.css({
-        'display': 'none'
-      })
-      return;
-    }
-    var new_image = $(`<input class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
+    // if(images.length == 5) {
+    //   dropzone.css({
+    //     'display': 'none'
+    //   })
+    //   return;
+    // }
+    var new_image = $(`<input class="upload-image" data-image= ${images.length} name=item[images_attributes][${images.length}][image_url] type="file" >`);
     input_area.prepend(new_image);
   });
 
   $(document).on('click', '.delete', function() {
+   
     var target_image = $(this).parent().parent();
     $.each(inputs, function(index, input){
       if ($(this).data('image') == target_image.data('image')){
@@ -52,33 +64,34 @@ $(document).on('turbolinks:load', function(){
           })
         }
       }
-    })
-    var new_image = $(`<input class="upload-image" data-image= ${images.length} type="file" id="upload-image" style="opacity:0;">`);
-    input_area.prepend(new_image);
-    $.each(inputs, function(index, input) {
-      var input = $(this)
-      input.attr({
-        'data-image': index
-      })
-      $('input[type= "file"].upload-image:first').after(input)
-    })
+    }) 
+    //  余裕があれば触る
+    // var new_image = $(`<input class="upload-image" data-image= ${images.length} name=item[images_attributes][${images.length}][image_url] type="file" >`);
+    // input_area.prepend(new_image);
+    // $.each(inputs, function(index, input) {
+    //   var input = $(this)
+    //   input.attr({
+    //     'data-image': index
+    //   })
+    //   $('input[type= "file"].upload-image:first').after(input)
+    // })
 
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview.append(image);
-      })
-      dropzone.css({
-        'width': `calc(100% - (135px * ${images.length}))`
-      })
+    //   $.each(images, function(index, image) {
+    //     image.attr('data-image', index);
+    //     preview.append(image);
+    //   })
+    //   dropzone.css({
+    //     'width': `calc(100% - (135px * ${images.length}))`
+    //   })
 
-    if(images.length == 4) {
-      dropzone.css({
-        'display': 'block'
-      })
-    }
-    if(images.length == 3) {
-      dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
-    }
+    // if(images.length == 4) {
+    //   dropzone.css({
+    //     'display': 'block'
+    //   })
+    // }
+    // if(images.length == 3) {
+    //   dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
+    // }
   })
 });
 

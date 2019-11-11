@@ -1,5 +1,8 @@
 class SignupController < ApplicationController
-def create
+  before_action :create_user, only: :create
+
+  def create_user
+  @info_user = session
   @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
@@ -9,6 +12,9 @@ def create
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
+
+
+
     l_name: session[:l_name], 
     f_name: session[:f_name], 
     kana_l_name: session[:kana_l_name], 
@@ -20,24 +26,60 @@ def create
     ken: session[:ken],
     map: session[:map],
     banchi: session[:banchi],
-    tel_number: session[:tel_number],
-    tel_number2: session[:tel_number2]
+    building: session[:building],
+    tel_number: session[:tel_number]
   )
-
-
-  if @user.save
     
-  # ログインするための情報を保管
-    session[:id] = @user.id
-
-    redirect_to newend_signup_index_path
-
+    if @user.save
+    else
+      # ログインするための情報を保管
+      # notice:"USER失敗しました"
+      
+    end
   end
-end
+
+  def create
+    # require "payjp"
+      
+    # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # if params['payjp-token'].blank?
+    #   redirect_to action: "new"
+    # else
+    #   customer = Payjp::Customer.create(
+    #   description: '登録テスト', #なくてもOK
+    #   email: current_user.email, #なくてもOK
+    #   card: params['payjp-token'],
+    #   metadata: {user_id: current_user.id}
+    #   ) #念の為metadataにuser_idを入れましたがなくてもOK
+    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    #   if @card.save
+    #     redirect_to action: "show"
+    #   else
+    #     redirect_to action: "pay"
+    #   end
+    # end
+    
+    @delivery = Delivery.new(
+      first_name: @info_user[:f_name], 
+      last_name: @info_user[:l_name], 
+      kana_last_name: @info_user[:kana_l_name], 
+      kana_first_name: @info_user[:kana_f_name], 
+      postal_code: @info_user[:postal_code],
+      ken: @info_user[:ken],
+      map: @info_user[:map],
+      banchi: @info_user[:banchi],
+      tel_number: @info_user[:tel_number2],
+      building: @info_user[:building],
+      user_id: current_user.id
+    )
+      
+    if @delivery.save
+      redirect_to root_path
+    end
+  end
 
   def mail
     # 新規登録ページ
-    
   end
 
   def new
@@ -45,7 +87,6 @@ end
   end
 
   def tel
-  
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -69,10 +110,10 @@ end
   end
   def card
     
-    session[:f_name] = user_params[:first_name]
-    session[:l_name] = user_params[:last_name]
-    session[:kana_f_name] = user_params[:kana_first_name]
-    session[:kana_l_name]= user_params[:kana_last_name]
+    session[:f_name] = user_params[:f_name]
+    session[:l_name] = user_params[:l_name]
+    session[:kana_f_name] = user_params[:kana_f_name]
+    session[:kana_l_name]= user_params[:kana_l_name]
     session[:postal_code]= user_params[:postal_code]
     session[:ken]= user_params[:ken]
     session[:map]= user_params[:map]
@@ -97,6 +138,9 @@ end
       :first_name, 
       :kana_last_name, 
       :kana_first_name,
+
+
+      
       :l_name, 
       :f_name, 
       :kana_l_name, 
