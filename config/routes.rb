@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'signup'  => 'signup#create', as: 'signup'
 
 
-  resources :signup do
+  resources :signup, only: [:new] do
     collection do
       get 'mail'
       get 'new'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'address'
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
+      # post 'create_user'
     end
   end
 

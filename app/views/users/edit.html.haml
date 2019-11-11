@@ -1,6 +1,8 @@
 .profile_main
   .profile_header
+    = render "users/login"
   .profile_sidebar
+    = render "myp-side"
   .profile_content
     %section.profile_container
       %h2.profile_head プロフィール
@@ -21,4 +23,9 @@
     $(".profile_change_completed").click(function(){
       this.remove();
     });
+    document.getElementByClass("profile_change_completed").style.visibility
+    $("profile_btn").click(function(){
+
+    })
   .profile_footer
+    = render "items/footer"

@@ -164,6 +164,22 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.integer "postal_code"
+    t.integer "ken"
+    t.string "map"
+    t.string "banchi"
+    t.string "building"
+    t.string "tel_number2"
+    t.text "profile"
+    t.string "f_name"
+    t.string "l_name"
+    t.string "kana_f_name"
+    t.string "kana_l_name"
+    t.string "keyword"
+    t.string "keyword2"
     t.string "provider"
     t.string "uid"
   end
