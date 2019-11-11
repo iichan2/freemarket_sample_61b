@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_110931) do
+ActiveRecord::Schema.define(version: 2019_11_11_035058) do
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -38,10 +38,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "customer_code", null: false
-    t.integer "expiration_year", null: false
-    t.integer "expiration_mon"
-    t.integer "card_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
@@ -164,22 +160,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "birth_year"
-    t.string "birth_month"
-    t.string "birth_day"
-    t.integer "postal_code"
-    t.integer "ken"
-    t.string "map"
-    t.string "banchi"
-    t.string "building"
-    t.string "tel_number2"
-    t.text "profile"
-    t.string "f_name"
-    t.string "l_name"
-    t.string "kana_f_name"
-    t.string "kana_l_name"
-    t.string "keyword"
-    t.string "keyword2"
     t.string "provider"
     t.string "uid"
   end
