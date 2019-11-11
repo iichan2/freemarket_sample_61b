@@ -1,0 +1,68 @@
+.identification_content
+  %section.identification_container
+    %h2.identification_head 本人情報の登録
+  .identification_form_container
+    = form_with local: true do |f|  #model書くとエラー
+      %p.identification_description
+        お客さまの本人情報をご登録ください。
+        %br
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .identification_explanation
+          = link_to :back, class: 'identification_link' do
+            %span.identification_link_position
+              本人確認書類のアップロードについて
+            = fa_icon 'angle-right', class: 'identification_angle_right'
+      .identification_group
+        %label.identification_label
+          お名前
+      .identification_text
+        = @user.first_name + " " + @user.last_name
+      .identification_group
+        %label.identification_label
+          お名前カナ
+      .identification_text
+        = @user.kana_first_name + " " + @user.kana_last_name
+      .identification_group
+        %label.identification_label
+          生年月日
+      .identification_text
+        = @user.birth_year + "/" + @user.birth_month + "/" + @user.birth_day
+      .identification_group
+        %label.identification_label
+          郵便番号
+        %span.identification_arbitrary
+          任意
+      = f.text_field :postal_code, placeholder:"例）1234567",class:'identification_box'
+        
+      .identification_group
+        %label.identification_label
+          都道府県
+        %span.identification_arbitrary
+          任意
+      = f.select :ken, [["--","0"],["北海道","1"],["青森","2"],["岩手県","3"],["宮城県","4"],["秋田県","5"],["山形県","6"],["福島県","7"],["茨城県","8"],["栃木県","9"],["群馬県","10"],["埼玉県","11"],["千葉県","12"],["東京都","13"],["神奈川県","14"],["新潟県","15"],["富山県","16"],["石川県","17"],["福井県","18"],["山梨県","19"],["長野県","20"],["岐阜県","21"],["静岡県","22"],["愛知県","23"],["三重県","24"],["滋賀県","25"],["京都府","26"],["大阪府","27"],["兵庫県","28"],["奈良県","29"],["和歌山県","30"],["鳥取県","31"],["島根県","32"],["岡山県","33"],["広島県","34"],["山口県","35"],["徳島県","36"],["香川県","37"],["愛媛県","38"],["高知県","39"],["福岡県","40"],["佐賀県","41"],["長崎県","42"],["熊本県","43"],["大分県","44"],["宮崎県","45"],["鹿児島県","46"],["沖縄県","47"]],{},{class:'identification_box'}
+      .identification_group
+        %label.identification_label
+          市区町村
+        %span.identification_arbitrary
+          任意
+      = f.text_field :map, placeholder:"例）横浜市緑区",class:'identification_box'
+      .identification_group
+        %label.identification_label
+          番地
+        %span.identification_arbitrary
+          任意
+      = f.text_field :banchi, placeholder:"例）青山1-1-1",class:'identification_box'
+      .identification_group
+        %label.identification_label
+          建物名
+        %span.identification_arbitrary
+          任意
+      = f.text_field :building, placeholder:"例）柳ビル103",class:'identification_box'
+      = f.submit "変更する",class: "identification_btn"
+      .identification_group
+        .identification_explanation
+          = link_to :back, class: 'identification_link' do
+            %span.identification_link_position
+              本人情報の登録について
+            = fa_icon 'angle-right', class: 'identification_angle_right'
+.identification_footer

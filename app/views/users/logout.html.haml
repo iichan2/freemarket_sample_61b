@@ -1,11 +1,16 @@
-.logout_main
-  = render "users/login"
-  .logout_header
+= render "items/header"
+.wrapper
+  = render "myp-side"  
+  .logout_content
     = link_to "ログアウト", :back, class: 'logout_test'
-  .logout_side
-    = render "myp-side"
-  .logout_footer
-    = render "items/footer"
--# =render "tests/footer"
--# =render "tests/item_circle"" 
--# .logout_content
+= render 'items/adv'
+= render "items/footer"
+= render 'items/item-circle'
+-# .logout_main
+-#   = render "users/login"
+-#   .logout_header
+-#     = link_to "ログアウト", root_path, class: 'logout_test'
+-#   .logout_side
+-#     = render "myp-side"
+-#   .logout_footer
+-#     = render "items/footer"
