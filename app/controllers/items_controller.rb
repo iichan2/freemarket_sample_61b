@@ -45,6 +45,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   def show
+    @item = Item.find(params[:id])
+  end
+
+  def show_deleted
+    
   end
 
   def bought

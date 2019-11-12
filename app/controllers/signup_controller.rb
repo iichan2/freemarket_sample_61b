@@ -17,11 +17,11 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+
     if @user.save
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
-      
     end
   end
 
@@ -30,21 +30,16 @@ class SignupController < ApplicationController
       
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     # if params['payjp-token'].blank?
-    #   redirect_to action: "new"
+    #   redirect_to action: "card"
     # else
-    #   customer = Payjp::Customer.create(
-    #   description: '登録テスト', #なくてもOK
-    #   email: current_user.email, #なくてもOK
-    #   card: params['payjp-token'],
-    #   metadata: {user_id: current_user.id}
-    #   ) #念の為metadataにuser_idを入れましたがなくてもOK
-    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #   if @card.save
-    #     redirect_to action: "show"
-    #   else
-    #     redirect_to action: "pay"
-    #   end
-    # end
+    # customer = Payjp::Customer.create(
+    # description: '登録テスト', #なくてもOK
+    # email: @user.email, #なくてもOK
+    # card: params['payjp-token'],
+    # metadata: {user_id: @user.id}
+    # ) #念の為metadataにuser_idを入れましたがなくてもOK
+    # @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+    # @card.save
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -56,7 +51,7 @@ class SignupController < ApplicationController
       banchi: @info_user[:banchi],
       tel_number: @info_user[:tel_number2],
       building: @info_user[:building],
-      user_id: current_user.id
+      user_id: @user.id
     )
       
     if @delivery.save
@@ -109,8 +104,8 @@ class SignupController < ApplicationController
     @user = User.new
   end
   def newend 
-    sign_in User.find(session[:id]) unless user_signed_in?
     
+    # newend_signup_index
     
   end
   
@@ -124,7 +119,6 @@ class SignupController < ApplicationController
       :first_name, 
       :kana_last_name, 
       :kana_first_name,
-
       :l_name, 
       :f_name, 
       :kana_l_name, 

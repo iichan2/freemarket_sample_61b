@@ -17,7 +17,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birth_day
       t.text :profile
       t.integer :delivery_id
-
       
       ## Database authenticatable
       t.string :email,           null: false, default: ""
