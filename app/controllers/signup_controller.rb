@@ -3,11 +3,11 @@ class SignupController < ApplicationController
 
   def create_user
   @info_user = session
+  
   @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
-    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
@@ -21,6 +21,8 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+  
+  
 
     if @user.save
     else
@@ -28,7 +30,7 @@ class SignupController < ApplicationController
       # notice:"USER失敗しました"
     end
   end
-
+  
   def create
     # require "payjp"
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -108,11 +110,11 @@ class SignupController < ApplicationController
 
   def newend 
     # newend_signup_index
-    
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
   
   private
-
+  
   def user_params
     
     params.require(:user).permit(
