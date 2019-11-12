@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   has_one :delivery
   has_many :sns_credentials, dependent: :destroy
-  has_many :reviews, dependent: :destroy
   validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true, length: { is: 11 }, numericality: true
