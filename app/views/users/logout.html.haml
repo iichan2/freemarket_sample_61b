@@ -1,8 +1,9 @@
 = render "items/header"
-.wrapper
-  = render "myp-side"  
-  .logout_content
-    = link_to "ログアウト", :back, class: 'logout_test'
+.wrapper-container
+  .wrapper
+    = render "myp-side"  
+    .logout_content
+      = link_to "ログアウト", :back, class: 'logout_test'
 = render 'items/adv'
 = render "items/footer"
 = render 'items/item-circle'
