@@ -7,8 +7,8 @@ class User < ApplicationRecord
   # belongs_to :bank, dependent: :destroy
   validates :password, confirmation: true
   has_one :delivery
-  has_many :likes, dependent: :destroy
-  has_many :comments, through: :items
+  # has_many :likes, dependent: :destroy
+  # has_many :comments, through: :items
   has_many :sns_credentials, dependent: :destroy
   has_many :reviews, dependent: :destroy
   validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
