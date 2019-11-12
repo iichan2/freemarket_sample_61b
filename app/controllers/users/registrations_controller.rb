@@ -35,8 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     :map,
     :banchi,
     :building,
-    :password,
-    :password_confirmation
+    :password
     )
   end
 end
