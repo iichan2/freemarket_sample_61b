@@ -28,8 +28,8 @@
             = f.password_field :password, autocomplete: "current-password", class: "input-default", placeholder: "パスワード"
           .form-group
           = render '/signup/index' 
-        .actions
-          = f.submit "ログイン", class: "login"
+          .actions
+            = f.submit "ログイン", class: "login"
       
       -# ⬇︎session/linkをそのまま持ってきてる⬇︎
       - if controller_name != 'sessions'
