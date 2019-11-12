@@ -16,6 +16,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birth_month
       t.integer :birth_day
       t.text :profile
+      t.string :password_confirmation, null: false, default: ""
+
       t.integer :delivery_id
       
       ## Database authenticatable
