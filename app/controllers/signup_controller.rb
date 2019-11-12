@@ -21,6 +21,7 @@ class SignupController < ApplicationController
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
+      redirect_to signup_index_path
     end
   end
 
@@ -52,6 +53,7 @@ class SignupController < ApplicationController
       user_id: @user.id
     )
     if @delivery.save
+      @user.update(delivery_id: @delivery.id)
       redirect_to newend_signup_index_path
     end
   end
