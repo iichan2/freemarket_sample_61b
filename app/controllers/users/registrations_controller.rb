@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = Devise.friendly_token.first(6)
       super
       sns = SnsCredential.update(user_id:  @user.id)
+      
     else #email登録なら
       super
     end
