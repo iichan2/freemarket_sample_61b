@@ -11,10 +11,6 @@ class SignupController < ApplicationController
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
-    l_name: session[:l_name], 
-    f_name: session[:f_name], 
-    kana_l_name: session[:kana_l_name], 
-    kana_f_name: session[:kana_f_name], 
     birth_year: session[:birth_year],
     birth_month: session[:birth_month],
     birth_day: session[:birth_day],
@@ -55,7 +51,6 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-
     if @delivery.save
       redirect_to newend_signup_index_path
     end
