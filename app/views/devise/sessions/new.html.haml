@@ -14,11 +14,12 @@
         %i.single-main__container__inner__content__icon.fab.fa-facebook-square
         Facebookでログイン
       = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
-        =image_tag "", class: "contents__btn__google__logo"
+        =image_tag "/images/google.svg", class: "contents__btn__google__logo"
         Googleでログイン
         
     .login-form-inner
-      = form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
         .form-group
           .field
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
@@ -26,7 +27,7 @@
           .field
             = f.password_field :password, autocomplete: "current-password", class: "input-default", placeholder: "パスワード"
           .form-group
-          =image_tag "", alt: "robot", class: "robot_img"
+          = render '/signup/index' 
         .actions
           = f.submit "ログイン", class: "login"
       

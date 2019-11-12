@@ -23,8 +23,8 @@
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 会員情報入力
-      %form.registration-form
-      = form_with model: @user, url: tel_signup_index_path, method: :get, local: true do |f|
+      .registration-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .registration-form__content
           .form-group
             = f.label "ニックネーム"
@@ -35,14 +35,12 @@
             %span.require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true',class: "input-default"
           .form-group
+
             = f.label "パスワード",class: "label"
             %span.require 必須
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
           .form-group
-            = f.label "パスワード(確認)",class: "label"
-            %span.require 必須
-            = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
-        
+            パスワード表示する
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text
@@ -67,12 +65,12 @@
             
             = f.text_field :kana_last_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default"
           .form-group
-            = f.label "生年月日",class: "label"
             %span.require 必須
             %br/
             .birthday-select-wrap
+            = f.label "生年月日",class: "label" do
               .select-wrap
-                %select.select-wrap__default{name: "year"}
+                = f.select :birth_year,class: "select-wrap__default" do
                   %option{value: ""} --
                   %option{value: "2019"} 2019
                   %option{value: "2018"} 2018
@@ -197,7 +195,7 @@
                 %i.fas.fa-angle-down
               %span 年
               .select-wrap.select-wrap__month
-                %select.select-default{name: "month"}
+                = f.select :birth_month, class:"select-default" do
                   %option{value: ""} --
                   %option{value: "1"} 1
                   %option{value: "2"} 2
@@ -214,7 +212,7 @@
                 %i.fas.fa-angle-down
               %span 月
               .select-wrap.select-wrap__day
-                = select_tag 'day', options_for_select({'--':'--','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}),class: 'select-wrap__default'
+                = f.select :birth_day, options_for_select({'--':'--','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}), class: 'select-wrap__default'
                 %i.fas.fa-angle-down
               %span 日
             .clearfix
@@ -232,6 +230,7 @@
               .form-group.text-right
               =link_to "本人情報の登録について", "https://www.mercari.com/jp/help_center/article/423/",class: "decolation-blue"
 = render 'signup/signup-footer'
+
 
 
 
@@ -262,3 +261,4 @@
 -#   .actions
 -#     = f.submit "Sign up"
 -# = render "devise/shared/links"
+
