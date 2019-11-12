@@ -5,7 +5,9 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   # belongs_to :card, dependent: :destroy
   # belongs_to :bank, dependent: :destroy
+
   validates :password, confirmation: true
+
   has_one :delivery
   has_many :likes, dependent: :destroy
   has_many :comments, through: :items
@@ -19,13 +21,11 @@ class User < ApplicationRecord
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
-
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     # binding.pry
-
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら

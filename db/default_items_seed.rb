@@ -1,5 +1,5 @@
 require 'csv'
-default_items = CSV.read('./db/items/default_items.csv',headers: true)
+default_items = CSV.read('./db/items/default_items.csv', headers: true)
 
 hashs = []
 default_items.each do |data|
@@ -16,6 +16,7 @@ default_items.each do |data|
     price:"#{data["price"]}",
     saler_id:"#{data["saler_id"]}",
     buyer_id:"#{data["buyer_id"]}",
+    exhibition_state:"#{data["exhibition_state"]}",
     
     brand_id:"#{data["brand_id"]}"}
 

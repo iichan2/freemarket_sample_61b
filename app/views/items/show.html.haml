@@ -1,197 +1,256 @@
-.header
-  .header-top
-    =link_to "" do
-      =image_tag "merucari.png", size: "140x35",class: "inoue"
-    %form.top_right
-      %input.search{:placeholder => "何かお探しですか？", :name => "keyword",:type => "search", :value => ""}/
-      %button.megane
-        =fa_icon "search"
-  .header-center
-    =link_to "" do
-      =image_tag "bar.png", size: "15x15", class: "minami"
-    =link_to('カテゴリーから探す', root_path, class: 'per')
-    =link_to "" do
-      =image_tag "tag.png", size: "17x15", class: "tag"
-    =link_to('ブランドから探す', root_path, class: 'pbr')
-    =link_to('新規会員登録', root_path, class: 'touroku1')
-    =link_to('ログイン', root_path, class: 'login1')
-  .header-bottom
-    =link_to('メルカリ', root_path, class:'mercari')
-    %p.icon
-      >
-    =link_to('カテゴリー一覧', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('レディース', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('バッグ', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('ショルダーバッグ', root_path, class:'mercari1')
-    %p.icon
-      >
-    %p.numb
-      m70068440240
-  .content_g
-    .left_auto
-      =link_to "" do
-        =image_tag "alltag.png", size: "300x250",class: "masa"
-    %p.midasi
-      m70068440240 この商品は削除されました
-    .main_contents
-      =link_to('コーチのショルダーバッグ その他の商品',root_path,class:'kotoba')
-      .main_content
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-  .adv
-    .imagebox
-      = link_to "" do
-        =image_tag "app.png", size: "135x42"
-    .imagebox2
-      = link_to "" do
-        =image_tag "google.png", size: "138x42"
-  .foot
-    .resize
-      %ul.one
-        %li.daimoku
-          メルカリについて
-        = link_to('会社概要（運営会社)', root_path, class: 'ai')
-        %br
-        = link_to('採用情報', root_path, class: 'ai')
-        %br
-        = link_to('プレスリリース', root_path, class: 'ai')
-        %br
-        = link_to('公式ブログ', root_path, class: 'ai')
-        %br
-        = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'ai')
-        %br
-        = link_to "https://twitter.com/login?lang=ja", class: "t-icon" do
-          =fa_icon 'twitter-square'
-        = link_to "https://ja-jp.facebook.com/", class: "f-icon" do
-          =fa_icon 'facebook-square'
-      %ul.two
-        %li.daimoku
-          ヘルプ&ガイド
-        = link_to('メルカリガイド', root_path, class: 'ai')
-        %br
-        = link_to('らくらくメルカリ便', root_path, class: 'ai')
-        %br
-        = link_to('ゆうゆうメルカリ便', root_path, class: 'ai')
-        %br
-        = link_to('大型メルカリ便', root_path, class: 'ai')
-        %br
-        = link_to('車体取引ガイド', root_path, class: 'ai')
-        %br
-        = link_to('メルカリあんしん・あんぜん宣言！', root_path, class: 'ai')
-        %br
-        = link_to('偽ブランド品撲滅への取り組み', root_path, class: 'ai')
-        %br
-        = link_to('メルカリボックス', root_path, class: 'ai')
-      %ul.three
-        %li.daimoku
-          プライバシーと利用規約
-        = link_to('プライバシーポリシー', root_path, class: 'ai')
-        %br
-        = link_to('メルカリ利用規約', root_path, class: 'ai')
-        %br
-        = link_to('あんしんスマホサポート制度に関する利用特約', root_path, class: 'ai')
-        %br
-        = link_to('コンプライアンスポリシー', root_path, class: 'ai')
-      %ul.four
-        %li.daimoku
-          %br
-        = link_to('個人データの安全管理に係る基本方針', root_path, class: 'ai')
-        %br
-        = link_to('特定商取引に関する表記', root_path, class: 'ai')
-        %br
-        = link_to('資金決済法に基づく表示', root_path, class: 'ai')
-        %br
-        = link_to('法令遵守と犯罪抑制のために', root_path, class: 'ai')
-      %ul.five
-      %ul.six
-        %li.daimoku
-          国
-        = link_to('日本', root_path, class: 'ai')
-        %br
-        = link_to('United States', root_path, class: 'ai')
-    .last
-      = link_to "" do
-        =image_tag "mercari1.jpg", size: "140x35",class: "lastmark"
-      %p.lastname ©︎2019 Mercari
+= render 'header'
+.pppbox
+  .allbox
+    .pbox
+      %p.kuo
+        vivienne westwood red label スカート
+      .ortu
+      .oirtu
+        .rtng
+          %p.m 出品者
+          %p.mm カテゴリー
+          %p.mmm ブランド
+          %p.mmmm 商品のサイズ
+          %p.mmmmm 商品の状態
+          %p.mmmmmm 配送料の負担
+          %p.mmmmmmm 配送の方法
+          %p.mmmmmmmm 配送元地域
+          %p.mmmmmmmmm 発送日の目安
+        .vino
+          .s
+            =link_to("外地",root_path,class: "vnk")
+            .jgiore
+              = image_tag src="smile.png", size: "15x15",class: "vjnl"
+              %span.dfs 
+                7
+              = image_tag src="not_smile.png", size: "15x15",class: "vjnla"
+              %span.dfsa 
+                0
+              = image_tag src="not.png", size: "15x15",class: "vjnlq"
+              %span.dfsq
+                0
+          .ss
+            =link_to("レディース",root_path,class: "aas")
+            %br
+            =link_to("＞スカート",root_path,class: "aad")
+            %br
+            =link_to("＞ひざ丈スカート",root_path,class: "aaf")
+          .sss
+            =link_to("ヴィヴィアンウエストウッドレッドレーベル",root_path,class: "aag")
+          %p.ssss
+            M
+          %p.sssss
+            未使用に近い
+          %p.ssssss
+            送料込み(出品者負担)
+          %p.sssssss
+            らくらくメルカリ便
+          %p.ssssssss
+            =link_to("埼玉",root_path,class: "abh")
+          %p.sssssssss
+            2〜3日で発送
+      .bbbt
+        %p.byr
+          ¥８,５００
+        %p.byt
+          (税込)
+        %p.byy
+          送料込み
+      .vmt
+        =link_to("購入画面に進む",root_path,class: "iuorwe")
+      %p.wvt
+        定価32,000円
+      %p.nuk
+        vivienne westwood red labelのラップスカートです。
+      %p.nvuw
+        1度のみ着用しました。
+      %p.qvtun
+        サイズは63〜65cm程だと思いますが、素人採寸ですのでご了承ください。
+      %p.iwbnr
+        &#035;viviennewestwood
+      .itjgo
+        =link_to "",class: "nefj" do
+          =fa_icon "heart-o"
+          %span.vjnhh
+            &nbsp;いいね！&nbsp;0
+        =link_to "",class: "trouido" do
+          =fa_icon "flag"
+          %span.vjn
+            不適切な商品の報告
+        =link_to "",class: "trouo" do
+          =fa_icon "lock"
+          %span.vjngr
+            あんしん・あんぜんへの取り組み
+    .obox
+      %p.rfvn
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.tnu
+      %input.itvu{:type => "submit", :value => "コメントする"}/
+    .ibox
+      =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
+      =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
+    .lbox
+      = link_to "https://ja-jp.facebook.com/" do
+        =image_tag "face.png", size: "50x50"
+      = link_to "https://twitter.com/login?lang=ja" do
+        =image_tag "tww.png", size: "50x50"
+      = link_to "https://www.pinterest.jp/" do
+        =image_tag "pinserest.png", size: "50x50"
+    .kbox
+      = link_to("外内さんのその他の出品",root_path,class:"vunt")  
+    .jbox
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+    .kbox
+      = link_to("外内さんのその他の出品",root_path,class:"vunt")  
+    .jbox
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+      .nekobox
+        =link_to "",class:"neo" do
+          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
+          .neko
+            .tuhv
+              ロングスカート
+              .nekoneko
+                %p.yhgv
+                  ¥13,000
+                =fa_icon "heart-o",class:"tgjvm"
+                %supan.wio
+                  2
+  .mbox
+    .tugv
+    .rti
+      =link_to("メルカリ",root_path,class: "gjkd")
+      %p.lejgf >
+      %p.ltg  vivienne westwood red label スカート
+= render 'adv'
+= render 'footer'

@@ -19,6 +19,7 @@
 @import "font-awesome";
 // itemsフォルダ以下
 @import "items/show";
+@import "items/show_deleted";
 @import "items/new";
 @import "items/transaction";
 @import "items/bought";
@@ -42,13 +43,24 @@
 @import 'users/identification';
 @import 'users/logout';
 @import 'users/myp-content';
+@import 'users/myp-edit';
 @import 'users/myp-side';
 @import 'users/notification';
 @import 'users/payment';
-@import 'users/profile';
 @import 'users/sending';
 @import 'users/trading';
 @import 'users/transaction-info-side';
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
+.red{
+  background-color: #ea352d;
+  color: #FFFFFF;
+}
+.wrapper {
+  height: 250vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #eeeeee;
+  position: relative;
+}

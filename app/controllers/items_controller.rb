@@ -15,9 +15,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parents = Category.all.order("id ASC").limit(13)
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    
   end
-
 
   def edit
     @item = Item.find(params[:id])
@@ -34,18 +34,22 @@ class ItemsController < ApplicationController
     
   end
 
-    def get_category_children
-      @category_children = Category.find_by(params[:parent_id]).children
-    end
-  
-    def get_category_grandchildren
-      @category_grandchildren = Category.find(params[:child_id]).children
-    end
+  def get_category_children
+    @category_children = Category.find(params[:parent_id]).children
+  end
 
-    def transaction
-      @item = Item.find(params[:id])
-    end
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
+  def transaction
+    @item = Item.find(params[:id])
+  end
   def show
+    @item = Item.find(params[:id])
+  end
+
+  def show_deleted
+    
   end
 
   def bought

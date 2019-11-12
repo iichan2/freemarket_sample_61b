@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_params, 
-  only: [:identification,:edit, :update, :payment, :logout, :trading, :sending]
+  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
   
   before_action :set_item_image_params, only: [:sending, :trading]
-  def index
-  end
 
   def payment
   end
 
   def show
   end
-
 
   def identification
   end
