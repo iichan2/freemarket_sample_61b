@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-      if
+      if @item.save
         redirect_to action: :index
       else
         redirect_to action: :new
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
   def show
     @item = Item.find(params[:id])
+    @images = @item.images
   end
 
   def show_deleted
