@@ -19,7 +19,8 @@
 
 /node_modules
 /yarn-error.log
-
+# public/uploads/*
+# public/
 /public/assets
 .byebug_history
 
