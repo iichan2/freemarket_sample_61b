@@ -150,10 +150,11 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "likes"
     t.text "comments"
     t.text "reviews"
-    t.string "birth_year"
-    t.string "birth_month"
-    t.string "birth_day"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.text "profile"
+    t.string "password_confirmation", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -17,7 +17,6 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
-
     if @user.save
     else
       # ログインするための情報を保管
@@ -27,7 +26,6 @@ class SignupController < ApplicationController
 
   def create
     # require "payjp"
-      
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     # if params['payjp-token'].blank?
     #   redirect_to action: "card"
@@ -53,9 +51,9 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-      
+      binding.pry
     if @delivery.save
-      redirect_to root_path
+      redirect_to newend_signup_index_path
     end
   end
 
@@ -103,8 +101,8 @@ class SignupController < ApplicationController
     session[:tel_number2]= user_params[:tel_number2]
     @user = User.new
   end
+
   def newend 
-    
     # newend_signup_index
     
   end
