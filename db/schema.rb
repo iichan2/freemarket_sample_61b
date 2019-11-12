@@ -153,8 +153,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "birth_year"
     t.string "birth_month"
     t.string "birth_day"
-    t.string "keyword"
-    t.string "keyword2"
     t.text "profile"
     t.string "password_confirmation"
     t.string "email", default: "", null: false
