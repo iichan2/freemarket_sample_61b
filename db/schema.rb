@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.integer "birth_month"
     t.integer "birth_day"
     t.text "profile"
-    t.string "password_confirmation", null: false
+    t.string "password_confirmation", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
