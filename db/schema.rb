@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_11_09_040826) do
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,8 +42,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
@@ -148,17 +145,14 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "kana_last_name"
     t.string "nickname"
     t.string "tel_number"
-    t.integer "card"
-    t.integer "bank"
     t.string "likes"
     t.text "comments"
     t.text "reviews"
-    t.string "birth_year"
-    t.string "birth_month"
-    t.string "birth_day"
-    t.string "keyword"
-    t.string "keyword2"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.text "profile"
+    t.integer "delivery_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
