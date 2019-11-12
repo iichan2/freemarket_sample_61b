@@ -9,8 +9,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :kana_last_name, null:false
       t.string :nickname, null:false
       t.string :tel_number, null:false
-      t.integer :card
-      t.integer :bank
       t.string :likes
       t.text :comments
       t.text :reviews
@@ -20,6 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.text :profile
       t.string :password_confirmation, null: false, default: ""
 
+      t.integer :delivery_id
       
       ## Database authenticatable
       t.string :email,           null: false, default: ""

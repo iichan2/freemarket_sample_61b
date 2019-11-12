@@ -145,8 +145,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "kana_last_name"
     t.string "nickname"
     t.string "tel_number"
-    t.integer "card"
-    t.integer "bank"
     t.string "likes"
     t.text "comments"
     t.text "reviews"
@@ -155,6 +153,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.integer "birth_day"
     t.text "profile"
     t.string "password_confirmation", default: "", null: false
+    t.integer "delivery_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
