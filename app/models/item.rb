@@ -8,9 +8,9 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  belongs_to :user
-  belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User"
+  # belongs_to :user
+  # belongs_to :saler, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
 
   validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, :saler_id, presence: true
   
