@@ -9,14 +9,11 @@ class User < ApplicationRecord
   validates :password, confirmation: true
 
   has_one :delivery
-  # has_many :likes, dependent: :destroy
-  # has_many :comments, through: :items
   has_many :sns_credentials, dependent: :destroy
   has_many :reviews, dependent: :destroy
   validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true, length: { is: 11 }, numericality: true
-  # validates :password, presence: true, length: { minimum: 7, maximum: 128 }
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
