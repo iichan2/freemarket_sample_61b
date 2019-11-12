@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_110931) do
+ActiveRecord::Schema.define(version: 2019_11_09_040826) do
 
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -38,10 +38,8 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "customer_code", null: false
-    t.integer "expiration_year", null: false
-    t.integer "expiration_mon"
-    t.integer "card_code", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
@@ -69,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.string "last_name", null: false
     t.string "kana_first_name", null: false
     t.string "kana_last_name", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "ken", null: false
     t.string "map", null: false
     t.string "banchi", null: false
@@ -102,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.integer "price", null: false
     t.integer "saler_id"
     t.integer "buyer_id"
+    t.string "exhibition_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
@@ -151,6 +150,10 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.string "likes"
     t.text "comments"
     t.text "reviews"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -158,22 +161,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_110931) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "birth_year"
-    t.string "birth_month"
-    t.string "birth_day"
-    t.integer "postal_code"
-    t.integer "ken"
-    t.string "map"
-    t.string "banchi"
-    t.string "building"
-    t.string "tel_number2"
-    t.text "profile"
-    t.string "f_name"
-    t.string "l_name"
-    t.string "kana_f_name"
-    t.string "kana_l_name"
-    t.string "keyword"
-    t.string "keyword2"
     t.string "provider"
     t.string "uid"
   end
