@@ -25,7 +25,8 @@
       %h2.single-main__container__header 会員情報入力
       .registration-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        
+        = render "devise/shared/error_messages", resource: resource
+
         .registration-form__content
           .form-group
             = f.label "ニックネーム"
@@ -36,13 +37,15 @@
             %span.require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true',class: "input-default"
           .form-group
+
             = f.label "パスワード",class: "label"
             %span.require 必須
+            - if @minimum_password_length
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
           .form-group
             = f.label "パスワード(確認)",class: "label"
             %span.require 必須
-            = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
+            = f.password_field :password_confirmation, placeholder: "7文字以上", required: 'true',class: "input-default"
         
           .form-group
             %h3.l-chapter-sub-head 本人確認
@@ -264,3 +267,4 @@
 -#   .actions
 -#     = f.submit "Sign up"
 -# = render "devise/shared/links"
+
