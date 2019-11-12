@@ -7,7 +7,6 @@ class SignupController < ApplicationController
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
-    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
@@ -19,14 +18,9 @@ class SignupController < ApplicationController
     birth_year: session[:birth_year],
     birth_month: session[:birth_month],
     birth_day: session[:birth_day],
-    postal_code: session[:postal_code],
-    ken: session[:ken],
-    map: session[:map],
-    banchi: session[:banchi],
-    building: session[:building],
     tel_number: session[:tel_number]
   )
-  
+
     if @user.save
     else
       # ログインするための情報を保管
@@ -34,7 +28,7 @@ class SignupController < ApplicationController
       
     end
   end
-
+ 
   def create
     # require "payjp"
       
@@ -55,7 +49,7 @@ class SignupController < ApplicationController
     #     redirect_to action: "pay"
     #   end
     # end
-    
+ 
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -67,7 +61,7 @@ class SignupController < ApplicationController
       banchi: @info_user[:banchi],
       tel_number: @info_user[:tel_number2],
       building: @info_user[:building],
-      user_id: current_user.id
+      user_id: @user.id
     )
       
     if @delivery.save
@@ -87,7 +81,6 @@ class SignupController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
     session[:first_name] = user_params[:first_name]
     session[:last_name] = user_params[:last_name]
     session[:kana_first_name] = user_params[:kana_first_name]
@@ -120,8 +113,8 @@ class SignupController < ApplicationController
     @user = User.new
   end
   def newend 
-    sign_in User.find(session[:id]) unless user_signed_in?
     
+    # newend_signup_index
     
   end
   
@@ -151,7 +144,6 @@ class SignupController < ApplicationController
       :banchi,
       :building,
       :password,
-      :password_confirmation
       )
   end
 

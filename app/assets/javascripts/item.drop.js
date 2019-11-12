@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function(){
     }else{
       var input_area = $('.sell_upload__area2');
     }
- 
+
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
