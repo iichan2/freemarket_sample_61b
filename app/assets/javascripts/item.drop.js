@@ -1,9 +1,9 @@
 $(document).on('turbolinks:load', function(){
-  var dropzone = $('.sell_upload__area');
+  // var dropzone = $('.sell_upload__area');
   var images = [];
   var inputs  =[];
-  var input_area = $('.sell_upload__area');
-  var preview = $('#exhibit-images-preview');
+  // var input_area = $('.sell_upload__area');
+  // var preview = $('#exhibit-images-preview');
 
 
   $(document).on('change', 'input[type= "file"].upload-image',function() {
@@ -44,12 +44,12 @@ $(document).on('turbolinks:load', function(){
     //   })
     //   return;
     // }
-    var new_image = $(`<input class="upload-image" data-image= ${images.length} name=item[images_attributes][${images.length}][image_url] type="file" >`);
+    var new_image = $(`<input class="upload-image" multiple=multiple data-image= ${images.length} name=item[images_attributes][${images.length}][image_url][] id="upload-image" type="file" >`);
     input_area.prepend(new_image);
   });
 
   $(document).on('click', '.delete', function() {
-   
+
     var target_image = $(this).parent().parent();
     $.each(inputs, function(index, input){
       if ($(this).data('image') == target_image.data('image')){

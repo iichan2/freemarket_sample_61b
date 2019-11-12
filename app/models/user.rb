@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
   has_one :delivery
   has_many :sns_credentials, dependent: :destroy
-  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :tel_number, presence: true, length: { is: 11 }, numericality: true
+  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :tel_number, presence: true, length: { is: 11 }, numericality: true
   has_many :items
 
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
@@ -28,7 +28,6 @@ class User < ApplicationRecord
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
           # snsの情報
-          # binding.pry => auth.infoとかで確認 
           nickname: auth.info.name,
           email: auth.info.email
         )

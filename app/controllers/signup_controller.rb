@@ -12,10 +12,6 @@ class SignupController < ApplicationController
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
     kana_first_name: session[:kana_first_name], 
-    l_name: session[:l_name], 
-    f_name: session[:f_name], 
-    kana_l_name: session[:kana_l_name], 
-    kana_f_name: session[:kana_f_name], 
     birth_year: session[:birth_year],
     birth_month: session[:birth_month],
     birth_day: session[:birth_day],
@@ -28,6 +24,7 @@ class SignupController < ApplicationController
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
+      redirect_to signup_index_path
     end
   end
   
@@ -58,8 +55,8 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-
     if @delivery.save
+      @user.update(delivery_id: @delivery.id)
       redirect_to newend_signup_index_path
     end
   end
@@ -110,7 +107,7 @@ class SignupController < ApplicationController
 
   def newend 
     # newend_signup_index
-    sign_in User.find(session[:id]) unless user_signed_in?
+    # sign_in User.find(session[:id]) unless user_signed_in?
   end
   
   private

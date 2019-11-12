@@ -9,16 +9,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :kana_last_name, null:false
       t.string :nickname, null:false
       t.string :tel_number, null:false
-      t.string :likes
-      t.text :comments
-      t.text :reviews
       t.integer :birth_year 
       t.integer :birth_month
       t.integer :birth_day
       t.text :profile
       t.string :password_confirmation, null: false, default: ""
-
       t.integer :delivery_id
+      t.string :provider
+      t.string :uid
       
       ## Database authenticatable
       t.string :email,           null: false, default: ""

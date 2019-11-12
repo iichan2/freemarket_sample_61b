@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
   belongs_to :item
-  mount_uploaders :image, ImageUploader
+  # mount_uploader :image_url, ImageUploader
+  # serialize :imageurl, JSON
+
 end

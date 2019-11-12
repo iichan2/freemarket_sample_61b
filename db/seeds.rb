@@ -18,6 +18,7 @@ users = []
     # comments: Faker::String.random(length: 4),
     # reviews: Faker::String.random(length: 4),
     password: "1234567",
+    # password_confirmation: "1234567",
     birth_year: Faker::Number.between(from: 1900, to: 2019), 
     birth_month: Faker::Number.between(from: 1, to: 12), 
     birth_day: Faker::Number.between(from: 1, to: 31), 
