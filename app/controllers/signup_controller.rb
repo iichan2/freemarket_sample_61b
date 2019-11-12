@@ -56,7 +56,7 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-      binding.pry
+
     if @delivery.save
       redirect_to newend_signup_index_path
     end
