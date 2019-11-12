@@ -7,6 +7,7 @@ class SignupController < ApplicationController
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
+    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
@@ -25,31 +26,23 @@ class SignupController < ApplicationController
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
-      
     end
   end
- 
+
   def create
     # require "payjp"
-      
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     # if params['payjp-token'].blank?
-    #   redirect_to action: "new"
+    #   redirect_to action: "card"
     # else
-    #   customer = Payjp::Customer.create(
-    #   description: '登録テスト', #なくてもOK
-    #   email: current_user.email, #なくてもOK
-    #   card: params['payjp-token'],
-    #   metadata: {user_id: current_user.id}
-    #   ) #念の為metadataにuser_idを入れましたがなくてもOK
-    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #   if @card.save
-    #     redirect_to action: "show"
-    #   else
-    #     redirect_to action: "pay"
-    #   end
-    # end
- 
+    # customer = Payjp::Customer.create(
+    # description: '登録テスト', #なくてもOK
+    # email: @user.email, #なくてもOK
+    # card: params['payjp-token'],
+    # metadata: {user_id: @user.id}
+    # ) #念の為metadataにuser_idを入れましたがなくてもOK
+    # @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+    # @card.save
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -63,9 +56,9 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-      
+      binding.pry
     if @delivery.save
-      redirect_to root_path
+      redirect_to newend_signup_index_path
     end
   end
 
@@ -112,8 +105,8 @@ class SignupController < ApplicationController
     session[:tel_number2]= user_params[:tel_number2]
     @user = User.new
   end
+
   def newend 
-    
     # newend_signup_index
     
   end
@@ -143,7 +136,7 @@ class SignupController < ApplicationController
       :map,
       :banchi,
       :building,
-      :password,
+      :password
       )
   end
 

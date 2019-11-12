@@ -18,7 +18,7 @@
         Googleでログイン
         
     .login-form-inner
-      = form_for :login, url: user_session_path do |f|
+      = form_for :login, url: new_user_session_path do |f|
         .form-group
           .field
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"

@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # SNS認証の際にpassword登録なしで登録できるようにする
-  
+
   def create
     if params[:user][:password] == "" #sns登録なら
       params[:user][:password] = "Devise.friendly_token.first(6)" #deviseのパスワード自動生成機能を使用
@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       super
     end
   end
+
 
   private
 

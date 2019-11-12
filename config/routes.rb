@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :cards
   post 'signup'  => 'signup#create', as: 'signup'
-
+  # devise_scope :user do
+  #   get "sign_up", to: "users/registrations#new"
+  #   get "sign_in", to: "users/sessions#new"
+  #   # get "sign_out", to: "users/sessions#destroy" 
+  # end
 
   resources :signup, only: [:new] do
     collection do
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
       post 'create_user'
+      get 'new_card'
+      get 'show_card'
     end
   end
 
