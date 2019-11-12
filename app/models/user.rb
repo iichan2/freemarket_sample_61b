@@ -6,8 +6,6 @@ class User < ApplicationRecord
   # belongs_to :card, dependent: :destroy
   # belongs_to :bank, dependent: :destroy
 
-  validates :password, confirmation: true
-
   has_one :delivery
   has_many :sns_credentials, dependent: :destroy
   validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
