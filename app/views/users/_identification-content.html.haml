@@ -26,7 +26,11 @@
         %label.identification_label
           生年月日
       .identification_text
-        = @user.birth_year + "/" + @user.birth_month + "/" + @user.birth_day
+        = @user.birth_year 
+        %span /
+        = @user.birth_month 
+        %span /
+        = @user.birth_day
       .identification_group
         %label.identification_label
           郵便番号
