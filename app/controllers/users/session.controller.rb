@@ -33,8 +33,7 @@ class Users::SessionsController < Devise::SessionsController
     :map,
     :banchi,
     :building,
-    :password,
-    :password_confirmation
+    :password
     )
   end
 end

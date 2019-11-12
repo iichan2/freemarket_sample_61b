@@ -43,10 +43,7 @@
             - if @minimum_password_length
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
           .form-group
-            = f.label "パスワード(確認)",class: "label"
-            %span.require 必須
-            = f.password_field :password_confirmation, placeholder: "7文字以上", required: 'true',class: "input-default"
-        
+            パスワード表示する
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text

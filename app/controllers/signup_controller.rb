@@ -7,7 +7,6 @@ class SignupController < ApplicationController
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
-    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
