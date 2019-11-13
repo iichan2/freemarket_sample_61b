@@ -85,6 +85,8 @@ class SignupController < ApplicationController
   
   end
 
+  def choice_new
+  end
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
