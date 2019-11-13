@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                 registrations: 'users/registrations' }
-  resources :categories
+  resources :categories, only: [:index]
   resources :cards
   
   # devise_scope :user do
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
       post 'create_user'
+      get 'choice_new'
       get 'new_card'
       get 'show_card'
       post 'create_delivery'

@@ -28,7 +28,6 @@ class User < ApplicationRecord
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
           # snsの情報
-          # binding.pry => auth.infoとかで確認 
           nickname: auth.info.name,
           email: auth.info.email
         )

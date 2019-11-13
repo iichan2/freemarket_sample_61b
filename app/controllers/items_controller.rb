@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted]
   def index
     @items = Item.search(params[:search])
     @ladies_items = Item.where(category_id: 1).limit(10)

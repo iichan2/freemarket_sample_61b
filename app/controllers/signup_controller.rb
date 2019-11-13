@@ -93,6 +93,8 @@ class SignupController < ApplicationController
   
   end
 
+  def choice_new
+  end
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
@@ -114,7 +116,6 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    # newend_signup_index
     sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
   end
   

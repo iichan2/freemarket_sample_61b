@@ -39,6 +39,7 @@
 @import "sign_up/newend";
 @import "sign_up/signup-footer";
 @import "sign_up/ue";
+@import "sign_up/choice_new";
 // usersフォルダ以下
 @import 'users/identification';
 @import 'users/logout';
@@ -50,6 +51,7 @@
 @import 'users/sending';
 @import 'users/trading';
 @import 'users/transaction-info-side';
+@import "users/trading_module";
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
