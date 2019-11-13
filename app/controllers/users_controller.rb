@@ -35,6 +35,14 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def sign_out
+    if user_signed_in?
+      @user = current_user.id
+      @user = nil
+      redirect_to root_path
+    end
+  end
+
   def yu
   end
   
