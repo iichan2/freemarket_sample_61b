@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
+    @item.exhibition_state = "出品中"
+    @item.saler_id = "1"
+    @item.buyer_id = "2"
       if @item.save
         redirect_to action: :index
       else
@@ -68,7 +71,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url])
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :exhibition_state , images_attributes: [:image_url])
   end
 end
 
