@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
   only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
   
