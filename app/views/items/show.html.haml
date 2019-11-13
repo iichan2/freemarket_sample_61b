@@ -3,9 +3,9 @@
   .allbox
     .pbox
       %p.kuo
-        vivienne westwood red label スカート
+        = @item.item_name
       .ortu
-        -# = image_tag ("/#{@item.images[0].image_url}")
+        = image_tag ("/#{@item.images[0].image_url}")
       .oirtu
         .rtng
           %p.m 出品者
@@ -19,7 +19,7 @@
           %p.mmmmmmmmm 発送日の目安
         .vino
           .s
-            =link_to("外地",root_path,class: "vnk")
+            =link_to("#{@item.saler.nickname}",root_path,class: "vnk")
             .jgiore
               = image_tag src="smile.png", size: "15x15",class: "vjnl"
               %span.dfs 
@@ -31,28 +31,28 @@
               %span.dfsq
                 0
           .ss
-            =link_to("レディース",root_path,class: "aas")
+            =link_to("#{@item.category.parent.parent.category}",root_path,class: "aas")
             %br
-            =link_to("＞スカート",root_path,class: "aad")
+            =link_to(">#{@item.category.parent.category}",root_path,class: "aad")
             %br
-            =link_to("＞ひざ丈スカート",root_path,class: "aaf")
+            =link_to(">#{@item.category.category}",root_path,class: "aaf")
           .sss
-            =link_to("ヴィヴィアンウエストウッドレッドレーベル",root_path,class: "aag")
+            =link_to("#{@item.brand_id}",root_path,class: "aag")
           %p.ssss
-            M
+            = @item.size
           %p.sssss
-            未使用に近い
+            = @item.status
           %p.ssssss
-            送料込み(出品者負担)
+            = @item.delivery_fee
           %p.sssssss
-            らくらくメルカリ便
+            = @item.delivery_way
           %p.ssssssss
-            =link_to("埼玉",root_path,class: "abh")
+            =link_to("#{@item.area}",root_path,class: "abh")
           %p.sssssssss
-            2〜3日で発送
+            = @item.delivery_day
       .bbbt
         %p.byr
-          ¥８,５００
+          = "¥ #{@item.price}"
         %p.byt
           (税込)
         %p.byy
@@ -60,15 +60,7 @@
       .vmt
         =link_to("購入画面に進む",root_path,class: "iuorwe")
       %p.wvt
-        定価32,000円
-      %p.nuk
-        vivienne westwood red labelのラップスカートです。
-      %p.nvuw
-        1度のみ着用しました。
-      %p.qvtun
-        サイズは63〜65cm程だと思いますが、素人採寸ですのでご了承ください。
-      %p.iwbnr
-        &#035;viviennewestwood
+        =@item.item_info
       .itjgo
         =link_to "",class: "nefj" do
           =fa_icon "heart-o"

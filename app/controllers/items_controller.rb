@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images
+    # @user = User.find(params[:@item.saler_id])
   end
 
   def show_deleted
