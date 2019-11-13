@@ -39,10 +39,7 @@
             %span.require 必須
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
           .form-group
-            = f.label "パスワード(確認)",class: "label"
-            %span.require 必須
-            = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
-        
+            パスワードを表示
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text
@@ -53,8 +50,6 @@
             
             = f.text_field :first_name, placeholder: "例)山田",required: 'true',class: "input-default"
           .form-group
-          
-            %span.require 必須
             
             = f.text_field :last_name, placeholder: "例)彩",required: 'true',class: "input-default"
           .form-group
@@ -63,16 +58,16 @@
             = f.text_field :kana_first_name, placeholder: "例)ヤマダ",class: "label",required: 'true',class: "input-default"
           .form-group
             
-            %span.require 必須
-            
             = f.text_field :kana_last_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default"
           .form-group
+            = f.label "生年月日",class: "label"
             %span.require 必須
             %br/
             .birthday-select-wrap
-            = f.label "生年月日",class: "label" do
               .select-wrap
-                = f.select :birth_year,class: "select-wrap__default" do
+                .select-wrap__default
+                
+                = f.select :birth_year do
                   %option{value: ""} --
                   %option{value: "2019"} 2019
                   %option{value: "2018"} 2018
@@ -194,7 +189,6 @@
                   %option{value: "1902"} 1902
                   %option{value: "1901"} 1901
                   %option{value: "1900"} 1900
-                %i.fas.fa-angle-down
               %span 年
               .select-wrap.select-wrap__month
                 = f.select :birth_month, class:"select-default" do
@@ -211,11 +205,43 @@
                   %option{value: "10"} 10
                   %option{value: "11"} 11
                   %option{value: "12"} 12
-                %i.fas.fa-angle-down
+                
               %span 月
               .select-wrap.select-wrap__day
-                = f.select :birth_day, options_for_select({'--':'--','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}), class: 'select-wrap__default'
-                %i.fas.fa-angle-down
+                = f.select :birth_day, class: 'select-wrap__default' do
+                  %option{value: ""} --
+                  %option{value: 1} 1
+                  %option{value: 2} 2
+                  %option{value: 3} 3
+                  %option{value: 4} 4
+                  %option{value: 5} 5
+                  %option{value: 6} 6
+                  %option{value: 7} 7
+                  %option{value: 8} 8
+                  %option{value: 9} 9
+                  %option{value: 10} 10
+                  %option{value: 11} 11
+                  %option{value: 12} 12
+                  %option{value: 13} 13
+                  %option{value: 14} 14
+                  %option{value: 15} 15
+                  %option{value: 16} 16
+                  %option{value: 17} 17
+                  %option{value: 18} 18
+                  %option{value: 19} 19
+                  %option{value: 20} 20
+                  %option{value: 21} 21
+                  %option{value: 22} 22
+                  %option{value: 23} 23
+                  %option{value: 24} 24
+                  %option{value: 25} 25
+                  %option{value: 26} 26
+                  %option{value: 27} 27
+                  %option{value: 28} 28
+                  %option{value: 29} 29
+                  %option{value: 30} 30
+                  %option{value: 31} 31
+                
               %span 日
             .clearfix
           %p.form-info-text

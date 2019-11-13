@@ -20,7 +20,7 @@
               .dropzone-area
                 = i.label :image_url, for: 'create-image' do
                   .sell_upload__area
-                    = i.file_field :image_url,type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
+                    = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
             .dropzone-container2.clearfix
               .sell-uploads-drop2
                 #exhibit-images-preview2
@@ -48,7 +48,7 @@
           .kategory-box
             .kategory-serectbox
               .kategory-box-wrapper
-              = f.collection_select :category_id, @category_parents, :id, :category, {prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
+              = f.select :category_id, @category_parents,{prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
 
           .bun-matome
             .bunn  商品の詳細
@@ -110,6 +110,6 @@
       %li.pf
         = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
     .img-hako
-      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
     %p.ff 
       %small ©︎2019 Mercari

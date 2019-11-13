@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
   only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
   
@@ -34,6 +35,9 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def yu
+  end
+  
   private
     def set_params
       @user = User.find(params[:id])

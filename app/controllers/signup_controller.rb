@@ -3,11 +3,11 @@ class SignupController < ApplicationController
 
   def create_user
   @info_user = session
+  
   @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
     password: session[:password],
-    password_confirmation: session[:password_confirmation],
     last_name: session[:last_name], 
     first_name: session[:first_name], 
     kana_last_name: session[:kana_last_name], 
@@ -17,50 +17,47 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+  
+  
+
     if @user.save
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
-      
+      redirect_to signup_index_path
     end
   end
-
+  
   def create
     # require "payjp"
-      
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     # if params['payjp-token'].blank?
-    #   redirect_to action: "new"
+    #   redirect_to action: "card"
     # else
-    #   customer = Payjp::Customer.create(
-    #   description: '登録テスト', #なくてもOK
-    #   email: current_user.email, #なくてもOK
-    #   card: params['payjp-token'],
-    #   metadata: {user_id: current_user.id}
-    #   ) #念の為metadataにuser_idを入れましたがなくてもOK
-    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #   if @card.save
-    #     redirect_to action: "show"
-    #   else
-    #     redirect_to action: "pay"
-    #   end
-    # end
+    # customer = Payjp::Customer.create(
+    # description: '登録テスト', #なくてもOK
+    # email: @user.email, #なくてもOK
+    # card: params['payjp-token'],
+    # metadata: {user_id: @user.id}
+    # ) #念の為metadataにuser_idを入れましたがなくてもOK
+    # @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+    # @card.save
     @delivery = Delivery.new(
-      f_name: @info_user[:f_name], 
-      l_name: @info_user[:l_name], 
-      kana_l_name: @info_user[:kana_l_name], 
-      kana_f_name: @info_user[:kana_f_name], 
+      first_name: @info_user[:f_name], 
+      last_name: @info_user[:l_name], 
+      kana_last_name: @info_user[:kana_l_name], 
+      kana_first_name: @info_user[:kana_f_name], 
       postal_code: @info_user[:postal_code],
       ken: @info_user[:ken],
       map: @info_user[:map],
       banchi: @info_user[:banchi],
-      tel_number2: @info_user[:tel_number2],
+      tel_number: @info_user[:tel_number2],
       building: @info_user[:building],
-      user_id: current_user.id
+      user_id: @user.id
     )
-      
     if @delivery.save
-      redirect_to root_path
+      @user.update(delivery_id: @delivery.id)
+      redirect_to newend_signup_index_path
     end
   end
 
@@ -76,7 +73,6 @@ class SignupController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
     session[:first_name] = user_params[:first_name]
     session[:last_name] = user_params[:last_name]
     session[:kana_first_name] = user_params[:kana_first_name]
@@ -110,10 +106,10 @@ class SignupController < ApplicationController
     session[:tel_number2]= user_params[:tel_number2]
     @user = User.new
   end
+
   def newend 
-    sign_in User.find(session[:id]) unless user_signed_in?
-    
-    
+    # newend_signup_index
+    # sign_in User.find(session[:id]) unless user_signed_in?
   end
   
   private
@@ -126,7 +122,6 @@ class SignupController < ApplicationController
       :first_name, 
       :kana_last_name, 
       :kana_first_name,
-
       :l_name, 
       :f_name, 
       :kana_l_name, 
@@ -142,8 +137,7 @@ class SignupController < ApplicationController
       :map,
       :banchi,
       :building,
-      :password,
-      :password_confirmation
+      :password
       )
   end
 
