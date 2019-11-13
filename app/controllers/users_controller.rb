@@ -34,6 +34,9 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def yu
+  end
+  
   private
     def set_params
       @user = User.find(params[:id])
