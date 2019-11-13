@@ -7,7 +7,7 @@
     .login-no-account
       %p アカウントをお持ちでない方はこちら
       .sign-up
-        =link_to  signup_index_path, method: :get, class: "sign-up-btn"  do
+        =link_to  new_user_registration_path, method: :get, class: "sign-up-btn"  do
           新規会員登録 
     .single-main__container__inner__content
       = link_to  user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do

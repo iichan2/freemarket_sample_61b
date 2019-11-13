@@ -17,8 +17,6 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
-  
-  
 
     if @user.save
     else
@@ -28,7 +26,11 @@ class SignupController < ApplicationController
     end
   end
   
+
+
+
   def create
+    
     # require "payjp"
     # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     # if params['payjp-token'].blank?
