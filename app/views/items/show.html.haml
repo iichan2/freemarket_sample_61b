@@ -6,15 +6,15 @@
         = @item.item_name
       .ortu
         .uuoo
+          = image_tag src="#{@item.images[0].image_url}", size:"280x266"
         .oouu
-        -# = image_tag ("/#{@item.images[0].image_url}")
       .rgt
         .tbody
           .zx
             .pmfo 
               %p.jgjgjh 出品者
             .igrej
-              =link_to("ああああ", saler_items_path,class: "vnk")
+              =link_to("#{@item.user.nickname}",saler_items_path,class: "vnk")
               .jgiore
                 = image_tag src="smile.png", size: "15x15",class: "vjnl"
                 %span.dfs 
@@ -41,24 +41,28 @@
           .zx
             .pmfo
               %p.jgjgjh 商品の状態
-            .igrej 新品、未使用
+            .igrej 
+              =@item.status
           .zx
             .pmfo
               %p.jgjgjh 配送料の負担
-            .igrej 送料込み(出品者負担)
+            .igrej 
+              =@item.delivery_fee
           .zx
             .pmfo
               %p.jgjgjh 配送の方法
-            .igrej ゆうゆうメルカリ便
+            .igrej
+              =@item.delivery_way
           .zx
             .pmfo 
               %p.jgjgjh 配送元地域
             .igrej
-              =link_to("大阪府",root_path,class: "vnk")
+              =link_to("#{@item.area}",root_path,class: "vnk")
           .zx
             .pmfo
               %p.jgjgjh 発送日の目安
-            .igrej 1~2日で発送
+            .igrej
+              =@item.delivery_day
       .bbbt
         %p.byr
           = "¥ #{@item.price}"
@@ -67,7 +71,7 @@
         %p.byy
           送料込み
       .vmt
-        =link_to("購入画面に進む",root_path,class: "iuorwe")
+        =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
       .yuyuyu
         .okjgnd
           =@item.item_info
@@ -85,10 +89,23 @@
           %span.vjngr
             あんしん・あんぜんへの取り組み
     .obox
-      %p.rfvn
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.tnu
-      %input.itvu{:type => "submit", :value => "コメントする"}/
+      .commenttv
+        - @commented.each do |comment|
+          .lovebox
+          .tiam
+            = comment.user.nickname
+            .nagatomo
+              .kagawa
+                %p=comment.text
+              .honda
+      = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
+        %p.rfvn
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        - if user_signed_in?
+          .tnu
+            = f.text_area :text, size: "75x6" 
+            = f.hidden_field :item_id, value: @item.id
+          %input.itvu{:type => "submit", :value => "コメントする"}
     .ibox
       =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
       =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
@@ -100,155 +117,21 @@
       = link_to "https://www.pinterest.jp/" do
         =image_tag "pinserest.png", size: "50x50"
     .kbox
-      = link_to("外内さんのその他の出品",root_path,class:"vunt")  
+      = link_to("#{@item.user.nickname}さんのその他の出品",root_path,class:"vunt")  
     .jbox
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-    .kbox
-      = link_to("外内さんのその他の出品",root_path,class:"vunt")  
-    .jbox
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "kaban.jpeg",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              ロングスカート
-              .nekoneko
-                %p.yhgv
-                  ¥13,000
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  2
+      - @items.each do |item|
+        .nekobox
+          =link_to "",class:"neo" do
+            %img{:src => "#{@item.images[0].image_url}",:height => "180",:width => "200"}/
+            .neko
+              .tuhv
+                = item.item_name
+                .nekoneko
+                  %p.yhgv
+                    = "¥ #{item.price}"
+                  =fa_icon "heart-o",class:"tgjvm"
+                  %supan.wio
+                    0
   .mbox
     .tugv
     .rti
