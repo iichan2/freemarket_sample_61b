@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
     @images = @item.images
     @comment = Comment.new
     @commented = Comment.where(item_id: @item.id)
+    @items = Item.where(user_id: @item.user_id)
   end
   
   def comment_create
