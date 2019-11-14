@@ -89,6 +89,7 @@
         - @commented.each do |comment|
           .lovebox
           .tiam
+            = comment.user.nickname
             .nagatomo
               .kagawa
                 %p=comment.text
