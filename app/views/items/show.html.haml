@@ -6,15 +6,15 @@
         = @item.item_name
       .ortu
         .uuoo
+          = image_tag ("#{@item.images[0].image_url}")
         .oouu
-        -# = image_tag ("/#{@item.images[0].image_url}")
       .rgt
         .tbody
           .zx
             .pmfo 
               %p.jgjgjh 出品者
             .igrej
-              =link_to("ああああ",root_path,class: "vnk")
+              =link_to("#{@item.user.nickname}",root_path,class: "vnk")
               .jgiore
                 = image_tag src="smile.png", size: "15x15",class: "vjnl"
                 %span.dfs 
