@@ -22,7 +22,10 @@
       %section.stb-info
         .stb-info-container
           %h3.z 配送先
-          %address.bu-text-info 〒-
+          %address.bu-text-info 
+            〒#{@user.delivery.postal_code}
+            = @del
+            ="#{@user.delivery.first_name} #{@user.delivery.last_name}"
           = link_to "#", class: 'changing' do  
             %span.x 変更する
             = fa_icon "chevron-right", class: "arrow-right"
