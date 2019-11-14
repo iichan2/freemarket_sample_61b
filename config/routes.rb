@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   end
     root 'items#index'
     resources :items, only: [:index, :edit, :new, :create, :show] do
+      collection do
+        get "saler"
+      end
       member do
         get 'transaction'
         get 'get_category_children', defaults: { format: 'json' }

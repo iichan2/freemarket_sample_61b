@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-    
   end
 
   def edit
@@ -34,7 +33,6 @@ class ItemsController < ApplicationController
       else
         redirect_to action: :new
       end
-    
   end
 
   def get_category_children
@@ -54,8 +52,12 @@ class ItemsController < ApplicationController
   end
 
   def show_deleted
-    
   end
+
+  # def saler
+  #   @item = Item.find(id)
+  #   @user = Item.find(id: @item)
+  # end
 
   def bought
     @item = Item.find(params[:id])
