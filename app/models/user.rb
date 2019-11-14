@@ -12,9 +12,9 @@ class User < ApplicationRecord
   
 
 
-  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :tel_number, presence: true, length: { is: 11 }, numericality: true
+  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :tel_number, presence: true, length: { is: 11 }, numericality: true
   has_many :items
 
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
