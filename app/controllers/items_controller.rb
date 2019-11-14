@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    @item.exhibition_state = "出品中"
+    # @item.exhibition_state = "出品中"
     @item.saler_id = "1"
     @item.buyer_id = "2"
       if @item.save
