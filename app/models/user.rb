@@ -7,8 +7,11 @@ class User < ApplicationRecord
   # belongs_to :bank, dependent: :destroy
 
 
-  has_one :delivery
-  has_many :sns_credentials, dependent: :destroy
+  validates :nickname, presence: true, length: { maximum: 20 }
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  
+
+
   # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :tel_number, presence: true, length: { is: 11 }, numericality: true
@@ -21,6 +24,7 @@ class User < ApplicationRecord
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
+    # sns = SnsCredential.update(user_id:  @user.id)
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     # binding.pry
     if snscredential.present? #sns登録のみ完了してるユーザー
@@ -49,12 +53,17 @@ class User < ApplicationRecord
         )
         sns = SnsCredential.create(
           uid: uid,
-          provider: provider
+          provider: provider,
+          user_id: user.id
         )
+        # uid: session[:uid] 
+        # @omni_user = Sns_credential.where(uid: session[:uid])
+        # @omni_user.update(user_id: @user.id)
+        # user.update(uid: uid, provider: privider)
       end
     end
-    # hashでsnsのidを返り値として保持しておく
-    return { user: user , sns_id: sns.id }
+    
+    return
   end
 end
 

@@ -17,6 +17,29 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+
+
+    if @user.save
+      
+      
+      # if session[:uid]
+      #   @omni_user = Sns_credential.where(uid: session[:uid])
+      #   @omni_user.update(user_id: @user.id)
+      # end
+      # sign_in User.find(session[:id]) unless user_signed_in?
+      # # # session[:id] = @user.id
+      # if session[:uid] =! "nil"
+      #   Snscredential.create(
+      #     provider: session[:provider],
+      #     uid: session[:uid],
+          
+      #   )
+      # end
+        
+        # @omni_user = Sns_credential.where(uid: session[:uid])
+        # @omni_user.update(user_id: @user.id)
+
+=======
     if @user.save
       session[:payjpUser_id] = @user.id
     else
@@ -26,7 +49,11 @@ class SignupController < ApplicationController
     end
   end
   
+
+
+
   def create
+
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
