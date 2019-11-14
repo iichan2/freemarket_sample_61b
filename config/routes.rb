@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
+      get "mypage"
+
     end
   end
     root 'items#index'
