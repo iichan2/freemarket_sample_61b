@@ -50,7 +50,14 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.images
-    # @user = User.find(params[:@item.user_id])
+    @comment = Comment.new
+    @commented = Comment.where(item_id: @item_id)
+  end
+  
+  def comment_create
+    if @comment = Comment.create(comment_params)
+      redirect_to controller: 'items', action: 'show', id: comment_params[:item_id]
+    end
   end
 
   def show_deleted
@@ -73,5 +80,9 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :exhibition_state,images_attributes: [:image_url])
   end
+  def comment_params
+    params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+  end
+
 end
 
