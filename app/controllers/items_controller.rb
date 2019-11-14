@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted]
   def index
-    @items = Item.search(params[:search])
-    @ladies_items = Item.where(category_id: 1).limit(10)
-    @mens_items = Item.where(category_id: 2).limit(10)
-    @appliance_items = Item.where(category_id: 8).limit(10)
-    @toys_items = Item.where(category_id: 6).limit(10)
+    @ladies_items = Item.lady(1).take(10)
+    @mens_items = Item.lady(2).take(10)
+    @appliance_items = Item.lady(8).take(10)
+    @toys_items = Item.lady(6).take(10)
     @kubota_items = Item.where(brand_id: 1).limit(10)
     @inoue_items = Item.where(brand_id: 3).limit(10)
     @shioya_items = Item.where(brand_id: 2).limit(10)

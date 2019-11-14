@@ -22,4 +22,31 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+  def self.lady(num)
+    lady_cate = Category.find(num)
+    ladies_children = lady_cate.children
+    ladies_grandchildren = []
+    ladies_children.each do |lc|
+      ladies_grandchildren << lc.children
+    end
+    lg_id = []
+    ladies_grandchildren.each do |lg|
+      lg.each do |lg_at|
+        lg_id << lg_at.id
+      end
+    end
+    ladys = []
+    lg_id.each do |id|
+      if Item.where(category_id:id).length != 0
+        ladys << Item.where(category_id:id)
+      end
+    end
+    ladies_items = []
+    ladys.each do |lady|
+      image = Image.find_by(item_id: lady[0].id)
+      hash = {name:lady[0].item_name,id:lady[0].id,image_url:image.image_url,price:lady[0].price}
+      ladies_items << hash
+    end
+    return ladies_items
+  end
 end
