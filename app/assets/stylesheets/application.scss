@@ -52,7 +52,6 @@
 @import 'users/trading';
 @import 'users/transaction-info-side';
 @import "users/trading_module";
-@import "users/saler";
 // vendorフォルダ以下
 @import "vendor/slick-theme";
 @import "vendor/slick";
@@ -64,12 +63,6 @@
 .wrapper-container {
   width: 100%;
   height: 250vh;
-  background-color: #eeeeee;
-  z-index: -2;
-}
-.wrapper-container-saler {
-  width: 100%;
-  height: 430vh;
   background-color: #eeeeee;
   z-index: -2;
 }
