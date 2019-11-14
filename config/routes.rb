@@ -53,5 +53,8 @@ Rails.application.routes.draw do
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
       end
+      collection do
+        post 'comment_create'
+      end
   end
 end
