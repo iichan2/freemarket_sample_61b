@@ -118,19 +118,19 @@
     .kbox
       = link_to("#{@item.user.nickname}さんのその他の出品",root_path,class:"vunt")  
     .jbox
-    - @items.each do |item|
-      .nekobox
-        =link_to "",class:"neo" do
-          %img{:src => "#{@item.images[0].image_url}",:height => "180",:width => "200"}/
-          .neko
-            .tuhv
-              = item.item_name
-              .nekoneko
-                %p.yhgv
-                  = "¥ #{item.price}"
-                =fa_icon "heart-o",class:"tgjvm"
-                %supan.wio
-                  0
+      - @items.each do |item|
+        .nekobox
+          =link_to "",class:"neo" do
+            %img{:src => "#{@item.images[0].image_url}",:height => "180",:width => "200"}/
+            .neko
+              .tuhv
+                = item.item_name
+                .nekoneko
+                  %p.yhgv
+                    = "¥ #{item.price}"
+                  =fa_icon "heart-o",class:"tgjvm"
+                  %supan.wio
+                    0
   .mbox
     .tugv
     .rti

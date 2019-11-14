@@ -177,12 +177,10 @@
       .commenttv {
         width: 94%;
         margin:auto;
-        display: flex;
-        background: orange;
+        padding-bottom: 20px;
         .lovebox {
           width: 10%;
           height: 30px;
-          background: #0099e8;
         }
         .tiam {
           width: 85%;
@@ -277,6 +275,7 @@
       .nekobox {
         width: 30%;
         height: 45%;
+        padding-bottom: 10px;
         .neko {
           height: 120px;
           width: 100%;
