@@ -1,5 +1,5 @@
 .breadcrumbs{
-  &__container{
+   &__container{
     display: block;
     padding: 15px;
     border: 1px solid #f5f5f5;
@@ -16,3 +16,14 @@
     }
   }
 }
+  .breadcrumbs__inner{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 100%;
+    
+  
+  }
