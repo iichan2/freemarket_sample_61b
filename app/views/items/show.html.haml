@@ -87,10 +87,14 @@
     .obox
       .commenttv
         .lovebox
+          -# ここにアイコンが入る
         .tiam
-        .nagatomo
-          .kagawa
-          .honda
+          -# ここに名前が入る
+          .nagatomo
+            .kagawa
+              -# ここにコメントが入る
+            .honda
+              -# ここに何日前かが入る
       = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
         %p.rfvn
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
