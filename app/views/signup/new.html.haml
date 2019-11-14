@@ -20,6 +20,16 @@
         %li
           完了
           .progress-status
+
+
+
+
+
+
+
+
+
+
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__header 会員情報入力
@@ -34,6 +44,9 @@
             = f.label "メールアドレス",class: "label"
             %span.require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true',class: "input-default"
+  
+   
+
           .form-group
             = f.label "パスワード",class: "label"
             %span.require 必須

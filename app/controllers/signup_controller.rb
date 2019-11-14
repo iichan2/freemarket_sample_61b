@@ -19,10 +19,29 @@ class SignupController < ApplicationController
   )
 
     if @user.save
+      
+      
+      # if session[:uid]
+      #   @omni_user = Sns_credential.where(uid: session[:uid])
+      #   @omni_user.update(user_id: @user.id)
+      # end
+      # sign_in User.find(session[:id]) unless user_signed_in?
+      # # # session[:id] = @user.id
+      # if session[:uid] =! "nil"
+      #   Snscredential.create(
+      #     provider: session[:provider],
+      #     uid: session[:uid],
+          
+      #   )
+      # end
+        
+        # @omni_user = Sns_credential.where(uid: session[:uid])
+        # @omni_user.update(user_id: @user.id)
+
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
-      redirect_to signup_index_path
+      # redirect_to signup_index_path
     end
   end
   
