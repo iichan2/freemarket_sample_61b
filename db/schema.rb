@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "area", null: false
     t.string "delivery_day", null: false
     t.integer "price", null: false
-    t.integer "saler_id"
+    t.bigint "user_id"
     t.integer "buyer_id"
     t.string "exhibition_state"
     t.datetime "created_at", null: false
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -170,6 +171,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "items"
