@@ -24,11 +24,11 @@
           %h3.z 配送先
           %address.bu-text-info
             %p.bought_postal_cord
-              〒#{@buyer.delivery.postal_code}
+              〒#{@item.buyer.delivery.postal_code}
             %p.bought_addless
               = @del
             %p.bought_name
-              ="#{@buyer.delivery.first_name} #{@buyer.delivery.last_name}"
+              ="#{@item.buyer.delivery.first_name} #{@item.buyer.delivery.last_name}"
       %section.bought_info
         .stb-info-container
           %h3.z 支払い方法

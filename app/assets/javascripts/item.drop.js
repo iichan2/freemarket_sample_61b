@@ -1,4 +1,4 @@
-// $(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
   // var dropzone = $('.sell_upload__area');
   var images = [];
   var inputs  =[];
@@ -93,6 +93,6 @@
     //   dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
     // }
   })
-// });
+});
 
 

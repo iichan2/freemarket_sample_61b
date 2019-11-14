@@ -19,8 +19,8 @@ class SignupController < ApplicationController
   )
 
 
-  
-
+    if @user.save
+      
       
       # if session[:uid]
       #   @omni_user = Sns_credential.where(uid: session[:uid])
@@ -34,21 +34,14 @@ class SignupController < ApplicationController
       #     uid: session[:uid],
           
       #   )
-  
+      # end
         
         # @omni_user = Sns_credential.where(uid: session[:uid])
         # @omni_user.update(user_id: @user.id)
 
+=======
     if @user.save
       session[:payjpUser_id] = @user.id
-      # 通常のものなのかif文定義
-      # if session[:sns] == 'facebook'
-      #   SnsCredential.create(
-      #     uid: uid,
-      #     provider: provider,
-      #     user_id: @user.id
-      #     )
-      # end
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
@@ -96,7 +89,7 @@ class SignupController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: session[:payjpUser_id], customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        session[:payjpToken] = nil
+        session[:payjpToken] = ""
         redirect_to newend_signup_index_path
       end
     end
