@@ -34,7 +34,7 @@ class SignupController < ApplicationController
       #     uid: session[:uid],
           
       #   )
-    end
+  
         
         # @omni_user = Sns_credential.where(uid: session[:uid])
         # @omni_user.update(user_id: @user.id)
