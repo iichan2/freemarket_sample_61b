@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
   require "payjp"
 
   def delete #PayjpとCardデータベースを削除します

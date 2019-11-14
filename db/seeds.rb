@@ -5,7 +5,7 @@ require './db/default_brands_seed.rb'
 require 'faker'
 
 users = []
-5.times() do 
+53.times() do 
   user = {
     first_name: Faker::Name.last_name,
     last_name: Faker::Name.first_name,

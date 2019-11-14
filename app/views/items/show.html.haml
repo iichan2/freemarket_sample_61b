@@ -3,72 +3,74 @@
   .allbox
     .pbox
       %p.kuo
-        vivienne westwood red label スカート
+        = @item.item_name
       .ortu
+        .uuoo
+        .oouu
         -# = image_tag ("/#{@item.images[0].image_url}")
-      .oirtu
-        .rtng
-          %p.m 出品者
-          %p.mm カテゴリー
-          %p.mmm ブランド
-          %p.mmmm 商品のサイズ
-          %p.mmmmm 商品の状態
-          %p.mmmmmm 配送料の負担
-          %p.mmmmmmm 配送の方法
-          %p.mmmmmmmm 配送元地域
-          %p.mmmmmmmmm 発送日の目安
-        .vino
-          .s
-            =link_to("外地",root_path,class: "vnk")
-            .jgiore
-              = image_tag src="smile.png", size: "15x15",class: "vjnl"
-              %span.dfs 
-                7
-              = image_tag src="not_smile.png", size: "15x15",class: "vjnla"
-              %span.dfsa 
-                0
-              = image_tag src="not.png", size: "15x15",class: "vjnlq"
-              %span.dfsq
-                0
-          .ss
-            =link_to("レディース",root_path,class: "aas")
-            %br
-            =link_to("＞スカート",root_path,class: "aad")
-            %br
-            =link_to("＞ひざ丈スカート",root_path,class: "aaf")
-          .sss
-            =link_to("ヴィヴィアンウエストウッドレッドレーベル",root_path,class: "aag")
-          %p.ssss
-            M
-          %p.sssss
-            未使用に近い
-          %p.ssssss
-            送料込み(出品者負担)
-          %p.sssssss
-            らくらくメルカリ便
-          %p.ssssssss
-            =link_to("埼玉",root_path,class: "abh")
-          %p.sssssssss
-            2〜3日で発送
+      .rgt
+        .tbody
+          .zx
+            .pmfo 
+              %p.jgjgjh 出品者
+            .igrej
+              =link_to("ああああ",root_path,class: "vnk")
+              .jgiore
+                = image_tag src="smile.png", size: "15x15",class: "vjnl"
+                %span.dfs 
+                  7
+                = image_tag src="not_smile.png", size: "15x15",class: "vjnla"
+                %span.dfsa 
+                  0
+                = image_tag src="not.png", size: "15x15",class: "vjnlq"
+                %span.dfsq
+                  0
+          .zx
+            .pmfo
+              %p.jgjgjh カテゴリー
+            .igrej
+              =link_to("#{@item.category.parent.parent.category}",root_path,class: "aas")
+              %br
+              =link_to(">#{@item.category.parent.category}",root_path,class: "aad")
+              %br
+              =link_to(">#{@item.category.category}",root_path,class: "aaf")
+          .zx
+            .pmfo
+              %p.jgjgjh ブランド
+            .igrej
+          .zx
+            .pmfo
+              %p.jgjgjh 商品の状態
+            .igrej 新品、未使用
+          .zx
+            .pmfo
+              %p.jgjgjh 配送料の負担
+            .igrej 送料込み(出品者負担)
+          .zx
+            .pmfo
+              %p.jgjgjh 配送の方法
+            .igrej ゆうゆうメルカリ便
+          .zx
+            .pmfo 
+              %p.jgjgjh 配送元地域
+            .igrej
+              =link_to("大阪府",root_path,class: "vnk")
+          .zx
+            .pmfo
+              %p.jgjgjh 発送日の目安
+            .igrej 1~2日で発送
       .bbbt
         %p.byr
-          ¥８,５００
+          = "¥ #{@item.price}"
         %p.byt
           (税込)
         %p.byy
           送料込み
       .vmt
         =link_to("購入画面に進む",root_path,class: "iuorwe")
-      %p.wvt
-        定価32,000円
-      %p.nuk
-        vivienne westwood red labelのラップスカートです。
-      %p.nvuw
-        1度のみ着用しました。
-      %p.qvtun
-        サイズは63〜65cm程だと思いますが、素人採寸ですのでご了承ください。
-      %p.iwbnr
-        &#035;viviennewestwood
+      .yuyuyu
+        .okjgnd
+          =@item.item_info
       .itjgo
         =link_to "",class: "nefj" do
           =fa_icon "heart-o"

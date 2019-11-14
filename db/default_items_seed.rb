@@ -14,12 +14,11 @@ default_items.each do |data|
     area:"#{data["area"]}",
     delivery_day:"#{data["delivery_day"]}",
     price:"#{data["price"]}",
-    saler_id:"#{data["saler_id"]}",
+    user_id:"#{data["user_id"]}",
     buyer_id:"#{data["buyer_id"]}",
     exhibition_state:"#{data["exhibition_state"]}",
-    
-    brand_id:"#{data["brand_id"]}"}
-
+    brand_id:"#{data["brand_id"]}",
+  }
   hashs << hash
 end
 

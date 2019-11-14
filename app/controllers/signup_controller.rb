@@ -1,9 +1,9 @@
 class SignupController < ApplicationController
   before_action :create_user, only: :create
-
+  
   def create_user
   @info_user = session
-  
+  session[:payjpToken] = params[:payjpToken]
   @user = User.new(
     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
     email: session[:email],
@@ -17,6 +17,7 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+
 
     if @user.save
       
@@ -38,6 +39,9 @@ class SignupController < ApplicationController
         # @omni_user = Sns_credential.where(uid: session[:uid])
         # @omni_user.update(user_id: @user.id)
 
+=======
+    if @user.save
+      session[:payjpUser_id] = @user.id
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
@@ -49,20 +53,7 @@ class SignupController < ApplicationController
 
 
   def create
-    
-    # require "payjp"
-    # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    # if params['payjp-token'].blank?
-    #   redirect_to action: "card"
-    # else
-    # customer = Payjp::Customer.create(
-    # description: '登録テスト', #なくてもOK
-    # email: @user.email, #なくてもOK
-    # card: params['payjp-token'],
-    # metadata: {user_id: @user.id}
-    # ) #念の為metadataにuser_idを入れましたがなくてもOK
-    # @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
-    # @card.save
+
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -76,11 +67,34 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
+    
     if @delivery.save
       @user.update(delivery_id: @delivery.id)
-      redirect_to newend_signup_index_path
+      redirect_to payjp_path
     end
   end
+
+  def create_payjp
+    require "payjp"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if session[:payjpToken].blank?
+
+      redirect_to action: "card"
+    else
+      customer = Payjp::Customer.create(
+      description: '登録テスト', #なくてもOK
+      email: session[:email], #なくてもOK
+      card: session[:payjpToken],
+      metadata: {user_id: session[:payjpUser_id]}
+      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      @card = Card.new(user_id: session[:payjpUser_id], customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        session[:payjpToken] = ""
+        redirect_to newend_signup_index_path
+      end
+    end
+  end
+
 
   def mail
     # 新規登録ページ
@@ -106,6 +120,8 @@ class SignupController < ApplicationController
   
   end
 
+  def choice_new
+  end
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
@@ -127,8 +143,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    # newend_signup_index
-    # sign_in User.find(session[:id]) unless user_signed_in?
+    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
   end
   
   private
@@ -156,7 +171,8 @@ class SignupController < ApplicationController
       :map,
       :banchi,
       :building,
-      :password
+      :password,
+      :payjpToken
       )
   end
 

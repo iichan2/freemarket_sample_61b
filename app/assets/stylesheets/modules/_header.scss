@@ -182,17 +182,21 @@
           height: 100%;
           width: 24%;
           margin-left: 5%;
-          display: flex;
+          &:hover .my {
+            color: #005FFF;
+          }
           &:hover .mymypage {
             color: #005FFF;
             transition: 0.3s;
           }
           .my {
+            display: inline-block;
             color:black;
             margin-top: 3%;
             opacity: 0.3;
           }
           .mymypage {
+            display: inline-block;
             color: black;
             font-size: 14px;
             opacity: 0.9;

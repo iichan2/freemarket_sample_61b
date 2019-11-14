@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
   only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
   
   before_action :set_item_image_params, only: [:sending, :trading]
-
+  
   def payment
   end
 
@@ -32,6 +33,14 @@ class UsersController < ApplicationController
   end
 
   def logout
+  end
+
+  def sign_out
+    if user_signed_in?
+      @user = current_user.id
+      @user = nil
+      redirect_to root_path
+    end
   end
 
   def yu

@@ -11,8 +11,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :area, null: false
       t.string :delivery_day, null: false
       t.integer :price, null: false
-      t.integer :saler_id
-      t.integer :buyer_id
+      t.references :user, foreign_key: true
+      # t.integer :user_id
+      t.integer :buyer_id, default: ""
       t.string :exhibition_state
       t.timestamps
     end
