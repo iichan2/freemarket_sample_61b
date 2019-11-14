@@ -20,8 +20,11 @@ Rails.application.routes.draw do
       get 'address'
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
+
+
       post 'create_user'
       get 'choice_new'
+
       get 'new_card'
       get 'show_card'
       post 'create_delivery'
