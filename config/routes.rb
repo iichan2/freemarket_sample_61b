@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #   get "sign_in", to: "users/sessions#new"
   #   # get "sign_out", to: "users/sessions#destroy" 
   # end
+  get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   post 'signup'  => 'signup#create', as: 'signup'
   resources :signup, only: [:new] do
