@@ -19,8 +19,8 @@ class SignupController < ApplicationController
   )
 
 
-    if @user.save
-      
+  
+
       
       # if session[:uid]
       #   @omni_user = Sns_credential.where(uid: session[:uid])
@@ -39,9 +39,17 @@ class SignupController < ApplicationController
         # @omni_user = Sns_credential.where(uid: session[:uid])
         # @omni_user.update(user_id: @user.id)
 
-=======
+
     if @user.save
       session[:payjpUser_id] = @user.id
+      # 通常のものなのかif文定義
+      # if session[:sns] == 'facebook'
+      #   SnsCredential.create(
+      #     uid: uid,
+      #     provider: provider,
+      #     user_id: @user.id
+      #     )
+      # end
     else
       # ログインするための情報を保管
       # notice:"USER失敗しました"
