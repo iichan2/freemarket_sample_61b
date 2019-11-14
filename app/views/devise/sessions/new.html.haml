@@ -7,15 +7,29 @@
     .login-no-account
       %p アカウントをお持ちでない方はこちら
       .sign-up
-        =link_to  signup_index_path, method: :get, class: "sign-up-btn"  do
+        =link_to  new_user_registration_path, method: :get, class: "sign-up-btn"  do
           新規会員登録 
     .single-main__container__inner__content
-      = link_to  user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
-        %i.single-main__container__inner__content__icon.fab.fa-facebook-square
-        Facebookでログイン
-      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
-        =image_tag "/images/google.svg", class: "contents__btn__google__logo"
-        Googleでログイン
+      - if Rails.env.development?
+        = link_to  user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
+          %i.single-main__container__inner__content__icon.fab.fa-facebook-square
+          Facebookでログイン
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
+          =image_tag "/images/google.svg", class: "contents__btn__google__logo"
+          Googleでログイン
+          
+        
+      - else
+        = link_to  new_user_registration_path, method: :get, class: "contents__btn contents__btn__facebook" do
+          %i.single-main__container__inner__content__icon.fab.fa-facebook-square
+          Facebookでログイン
+        = link_to new_user_registration_path, method: :get, class: "contents__btn contents__btn__google" do
+          =image_tag "/images/google.svg", class: "contents__btn__google__logo"
+          Googleでログイン
+
+
+
+
         
     .login-form-inner
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
