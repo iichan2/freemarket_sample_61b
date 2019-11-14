@@ -170,10 +170,20 @@
     }
     .obox {
       width: 100%;
-      height: 240px;
       background-color: white;
       margin-top: 1%;
       padding-top: 3%;
+      padding-bottom: 3%;
+      .commenttv {
+        width: 94%;
+        height:200px;
+        background-color: aqua;
+        margin:auto;
+        .lovebox {
+          height: 200px;
+          float: left;
+        }
+      }
       .rfvn {
         width: 94%;
         background-color: rgba(246, 202, 143, 0.2);
@@ -196,7 +206,7 @@
         border-radius: 1px;
         margin-left: 3%;
         color:white;
-        
+        cursor: pointer;
       }
     }
     .ibox {
