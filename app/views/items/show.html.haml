@@ -86,16 +86,13 @@
             あんしん・あんぜんへの取り組み
     .obox
       .commenttv
-      - @commented.each do |comments|
-        .lovebox
-          -# ここにアイコンが入る
-        .tiam
-          -# ここに名前が入る
-          .nagatomo
-            .kagawa
-              %p= comments.text
-            .honda
-              -# ここに何日前かが入る
+        - @commented.each do |comment|
+          .lovebox
+          .tiam
+            .nagatomo
+              .kagawa
+                %p=comment.text
+              .honda
       = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
         %p.rfvn
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

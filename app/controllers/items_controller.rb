@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
     @comment = Comment.new
-    @commented = Comment.where(item_id: @item_id)
+    @commented = Comment.where(item_id: @item.id)
   end
   
   def comment_create

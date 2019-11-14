@@ -178,29 +178,29 @@
         width: 94%;
         margin:auto;
         display: flex;
+        background: orange;
         .lovebox {
-          float: left;
           width: 10%;
-          margin-left: 5%;
+          height: 30px;
+          background: #0099e8;
         }
         .tiam {
           width: 85%;
           margin-left: 10%;
-          float: left;
-        }
-        .nagatomo {
-          width:85%;
-          position: relative;
-          .kagawa {
-            width: 100%;
-            word-wrap: break-word;
-            text-indent: 1em;
-            line-height: 50px;
-            background: #EEEEEE;
-          }
-          .honda {
-            width: 100%;
-            background: #EEEEEE;
+          .nagatomo {
+            width:85%;
+            position: relative;
+            .kagawa {
+              width: 100%;
+              word-wrap: break-word;
+              text-indent: 1em;
+              line-height: 50px;
+              background: #EEEEEE;
+            }
+            .honda {
+              width: 100%;
+              background: #EEEEEE;
+            }
           }
         }
       }
