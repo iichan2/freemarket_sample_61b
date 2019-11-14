@@ -86,14 +86,14 @@
             あんしん・あんぜんへの取り組み
     .obox
       .commenttv
-      - @commented.each do |comments|
+      - @commented.each do |comment|
         .lovebox
           -# ここにアイコンが入る
         .tiam
-          -# ここに名前が入る
+          = comment.user.nickname
           .nagatomo
             .kagawa
-              %p= comments.text
+              = comment.text
             .honda
               -# ここに何日前かが入る
       = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
