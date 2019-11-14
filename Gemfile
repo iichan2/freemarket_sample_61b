@@ -89,6 +89,7 @@ gem 'fog-aws'
 gem 'ransack'
 gem 'devise'
 gem 'dotenv-rails'
+gem "gretel"
 
 group :production do
   gem 'unicorn', '5.4.1'
