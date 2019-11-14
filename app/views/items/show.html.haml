@@ -88,13 +88,16 @@
       .commenttv
         .lovebox
         .tiam
-          .nagatomo
-            .kagawa
-            .honda
-      %p.rfvn
-        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea.tnu
-      %input.itvu{:type => "submit", :value => "コメントする"}/
+        .nagatomo
+          .kagawa
+          .honda
+      = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
+        %p.rfvn
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .tnu
+          = f.text_area :text, size: "75x6" 
+          = f.hidden_field :item_id, value: @item.id
+        %input.itvu{:type => "submit", :value => "コメントする"}
     .ibox
       =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
       =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
