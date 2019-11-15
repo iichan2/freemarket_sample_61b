@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.create(item_params)
-    @item = item.exhibition_state = "出品中"
+    @item.update(exhibition_state: "出品中")
       if @item.save
         redirect_to action: :index
       else
@@ -81,10 +81,15 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    session[:item_id] = @item.id
+    if @item.exhibition_state == "削除済"
+      redirect_to controller: 'items', action: 'show_deleted'
+    end
     @images = @item.images
     @comment = Comment.new
     @commented = Comment.where(item_id: @item.id)
     @items = Item.where(user_id: @item.user_id)
+    @item_seller_user = User.find(@item.user_id)
   end
   
   def comment_create
@@ -93,8 +98,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show_deleted
-    
+  def show_deleted #アイテムなかった時に飛ぶところ
+  end
+
+  def item_stop
+    @item = Item.find(session[:item_id])
+    session[:item_id] = nil
+    @item.update(exhibition_state: "停止中")
+    redirect_to controller: 'items', action: 'show', id: @item.id
+  end
+
+  def item_destroy
+    @item = Item.find(session[:item_id])
+    session[:item_id] = nil
+    @item.update(exhibition_state: "削除済")
+    user = User.find(@item.user_id)
+    redirect_to controller: 'users', action: 'show', id: user.id
   end
 
   def bought

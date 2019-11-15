@@ -7,9 +7,9 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   validates :birth_year, :birth_month, :birth_day, presence: true
-  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :tel_number, presence: true, length: { is: 11 }
+  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :tel_number, presence: true, length: { is: 11 }
   has_many :items
   has_many :comments
   has_many :cards

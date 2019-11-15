@@ -14,7 +14,7 @@
             .pmfo 
               %p.jgjgjh 出品者
             .igrej
-              =link_to("#{@item.user.nickname}",saler_items_path,class: "vnk")
+              =link_to("#{@item.user.nickname}",user_path,class: "vnk")
               .jgiore
                 = image_tag src="smile.png", size: "15x15",class: "vjnl"
                 %span.dfs 
@@ -70,8 +70,15 @@
           (税込)
         %p.byy
           送料込み
-      .vmt
-        =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
+      - if @item.exhibition_state == "出品中"
+        .vmt
+          =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
+      - elsif @item.exhibition_state == "停止中"
+        .vmt
+          %p.iuorwe 出品停止中
+      - elsif @item.exhibition_state == "売却済"
+        .vmt
+          %p.iuorwe 売却済
       .yuyuyu
         .okjgnd
           =@item.item_info
@@ -88,6 +95,8 @@
           =fa_icon "lock"
           %span.vjngr
             あんしん・あんぜんへの取り組み
+    - if @item_seller_user.id == current_user.id
+      = render 'users/trading_module'
     .obox
       .commenttv
         - @commented.each do |comment|

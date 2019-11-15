@@ -1,9 +1,9 @@
 .juv {
-  height: 300px;
-  width: 600px;
+  width: 100%;
   background-color: white;
   padding-top: 40px;
-  border: 0.5em rgb(173, 170, 170) solid;
+  padding-bottom: 40px;
+  border-top: 8px #EEEEEE solid;
   .qq {
     height: 18%;
     width: 90%;
@@ -18,7 +18,7 @@
     width: 90%;
     margin:auto;
     text-align: center;
-    color: black;;
+    color: black;
     line-height: 50px;
     margin-top: 2%;
   }

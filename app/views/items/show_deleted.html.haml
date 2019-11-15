@@ -1,6 +1,6 @@
 .header
   .header-top
-    =link_to "" do
+    =link_to root_path do
       =image_tag "merucari.png", size: "140x35",class: "inoue"
     %form.top_right
       %input.search{:placeholder => "何かお探しですか？", :name => "keyword",:type => "search", :value => ""}/
@@ -15,111 +15,111 @@
     =link_to('ブランドから探す', root_path, class: 'pbr')
     =link_to('新規会員登録', root_path, class: 'touroku1')
     =link_to('ログイン', root_path, class: 'login1')
-  .header-bottom
-    =link_to('メルカリ', root_path, class:'mercari')
-    %p.icon
-      >
-    =link_to('カテゴリー一覧', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('レディース', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('バッグ', root_path, class:'mercari1')
-    %p.icon
-      >
-    =link_to('ショルダーバッグ', root_path, class:'mercari1')
-    %p.icon
-      >
-    %p.numb
+  -# .header-bottom
+  -#   =link_to('メルカリ', root_path, class:'mercari')
+  -#   %p.icon
+  -#     >
+  -#   =link_to('カテゴリー一覧', root_path, class:'mercari1')
+  -#   %p.icon
+  -#     >
+  -#   =link_to('レディース', root_path, class:'mercari1')
+  -#   %p.icon
+  -#     >
+  -#   =link_to('バッグ', root_path, class:'mercari1')
+  -#   %p.icon
+  -#     >
+  -#   =link_to('ショルダーバッグ', root_path, class:'mercari1')
+  -#   %p.icon
+  -#     >
+    -# %p.numb
       m70068440240
   .content_g
     .left_auto
       =link_to "" do
         =image_tag "alltag.png", size: "300x250",class: "masa"
     %p.midasi
-      m70068440240 この商品は削除されました
-    .main_contents
-      =link_to('コーチのショルダーバッグ その他の商品',root_path,class:'kotoba')
-      .main_content
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
-        .boxa1
-          =link_to "" do
-            = image_tag "kaban.jpeg", size: "210x220",class: "tono"
-          =link_to "" do
-            .textarea
-              .top
-                %p.namess
-                  COACHのカバン非常に高いやつ
-              .bottom
-                %p.valuess
-                  ¥6,800
-                %p.heart
-                  ♡  10
+      この商品は削除されたか すでに存在しません
+  -#   .main_contents
+  -#     =link_to('コーチのショルダーバッグ その他の商品',root_path,class:'kotoba')
+  -#     .main_content
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
+  -#       .boxa1
+  -#         =link_to "" do
+  -#           = image_tag "kaban.jpeg", size: "210x220",class: "tono"
+  -#         =link_to "" do
+  -#           .textarea
+  -#             .top
+  -#               %p.namess
+  -#                 COACHのカバン非常に高いやつ
+  -#             .bottom
+  -#               %p.valuess
+  -#                 ¥6,800
+  -#               %p.heart
+  -#                 ♡  10
   .adv
     .imagebox
       = link_to "" do

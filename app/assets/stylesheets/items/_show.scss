@@ -82,7 +82,6 @@
       }
       .bbbt {
         width: 100%;
-        height: 5%;
         margin-top: 20%;
         display: flex;
         .byr {
@@ -123,9 +122,10 @@
       .yuyuyu {
         width:100%;
         white-space: pre-wrap;
-        padding: 10px;
         word-wrap: break-word;
+        line-height: 10px;
         .okjgnd {
+          text-align: center;
           font-size: 18px;
           opacity: 0.8;
         }
