@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :tel_number, presence: true, length: { is: 11 }
   has_many :items
   has_many :comments
-  has_one :delivery
   has_many :cards
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
