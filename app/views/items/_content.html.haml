@@ -16,7 +16,6 @@
           %li.qaz
             .bar10
               = link_to('おもちゃ・ホビー・グッズ', href="#toy", class: 'qaz')
-
     .new_box
       .name#ladies_new
         %h1.title
@@ -26,14 +25,13 @@
       %ul.item
         - @ladies_items.each do |ladies|
           %li.itembox
-            %span.price ￥#{ladies.price}
+            %span.price ￥#{ladies[:price]}
             .itemtop
-              - ladies.images.each do |ladies_image|
-                =link_to "items/#{ladies.id}" do
-                  = image_tag("#{ladies_image.image_url}", size:"180x190")
+              =link_to "items/#{ladies[:id]}" do
+                = image_tag("#{ladies[:image_url]}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{ladies.item_name}", "items/#{ladies.id}", class: 'explanation')
+                = link_to("#{ladies[:name]}", "items/#{ladies[:id]}", class: 'explanation')
       .name#mens_new
         %h1.title
           メンズ新着アイテム
@@ -41,14 +39,13 @@
       %ul.item
         - @mens_items.each do |mens|
           %li.itembox
-            %span.price ￥#{mens.price}
+            %span.price ￥#{mens[:price]}
             .itemtop
-              - mens.images.each do |mens_image|
-                =link_to "items/#{mens.id}" do
-                  = image_tag("#{mens_image.image_url}", size:"180x190")
+              =link_to "items/#{mens[:id]}" do
+                = image_tag("#{mens[:image_url]}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{mens.item_name}", "items/#{mens.id}", class: 'explanation')
+                = link_to("#{mens[:name]}", "items/#{mens[:id]}", class: 'explanation')
       .name#elect
         %h1.title
           家電・スマホ・カメラ新着アイテム
@@ -56,14 +53,13 @@
       %ul.item
         - @appliance_items.each do |appliance|
           %li.itembox
-            %span.price ￥#{appliance.price}
+            %span.price ￥#{appliance[:price]}
             .itemtop
-              - appliance.images.each do |appliance_image|
-                =link_to "items/#{appliance.id}" do
-                  = image_tag("#{appliance_image.image_url}", size:"180x190")
+              =link_to "items/#{appliance[:id]}" do
+                = image_tag("#{appliance[:image_url]}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{appliance.item_name}", "items/#{appliance.id}", class: 'explanation')
+                = link_to("#{appliance[:name]}", "items/#{appliance[:id]}", class: 'explanation')
       .name#toy
         %h1.title
           おもちゃ・ホビー・グッズ新着アイテム
@@ -71,14 +67,13 @@
       %ul.item
         - @toys_items.each do |toys|
           %li.itembox
-            %span.price ￥#{toys.price}
+            %span.price ￥#{toys[:price]}
             .itemtop
-              - toys.images.each do |toys_image|
-                =link_to "items/#{toys.id}" do
-                  = image_tag("#{toys_image.image_url}", size:"180x190")
+              =link_to "items/#{toys[:id]}" do
+                = image_tag("#{toys[:image_url]}", size:"180x190")
             .itembottom
               .itembottom2
-                = link_to("#{toys.item_name}", "items/#{toys.id}", class: 'explanation')
+                = link_to("#{toys[:name]}", "items/#{toys[:id]}", class: 'explanation')
   .contents
     .category
       .category
