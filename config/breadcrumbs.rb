@@ -20,11 +20,16 @@ crumb :identification do
 end
 
 
-
-crumb :identification do
-  link "本人情報", identification_user_path
+crumb :payment do
+  link "支払方法", payment_user_path
   parent :mypage
 end
+
+crumb :sending do
+  link "取引方法", sending_user_path
+  parent :mypage
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
