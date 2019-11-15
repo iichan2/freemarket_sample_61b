@@ -103,9 +103,9 @@ class SignupController < ApplicationController
     end
   end
 
-
+ 
   def mail
-    # 新規登録ページ
+    @user = User.new
   end
 
   def new
@@ -151,7 +151,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
+    
   end
   
   private

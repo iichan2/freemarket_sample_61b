@@ -7,14 +7,14 @@ class User < ApplicationRecord
   # belongs_to :bank, dependent: :destroy
 
 
-  validates :nickname, presence: true, length: { maximum: 20 }
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  # validates :nickname, presence: true, length: { maximum: 20 }
+  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   
 
 
-  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :tel_number, presence: true, length: { is: 11 }, numericality: true
+  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :tel_number, presence: true, length: { is: 11 }, numericality: true
   has_many :items
 
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
