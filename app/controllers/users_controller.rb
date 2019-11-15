@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
-  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending]
+  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status]
   
   before_action :set_item_image_params, only: [:sending, :trading]
   
@@ -22,6 +22,10 @@ class UsersController < ApplicationController
   end
 
   def sending
+  end
+
+  def status
+
   end
 
   def update    

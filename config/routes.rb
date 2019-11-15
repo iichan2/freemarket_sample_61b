@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
+      get 'status'
       # get "mypage"
   
     end
@@ -73,6 +74,7 @@ Rails.application.routes.draw do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
+
       end
       collection do
         post 'comment_create'

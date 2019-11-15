@@ -134,7 +134,7 @@
             %span.price ￥#{shioya.price}
             .itemtop
               - shioya.images.each do |shioya_image|
-                =link_to "" do
+                =link_to "items/#{shioya.id}" do
                   = image_tag("#{shioya_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
@@ -149,7 +149,7 @@
             %span.price ￥#{tonochi.price}
             .itemtop
               - tonochi.images.each do |tonochi_image|
-                =link_to "" do
+                =link_to "items/#{tonochi.id}" do
                   = image_tag("#{tonochi_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
