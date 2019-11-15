@@ -1,0 +1,34 @@
+- breadcrumb :mypage
+= render 'items/header'
+=render 'layouts/breadcrumbs'
+.wrapper-container
+  .wrapper
+    = render 'myp-side'
+    .my-contents  
+      .my-content-over
+        .myp-tab-con-noti-todo
+          %ul.myp-tabs
+            %li.news.active
+              %h3.myp  出品中
+            %li.news
+              %h3.myp  取引中
+            %li.news
+              %h3.myp 売却済み
+          -if @item.present?
+            - @item.each do |item|
+              .item-info
+                .info-left
+                  = image_tag src="#{@image.image_url}", size:"99x99"
+                .info-right
+                  .info-up
+                    = item.item_name
+                  .info-down
+          -else
+            %ul#mypage-tab-todo.myp-item-list
+              %li.myp-item-not-found_old 
+                .mercari-image
+            %h3.to-do-list 現在、やることリストはありません
+
+= render 'items/adv'
+= render 'items/footer'
+= render 'items/item-circle'

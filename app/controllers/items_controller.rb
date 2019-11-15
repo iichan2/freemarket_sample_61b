@@ -25,9 +25,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    @item.exhibition_state = "出品中"
-    # @item.user_id = "1"
-    # @item.buyer_id = "2"
+    # @item.exhibition_state = "出品中"
       if @item.save
         redirect_to action: :index
       else

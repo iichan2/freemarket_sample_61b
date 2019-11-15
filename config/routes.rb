@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
-      get 'status'
+      get 'status_sell'
       # get "mypage"
   
     end

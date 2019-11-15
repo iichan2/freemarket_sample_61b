@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
-  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status]
+  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status_sell]
   
   before_action :set_item_image_params, only: [:sending, :trading]
   
@@ -24,7 +24,10 @@ class UsersController < ApplicationController
   def sending
   end
 
-  def status
+  def status_sell
+    @items = Item.where(user_id: @user.id)
+    @item = @items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
+    @image = Image.find(params[:id])
 
   end
 
@@ -57,7 +60,7 @@ class UsersController < ApplicationController
     end
 
     def set_item_image_params
-      @item = Item.find(params[:id])
-      @image = Image.find(params[:id])
+      # @item = Item.find(params[:id])
+      # @image = Image.find(params[:id])
     end
 end

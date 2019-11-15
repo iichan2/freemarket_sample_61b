@@ -1,0 +1,26 @@
+.item-info{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  border-bottom: solid #eee 1px;
+  .info-left{
+  height:100%;
+  width: 15%;
+  text-align: center;
+
+  }
+  .info-right{
+    height:100%;
+    flex-grow: 1;
+    .info-up{
+      height:50%;
+      width: 100%;
+      font-size: 20px;
+    }
+    .info-down{
+      height:50%;
+      width: 100%;
+    }
+
+  }
+}
