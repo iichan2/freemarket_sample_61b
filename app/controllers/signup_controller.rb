@@ -22,37 +22,15 @@ class SignupController < ApplicationController
   
 
       
-      # if session[:uid]
-      #   @omni_user = Sns_credential.where(uid: session[:uid])
-      #   @omni_user.update(user_id: @user.id)
-      # end
-      # sign_in User.find(session[:id]) unless user_signed_in?
-      # # # session[:id] = @user.id
-      # if session[:uid] =! "nil"
-      #   Snscredential.create(
-      #     provider: session[:provider],
-      #     uid: session[:uid],
-          
-      #   )
-  
-        
-        # @omni_user = Sns_credential.where(uid: session[:uid])
-        # @omni_user.update(user_id: @user.id)
 
     if @user.save!
       session[:payjpUser_id] = @user.id
-      # 通常のものなのかif文定義
-      # if session[:sns] == 'facebook'
-      #   SnsCredential.create(
-      #     uid: uid,
-      #     provider: provider,
-      #     user_id: @user.id
-      #     )
-      # end
-    else
-      # ログインするための情報を保管
-      # notice:"USER失敗しました"
-      # redirect_to signup_index_path
+      sns = SnsCredential.find(session[:sns_id]) 
+      sns.update(user_id: @user.id)
+    # else
+    #   # ログインするための情報を保管
+      
+    #   redirect_to signup_index_path
     end
   end
   
@@ -74,7 +52,10 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-    if @delivery.save
+
+    
+    if @delivery.save!
+
       @user.update(delivery_id: @delivery.id)
       redirect_to payjp_path
     end
@@ -102,18 +83,26 @@ class SignupController < ApplicationController
   end
 
 
+ 
   def mail
-    # 新規登録ページ
+    @user = User.new
+  # snsのユーザー登録画面
   end
 
   def new
     @user = User.new
+    # メールのユーザー登録画面
   end
 
   def tel
+    if session['devise.omniauth_data']
+      # snsのデータがあれば自動生成して session[:passwodに入れる]
+      session[:password] = Devise.friendly_token[0, 20] 
+    else
+      session[:password] = user_params[:password]
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
     session[:first_name] = user_params[:first_name]
     session[:last_name] = user_params[:last_name]
     session[:kana_first_name] = user_params[:kana_first_name]
@@ -121,13 +110,10 @@ class SignupController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
-
     @user = User.new
-  
   end
 
-  def choice_new
-  end
+  
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
@@ -149,7 +135,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
+    
   end
   
   private

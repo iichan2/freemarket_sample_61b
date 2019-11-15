@@ -15,14 +15,22 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-    
   end
 
   def edit
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @item = Item.find(params[:id])
-    @item.images.build
   end
-
+  
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to user_path
+    else
+      render :edit
+    end
+  end
+  
   def create
     item = Item.create(item_params)
     @item.update(exhibition_state: "出品中")
@@ -31,7 +39,6 @@ class ItemsController < ApplicationController
       else
         redirect_to action: :new
       end
-    
   end
 
   def get_category_children
@@ -133,6 +140,5 @@ class ItemsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
   end
-
 end
 

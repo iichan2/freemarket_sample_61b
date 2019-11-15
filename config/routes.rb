@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :cards
   
-  # devise_scope :user do
-  #   get "sign_up", to: "users/registrations#new"
-  #   get "sign_in", to: "users/sessions#new"
+  devise_scope :user do
+    get "sign_up", to: "users/registrations#new"
+    get "sign_in", to: "users/sessions#new"
   #   # get "sign_out", to: "users/sessions#destroy" 
-  # end
+  end
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   get 'item_stop' => 'items#item_stop', as: 'item_stop'
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :signup, only: [:new] do
     collection do
-      get 'mail'
       get 'new'
       get 'tel'
       get 'address'
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
       get "trading"
       get "sending"
       # get "mypage"
-  
     end
 
     # パン屑リスト
@@ -55,7 +53,6 @@ Rails.application.routes.draw do
         get "sending"
         get "payment"
         get "identification"
-        
       end
     end
   end
