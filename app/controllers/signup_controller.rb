@@ -27,10 +27,10 @@ class SignupController < ApplicationController
       session[:payjpUser_id] = @user.id
       sns = SnsCredential.find(session[:sns_id]) 
       sns.update(user_id: @user.id)
-    # else
+    else
     #   # ログインするための情報を保管
       
-    #   redirect_to signup_index_path
+      redirect_to signup_index_path
     end
   end
   
