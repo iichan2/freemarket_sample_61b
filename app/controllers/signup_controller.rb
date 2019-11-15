@@ -86,23 +86,20 @@ class SignupController < ApplicationController
  
   def mail
     @user = User.new
-   
-
-
+  # snsのユーザー登録画面
   end
 
   def new
     @user = User.new
+    # メールのユーザー登録画面
   end
 
   def tel
     if session['devise.omniauth_data']
-      # 自動生成して session[:passwodに入れる]
+      # snsのデータがあれば自動生成して session[:passwodに入れる]
       session[:password] = Devise.friendly_token[0, 20] 
-     
     else
       session[:password] = user_params[:password]
-
     end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
@@ -113,11 +110,10 @@ class SignupController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day]
-
     @user = User.new
-  
   end
 
+  
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
