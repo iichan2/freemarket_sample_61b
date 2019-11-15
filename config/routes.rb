@@ -21,11 +21,8 @@ Rails.application.routes.draw do
       get 'address'
       get 'card'
       get 'newend' # ここで、入力の全てが終了する
-
-
       post 'create_user'
       get 'choice_new'
-
       get 'new_card'
       get 'show_card'
       post 'create_delivery'
@@ -44,7 +41,6 @@ Rails.application.routes.draw do
       get "trading"
       get "sending"
       # get "mypage"
-  
     end
 
     # パン屑リスト
@@ -55,16 +51,11 @@ Rails.application.routes.draw do
         get "sending"
         get "payment"
         get "identification"
-        
       end
     end
-
-
-
-
   end
     root 'items#index'
-    resources :items, only: [:index, :edit, :new, :create, :show] do
+    resources :items, only: [:index, :edit, :new, :create, :show, :update] do
       collection do
         get "saler"
       end
