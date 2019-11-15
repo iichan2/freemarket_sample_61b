@@ -8,18 +8,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.find_oauth(request.env["omniauth.auth"])
+    info = User.find_oauth(request.env["omniauth.auth"])
+    # find_oauth→動かす(request.env["omniauth.auth"])
+    @user = info[:user]
+    session[:sns_id] = info[:sns_id]
 
-    render template: "signup/mail"
-    # if @user.persisted? #userが存在したら
+    # render template: "signup/mail"
+    if @user.persisted? #userが存在したら
 
       
       sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else#userが存在しなかったら
-      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      @facebook = 'facebook'
-      render template: "signup/new"
+      session["devise.omniauth_data"] = request.env["omniauth.auth"].except("extra")
+      
+      render template: "signup/mail"
     end
   end
 

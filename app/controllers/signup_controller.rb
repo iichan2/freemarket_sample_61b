@@ -25,14 +25,8 @@ class SignupController < ApplicationController
 
     if @user.save!
       session[:payjpUser_id] = @user.id
-      # 通常のものなのかif文定義
-      # if session[:sns] == 'facebook'
-      #   SnsCredential.create(
-      #     uid: uid,
-      #     provider: provider,
-      #     user_id: @user.id
-      #     )
-      # end
+      sns = SnsCredential.find(session[:sns_id]) 
+      sns.update(user_id: @user.id)
     # else
     #   # ログインするための情報を保管
       
@@ -92,6 +86,9 @@ class SignupController < ApplicationController
  
   def mail
     @user = User.new
+   
+
+
   end
 
   def new
@@ -99,9 +96,16 @@ class SignupController < ApplicationController
   end
 
   def tel
+    if session['devise.omniauth_data']
+      # 自動生成して session[:passwodに入れる]
+      session[:password] = Devise.friendly_token[0, 20] 
+     
+    else
+      session[:password] = user_params[:password]
+
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
     session[:first_name] = user_params[:first_name]
     session[:last_name] = user_params[:last_name]
     session[:kana_first_name] = user_params[:kana_first_name]
