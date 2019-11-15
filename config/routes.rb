@@ -43,9 +43,25 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
-      get "mypage"
-
+      # get "mypage"
+  
     end
+
+    # パン屑リスト
+    resources :mypage do
+      collection do
+        get "mypage"
+        get "logout"
+        get "sending"
+        get "payment"
+        get "identification"
+        
+      end
+    end
+
+
+
+
   end
     root 'items#index'
     resources :items, only: [:index, :edit, :new, :create, :show] do
