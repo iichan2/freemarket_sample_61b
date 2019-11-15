@@ -18,7 +18,7 @@
             = image_tag "#{image.image_url}", height: '150', width: '150'
             %p.bought_item_name #{@item.item_name}
       %section.bought_price
-        %span.bought_item_price ¥#{@item.price}
+        %span.bought_item_price ¥#{@item.price.to_s(:delimited)}
         %span.bought_postage 送料込み
       %section.bought_info
         .stb-info-container

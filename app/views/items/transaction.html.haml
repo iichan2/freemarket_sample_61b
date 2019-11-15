@@ -12,18 +12,18 @@
             = image_tag "#{image.image_url}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
           %p.buy-item-name #{@item.item_name}
           %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
-            %span.bprice ¥#{@item.price}
+            %span.bprice ¥#{@item.price.to_s(:delimited)}
             %span.bbprice 送料込み
             .a-toggle ポイントはありません
             .bp-cell1 支払い金額
-            .bp-cell2 ¥#{@item.price}
+            .bp-cell2 ¥#{@item.price.to_s(:delimited)}
             -# %p.he-text 配送先と支払い方法の入力を完了してください。
             %button.default-btn2
               =link_to '購入する', buy_path, item_id: @item.id,id: "transaction_link_font"
       %section.stb-info
-        .stb-info-container
+        .stb-transaction-container
           %h3.z 配送先
-          %address.bu-text-info 
+          .transaction_address_card 
             〒#{@user.delivery.postal_code}
             %br
             = @del
@@ -33,17 +33,18 @@
             %span.x 変更する
             = fa_icon "chevron-right", class: "arrow-right"
       %section.stb-info
-        .stb-info-container
+        .stb-transaction-container
           %h3.z 支払い方法
-          - if @default_card_information.blank?
-            %br /
-          - else
-            -#以下カード情報を表示
-            = "**** **** **** " + @default_card_information.last4
-            %br
-            - exp_month = @default_card_information.exp_month.to_s
-            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
+          .transaction_address_card
+            - if @default_card_information.blank?
+              %br /
+            - else
+              -#以下カード情報を表示
+              = "**** **** **** " + @default_card_information.last4
+              %br
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
           %figure
           = image_tag 'app.png', alt: '空', height: '0', width: '0', class: 'carappo'
           = link_to "#", class: 'changing' do

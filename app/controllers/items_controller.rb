@@ -75,12 +75,13 @@ class ItemsController < ApplicationController
     :currency => 'jpy'
     )
     session[:item_id] = nil
-    @item.update(buyer_id: @user.id, exhibition_state: "売却済")
+    @item.update(buyer_id: @user.id, exhibition_state: "取引中")
     redirect_to action:"bought", controller: "items", id: @item.id
   end
 
   def show
     @item = Item.find(params[:id])
+    @saler = User.find(@item.user_id)
     @images = @item.images
     @comment = Comment.new
     @commented = Comment.where(item_id: @item.id)
@@ -91,6 +92,12 @@ class ItemsController < ApplicationController
     if @comment = Comment.create(comment_params)
       redirect_to controller: 'items', action: 'show', id: comment_params[:item_id]
     end
+  end
+
+  def saler
+    item = Item.find(params[:id])
+    @user = User.find(item.user_id)
+    @items = Item.where(user_id: @user.id)
   end
 
   def show_deleted
