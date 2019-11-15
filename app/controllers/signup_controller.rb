@@ -22,22 +22,6 @@ class SignupController < ApplicationController
   
 
       
-      # if session[:uid]
-      #   @omni_user = Sns_credential.where(uid: session[:uid])
-      #   @omni_user.update(user_id: @user.id)
-      # end
-      # sign_in User.find(session[:id]) unless user_signed_in?
-      # # # session[:id] = @user.id
-      # if session[:uid] =! "nil"
-      #   Snscredential.create(
-      #     provider: session[:provider],
-      #     uid: session[:uid],
-          
-      #   )
-  
-        
-        # @omni_user = Sns_credential.where(uid: session[:uid])
-        # @omni_user.update(user_id: @user.id)
 
     if @user.save!
       session[:payjpUser_id] = @user.id
@@ -49,10 +33,10 @@ class SignupController < ApplicationController
       #     user_id: @user.id
       #     )
       # end
-    else
-      # ログインするための情報を保管
-      # notice:"USER失敗しました"
-      # redirect_to signup_index_path
+    # else
+    #   # ログインするための情報を保管
+      
+    #   redirect_to signup_index_path
     end
   end
   
@@ -74,7 +58,10 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-    if @delivery.save
+
+    
+    if @delivery.save!
+
       @user.update(delivery_id: @delivery.id)
       redirect_to payjp_path
     end
@@ -102,9 +89,7 @@ class SignupController < ApplicationController
   end
 
 
-  def mail
-    # 新規登録ページ
-  end
+  
 
   def new
     @user = User.new
@@ -126,8 +111,6 @@ class SignupController < ApplicationController
   
   end
 
-  def choice_new
-  end
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]

@@ -40,28 +40,28 @@
             = f.label "パスワード",class: "label"
             %span.require 必須
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
-          .form-group
-            パスワードを表示
-        - else 
+
+          -# .form-group{ class:"checkbox-default-label"}
+          -#   パスワードを表示す
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+              
           .form-group
             = f.label "お名前(全角)",class: "label"
             %span.require 必須
+            .form-group
+            = f.text_field :first_name, placeholder: "例)彩",required: 'true',class: "input-default1"
             
-            = f.text_field :first_name, placeholder: "例)山田",required: 'true',class: "input-default"
-          .form-group
-            
-            = f.text_field :last_name, placeholder: "例)彩",required: 'true',class: "input-default"
+          
+            = f.text_field :last_name, placeholder: "例)山田",required: 'true',class: "input-default2"
           .form-group
             = f.label "お名前カナ(全角)",class: "label"
             %span.require 必須
-            = f.text_field :kana_first_name, placeholder: "例)ヤマダ",class: "label",required: 'true',class: "input-default"
-          .form-group
-            
-            = f.text_field :kana_last_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default"
+            = f.text_field :kana_first_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default1"
+          
+            = f.text_field :kana_last_name, placeholder: "例)ヤマダ",class: "label",required: 'true',class: "input-default2"
           .form-group
             = f.label "生年月日",class: "label"
             %span.require 必須

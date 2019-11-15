@@ -4,13 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   validates :nickname, presence: true, length: { maximum: 20 }
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
-  validates :birth_year, :birth_month, :birth_day, presence: true
-  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  validates :tel_number, presence: true, length: { is: 11 }
-  has_many :items
+  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  
+  # validates :birth_year, :birth_month, :birth_day, presence: true
+  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  # validates :tel_number, presence: true, length: { is: 11 }
+  has_many :items 
   has_many :comments
   has_one :delivery
   has_many :cards
