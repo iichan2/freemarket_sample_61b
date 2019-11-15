@@ -32,8 +32,12 @@
       %section.bought_info
         .stb-info-container
           %h3.z 支払い方法
-          %p.cards_cord aaa
-          %p.cards 00/00
+          %p.cards_cord
+            = "**** **** **** " + @default_card_information.last4
+          %p.cards
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
       %section.bought_info_flow
         .stb-info-container
           %h3.z 発送通知後の流れ
@@ -46,7 +50,7 @@
             購入代金が出品者に振り込まれます。
             %br
             評価後に取引は完了です。
-          = link_to users_path, class: 'changing' do  
+          = link_to user_path, class: 'changing' do  
             %span.bought_link マイページへ戻る
   %footer.st-footer
     %ul.privacy
