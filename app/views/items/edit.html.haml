@@ -1,29 +1,32 @@
 .zenntai
-  .atamanoe
-    =image_tag("signup-mercari.png",class: "gazou",height: "90px")
+  .header
+    .atamanoe
+      =image_tag("signup-mercari.png",class: "gazou",height: "60px")
+
   .main
     .atama
-      商品情報編集
+      商品の情報を入力
     = form_for @item do |f|
-      .gazoushuppin
+      .gazoushuppinn
         .bun-matome
-          .bunn2 出品画像
+          .bunn2  出品画像
           .hissu  必須
         .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
-          = f.fields_for :images, @images do |i|
+          = f.fields_for :images do |i|
             .dropzone-container.clearfix
               .sell-uploads-drop
                 #exhibit-images-preview
               .dropzone-area
                 = i.label :image_url, for: 'create-image' do
                   .sell_upload__area
-                    = i.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                    = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
             .dropzone-container2.clearfix
               .sell-uploads-drop2
                 #exhibit-images-preview2
               .dropzone-area2
                 .sell_upload__area2
+
       .shouhinmei
         .bun-matome
           .bunn  商品名
@@ -34,7 +37,8 @@
           .bunn  商品の説明
           .hissu  必須
         .shouhinsetumei-kakutokoro
-          = f.text_area :item_info, size: "100x5" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）<br>2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :item_info, size: "75x6" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
       .shouhinnoshousai
         .setumei  商品の詳細
         .migiyose
@@ -42,12 +46,15 @@
             .bunn  カテゴリー
             .hissu  必須
           .kategory-box
-            = f.collection_select :category_id, Category.all, :id, :name,{}, {class: 'select_boxyou'} 
+            .kategory-serectbox
+              .kategory-box-wrapper
+              = f.select :category_id, @category_parents,{prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
+
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
           .jyoutai-box
-            = f.select :status,[["---" ],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{}, {class: 'select_boxyou'} 
+            = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .haisounituite
         .setumei  配送について
         .migiyose
@@ -55,12 +62,12 @@
             .bunn  配送量の負担
             .hissu  必須
           .kategory-box
-            = f.select :delivery_fee,[["---"],["送料込み (出品者負担)"],["着払い(購入者負担)"]],{},{class: 'select_boxyou'}
+            = f.select :delivery_fee,[["送料込み (出品者負担)"],["着払い(購入者負担)"]],{prompt: "---" },{class: 'select_boxyou'}
           .bun-matome
             .bunn  配送量の方法
             .hissu  必須
           .kategory-box
-            = f.select :delivery_way,[["---" ],["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{}, {class: 'select_boxyou'} 
+            = f.select :delivery_way,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{prompt: "---" }, {class: 'select_boxyou'} 
           .bun-matome
             .bunn  発送元の地域
             .hissu  必須
@@ -70,7 +77,7 @@
             .bunn  発送までの日数
             .hissu  必須
           .kategory-box
-            = f.select :delivery_day,[["---" ],["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{}, {class: 'select_boxyou'} 
+            = f.select :delivery_day,[["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .hannbaikakaku
         .setumei  販売価格(300~9,999,999)
         .migiyose
@@ -89,8 +96,20 @@
       .hanbaityuui
         .tyuuibunn  禁止されている出品、行為を必ずご確認ください。<br>またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。<br>また、出品をもちまして加盟店規約に同意したことになります。
         .buttonyou
-          = f.submit "出品する", class: "buttonda"
+          = f.submit "編集する", class: "buttonda"
         .buttonyou2
           .modorubutton
             = link_to "/"  do
               %a.modo もどる
+  %footer.st-footer
+    %ul.privacy
+      %li.pf
+        = link_to('プライバシーポリシー', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('メルカリ利用規約', "#", class: "privacypolicy")
+      %li.pf
+        = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
+    .img-hako
+      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+    %p.ff 
+      %small ©︎2019 Mercari
