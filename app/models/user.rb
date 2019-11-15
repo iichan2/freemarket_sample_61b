@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   validates :nickname, presence: true, length: { maximum: 20 }
+
   # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   
   # validates :birth_year, :birth_month, :birth_day, presence: true
@@ -13,7 +14,7 @@ class User < ApplicationRecord
   has_many :items 
   has_many :comments
   has_one :delivery
-
+  has_many :cards
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
@@ -98,14 +99,13 @@ end
 #           provider: provider,
 #           user_id: user.id
 #         )
-#         # uid: session[:uid] 
+#         # uid: session[:uid]
 #         # @omni_user = Sns_credential.where(uid: session[:uid])
 #         # @omni_user.update(user_id: @user.id)
 #         # user.update(uid: uid, provider: privider)
 #       end
 #     end
-    
+
 #     return
 #   end
 # end
-

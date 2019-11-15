@@ -22,6 +22,7 @@ class SignupController < ApplicationController
   
 
       
+
     if @user.save!
       session[:payjpUser_id] = @user.id
       # 通常のものなのかif文定義
@@ -57,8 +58,10 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
+
     
     if @delivery.save!
+
       @user.update(delivery_id: @delivery.id)
       redirect_to payjp_path
     end

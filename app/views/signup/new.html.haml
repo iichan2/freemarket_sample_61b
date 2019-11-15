@@ -35,15 +35,14 @@
             = f.label "メールアドレス",class: "label"
             %span.require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true',class: "input-default"
-        
-
+        - if @user == "nil"
           .form-group
             = f.label "パスワード",class: "label"
             %span.require 必須
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
+
           -# .form-group{ class:"checkbox-default-label"}
-          -#   パスワードを表示する
-        
+          -#   パスワードを表示す
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text
