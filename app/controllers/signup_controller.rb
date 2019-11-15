@@ -39,7 +39,7 @@ class SignupController < ApplicationController
         # @omni_user = Sns_credential.where(uid: session[:uid])
         # @omni_user.update(user_id: @user.id)
 
-    if @user.save!
+    if @user.save
       session[:payjpUser_id] = @user.id
       # 通常のものなのかif文定義
       # if session[:sns] == 'facebook'

@@ -1,6 +1,7 @@
 .wrappers
   %header.st-header
-    = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
+    = link_to root_path do
+      = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
   %main.st-main
     %section.st-buy-container
       %h2.st-head 購入内容の確認
@@ -17,8 +18,8 @@
             .bp-cell1 支払い金額
             .bp-cell2 ¥#{@item.price}
             -# %p.he-text 配送先と支払い方法の入力を完了してください。
-            %button.default-btn
-              = link_to '購入する', buy_path, item_id: @item.id,id: "transaction_link_font"
+            %button.default-btn2
+              =link_to '購入する', buy_path, item_id: @item.id,id: "transaction_link_font"
       %section.stb-info
         .stb-info-container
           %h3.z 配送先
