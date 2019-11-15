@@ -51,7 +51,7 @@
                 = image_tag"/images/discover.svg",class:"form-number__card-list__discover"
             .form-signup
               %label.form-signup__expire カード番号
-              %span.form-signup__require 必須
+              %span.form-number__require 必須
               %br 
               .form-signup__month
                 %select#exp_month.form-signup__month__select
@@ -85,9 +85,10 @@
                   %option{value:"2029"} 29
                 %i.form-signup__month__icon.fas.fa-chevron-down
               %span.form-signup__str 年
-            .form-security
-              .form-security__expire セキュリティコード
-              %span.form-security__require 必須
+              %br 
+            %label.form-signup__expire セキュリティー番号
+            %span.form-number__require 必須
+            %br 
               = f.text_field :keyword2, placeholder: 'カード背面4桁もしくは3桁の番号', class:"form-security__input",id: "cvc"
               #card_token
               %ul.form-security__error-message

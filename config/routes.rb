@@ -5,17 +5,16 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :cards
   
-  # devise_scope :user do
-  #   get "sign_up", to: "users/registrations#new"
-  #   get "sign_in", to: "users/sessions#new"
+  devise_scope :user do
+    get "sign_up", to: "users/registrations#new"
+    get "sign_in", to: "users/sessions#new"
   #   # get "sign_out", to: "users/sessions#destroy" 
-  # end
+  end
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   post 'signup'  => 'signup#create', as: 'signup'
   resources :signup, only: [:new] do
     collection do
-      get 'mail'
       get 'new'
       get 'tel'
       get 'address'
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
 
 
       post 'create_user'
-      get 'choice_new'
 
       get 'new_card'
       get 'show_card'
