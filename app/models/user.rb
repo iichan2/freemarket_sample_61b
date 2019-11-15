@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  
 
 
   # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
