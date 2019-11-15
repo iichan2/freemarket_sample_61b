@@ -89,7 +89,10 @@ class SignupController < ApplicationController
   end
 
 
-  
+ 
+  def mail
+    @user = User.new
+  end
 
   def new
     @user = User.new
@@ -132,7 +135,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
+    
   end
   
   private

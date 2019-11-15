@@ -3,7 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-  validates :nickname, presence: true, length: { maximum: 20 }
+
+  # belongs_to :card, dependent: :destroy
+  # belongs_to :bank, dependent: :destroy
+
+
+  # validates :nickname, presence: true, length: { maximum: 20 }
+  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  
+
 
   # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   

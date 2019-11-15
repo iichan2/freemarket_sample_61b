@@ -9,8 +9,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     @user = User.find_oauth(request.env["omniauth.auth"])
-    # render template: "signup/new"
-    if @user.persisted? #userが存在したら
+
+    render template: "signup/mail"
+    # if @user.persisted? #userが存在したら
+
       
       sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
