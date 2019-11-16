@@ -97,7 +97,15 @@ class ItemsController < ApplicationController
   def saler
     item = Item.find(params[:id])
     @user = User.find(item.user_id)
-    @items = Item.where(user_id: @user.id)
+    able_items = Item.where(user_id: @user.id)
+    @items_images = []
+    able_items.each do |item|
+      arry = Image.where(item_id: item.id)
+      image = arry.first
+      hash = {item: item , image: image}
+      @items_images << hash
+    end
+
   end
 
   def show_deleted
