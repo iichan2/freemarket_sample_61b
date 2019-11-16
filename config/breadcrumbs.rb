@@ -7,7 +7,7 @@ crumb :mypage do
 end
 
 
-#プロフィール
+#ログアウト
 crumb :logout do
   link "ログアウト", logout_user_path
   parent :mypage
@@ -27,6 +27,10 @@ end
 
 crumb :sending do
   link "取引方法", sending_user_path
+  parent :mypage
+end
+crumb :profile do
+  link "プロフィール", edit_user_path
   parent :mypage
 end
 
