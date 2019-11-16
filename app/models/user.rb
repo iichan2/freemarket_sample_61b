@@ -6,12 +6,9 @@ class User < ApplicationRecord
 
 
   # belongs_to :card, dependent: :destroy
-  # belongs_to :bank, dependent: :destroy
-
-
-  # validates :nickname, presence: true, length: { maximum: 20 }
-  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :nickname , presence: { message: "を入力してください"} , length: { maximum: 20 }
 
 
   # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
