@@ -44,7 +44,7 @@
 @import 'users/identification';
 @import 'users/logout';
 @import 'users/myp-content';
-@import 'users/myp-edit';
+@import 'users/myp-edit-content';
 @import 'users/myp-side';
 @import 'users/notification';
 @import 'users/payment';
@@ -60,18 +60,6 @@
 .red{
   background-color: #ea352d;
   color: #FFFFFF;
-}
-// 以下はマイページの背景
-.wrapper-container {
-  width: 100%;
-  height: 250vh;
-  background-color: #eeeeee;
-  z-index: -2;
-}
-
-.wrappers {
-  width: 100%;
-  background-color: #eeeeee;
 }
 .wrapper-container-saler {
   width: 100%;
