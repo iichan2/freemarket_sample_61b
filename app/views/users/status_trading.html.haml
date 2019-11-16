@@ -4,13 +4,13 @@
 .wrapper-container
   .wrapper
     = render 'myp-side'
-    .my-contents 
+    .my-contents  
       .my-content-over
         .myp-tab-con-noti-todo
           %ul.myp-tabs
-            %li.news.active
-              =link_to "出品中", status_sell_user_path, class: "mypss"
             %li.news
+              =link_to "出品中", status_sell_user_path, class: "mypss"
+            %li.news.active
               -# %h3.myp  取引中
               =link_to "取引中", status_trading_user_path, class: "mypss"
             %li.news
@@ -26,13 +26,11 @@
                     .info-up
                       = item_image[:item][:item_name]
                     .info-down
-                      -if item_image[:item][:exhibition_state] == "停止中"
-                        .teisibox 出品停止中
           -else
             %ul#mypage-tab-todo.myp-item-list
               %li.myp-item-not-found_old 
                 .mercari-image
-            %h3.to-do-list 出品中の商品はありません
+            %h3.to-do-list 取引中の商品はありません
 
 = render 'items/adv'
 = render 'items/footer'

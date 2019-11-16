@@ -1,3 +1,14 @@
+.mypss{
+  padding:30px 110px;
+  text-decoration: none;
+  color:black;
+}
+.mypss2{
+  padding:30px 100px;
+  text-decoration: none;
+  color:black;
+}
+
 .item-info{
   height: 100px;
   width: 100%;
@@ -16,10 +27,22 @@
       height:50%;
       width: 100%;
       font-size: 20px;
+      text-decoration: none;
+      color:black;
+      
     }
     .info-down{
       height:50%;
       width: 100%;
+      .teisibox{
+        height:60%;
+        width: 90px;
+        background-color: red;
+        color:white;
+        text-align: center;
+        border-radius: 3px;
+
+      }
     }
 
   }

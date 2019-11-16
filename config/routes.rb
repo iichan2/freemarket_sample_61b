@@ -44,6 +44,8 @@ Rails.application.routes.draw do
       get "trading"
       get "sending"
       get 'status_sell'
+      get 'status_trading'
+      get 'status_sold'
       # get "mypage"
   
     end
