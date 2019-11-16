@@ -62,8 +62,8 @@
 .saler-white {
   margin: 0 auto;
   width: 100%;
-  height: 200vh;
   background: white;
+  border-bottom: 40px solid #eeeeee;
   .likes-box {
     width: 100%;
     height: 6%;
@@ -130,7 +130,6 @@
   .saler-items-box-content {
     background: white;
     width: 100%;
-    height: 300vh;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
