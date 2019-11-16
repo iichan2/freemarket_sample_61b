@@ -90,6 +90,7 @@ gem 'ransack'
 gem 'devise'
 gem 'dotenv-rails'
 gem "gretel"
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn', '5.4.1'

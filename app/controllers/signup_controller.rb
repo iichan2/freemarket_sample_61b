@@ -23,14 +23,20 @@ class SignupController < ApplicationController
 
       
 
-    if @user.save!
+    if @user.save
       session[:payjpUser_id] = @user.id
+      if session['devise.omniauth_data']
       sns = SnsCredential.find(session[:sns_id]) 
       sns.update(user_id: @user.id)
-    # else
-    #   # ログインするための情報を保管
-      
-    #   redirect_to signup_index_path
+      else
+      @user.save
+      end
+
+    else
+    # ログインするための情報を保管
+
+      redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"}
+ 
     end
   end
   
@@ -54,7 +60,7 @@ class SignupController < ApplicationController
     )
 
     
-    if @delivery.save!
+    if @delivery.save
 
       @user.update(delivery_id: @delivery.id)
       redirect_to payjp_path
@@ -68,6 +74,7 @@ class SignupController < ApplicationController
 
       redirect_to action: "card"
     else
+    
       customer = Payjp::Customer.create(
       description: '登録テスト', #なくてもOK
       email: session[:email], #なくてもOK
@@ -78,6 +85,8 @@ class SignupController < ApplicationController
       if @card.save
         session[:payjpToken] = nil
         redirect_to newend_signup_index_path
+      else
+
       end
     end
   end
@@ -86,12 +95,15 @@ class SignupController < ApplicationController
  
   def mail
     @user = User.new
-  # snsのユーザー登録画面
+
+    # snsのユーザー登録画面
   end
 
   def new
     @user = User.new
     # メールのユーザー登録画面
+    # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
+ 
   end
 
   def tel
