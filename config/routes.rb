@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
-      # get "mypage"
+      
     end
 
     # パン屑リスト
@@ -52,6 +52,8 @@ Rails.application.routes.draw do
         get "logout"
         get "sending"
         get "payment"
+        get "profil"
+
         get "identification"
       end
     end
