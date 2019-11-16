@@ -1,4 +1,6 @@
 .breadcrumbs{
+  
+  padding-right: 100px;
    &__container{
     display: block;
     padding: 15px;
@@ -7,8 +9,11 @@
     background-color: white;
     font-size: 14px;
     line-height: 1.2;
+    padding-right: 50px;
+    text-align: 
     a{
       margin: 0 8px;
+      
     }
     span{
       margin: 0 8px;

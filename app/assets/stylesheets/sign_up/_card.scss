@@ -79,7 +79,9 @@
         }
         .form-signup {
           margin: 40px 0 0;
+          // display: flex;
           padding-top: 20px;
+
           &__str {
             margin:0 8px;
           }
@@ -95,11 +97,13 @@
             font-size: 12px;
             vertical-align: top;
           }
+
           &__month {
             display: inline-block;
             position: relative;
             width: 35%;
             margin: 8px 0 0;
+            
             select {
               width: 100%;
               -webkit-appearance: button;
@@ -134,6 +138,7 @@
             position: relative;
             width: 35%;
             margin: 8px 0 0;
+            
             select{
               width: 100%;
               -webkit-appearance: button;

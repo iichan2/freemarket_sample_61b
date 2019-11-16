@@ -8,17 +8,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.find_oauth(request.env["omniauth.auth"])
-    render template: "signup/new"
-    # if @user.persisted? #userが存在したら
+    info = User.find_oauth(request.env["omniauth.auth"])
+    # find_oauth→動かす(request.env["omniauth.auth"])
+    @user = info[:user]
+    session[:sns_id] = info[:sns_id]
+    # 動かした結果をuser.rbに受け渡し
+    if @user.persisted? #userが存在したら
+      sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    else#userが存在しなかったら
+      session["devise.omniauth_data"] = request.env["omniauth.auth"].except("extra")
       
-    #   sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
-    #   set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-    # else#userが存在しなかったら
-    #   session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-    #   @facebook = 'facebook'
-    #   render template: "signup/new"
-    # end
+      render template: "signup/mail"
+    end
   end
 
   def failure
@@ -26,26 +28,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 end
 
-
-
-#   def callback_for(provider)
-#     info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
-#     @user = info[:user]
-#     sns_id = info[:sns_id]
-
-#     if @user.persisted? #userが存在したら
-#       sign_in_and_redirect @user, event: :authentication
-#       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-#     else #userが存在しなかったら
-#       session["devise.sns_id"] = sns_id #sns_credentialのid devise.他のアクションに持ち越す
-#       render template: "signup/new" #redirect_to だと更新してしまうのでrenderで
-#     end
-#   end
-# # 失敗したら
-#   def failure
-#     redirect_to root_path and return
-#   end
-# end
 
 
 

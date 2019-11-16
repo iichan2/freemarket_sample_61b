@@ -3,11 +3,11 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", "#{current_user.id}"
+  link "マイページ", user_path(current_user.id)
 end
 
 
-#プロフィール
+#ログアウト
 crumb :logout do
   link "ログアウト", logout_user_path
   parent :mypage
@@ -27,6 +27,10 @@ end
 
 crumb :sending do
   link "取引方法", sending_user_path
+  parent :mypage
+end
+crumb :profile do
+  link "プロフィール", edit_user_path
   parent :mypage
 end
 
