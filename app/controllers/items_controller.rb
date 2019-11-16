@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
     @inoue_items = Item.where(brand_id: 3).limit(10)
     @shioya_items = Item.where(brand_id: 2).limit(10)
     @tonochi_items = Item.where(brand_id: 5).limit(10)
+    # トノチ記載↓
+    
+    
+    
+    @item.update(buyer_id: @user.id)
   end
 
   def new
@@ -84,6 +89,7 @@ class ItemsController < ApplicationController
     )
     session[:item_id] = nil
     @item.update(buyer_id: @user.id, exhibition_state: "売却済")
+    
     redirect_to action:"bought", controller: "items", id: @item.id
   end
 

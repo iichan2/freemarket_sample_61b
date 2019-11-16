@@ -17,13 +17,17 @@
             .bar10
               = link_to('おもちゃ・ホビー・グッズ', href="#toy", class: 'qaz')
     .new_box
+    
       .name#ladies_new
+
         %h1.title
           レディース新着アイテム
         .more          
           = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
+      
         - @ladies_items.each do |ladies|
+          
           %li.itembox
             %span.price ￥#{ladies[:price]}
             .itemtop

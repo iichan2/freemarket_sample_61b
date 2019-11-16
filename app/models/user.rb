@@ -6,17 +6,13 @@ class User < ApplicationRecord
 
 
   # belongs_to :card, dependent: :destroy
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  # validates :nickname , presence: { message: "を入力してください"} , length: { maximum: 20 }
-
-
-  # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :nickname , presence: true
   # validates :birth_year, :birth_month, :birth_day, presence: true
   # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :tel_number, presence: true, length: { is: 11 }
+  validates :tel_number, presence: true
   has_many :items 
   has_many :comments
   has_one :delivery
