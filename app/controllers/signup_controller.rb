@@ -24,6 +24,7 @@ class SignupController < ApplicationController
       
 
     if @user.save
+   
       session[:payjpUser_id] = @user.id
       if session['devise.omniauth_data']
       sns = SnsCredential.find(session[:sns_id]) 

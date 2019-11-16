@@ -7,6 +7,10 @@
       .ortu
         .uuoo
           = image_tag src="#{@item.images[0].image_url}", size:"280x266"
+          - if @item.exhibition_state == "売却済"
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
         .oouu
       .rgt
         .tbody
@@ -77,8 +81,8 @@
         .vmt
           %p.iuorwe 出品停止中
       - elsif @item.exhibition_state == "売却済"
-        .vmt
-          %p.iuorwe 売却済
+        .vm
+          %p.iuorwe 売り切れました
       .yuyuyu
         .okjgnd
           =@item.item_info
