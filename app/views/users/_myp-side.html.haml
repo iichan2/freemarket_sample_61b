@@ -2,46 +2,6 @@
   %nav.myp-nav
     %ul.myp-nav-list 
       %li.myp-nav-list-item
-        =link_to "マイページ", user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "お知らせ", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "やることリスト", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "いいね！一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "出品する", new_item_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "出品した商品 - 出品中", status_sell_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "出品した商品 - 取引中", status_trading_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "出品した商品 - 売却済み", status_sold_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "購入した商品 - 取引中", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "購入した商品 - 過去の取引", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "ニュース一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "評価一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-      %li.myp-nav-list-item
-        =link_to "ガイド", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
-
-      %li.myp-nav-list-item
         .flex
           = link_to user_path, class: "myp-nav-list-link" do
             マイページ
