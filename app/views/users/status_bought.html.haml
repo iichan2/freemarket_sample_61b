@@ -5,19 +5,16 @@
   .wrapper-container
     .wrapper
       = render 'myp-side'
-      .my-contents  
+      .my-contents 
         .my-content-over
           .myp-tab-con-noti-todo
-            .content-title 出品した商品
+            .content-title 購入した商品
             %ul.myp-tabs
               %li.news
-                =link_to "出品中", status_sell_user_path, class: "mypss"
-              %li.news
-                -# %h3.myp  取引中
-                =link_to "取引中", status_trading_user_path, class: "mypss"
+                =link_to "取引中", status_delivery_user_path, class: "mypss3"
               %li.news.active
                 -# %h3.myp 売却済み
-                =link_to "売却済み", status_sold_user_path, class: "mypss2"
+                =link_to "過去の取引", status_bought_user_path, class: "mypss4"
             -if @items_images.present?
               - @items_images.each do |item_image|
                 =link_to "/items/#{item_image[:item][:id]}" do
@@ -32,7 +29,7 @@
               %ul#mypage-tab-todo.myp-item-list
                 %li.myp-item-not-found_old 
                   .mercari-image
-              %h3.to-do-list 売却済みの商品はありません
+              %h3.to-do-list 取引中の商品はありません
   
   = render 'items/adv'
   = render 'items/footer'
