@@ -32,8 +32,9 @@ class ItemsController < ApplicationController
   end
   
   def create
-    item = Item.create(item_params)
+    @item = Item.create(item_params)
     @item.update(exhibition_state: "出品中")
+
       if @item.save
         redirect_to action: :index
       else
@@ -139,6 +140,7 @@ class ItemsController < ApplicationController
   end
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+
   end
 end
 

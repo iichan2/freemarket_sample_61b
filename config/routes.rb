@@ -42,7 +42,12 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
-      
+      get 'status_sell'
+      get 'status_trading'
+      get 'status_sold'
+      # get "mypage"
+  
+
     end
 
     # パン屑リスト
@@ -67,6 +72,7 @@ Rails.application.routes.draw do
         get 'bought'
         post 'item_stop'
         post 'item_destroy'
+
       end
       collection do
         get 'show_deleted'
