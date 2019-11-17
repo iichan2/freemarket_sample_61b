@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     
     
     
-    @item.update(buyer_id: @user.id)
+    # @item.update(buyer_id: @user.id)
   end
 
   def new
