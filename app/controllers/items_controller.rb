@@ -121,9 +121,15 @@ class ItemsController < ApplicationController
   def item_destroy
     @item = Item.find(session[:item_id])
     session[:item_id] = nil
-    @item.update(exhibition_state: "削除済")
-    user = User.find(@item.user_id)
-    redirect_to controller: 'users', action: 'show', id: user.id
+    if @item.update(exhibition_state: "削除済")
+      user = User.find(@item.user_id)
+      redirect_to controller: 'users', action: 'show', id: user.id
+    else
+      redirect_to error_page_items_path
+    end
+  end
+
+  def error_page
   end
 
   def bought

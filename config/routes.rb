@@ -80,11 +80,11 @@ Rails.application.routes.draw do
         get 'bought'
         post 'item_stop'
         post 'item_destroy'
-
       end
       collection do
         get 'show_deleted'
         post 'comment_create'
+        get 'error_page'
       end
   end
 end

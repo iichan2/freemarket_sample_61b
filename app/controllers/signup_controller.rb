@@ -24,7 +24,7 @@ class SignupController < ApplicationController
       
 
     if @user.save
-   
+      # session[:id] = @user.id
       session[:payjpUser_id] = @user.id
       if session['devise.omniauth_data']
       sns = SnsCredential.find(session[:sns_id]) 
@@ -150,7 +150,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    
+    # sign_in User.find(session[:id]) unless user_signed_in?
   end
   
   private

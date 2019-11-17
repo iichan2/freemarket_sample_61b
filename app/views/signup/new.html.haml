@@ -73,7 +73,7 @@
             %br/
             .birthday-select-wrap
               .select-wrap
-                = f.select :birth_year, calss: "hijikata" do
+                = f.select :birth_year,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "2019"} 2019
                   %option{value: "2018"} 2018
@@ -197,7 +197,7 @@
                   %option{value: "1900"} 1900
               %span 年
               .select-wrap.select-wrap__month
-                = f.select :birth_month, class:"hijikata" do
+                = f.select :birth_month,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "1"} 1
                   %option{value: "2"} 2
@@ -211,10 +211,10 @@
                   %option{value: "10"} 10
                   %option{value: "11"} 11
                   %option{value: "12"} 12
-                
+              
               %span 月
               .select-wrap.select-wrap__day
-                = f.select :birth_day, class: 'hijikata' do
+                = f.select :birth_day,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: 1} 1
                   %option{value: 2} 2

@@ -3,8 +3,11 @@
   .left_auto
     =link_to "" do
       =image_tag "alltag.png", size: "300x250",class: "masa"
-  %p.midasi
-    この商品は削除されたか 存在しない商品です
+  .midasi
+    エラーが発生し、処理が中断されました
+    = link_to root_path do
+      .go_to_top
+        TOPページに戻る
 .adv
   .imagebox
     = link_to "" do
