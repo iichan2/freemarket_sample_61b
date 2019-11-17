@@ -1,5 +1,5 @@
 .myp-back-gray
-  - breadcrumb :status_sell
+  - breadcrumb :status_delivery
   = render 'items/header'
   =render 'layouts/breadcrumbs'
   .wrapper-container
@@ -8,16 +8,13 @@
       .my-contents 
         .my-content-over
           .myp-tab-con-noti-todo
-            .content-title  出品した商品
+            .content-title 購入した商品
             %ul.myp-tabs
               %li.news.active
-                =link_to "出品中", status_sell_user_path, class: "mypss"
-              %li.news
-                -# %h3.myp  取引中
-                =link_to "取引中", status_trading_user_path, class: "mypss"
+                =link_to "取引中", status_delivery_user_path, class: "mypss3"
               %li.news
                 -# %h3.myp 売却済み
-                =link_to "売却済み", status_sold_user_path, class: "mypss2"
+                =link_to "過去の取引", status_bought_user_path, class: "mypss4"
             -if @items_images.present?
               - @items_images.each do |item_image|
                 =link_to "/items/#{item_image[:item][:id]}" do
@@ -28,13 +25,12 @@
                       .info-up
                         = item_image[:item][:item_name]
                       .info-down
-                        -if item_image[:item][:exhibition_state] == "停止中"
-                          .teisibox 出品停止中
             -else
               %ul#mypage-tab-todo.myp-item-list
                 %li.myp-item-not-found_old 
                   .mercari-image
-              %h3.to-do-list 出品中の商品はありません
+              %h3.to-do-list 取引中の商品はありません
+  
   = render 'items/adv'
   = render 'items/footer'
   = render 'items/item-circle'

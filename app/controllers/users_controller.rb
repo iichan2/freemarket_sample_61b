@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :check_user, except:[:new]
   before_action :authenticate_user!, except:[:logout]
   before_action :set_params, 
-  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status_sell,:status_trading,:status_sold]
+  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status_sell,:status_trading,:status_sold, :status_delivery,:status_bought]
   
   before_action :set_item_image_params, only: [:sending, :trading]
   
@@ -51,6 +51,29 @@ end
 
   def status_sold
     items = Item.where(user_id: @user.id)
+    able_items = items.where(exhibition_state: "売却済")
+    @items_images = []
+    able_items.each do |item|
+      arry = Image.where(item_id: item.id)
+      image = arry.first
+      hash = {item: item,image: image}
+      @items_images << hash
+    end
+  end
+  
+  def status_delivery
+    items = Item.where(buyer_id: @user.id)
+    able_items = items.where(exhibition_state: "取引中")
+    @items_images = []
+    able_items.each do |item|
+      arry = Image.where(item_id: item.id)
+      image = arry.first
+      hash = {item: item,image: image}
+      @items_images << hash
+    end
+  end
+  def status_bought
+    items = Item.where(buyer_id: @user.id)
     able_items = items.where(exhibition_state: "売却済")
     @items_images = []
     able_items.each do |item|
