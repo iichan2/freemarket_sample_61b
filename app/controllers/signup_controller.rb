@@ -17,12 +17,6 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
-
-
-  
-
-      
-
     if @user.save
       # session[:id] = @user.id
       session[:payjpUser_id] = @user.id
@@ -144,7 +138,32 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
+    user_id = session[:payjpUser_id]
+    session[:payjpUser_id] = nil
+    session[:nickname] = nil
+    session[:email] = nil
+    session[:password] = nil
+    session[:last_name] = nil
+    session[:first_name] = nil
+    session[:kana_last_name] = nil
+    session[:kana_first_name] = nil
+    session[:birth_year] = nil
+    session[:birth_month] = nil
+    session[:birth_day] = nil
+    session[:tel_number] = nil
+    session['devise.omniauth_data'] = nil
+    session[:payjpToken] = nil
+    session[:f_name] = nil
+    session[:l_name] = nil
+    session[:kana_f_name] = nil
+    session[:kana_l_name] = nil
+    session[:postal_code] = nil
+    session[:ken] = nil
+    session[:map] = nil
+    session[:banchi] = nil
+    session[:building] = nil
+    session[:tel_number2] = nil
+    sign_in User.find(user_id) unless user_signed_in?
   end
   
   private
