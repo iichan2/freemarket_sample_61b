@@ -138,25 +138,32 @@
 .progress-bar li.active .progress-status {
   background: #ea352d;
 }
-.select-wrap { 
+
+
+
+
+
+.birthday-select-wrap{
+  padding: 0 10px;
+}
+.select-wrap{ 
   position: relative;
   margin: 8px 0 0;
   width: 76px;
+  height: 48px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   display: inline-block;
-  .select {
-    position: relative;
-    z-index: 2;
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    cursor: pointer;
-  }
-  
+  z-index: 2;
 }
+.select#user_birth_year {
+  display:none;
+}
+
+
+
+
+      
 
   .fas.fa-angle-down {
     font:25px;
