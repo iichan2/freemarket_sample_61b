@@ -4,6 +4,7 @@ Rails.application.routes.draw do
                 registrations: 'signup/new' }
   resources :categories, only: [:index]
   
+  get 'tonochi' => 'cards#delete', as: 'tonochi'
   resources :cards, only: [:new,:delete] do
     collection do
       post 'pay', to: 'cards#pay'
