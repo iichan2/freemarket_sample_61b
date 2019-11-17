@@ -1,5 +1,6 @@
-require './db/generate_seeds/CSV_to_ancestry.rb'
-Ancestry_seeds.new
+# 自動生成用
+# require './db/generate_seeds/CSV_to_ancestry.rb'
+# Ancestry_seeds.new
 require './db/created.rb'
 require './db/default_brands_seed.rb'
 require 'faker'
@@ -9,10 +10,10 @@ users = []
   user = {
     first_name: Faker::Name.last_name,
     last_name: Faker::Name.first_name,
-    kana_first_name: Faker::Name.last_name,
-    kana_last_name: Faker::Name.first_name,
+    kana_first_name: "シンゾウ",
+    kana_last_name: "アベ",
     nickname: Faker::Games::Pokemon.name,
-    tel_number: "080-1234-5678",
+    tel_number: "08012345678",
     delivery_id: 1,
     # likes: Faker::String.random(length: 4),
     # comments: Faker::String.random(length: 4),

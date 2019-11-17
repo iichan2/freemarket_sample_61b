@@ -26,6 +26,7 @@
       %h2.single-main__container__header 会員情報入力
       %form.registration-form
       = form_with model: @user, url: tel_signup_index_path, method: :get, local: true do |f|
+
         .registration-form__content
           .form-group
             = f.label "ニックネーム"
@@ -35,43 +36,44 @@
             = f.label "メールアドレス",class: "label"
             %span.require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", required: 'true',class: "input-default"
-        
 
           .form-group
             = f.label "パスワード",class: "label"
             %span.require 必須
             = f.password_field :password, placeholder: "7文字以上", required: 'true',class: "input-default"
-          .form-group
-            パスワードを表示
-        
+
+          %input.form-group{ type:  "checkbox" }
+            パスワードを表示する
           .form-group
             %h3.l-chapter-sub-head 本人確認
             %p.l-single-text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+              
           .form-group
-            = f.label "お名前(全角)",class: "label"
+            = f.label "苗字(全角)",class: "label"
+            %span.require 必須
+            .form-group
+            = f.text_field :last_name, placeholder: "例)山田",required: 'true',class: "input-default"
+            .form-group
+            = f.label "名字(全角)",class: "label"
+            %span.require 必須
+            = f.text_field :first_name, placeholder: "例)彩",required: 'true',class: "input-default"
+          .form-group
+            = f.label "姓カナ(全角)",class: "label"
+            %span.require 必須
+            = f.text_field :kana_last_name, placeholder: "例)ヤマダ",class: "label",required: 'true',class: "input-default"
+          .form-group
+            = f.label "名カナ(全角)",class: "label"
             %span.require 必須
             
-            = f.text_field :first_name, placeholder: "例)山田",required: 'true',class: "input-default"
-          .form-group
-            
-            = f.text_field :last_name, placeholder: "例)彩",required: 'true',class: "input-default"
-          .form-group
-            = f.label "お名前カナ(全角)",class: "label"
-            %span.require 必須
-            = f.text_field :kana_first_name, placeholder: "例)ヤマダ",class: "label",required: 'true',class: "input-default"
-          .form-group
-            
-            = f.text_field :kana_last_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default"
+            = f.text_field :kana_first_name, placeholder: "例)アヤ",class: "label",required: 'true',class: "input-default"
           .form-group
             = f.label "生年月日",class: "label"
             %span.require 必須
             %br/
             .birthday-select-wrap
               .select-wrap
-                .select-wrap__default
-                
-                = f.select :birth_year do
+                = f.select :birth_year,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "2019"} 2019
                   %option{value: "2018"} 2018
@@ -195,7 +197,7 @@
                   %option{value: "1900"} 1900
               %span 年
               .select-wrap.select-wrap__month
-                = f.select :birth_month, class:"select-default" do
+                = f.select :birth_month,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "1"} 1
                   %option{value: "2"} 2
@@ -209,10 +211,10 @@
                   %option{value: "10"} 10
                   %option{value: "11"} 11
                   %option{value: "12"} 12
-                
+              
               %span 月
               .select-wrap.select-wrap__day
-                = f.select :birth_day, class: 'select-wrap__default' do
+                = f.select :birth_day,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: 1} 1
                   %option{value: 2} 2

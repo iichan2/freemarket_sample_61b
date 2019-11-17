@@ -1,4 +1,6 @@
 = render 'header'
+- breadcrumb :show
+=render 'layouts/breadcrumbs'
 .pppbox
   .allbox
     .pbox
@@ -7,6 +9,10 @@
       .ortu
         .uuoo
           = image_tag src="#{@item.images[0].image_url}", size:"280x266"
+          - if @item.exhibition_state == "売却済"
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
         .oouu
       .rgt
         .tbody
@@ -70,8 +76,15 @@
           (税込)
         %p.byy
           送料込み
-      .vmt
-        =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
+      - if @item.exhibition_state == "出品中"
+        .vmt
+          =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
+      - elsif @item.exhibition_state == "停止中"
+        .vmt
+          %p.iuorwe 出品停止中
+      - elsif @item.exhibition_state == "売却済"
+        .vm
+          %p.iuorwe 売り切れました
       .yuyuyu
         .okjgnd
           =@item.item_info
@@ -88,6 +101,8 @@
           =fa_icon "lock"
           %span.vjngr
             あんしん・あんぜんへの取り組み
+    - if @item.user_id == current_user.id
+      = render 'users/trading_module'
     .obox
       .commenttv
         - @commented.each do |comment|
@@ -117,12 +132,12 @@
       = link_to "https://www.pinterest.jp/" do
         =image_tag "pinserest.png", size: "50x50"
     .kbox
-      = link_to("#{@item.user.nickname}さんのその他の出品",root_path,class:"vunt")  
+      = link_to("#{@item.user.nickname}さんの出品",root_path,class:"vunt")  
     .jbox
       - @items.each do |item|
         .nekobox
           =link_to "",class:"neo" do
-            %img{:src => "#{@item.images[0].image_url}",:height => "180",:width => "200"}/
+            %img{:src => "#{item.images[0].image_url}",:height => "180",:width => "200"}/
             .neko
               .tuhv
                 = item.item_name

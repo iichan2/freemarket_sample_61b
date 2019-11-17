@@ -23,29 +23,40 @@
     .yhb {
       padding-top: 8%;
       .fhb {
-        background-color: rgba(246, 7, 7, 0.678);
         width: 50%;
         height: 10%;
         margin-left: 25%;
         padding:20px 100px 20px 0;
         margin-top: 10%;
-        color: white;
         border-radius: 5px;
+        line-height: 50px;
+        text-align: center;
+        font-size:16px;
+        color: white!important;
+        background-color: #ea352d!important;
+        text-decoration: none;
+      
 
         .ooy {
           margin-left: 2%;
         }
       }
       .grgr {
-        background-color: rgba(13, 73, 240, 0.678);
+       
         width: 55%;
-        height: 10%;
+
         margin-left: 25%;
-        padding:15px 80px 15px 15px;
+        padding:10px 50px 10px 10px;
         margin-top: 5%;
-        color: white;
         border-radius: 5px;
         display: block;
+        margin-top: 16px;
+        background-color: #385185;
+        color: white;
+        border-radius: 4px;
+        border: 1px solid;
+        line-height: 48px;
+          
         .frfr {
           font-size: 24px;
         }
@@ -56,20 +67,21 @@
       }
       .gtgt {
         width: 55%;
-        height: 10%;
         margin-left: 25%;
-        padding:15px 80px 15px 15px;
         margin-top: 4%;
         color: black;
         border-radius: 5px;
-        display: block;
+        display: flex;
+        padding-top: 10px;;
         border: 1px black solid;
         .ghgh {
           font-size: 24px;
         }
         .gkgk {
-          margin-left: 2%;
           text-align: center;
+          border-radius: 4px;
+          font-size: 16px;
+          line-height: 40px;
         }
       }
     }

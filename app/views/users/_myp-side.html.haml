@@ -2,75 +2,121 @@
   %nav.myp-nav
     %ul.myp-nav-list 
       %li.myp-nav-list-item
-        =link_to "マイページ", user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to user_path, class: "myp-nav-list-link" do
+            マイページ
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "お知らせ", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            お知らせ
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "やることリスト", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            やることリスト
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "いいね！一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            いいね！一覧
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "出品する", new_item_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to new_item_path, class: "myp-nav-list-link" do
+            出品する
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "出品した商品 - 出品中", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to status_sell_user_path, class: "myp-nav-list-link" do
+            出品した商品 - 出品中
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "出品した商品 - 取引中", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to status_trading_user_path, class: "myp-nav-list-link" do
+            出品した商品 - 取引中
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "出品した商品 - 売却済み", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to status_sold_user_path, class: "myp-nav-list-link" do
+            出品した商品 - 売却済
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "購入した商品 - 取引中", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to status_delivery_user_path, class: "myp-nav-list-link" do
+            購入した商品 - 取引中
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "購入した商品 - 過去の取引", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to status_bought_user_path, class: "myp-nav-list-link" do
+            購入した商品 - 過去の取引
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "ニュース一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            ニュース一覧
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "評価一覧", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            評価一覧
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "ガイド", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            ガイド
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "お問い合わせ", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          =link_to root_path, class: "myp-nav-list-link" do
+            お問い合わせ
+            = fa_icon 'angle-right', class: 'icon-angle-right'
     %h3.myp-nav-head メルペイ
     %ul.myp-nav-list
       %li.myp-nav-list-item
-        =link_to "売上・振込申請", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          =link_to root_path, class: "myp-nav-list-link" do
+            売上・振込申請
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        =link_to "ポイント", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          =link_to root_path, class: "myp-nav-list-link" do
+            ポイント
+            = fa_icon 'angle-right', class: 'icon-angle-right'
     %h3.myp-nav-head 設定
     %ul.myp-nav-list
       %li.myp-nav-list-item
-        = link_to "プロフィール", edit_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to edit_user_path, class: "myp-nav-list-link" do
+            プロフィール
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "発送元・お届け先住所変更", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            発送元・お届け先住所変更
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "支払い方法", payment_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to payment_user_path, class: "myp-nav-list-link" do
+            支払い方法
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "メール/パスワード", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            メール/パスワード
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "本人情報", identification_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to identification_user_path, class: "myp-nav-list-link" do
+            本人情報
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "電話番号の確認", root_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to root_path, class: "myp-nav-list-link" do
+            電話番号の確認
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li.myp-nav-list-item
-        = link_to "ログアウト", logout_user_path, class: "myp-nav-list-link"
-        = fa_icon 'angle-right', class: 'icon-angle-right'
+        .flex
+          = link_to logout_user_path, class: "myp-nav-list-link" do
+            ログアウト
+            = fa_icon 'angle-right', class: 'icon-angle-right'
