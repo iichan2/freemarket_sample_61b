@@ -143,10 +143,8 @@
   margin: 8px 0 0;
   width: 76px;
   display: inline-block;
-  
-}
-.selecting {
-  position: relative;
+  .select {
+    position: relative;
     z-index: 2;
     height: 48px;
     padding: 0 16px;
@@ -156,7 +154,10 @@
     font-size: 16px;
     line-height: 1.5;
     cursor: pointer;
+  }
+  
 }
+
   .fas.fa-angle-down {
     font:25px;
     position: absolute;

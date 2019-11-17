@@ -1,11 +1,10 @@
-- breadcrumb :logout
-= render "items/header"
-=render 'layouts/breadcrumbs'
-.wrapper-container
-  .wrapper
-    = render "myp-side"  
-    .logout_content
-      = link_to "ログアウト", destroy_user_session_path, class: 'logout_test'
-= render 'items/adv'
-= render "items/footer"
-= render 'items/item-circle'
+.myp-back-gray
+  - breadcrumb :logout
+  = render "items/header"
+  =render 'layouts/breadcrumbs'
+  = render "myp-side"  
+  .logout_content
+    = link_to "ログアウト", destroy_user_session_path, class: 'logout_test'
+  = render 'items/adv'
+  = render "items/footer"
+  = render 'items/item-circle'

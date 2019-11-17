@@ -1,14 +1,10 @@
 .profile_main{
-  height:100vh;
-  width:45vw;
-  position: absolute;
-  top: 3%;
-  right: 0;
+  width:50%;
+  margin: 3% 0 0 40%;
   text-decoration: none;
   cursor: auto;
 }
 .profile_content{
-  height:566.95px;
   width: 100%;
   background-color:#fff;
   float:right;
@@ -32,7 +28,6 @@
   top:100px;
   left: 0;
   right:0;
-  z-index: 3000;
   padding: 24px 56px;
   text-align: center;
   line-height: 1.5;
@@ -56,7 +51,6 @@ figure{
   vertical-align: middle;
 }
 .profile_name{
-  height:48px;
   width: 220px;
   margin:0px 0px 0px 8px;
   padding:10px 16px 8px;
@@ -69,7 +63,6 @@ figure{
   padding:40px 16px;
 }
 .profile_textarea{
-  height:100%;
   width:100%;
   min-height: 216px;
   padding:10px;

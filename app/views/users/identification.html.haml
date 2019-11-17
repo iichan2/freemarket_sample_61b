@@ -1,10 +1,9 @@
-- breadcrumb :identification
-= render "items/header"
-=render 'layouts/breadcrumbs'
-.wrapper-container
-  .wrapper
-    = render "myp-side"
-    = render "identification-content"
-= render 'items/adv'
-= render 'items/footer'
-= render 'items/item-circle'
+.myp-back-gray
+  - breadcrumb :identification
+  = render "items/header"
+  =render 'layouts/breadcrumbs'
+  = render "myp-side"
+  = render "identification-content"
+  = render 'items/adv'
+  = render 'items/footer'
+  = render 'items/item-circle'

@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     @inoue_items = Item.where(brand_id: 3).limit(10)
     @shioya_items = Item.where(brand_id: 2).limit(10)
     @tonochi_items = Item.where(brand_id: 5).limit(10)
+    # トノチ記載↓
+    
+    
+    
+    @item.update(buyer_id: @user.id)
   end
 
   def new
@@ -82,15 +87,21 @@ class ItemsController < ApplicationController
     )
     session[:item_id] = nil
     @item.update(buyer_id: @user.id, exhibition_state: "売却済")
+    
     redirect_to action:"bought", controller: "items", id: @item.id
   end
 
   def show
     @item = Item.find(params[:id])
+    session[:item_id] = @item.id
+    if @item.exhibition_state == "削除済"
+      redirect_to controller: 'items', action: 'show_deleted'
+    end
     @images = @item.images
     @comment = Comment.new
     @commented = Comment.where(item_id: @item.id)
     @items = Item.where(user_id: @item.user_id)
+    @item_seller_user = User.find(@item.user_id)
   end
   
   def comment_create
@@ -99,8 +110,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show_deleted
-    
+  def show_deleted #アイテムなかった時に飛ぶところ
+  end
+
+  def item_stop
+    @item = Item.find(session[:item_id])
+    session[:item_id] = nil
+    @item.update(exhibition_state: "停止中")
+    redirect_to controller: 'items', action: 'show', id: @item.id
+  end
+
+  def item_destroy
+    @item = Item.find(session[:item_id])
+    session[:item_id] = nil
+    @item.update(exhibition_state: "削除済")
+    user = User.find(@item.user_id)
+    redirect_to controller: 'users', action: 'show', id: user.id
   end
 
   def bought
@@ -170,6 +195,7 @@ class ItemsController < ApplicationController
   # end
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+
   end
 end
 

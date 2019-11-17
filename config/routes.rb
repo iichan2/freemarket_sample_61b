@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   end
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
+  get 'item_stop' => 'items#item_stop', as: 'item_stop'
+  get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
+
   resources :signup, only: [:new] do
     collection do
       get 'new'
@@ -39,7 +42,14 @@ Rails.application.routes.draw do
       get "identification"
       get "trading"
       get "sending"
+      get 'status_sell'
+      get 'status_trading'
+      get 'status_sold'
+      get 'status_delivery'
+      get 'status_bought'
       # get "mypage"
+  
+
     end
 
     # パン屑リスト
@@ -49,23 +59,31 @@ Rails.application.routes.draw do
         get "logout"
         get "sending"
         get "payment"
+        get "profil"
+        get 'status_sell'
+        get 'status_trading'
+        get 'status_sold'
+        get 'status_delivery'
+        get 'status_bought'
         get "identification"
+        get 'show'
       end
     end
   end
     root 'items#index'
-    resources :items, only: [:index, :edit, :new, :create, :show, :update] do
-      collection do
-        get "saler"
-      end
+    resources :items, only: [:index, :edit, :new, :create, :show] do
       member do
         get 'transaction'
         post 'create_user'
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
+        post 'item_stop'
+        post 'item_destroy'
+
       end
       collection do
+        get 'show_deleted'
         post 'comment_create'
       end
   end

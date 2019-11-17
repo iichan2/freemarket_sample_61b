@@ -17,13 +17,17 @@
             .bar10
               = link_to('おもちゃ・ホビー・グッズ', href="#toy", class: 'qaz')
     .new_box
+    
       .name#ladies_new
+
         %h1.title
           レディース新着アイテム
         .more          
           = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
+      
         - @ladies_items.each do |ladies|
+          
           %li.itembox
             %span.price ￥#{ladies[:price]}
             .itemtop
@@ -134,7 +138,7 @@
             %span.price ￥#{shioya.price}
             .itemtop
               - shioya.images.each do |shioya_image|
-                =link_to "" do
+                =link_to "items/#{shioya.id}" do
                   = image_tag("#{shioya_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2
@@ -149,7 +153,7 @@
             %span.price ￥#{tonochi.price}
             .itemtop
               - tonochi.images.each do |tonochi_image|
-                =link_to "" do
+                =link_to "items/#{tonochi.id}" do
                   = image_tag("#{tonochi_image.image_url}", size:"180x190")
             .itembottom
               .itembottom2

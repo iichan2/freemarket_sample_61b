@@ -22,12 +22,33 @@
         .uuoo {
           height: 70%;
           width: 100%;
-          background-color: palegreen;
+          background-color: white;
         }
         .oouu {
           height: 30%;
           width: 100%;
           background-color: white;
+        }
+        .items-box_photo__sold{
+          width: 0;
+          height: 0;
+          margin-top: 55px;
+          margin-right: 20px;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
+          position: relative;
+          top:-320px;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 25px;
+            margin:-35px 0px 0px -55px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
         }
       }
       .rgt {
@@ -82,7 +103,6 @@
       }
       .bbbt {
         width: 100%;
-        height: 5%;
         margin-top: 20%;
         display: flex;
         .byr {
@@ -112,6 +132,7 @@
           padding: 20px 33%;
           background-color: rgba(245, 6, 6, 0.808);
           margin-left: 5%;
+          
           text-align: center;
           line-height: 30px;
           color: white;
@@ -120,12 +141,29 @@
           margin-top: 50px;
         }
       }
+      .vm {
+        height:100px;
+        width:100%;
+        display: block;
+        .iuorwe {
+          padding: 20px;
+          background-color: #888888;
+          margin-left: 5%;
+          margin-right: 5%;
+          text-align: center;
+          line-height: 30px;
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
       .yuyuyu {
         width:100%;
         white-space: pre-wrap;
-        padding: 10px;
         word-wrap: break-word;
+        line-height: 10px;
         .okjgnd {
+          text-align: center;
           font-size: 18px;
           opacity: 0.8;
         }

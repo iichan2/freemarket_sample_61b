@@ -50,41 +50,44 @@
               %li.form-number__card-list__discover
                 = image_tag"/images/discover.svg",class:"form-number__card-list__discover"
             .form-signup
-              %label.form-signup__expire カード番号
+              %label.form-signup__expire 有効期限
               %span.form-number__require 必須
-              %br 
-              .form-signup__month
-                %select#exp_month.form-signup__month__select
-                  %option{value:"1"} 01
-                  %option{value:"2"} 02
-                  %option{value:"3"} 03
-                  %option{value:"4"} 04
-                  %option{value:"5"} 05
-                  %option{value:"6"} 06
-                  %option{value:"7"} 07
-                  %option{value:"8"} 08
-                  %option{value:"9"} 09
-                  %option{value:"10"} 10
-                  %option{value:"11"} 11
-                  %option{value:"12"} 12
-                %i.form-signup__month__icon.fas.fa-chevron-down
-              %span.form-signup__str 月
               %br
-              .form-signup__year
-                %select#exp_year.form-signup__month__select
-                  %option{value:"2019"} 19
-                  %option{value:"2020"} 20
-                  %option{value:"2021"} 21
-                  %option{value:"2022"} 22
-                  %option{value:"2023"} 23
-                  %option{value:"2024"} 24
-                  %option{value:"2025"} 25
-                  %option{value:"2026"} 26
-                  %option{value:"2027"} 27
-                  %option{value:"2028"} 28
-                  %option{value:"2029"} 29
-                %i.form-signup__month__icon.fas.fa-chevron-down
-              %span.form-signup__str 年
+              .form-signup-container
+                .form-signup-content
+                  .form-signup__month
+                    %select#exp_month.form-signup__month__select
+                      %option{value:"1"} 01
+                      %option{value:"2"} 02
+                      %option{value:"3"} 03
+                      %option{value:"4"} 04
+                      %option{value:"5"} 05
+                      %option{value:"6"} 06
+                      %option{value:"7"} 07
+                      %option{value:"8"} 08
+                      %option{value:"9"} 09
+                      %option{value:"10"} 10
+                      %option{value:"11"} 11
+                      %option{value:"12"} 12
+                    %i.form-signup__month__icon.fas.fa-chevron-down
+                  %span.form-signup__str 月
+                  %br
+                .form-signup-content
+                  .form-signup__year
+                    %select#exp_year.form-signup__month__select
+                      %option{value:"2019"} 19
+                      %option{value:"2020"} 20
+                      %option{value:"2021"} 21
+                      %option{value:"2022"} 22
+                      %option{value:"2023"} 23
+                      %option{value:"2024"} 24
+                      %option{value:"2025"} 25
+                      %option{value:"2026"} 26
+                      %option{value:"2027"} 27
+                      %option{value:"2028"} 28
+                      %option{value:"2029"} 29
+                    %i.form-signup__month__icon.fas.fa-chevron-down
+                  %span.form-signup__str 年
 
             .form-security
               %label.form-signup__expire セキュリティコード
