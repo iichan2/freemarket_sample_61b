@@ -44,7 +44,7 @@ crumb :status_trading do
   parent :mypage
 end
 crumb :status_sold do
-  link "出品した商品ー売却済み", status_sold_user_path
+  link "出品した商品ー売却済", status_sold_user_path
   parent :mypage
 end
 crumb :status_delivery do
