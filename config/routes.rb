@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       end
       member do
         get 'transaction'
+        post 'create_user'
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'

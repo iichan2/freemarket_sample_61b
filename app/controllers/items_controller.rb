@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted]
+  before_action :create_item, only:[:create]
+
   def index
     @ladies_items = Item.lady(1).take(10)
     @mens_items = Item.lady(2).take(10)
@@ -13,7 +15,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.build
+    @image = Image.new
+    # @item.images.build
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
   end
 
@@ -31,14 +34,10 @@ class ItemsController < ApplicationController
     end
   end
   
-  def create
-    item = Item.create(item_params)
-    @item = item.exhibition_state = "出品中"
-      if @item.save
-        redirect_to action: :index
-      else
-        redirect_to action: :new
-      end
+  def create_item
+    @item = Item.create(item_params)
+    @item.update(exhibition_state: "出品中")
+    session[:item_id] = @item.id
   end
 
   def get_category_children
@@ -114,10 +113,61 @@ class ItemsController < ApplicationController
     @del = "#{ken_to_name[@buyer.delivery.ken]} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
   end
 
+  def create
+    item_id = session[:item_id]
+    session[:item_id] = nil
+    if params[:item][:image].nil?
+    else
+      uploaded_file = params[:item][:image][:image_url]
+      FileUtils.mkdir_p("./public/#{item_id}") unless FileTest.exist?("./public/#{item_id}")
+      output_path = Rails.root.join('public', "#{item_id}", "0")
+      File.open(output_path, 'w+b') do |fp|
+        fp.write  uploaded_file.read
+      end
+      save_path = "/#{item_id}/0"
+      @image = Image.create(item_id:item_id,image_url:save_path)
+
+      checknil = params[:item][:images_attributes]
+    end
+    if checknil.nil?
+    else
+      uploaded_files = [
+        params[:item][:images_attributes][:"1"],
+        params[:item][:images_attributes][:"2"],
+        params[:item][:images_attributes][:"3"],
+        params[:item][:images_attributes][:"5"],
+        params[:item][:images_attributes][:"4"],
+        params[:item][:images_attributes][:"6"],
+        params[:item][:images_attributes][:"7"],
+        params[:item][:images_attributes][:"8"],
+        params[:item][:images_attributes][:"9"]
+      ]
+      num = 1
+      uploaded_files.each do |uf|
+        if uf.nil?
+          num += 1
+        else
+          uff = uf[:image_url][0]
+          o_p = Rails.root.join('public', "#{item_id}", "#{num}")
+          File.open(o_p, 'w+b') do |fp|
+            fp.write  uff.read
+          end
+          save_path = "/#{item_id}/#{num}"
+          @image = Image.create(item_id:item_id,image_url:save_path)
+          num += 1
+        end
+      end
+    end
+    redirect_to root_path
+  end
+
   private
   def item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :exhibition_state,images_attributes: [:image_url]).merge(user_id: current_user.id)
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
   end
+  # def image_params
+  #   params.require(:item).permit(:image[:image_url])
+  # end
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
   end
