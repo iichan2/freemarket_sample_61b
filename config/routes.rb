@@ -60,8 +60,13 @@ Rails.application.routes.draw do
         get "sending"
         get "payment"
         get "profil"
-
+        get 'status_sell'
+        get 'status_trading'
+        get 'status_sold'
+        get 'status_delivery'
+        get 'status_bought'
         get "identification"
+        get 'show'
       end
     end
   end
