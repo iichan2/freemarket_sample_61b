@@ -27,19 +27,13 @@ class SignupController < ApplicationController
       # session[:id] = @user.id
       session[:payjpUser_id] = @user.id
       if session['devise.omniauth_data']
-      sns = SnsCredential.find(session[:sns_id]) 
-      sns.update(user_id: @user.id)
-
-      else
-      @user.save
+        sns = SnsCredential.find(session[:sns_id]) 
+        sns.update(user_id: @user.id)
       end
-
     else
     # ログインするための情報を保管
 
       redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"}
- 
-
     end
   end
   
