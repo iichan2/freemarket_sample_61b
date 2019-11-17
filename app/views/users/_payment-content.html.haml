@@ -13,7 +13,15 @@
             %span.p クレジットカードを追加する
     -else
       %section.s-add-card
-        aaaaaaaaaa
+        .payment_card_box
+          .payment_card_number
+            = "**** **** **** " + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          = link_to "" do
+            %button.payment_card_delete 削除する
     .s-not-regist
       = link_to "#", class: 'payment-to-info' do  
         %span.pa 支払い方法について
