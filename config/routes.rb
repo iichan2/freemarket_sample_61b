@@ -4,9 +4,8 @@ Rails.application.routes.draw do
                 registrations: 'signup/new' }
   resources :categories, only: [:index]
   
-  resources :cards, only: [:new,:delete,:show] do
+  resources :cards, only: [:new,:delete] do
     collection do
-      post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
     end
     member do
