@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
   def edit
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @item = Item.find(params[:id])
+    @image = @item.images
   end
   
   def update

@@ -13,20 +13,18 @@
           .hissu  必須
         .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
-          = f.fields_for :images do |i|
+          = f.fields_for @image do |i|
             .dropzone-container.clearfix
               .sell-uploads-drop
                 #exhibit-images-preview
               .dropzone-area
-                = i.label :image_url, for: 'create-image' do
+                = i.label :image_url, for: 'upload-image' do
                   .sell_upload__area
                     = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
             .dropzone-container2.clearfix
               .sell-uploads-drop2
                 #exhibit-images-preview2
               .dropzone-area2
-                .sell_upload__area2
-
       .shouhinmei
         .bun-matome
           .bunn  商品名
@@ -85,7 +83,7 @@
             .bunn  価格
             .hissu  必須
           .kakaku-kakutokoro
-            = f.label '¥'
+            ￥
             = f.number_field :price, placeholder: "例）300", class: 'kakaku-kakumasu',id: 'kakaku-kakumasu'
           .kakaku-tesuuryou 
             .bunn 販売手数料(10%)
@@ -96,7 +94,7 @@
       .hanbaityuui
         .tyuuibunn  禁止されている出品、行為を必ずご確認ください。<br>またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。<br>また、出品をもちまして加盟店規約に同意したことになります。
         .buttonyou
-          = f.submit "編集する", class: "buttonda"
+          = f.submit "出品する", class: "buttonda"
         .buttonyou2
           .modorubutton
             = link_to "/"  do
