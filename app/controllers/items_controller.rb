@@ -89,7 +89,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    session[:item_id] = @item.id
+     session[:item_id] = @item.id
     if @item.exhibition_state == "削除済"
       redirect_to controller: 'items', action: 'show_deleted'
     end
@@ -118,11 +118,11 @@ class ItemsController < ApplicationController
   end
 
   def item_destroy
-    @item = Item.find(session[:item_id])
-    session[:item_id] = nil
-    @item.update(exhibition_state: "削除済")
-    user = User.find(@item.user_id)
-    redirect_to controller: 'users', action: 'show', id: user.id
+   @item = Item.find(session[:item_id])
+   session[:item_id] = nil
+   @item.update(exhibition_state: "削除済")
+   user = User.find(@item.user_id)
+   redirect_to controller: 'users', action: 'show', id: user.id
   end
 
   def bought
