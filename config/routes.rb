@@ -74,6 +74,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :edit, :new, :create, :show] do
       member do
         get 'transaction'
+        post 'create_user'
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
