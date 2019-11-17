@@ -16,27 +16,32 @@
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
-    var img = $(`<div><img></div>`);
+    var img = $(`<div class = "iichan_box"><img></div>`);
     reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="xxxxxbtn delete">削除</div></div>');
+      var btn_wrapper = $('<div class="btn_wrapper"><div class="xxxxxbtn delete">  削 除  </div></div>');
       img.append(btn_wrapper);
       img.find('img').attr({
         src: e.target.result,
         width: '120px',
-        height: '120px'
       })
-    }
+    };
+    var label = $(`<label for="upload-image"><div class='sell_upload__area2'>`);
+    var labelend = $(`</div></label>`);
     reader.readAsDataURL(file);
     images.push(img);
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        if(index <= 4){
-          var preview = $('#exhibit-images-preview');
-        }else{
-          var preview = $('#exhibit-images-preview2');
-        }
-        preview.append(image);
-      })
+    $.each(images, function(index, image) {
+      image.attr('data-image', index);
+      if(index <= 4){
+        var preview = $('#exhibit-images-preview');
+      }else{
+        var preview = $('#exhibit-images-preview2');
+      }
+      if(index == 4 ){
+        $('.dropzone-area2').prepend(label)
+        $('.dropzone-area2').append(labelend)
+      };
+      preview.append(image);
+    })
 
     // if(images.length == 5) {
     //   dropzone.css({

@@ -294,3 +294,4 @@ P13_C5.children.create([{:category=>"タオル/バス用品"}, {:category=>"日�
 P13_C6.children.create([{:category=>"雑貨"}, {:category=>"工芸品"}, {:category=>"家具"}, {:category=>"印刷物"}, {:category=>"その他"}])
 P13_C7.children.create([{:category=>"筆記具"}, {:category=>"ノート/メモ帳"}, {:category=>"テープ/マスキングテープ"}, {:category=>"カレンダー/スケジュール"}, {:category=>"アルバム/スクラップ"}, {:category=>"ファイル/バインダー"}, {:category=>"はさみ/カッター"}, {:category=>"カードホルダー/名刺管理"}, {:category=>"のり/ホッチキス"}, {:category=>"その他"}])
 P13_C8.children.create([{:category=>"オフィス用品一般"}, {:category=>"オフィス家具"}, {:category=>"店舗用品"}, {:category=>"OA機器"}, {:category=>"ラッピング/包装"}, {:category=>"その他"}])
+P14 = Category.create(:category=>'--')
