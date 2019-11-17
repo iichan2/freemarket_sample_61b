@@ -25,30 +25,6 @@ class SignupController < ApplicationController
         sns.update(user_id: @user.id)
       end
     else
-      session[:payjpUser_id] = nil
-      session[:nickname] = nil
-      session[:email] = nil
-      session[:password] = nil
-      session[:last_name] = nil
-      session[:first_name] = nil
-      session[:kana_last_name] = nil
-      session[:kana_first_name] = nil
-      session[:birth_year] = nil
-      session[:birth_month] = nil
-      session[:birth_day] = nil
-      session[:tel_number] = nil
-      session['devise.omniauth_data'] = nil
-      session[:payjpToken] = nil
-      session[:f_name] = nil
-      session[:l_name] = nil
-      session[:kana_f_name] = nil
-      session[:kana_l_name] = nil
-      session[:postal_code] = nil
-      session[:ken] = nil
-      session[:map] = nil
-      session[:banchi] = nil
-      session[:building] = nil
-      session[:tel_number2] = nil
       redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"}
     end
   end
@@ -113,6 +89,7 @@ class SignupController < ApplicationController
   end
 
   def new
+    log_out if user_signed_in?
     @user = User.new
     # メールのユーザー登録画面
     # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
