@@ -144,7 +144,7 @@ class SignupController < ApplicationController
   end
 
   def newend 
-    # sign_in User.find(session[:id]) unless user_signed_in?
+    sign_in User.find(session[:payjpUser_id]) unless user_signed_in?
   end
   
   private
