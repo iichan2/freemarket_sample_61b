@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                 registrations: 'signup/new' }
   resources :categories, only: [:index]
-  resources :cards
   
+  resources :cards, only: [:new,:delete,:show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+    end
+    member do
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
   # devise_scope :user do
   #   get "sign_up", to: "users/registrations#new"
   #   get "sign_in", to: "users/sessions#new"
@@ -58,7 +67,6 @@ Rails.application.routes.draw do
         
       end
     end
-
 
 
 

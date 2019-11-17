@@ -5,11 +5,15 @@
       .is-content
         %h3.ics-head クレジットカード一覧
       %ul.is-payment-list
-    %section.s-add-card
-      .is-btn-content
-        = link_to "#", class: "btn-def-submit" do
-          = fa_icon "credit-card", class: "card-icon"
-          %span.p クレジットカードを追加する
+    -if @card.blank?
+      %section.s-add-card
+        .is-btn-content
+          = link_to new_card_path, class: "btn-def-submit" do
+            = fa_icon "credit-card", class: "card-icon"
+            %span.p クレジットカードを追加する
+    -else
+      %section.s-add-card
+        aaaaaaaaaa
     .s-not-regist
       = link_to "#", class: 'payment-to-info' do  
         %span.pa 支払い方法について

@@ -11,9 +11,9 @@ document.addEventListener(
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
         }; //入力されたデータを取得します。
-
         Payjp.createToken(card, (status, response) => {
           if (status === 200) { //成功した場合
+            console.log(card);
             $("#card_number").removeAttr("name");
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
@@ -24,7 +24,6 @@ document.addEventListener(
             $("#cardInput").submit();
             alert("登録が完了しました"); //確認用
           } else {
-
             
             alert("カード情報が正しくありません。"); //確認用
           }
