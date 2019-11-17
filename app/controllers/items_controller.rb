@@ -100,7 +100,8 @@ class ItemsController < ApplicationController
     @images = @item.images
     @comment = Comment.new
     @commented = Comment.where(item_id: @item.id)
-    @items = Item.where(user_id: @item.user_id)
+    items = Item.where(user_id: @item.user_id)
+    @items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
     @item_seller_user = User.find(@item.user_id)
   end
   
