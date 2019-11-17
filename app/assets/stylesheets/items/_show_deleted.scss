@@ -162,6 +162,7 @@
       line-height: 90px;
       margin-top: 100px;
       font-weight: bold;
+      position: relative;
     }
     .main_contents {
       height: 750px;
@@ -296,4 +297,14 @@
       }
     }
   }
+}
+.go_to_top{
+  width: 40%;
+  height: 70px;
+  color: white;
+  background-color:red;
+  text-align: center;
+  line-height: 70px;
+  margin:0 auto;
+  margin-bottom: 3%;
 }

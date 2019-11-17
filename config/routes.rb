@@ -85,6 +85,7 @@ Rails.application.routes.draw do
       collection do
         get 'show_deleted'
         post 'comment_create'
+        get 'error_page'
       end
   end
 end
