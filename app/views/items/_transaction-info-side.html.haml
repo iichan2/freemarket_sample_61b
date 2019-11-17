@@ -16,7 +16,7 @@
     %li.item-info-white
       %p.key 販売手数料
       %p.value
-        = "¥#{@item.price / 10}"
+        = "¥#{@item.price / 10.floor}"
     %li.item-info-gray
       %p.key 販売利益
       %p.value
