@@ -121,7 +121,7 @@ class ItemsController < ApplicationController
     @item = Item.find(session[:item_id])
     session[:item_id] = nil
     @item.update(exhibition_state: "削除済")
-    user = User.find(@item.user_id)
+    user = User.find_by(@item.user_id)
     redirect_to controller: 'users', action: 'show', id: user.id
   end
 
