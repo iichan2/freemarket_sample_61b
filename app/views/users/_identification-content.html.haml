@@ -2,7 +2,7 @@
   %section.identification_container
     %h2.identification_head 本人情報の登録
   .identification_form_container
-    = form_with local: true do |f|
+    = form_with model: @user, local: true do |f|
       %p.identification_description
         お客さまの本人情報をご登録ください。
         %br
@@ -62,7 +62,7 @@
         %span.identification_arbitrary
           任意
       = f.text_field :building, placeholder:"例）柳ビル103",class:'identification_box'
-      = f.submit "変更する",class: "identification_btn"
+      .identification_btn 変更する
       .identification_group
         .identification_explanation
           = link_to :back, class: 'identification_link' do

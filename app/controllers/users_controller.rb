@@ -20,9 +20,14 @@ class UsersController < ApplicationController
   end
 
   def identification
+
   end
 
   def edit
+    @user = User.find(current_user.id)
+
+
+  
   end
 
   def trading
@@ -92,8 +97,9 @@ end
 
 
   def update    
-    if @user.save
+    if @user.update(user_params)
       render :edit
+      flash[:notice] = "変更しました"
     else
       flash[:notice] = "入力してください"
       render :edit
@@ -130,4 +136,10 @@ end
           redirect_to root_path
         end
     end
+
+    def user_params
+      params.require(:user).permit(:nickname, :profile )
+    end
+    
+    
 end
