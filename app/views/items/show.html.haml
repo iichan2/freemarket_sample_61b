@@ -101,8 +101,9 @@
           =fa_icon "lock"
           %span.vjngr
             あんしん・あんぜんへの取り組み
-    - if @item.user_id == current_user.id
-      = render 'users/trading_module'
+    - if user_signed_in?
+      - if @item.user_id == current_user.id
+        = render 'users/trading_module'
     .obox
       .commenttv
         - @commented.each do |comment|
