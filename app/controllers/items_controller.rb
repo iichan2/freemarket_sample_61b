@@ -3,14 +3,15 @@ class ItemsController < ApplicationController
   before_action :create_item, only:[:create]
 
   def index
-    @ladies_items = Item.lady(1).take(10)
-    @mens_items = Item.lady(2).take(10)
-    @appliance_items = Item.lady(8).take(10)
-    @toys_items = Item.lady(6).take(10)
-    @kubota_items = Item.where(brand_id: 1).limit(10)
-    @inoue_items = Item.where(brand_id: 3).limit(10)
-    @shioya_items = Item.where(brand_id: 2).limit(10)
-    @tonochi_items = Item.where(brand_id: 5).limit(10)
+    items = Item.where(exhibition_state: "出品中")
+    @ladies_items = items.lady(1).take(10)
+    @mens_items = items.lady(2).take(10)
+    @appliance_items = items.lady(8).take(10)
+    @toys_items = items.lady(6).take(10)
+    @kubota_items = items.where(brand_id: 1).limit(10)
+    @inoue_items = items.where(brand_id: 3).limit(10)
+    @shioya_items = items.where(brand_id: 2).limit(10)
+    @tonochi_items = items.where(brand_id: 5).limit(10)
     # トノチ記載↓
   end
 
