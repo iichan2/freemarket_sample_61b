@@ -21,7 +21,7 @@
               .dropzone-area3
                 .inputs 
                   = i.hidden_field :id
-                  = i.check_box :_destroy, checked: true, class: 'js-destroy', "data-index": i.index
+                  = i.check_box :_destroy, checked: false, class: 'js-destroy', "data-index": i.index
                 .iichan_box
                   = image_tag i.object.image_url, alt: '商品の写真', width: "120", class: "edit-img"
                   .btn_wrapper
