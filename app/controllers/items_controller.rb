@@ -22,17 +22,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @item = Item.find(params[:id])
-    @image = @item.images
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    @category_grandchild = Category.find(@item.category_id)
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
   
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to user_path
+    if @item.update!(update_item_params)
+      redirect_to status_sell_user_path
     else
+      @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+      # @category_grandchild = Category.find(@item.category_id)
+      # @category_child = @category_grandchild.parent
+      # @category_parent = @category_child.parent
       render :edit
+      # redirect_to edit_item_path(@item)
     end
   end
   
@@ -188,12 +195,14 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
   end
+
+  def update_item_params
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+  end
   # def image_params
   #   params.require(:item).permit(:image[:image_url])
   # end
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
-
   end
 end
-

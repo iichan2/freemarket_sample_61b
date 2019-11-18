@@ -1,23 +1,30 @@
 .zenntai
   .header
     .atamanoe
-      =image_tag("signup-mercari.png",class: "gazou",height: "60px")
+      = image_tag("signup-mercari.png",class: "gazou",height: "60px")
 
   .main
     .atama
       商品の情報を入力
-    = form_for @item do |f|
+    = form_with model: @item, name: "edit_picture" do |f|
       .gazoushuppinn
         .bun-matome
           .bunn2  出品画像
           .hissu  必須
         .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
-          = f.fields_for @image do |i|
+          = f.fields_for :images do |i|
             .dropzone-container.clearfix
               .sell-uploads-drop
                 #exhibit-images-preview
-              .dropzone-area
+              .dropzone-area3
+                .inputs 
+                  = i.hidden_field :id
+                  = i.check_box :_destroy, checked: true, class: 'js-destroy', "data-index": i.index
+                .iichan_box
+                  = image_tag i.object.image_url, alt: '商品の写真', width: "100", class: "edit-img"
+                  .btn_wrapper
+                    .xxxxxbtn.deleted{ "data-index": i.index} 削除
                 = i.label :image_url, for: 'upload-image' do
                   .sell_upload__area
                     = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
@@ -30,12 +37,12 @@
           .bunn  商品名
           .hissu  必須
         .shouhinnmei-kakutokoro
-          = f.text_field :item_name, placeholder: "商品名必須(40)文字まで"
+          = f.text_field :item_name, placeholder: "商品名必須(40)文字まで", value: @item.item_name
         .bun-matome
           .bunn  商品の説明
           .hissu  必須
         .shouhinsetumei-kakutokoro
-          = f.text_area :item_info, size: "75x6" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = f.text_area :item_info, size: "75x6" ,placeholder: "商品の説明（必須1000文字以内）（色、素材、重さ、低下、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", value: @item.item_info
 
       .shouhinnoshousai
         .setumei  商品の詳細
@@ -47,34 +54,40 @@
             .kategory-serectbox
               .kategory-box-wrapper
               = f.select :category_id, @category_parents,{prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
-
+              -# = f.select :category_id, @category_child,{prompt: "---" }, {class: 'select_boxyou', id: 'child_category'}
+              -# = f.select :category_id, @category_grandchild,{prompt: "---" }, {class: 'select_boxyou', id: 'grandchild_category'}
           .bun-matome
-            .bunn  商品の詳細
+            .bunn  商品の状態
             .hissu  必須
           .jyoutai-box
-            = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou'} 
+            = "現在の状態: #{@item.status}"
+            = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou'}
       .haisounituite
         .setumei  配送について
         .migiyose
           .bun-matome
-            .bunn  配送量の負担
+            .bunn  配送料の負担
             .hissu  必須
           .kategory-box
+            = "現在の配送料の負担: #{@item.delivery_fee}"
             = f.select :delivery_fee,[["送料込み (出品者負担)"],["着払い(購入者負担)"]],{prompt: "---" },{class: 'select_boxyou'}
           .bun-matome
-            .bunn  配送量の方法
+            .bunn  配送方法
             .hissu  必須
           .kategory-box
+            = "現在の配送方法: #{@item.delivery_way}"
             = f.select :delivery_way,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{prompt: "---" }, {class: 'select_boxyou'} 
           .bun-matome
             .bunn  発送元の地域
             .hissu  必須
           .kategory-box
+            = "現在の発送元の地域: #{@item.area}"            
             = f.collection_select :area, Prefecture.all, :name,:name, {}, {class: "select_boxyou"}
           .bun-matome
             .bunn  発送までの日数
             .hissu  必須
           .kategory-box
+            = "現在の発送までの日数: #{@item.delivery_day}"
             = f.select :delivery_day,[["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .hannbaikakaku
         .setumei  販売価格(300~9,999,999)
@@ -84,7 +97,7 @@
             .hissu  必須
           .kakaku-kakutokoro
             ￥
-            = f.number_field :price, placeholder: "例）300", class: 'kakaku-kakumasu',id: 'kakaku-kakumasu'
+            = f.number_field :price, placeholder: "例）300", class: 'kakaku-kakumasu',id: 'kakaku-kakumasu', value: @item.price
           .kakaku-tesuuryou 
             .bunn 販売手数料(10%)
             .tesuuryou 
@@ -94,7 +107,7 @@
       .hanbaityuui
         .tyuuibunn  禁止されている出品、行為を必ずご確認ください。<br>またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。<br>また、出品をもちまして加盟店規約に同意したことになります。
         .buttonyou
-          = f.submit "出品する", class: "buttonda"
+          = f.submit "編集する", class: "buttonda"
         .buttonyou2
           .modorubutton
             = link_to "/"  do
