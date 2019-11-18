@@ -96,10 +96,14 @@ end
   end
 
 
-  def update    
+
+
+  def update  
     if @user.update(user_params)
-      render :edit
       flash[:notice] = "変更しました"
+
+      render :edit
+     
     else
       flash[:notice] = "入力してください"
       render :edit
@@ -138,8 +142,7 @@ end
     end
 
     def user_params
+
       params.require(:user).permit(:nickname, :profile )
-    end
-    
-    
+
 end

@@ -4,9 +4,11 @@
   .profile_content
     %section.profile_container
       %h2.profile_head プロフィール
+
       = form_with model: @user , local: true do |f| #model書くとエラー
         .profile_change_completed
           変更しました。
+
         .profile_icon
           %figure
             = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" ,height: "60", width: "60"
