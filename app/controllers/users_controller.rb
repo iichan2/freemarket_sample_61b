@@ -91,8 +91,9 @@ end
   end
 
 
-  def update    
-    if @user.save
+  def update  
+    if @user.update(user_params)
+      flash[:notice] = "変更しました"
       render :edit
     else
       flash[:notice] = "入力してください"
@@ -129,5 +130,9 @@ end
         if user.id != current_user.id
           redirect_to root_path
         end
+    end
+
+    def user_params
+      params.require(:user).permit(:nickname, :profile)
     end
 end
