@@ -86,3 +86,20 @@ section.s-add-card {
     }
   }
 }
+
+.payment_card_box{
+  margin-top: 13px;
+  margin-left:82px;
+  margin-right:82px;
+  display: flex;
+  justify-content: space-between;
+  .payment_card_number{
+    font-size:14px;
+  }
+  button.payment_card_delete{
+    color:#EA352D;
+    border:solid 1px #EA352D;
+    border-radius: 5%;
+    cursor:pointer;
+  }
+}

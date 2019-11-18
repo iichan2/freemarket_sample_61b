@@ -25,7 +25,7 @@
       %ul.item
         - @ladies_items.each do |ladies|
           %li.itembox
-            %span.price ￥#{ladies[:price]}
+            %span.price ￥#{ladies[:price].to_s(:delimited)}
             .itemtop
               =link_to "items/#{ladies[:id]}" do
                 = image_tag("#{ladies[:image_url]}", size:"180x190")
@@ -39,7 +39,7 @@
       %ul.item
         - @mens_items.each do |mens|
           %li.itembox
-            %span.price ￥#{mens[:price]}
+            %span.price ￥#{mens[:price].to_s(:delimited)}
             .itemtop
               =link_to "items/#{mens[:id]}" do
                 = image_tag("#{mens[:image_url]}", size:"180x190")
@@ -53,7 +53,7 @@
       %ul.item
         - @appliance_items.each do |appliance|
           %li.itembox
-            %span.price ￥#{appliance[:price]}
+            %span.price ￥#{appliance[:price].to_s(:delimited)}
             .itemtop
               =link_to "items/#{appliance[:id]}" do
                 = image_tag("#{appliance[:image_url]}", size:"180x190")
@@ -67,7 +67,7 @@
       %ul.item
         - @toys_items.each do |toys|
           %li.itembox
-            %span.price ￥#{toys[:price]}
+            %span.price ￥#{toys[:price].to_s(:delimited)}
             .itemtop
               =link_to "items/#{toys[:id]}" do
                 = image_tag("#{toys[:image_url]}", size:"180x190")
@@ -101,7 +101,7 @@
       %ul.item
         - @kubota_items.each do |kubota|
           %li.itembox
-            %span.price ￥#{kubota.price}
+            %span.price ￥#{kubota.price.to_s(:delimited)}
             .itemtop
               - kubota.images.each do |kubota_image|
                 =link_to "items/#{kubota.id}" do
@@ -116,7 +116,7 @@
       %ul.item
         - @inoue_items.each do |inoue|
           %li.itembox
-            %span.price ￥#{inoue.price}
+            %span.price ￥#{inoue.price.to_s(:delimited)}
             .itemtop
               - inoue.images.each do |inoue_image|
                 =link_to "items/#{inoue.id}" do
@@ -131,7 +131,7 @@
       %ul.item
         - @shioya_items.each do |shioya|
           %li.itembox
-            %span.price ￥#{shioya.price}
+            %span.price ￥#{shioya.price.to_s(:delimited)}
             .itemtop
               - shioya.images.each do |shioya_image|
                 =link_to "items/#{shioya.id}" do
@@ -146,7 +146,7 @@
       %ul.item
         - @tonochi_items.each do |tonochi|
           %li.itembox
-            %span.price ￥#{tonochi.price}
+            %span.price ￥#{tonochi.price.to_s(:delimited)}
             .itemtop
               - tonochi.images.each do |tonochi_image|
                 =link_to "items/#{tonochi.id}" do

@@ -20,7 +20,7 @@
             .pmfo 
               %p.jgjgjh 出品者
             .igrej
-              =link_to("#{@item.user.nickname}",user_path,class: "vnk")
+              =link_to("#{@item.user.nickname}",{action:"saler", controller: "items",id: @saler.id},class: "vnk")
               .jgiore
                 = image_tag src="smile.png", size: "15x15",class: "vjnl"
                 %span.dfs 
@@ -71,7 +71,7 @@
               =@item.delivery_day
       .bbbt
         %p.byr
-          = "¥ #{@item.price}"
+          = "¥ #{@item.price.to_s(:delimited)}"
         %p.byt
           (税込)
         %p.byy
@@ -144,7 +144,7 @@
                 = item.item_name
                 .nekoneko
                   %p.yhgv
-                    = "¥ #{item.price}"
+                    = "¥ #{item.price.to_s(:delimited)}"
                   =fa_icon "heart-o",class:"tgjvm"
                   %supan.wio
                     0

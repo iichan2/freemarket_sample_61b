@@ -1,6 +1,7 @@
 .bought_wrapper
   %header.st-header
-    = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
+    = link_to root_path do
+      = image_tag 'mercari-gray-logo.svg', alt: 'メルカリロゴ', height: '50', width: '185', class: 'mercari-logo-st'
   %main.bought-main
     %section.bought_notification
       .bought_notification_message1
@@ -17,7 +18,7 @@
             = image_tag "#{image.image_url}", height: '150', width: '150'
             %p.bought_item_name #{@item.item_name}
       %section.bought_price
-        %span.bought_item_price ¥#{@item.price}
+        %span.bought_item_price ¥#{@item.price.to_s(:delimited)}
         %span.bought_postage 送料込み
       %section.bought_info
         .stb-info-container
@@ -50,7 +51,7 @@
             購入代金が出品者に振り込まれます。
             %br
             評価後に取引は完了です。
-          = link_to user_path, class: 'changing' do  
+          = link_to action:"show", controller:"users", id:current_user.id do
             %span.bought_link マイページへ戻る
   %footer.st-footer
     %ul.privacy

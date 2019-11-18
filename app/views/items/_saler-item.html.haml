@@ -1,12 +1,14 @@
-.saler-items-box
-  = link_to "", root_path, class: "saler-items-box-link"
-  .items-box-photo 
-    = image_tag "umi.jpg", class: "saler-item-image"
-  .items-box-body
-    %h3.saler-item-name 商品名は海です。
-    .saler-item-num
-      .saler-item-price 
-        ¥12,000
-      .like-font
-        = fa_icon "heart", class: "saler-haert"
-        %span 3
+
+- @items_images.each do |item_image|
+  .saler-items-box
+    .items-box-photo
+      = link_to "" do
+        = image_tag("#{item_image[:image]["image_url"]}", class: "saler-item-image")
+      .items-box-body
+        %h3.saler-item-name #{item_image[:item]["item_name"]}
+        .saler-item-num
+          .saler-item-price 
+            ¥#{item_image[:item]["price"].to_s(:delimited)}
+          .like-font
+            = fa_icon "heart", class: "saler-haert"
+            %span 0

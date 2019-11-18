@@ -17,6 +17,7 @@ class SignupController < ApplicationController
     birth_day: session[:birth_day],
     tel_number: session[:tel_number]
   )
+
     if @user.save
       # session[:id] = @user.id
       session[:payjpUser_id] = @user.id
