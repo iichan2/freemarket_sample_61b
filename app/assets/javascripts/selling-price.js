@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function(){
   function addprice(tesuuryou) {
 
     var html = `<div>
-                 <p>¥${ tesuuryou }</p>
+                 <p>¥${ tesuuryou.toLocaleString() }</p>
                 </div>`
      add_list.append(html);
   }
@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function(){
   function addprice2(rieki) {
 
     var html2 = `<div>
-                 <p>¥${ rieki }</p>
+                 <p>¥${ rieki.toLocaleString() }</p>
                 </div>`
      add_list2.append(html2);
   }

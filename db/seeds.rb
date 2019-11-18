@@ -33,19 +33,23 @@ end
 
 User.create!(users)
 
-Delivery.create!(
-  first_name: "安倍",
-  last_name: "心臓",
-  kana_first_name: "アベ",
-  kana_last_name: "シンゾウ",
-  postal_code: "123-4567",
-  ken: 5,
-  map: "東京都",
-  banchi: "123-2",
-  building: "梅田ビル",
-  tel_number: "080-1234-5678",
-  user_id: 1,
-)
+num = 1
+53.times() do
+  Delivery.create!(
+    first_name: "安倍",
+    last_name: "心臓",
+    kana_first_name: "アベ",
+    kana_last_name: "シンゾウ",
+    postal_code: "123-4567",
+    ken: 5,
+    map: "東京都",
+    banchi: "123-2",
+    building: "梅田ビル",
+    tel_number: "080-1234-5678",
+    user_id: num,
+  )
+  num += 1
+end
 
 require './db/default_items_seed.rb'
 require './db/default_images_url_seed.rb'

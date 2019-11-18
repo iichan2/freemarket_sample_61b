@@ -1,7 +1,7 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to do
+      = link_to "/" do
         =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
     %nav.progress-bar
       %ol.clearfix
@@ -63,7 +63,7 @@
               .select-wrap
                 .select-wrap__default
                 
-                = f.select :birth_year do
+                = f.select :birth_year,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "2019"} 2019
                   %option{value: "2018"} 2018
@@ -187,7 +187,7 @@
                   %option{value: "1900"} 1900
               %span 年
               .select-wrap.select-wrap__month
-                = f.select :birth_month, class:"select-default" do
+                = f.select :birth_month,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: "1"} 1
                   %option{value: "2"} 2
@@ -204,7 +204,7 @@
                 
               %span 月
               .select-wrap.select-wrap__day
-                = f.select :birth_day, class: 'select-wrap__default' do
+                = f.select :birth_day,{},{},class: "select-default" do
                   %option{value: ""} --
                   %option{value: 1} 1
                   %option{value: 2} 2

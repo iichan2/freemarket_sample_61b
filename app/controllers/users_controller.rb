@@ -9,6 +9,12 @@ class UsersController < ApplicationController
   before_action :set_item_image_params, only: [:sending, :trading]
   
   def payment
+    @card = Card.where(user_id: current_user.id).first
+    unless @card.blank?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def show
@@ -105,8 +111,9 @@ end
   end
 
 
-  def update    
-    if @user.save
+  def update  
+    if @user.update(user_params)
+      flash[:notice] = "変更しました"
       render :edit
     else
       flash[:notice] = "入力してください"
@@ -143,5 +150,9 @@ end
         if user.id != current_user.id
           redirect_to root_path
         end
+    end
+
+    def user_params
+      params.require(:user).permit(:nickname, :profile)
     end
 end

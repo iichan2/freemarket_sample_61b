@@ -1,7 +1,7 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to do
+      = link_to "/" do
         =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
     %nav.progress-bar
       %ol.clearfix
@@ -61,11 +61,11 @@
           .form-group
             = f.label "建物名",class: "label"
             %span.form-any 任意
-            = f.text_field :building, placeholder: "    例) 柳ビル103",class: "label",required: 'true',class: "input-default"
+            = f.text_field :building, placeholder: "    例) 柳ビル103",class: "label",class: "input-default"
           .form-group
             = f.label "電話",class: "label"
             %span.form-any 任意
-            = f.text_field :tel_number2, placeholder: "    例) 09012345678",class: "label",required: 'true',class: "input-default"  
+            = f.text_field :tel_number2, placeholder: "    例) 09012345678",class: "label",class: "input-default"  
           .form-group
           =f.submit"次へ進む" ,class: " btn-default " 
 = render 'signup/signup-footer'

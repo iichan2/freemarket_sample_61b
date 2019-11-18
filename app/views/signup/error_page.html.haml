@@ -1,0 +1,15 @@
+.single-container
+  .single-header
+    %h1.single-header__logo
+      = link_to  "/" do
+        =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__header 認証エラー
+      %form.registration-form
+        .registration-form__content
+          %p.done.message 認証に失敗しました。
+          %p.done.message お手数ですが、再度入力をお願いいたします。
+          = link_to ( signup_index_path ) do
+            %button.btn-default.btn-red 登録画面に戻る
+= render 'signup/signup-footer'

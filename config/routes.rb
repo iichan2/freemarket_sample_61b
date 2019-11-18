@@ -3,13 +3,23 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                 registrations: 'signup/new' }
   resources :categories, only: [:index]
-  resources :cards
   
+  get 'cardDelete' => 'cards#delete', as: 'cardDelete'
+  resources :cards, only: [:new,:delete] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+    member do
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
   devise_scope :user do
     get "sign_up", to: "users/registrations#new"
     get "sign_in", to: "users/sessions#new"
   #   # get "sign_out", to: "users/sessions#destroy" 
   end
+
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   get 'item_stop' => 'items#item_stop', as: 'item_stop'
@@ -34,10 +44,13 @@ Rails.application.routes.draw do
       get 'new_card'
       get 'show_card'
       post 'create_delivery'
+      get 'error_page'
     end
   end
 
   devise_scope :user do
+    get "sign_up", to: "users/registrations#new"
+    get "sign_in", to: "users/sessions#new"
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
@@ -78,6 +91,7 @@ Rails.application.routes.draw do
     root 'items#index'
     resources :items, only: [:index, :edit, :update, :new, :create, :show] do
       member do
+        get "saler"
         get 'transaction'
         post 'create_user'
         get 'get_category_children', defaults: { format: 'json' }
@@ -89,6 +103,7 @@ Rails.application.routes.draw do
       collection do
         get 'show_deleted'
         post 'comment_create'
+        get 'error_page'
       end
     end
 end

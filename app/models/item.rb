@@ -23,6 +23,7 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+  
   def self.lady(num)
     lady_cate = Category.find(num)
     ladies_children = lady_cate.children
