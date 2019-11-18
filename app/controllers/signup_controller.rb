@@ -47,7 +47,6 @@ class SignupController < ApplicationController
 
 
   def create
-
     @delivery = Delivery.new(
       first_name: @info_user[:f_name], 
       last_name: @info_user[:l_name], 
@@ -61,10 +60,7 @@ class SignupController < ApplicationController
       building: @info_user[:building],
       user_id: @user.id
     )
-
-    
     if @delivery.save
-
       @user.update(delivery_id: @delivery.id)
       redirect_to payjp_path
     end
@@ -74,10 +70,8 @@ class SignupController < ApplicationController
     require "payjp"
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if session[:payjpToken].blank?
-
       redirect_to action: "card"
     else
-    
       customer = Payjp::Customer.create(
       description: '登録テスト', #なくてもOK
       email: session[:email], #なくてもOK
@@ -89,16 +83,12 @@ class SignupController < ApplicationController
         session[:payjpToken] = nil
         redirect_to newend_signup_index_path
       else
-
       end
     end
   end
 
-
- 
   def mail
     @user = User.new
-
     # snsのユーザー登録画面
   end
 
@@ -106,7 +96,6 @@ class SignupController < ApplicationController
     @user = User.new
     # メールのユーザー登録画面
     # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
- 
   end
 
   def tel
@@ -135,7 +124,6 @@ class SignupController < ApplicationController
     @user = User.new
   end
   def card
-    
     session[:f_name] = user_params[:f_name]
     session[:l_name] = user_params[:l_name]
     session[:kana_f_name] = user_params[:kana_f_name]
@@ -182,6 +170,4 @@ class SignupController < ApplicationController
       :payjpToken
       )
   end
-
-
 end

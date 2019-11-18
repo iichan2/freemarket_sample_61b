@@ -4,18 +4,18 @@
   .profile_content
     %section.profile_container
       %h2.profile_head プロフィール
-      = form_with local: true do |f| #model書くとエラー
+      = form_with url:prof_update_user_path do |f|
         .profile_change_completed
           変更しました。
         .profile_icon
           %figure
             = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" ,height: "60", width: "60"
-          = f.text_field :nickname, class: "profile_name", placeholder:"例)AYA☆セール中"
+          = f.text_field :nickname, class: "profile_name", placeholder:"例)AYA☆セール中",value: @user.nickname
           %ul{class: "profile_error_text"}
             %li
               = render "users/notifications"
         .setting_profile_content
-          = f.text_area :profile, class: "profile_textarea", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+          = f.text_area :profile, class: "profile_textarea", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", value: @user.profile
           = f.submit "変更する",class: "profile_btn"
   :javascript
     $(".profile_change_completed").click(function(){
