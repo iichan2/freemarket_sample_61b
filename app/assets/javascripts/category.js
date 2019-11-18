@@ -30,19 +30,23 @@ $(document).on("turbolinks:load",function(){
     // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーのidを取得
+      var itemId = $('.hiddenid').data('id');
+      console.log(parentCategory)
       if (parentCategory != 0){ //親カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'items/get_category_children',
+          url: '/items/' + itemId + '/get_category_children',
           type: 'GET',
           data: { parent_id: parentCategory },
           dataType: 'json'
         })
         .done(function(children){
-          
+          console.log(children)
           $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
           $('#grandchildren_wrapper').remove();
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
+          $('#chi').remove();
+          $('#gra').remove();
           var insertHTML = '';
           children.forEach(function(child){
             insertHTML += appendOption(child);
@@ -62,10 +66,13 @@ $(document).on("turbolinks:load",function(){
     // 子カテゴリー選択後のイベント
     $('.kategory-serectbox').on('change', '#child_category', function(e){
         $('#grandchildren_wrapper').remove();
-      var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+      var childId = $('#child_category')[0].value; //選択された子カテゴリーのidを取得
+      var itemId = $('.hiddenid').data('id');
+      console.log(itemId)
+      console.log(childId)
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
-          url: 'items/get_category_grandchildren',
+          url: '/items/'+ itemId +'/get_category_grandchildren',
           type: 'GET',
           data: { child_id: childId },
           dataType: 'json'
@@ -75,6 +82,7 @@ $(document).on("turbolinks:load",function(){
             $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
             $('#size_wrapper').remove();
             $('#brand_wrapper').remove();
+            $('#gra').remove();
             var insertHTML = '';
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);

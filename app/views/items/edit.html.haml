@@ -1,4 +1,5 @@
 .zenntai
+  .hiddenid{data:{id:@item.id}}
   .header
     .atamanoe
       =image_tag("signup-mercari.png",class: "gazou",height: "60px")
@@ -46,8 +47,29 @@
           .kategory-box
             .kategory-serectbox
               .kategory-box-wrapper
-              = f.select :category_id, @category_parents,{prompt: "---" }, {class: 'select_boxyou', id: 'parent_category'}
-
+                = f.select :category_id,@category_p_now, {prompt:"aaaa"},{class: 'select_boxyou', id: 'parent_category'} do
+                  %option{value: "#{@category_p_now.id}"}
+                    = @category_p_now.category
+                  - @parents.each do |child|
+                    -if child.id != @category_p_now.id
+                      %option{value: "#{child.id}"} 
+                        = child.category
+                .c_d#chi
+                  = f.select :category_id,@category_c_now, {prompt:"aaaa"},{class: 'select_boxyou', id: 'child_category'} do
+                    %option{value: "#{@category_c_now.id}"}
+                      = @category_c_now.category
+                    - @p_c_children.each do |child|
+                      -if child.id != @category_c_now.id
+                        %option{value: "#{child.id}"} 
+                          = child.category
+                .c_d#gra
+                  = f.select :category_id,@category_gc_now, {prompt:"aaaa"}, {class: 'select_boxyou', id: 'grandchild_category'} do
+                    %option{value: "#{@category_gc_now.id}"}
+                      = @category_gc_now.category
+                    - @c_gc_children.each do |child|
+                      -if child.id != @category_gc_now.id
+                        %option{value: "#{child.id}"} 
+                          = child.category
           .bun-matome
             .bunn  商品の詳細
             .hissu  必須
