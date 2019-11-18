@@ -37,7 +37,7 @@ class SignupController < ApplicationController
     else
     # ログインするための情報を保管
 
-      redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"}
+      redirect_to error_page_signup_index_path, flash: {notice: "入力されていない項目があります"}
  
 
     end
