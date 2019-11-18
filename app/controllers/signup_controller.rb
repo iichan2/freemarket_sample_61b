@@ -94,9 +94,7 @@ class SignupController < ApplicationController
   def new
     log_out if user_signed_in?
     @user = User.new
-    # メールのユーザー登録画面
-    # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
- 
+  
   end
 
   def tel

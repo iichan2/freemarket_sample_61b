@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   ENV['BASIC_AUTH_USER'] = UN
   ENV['BASIC_AUTH_PASSWORD'] = PS
   
+
+  def error_page
+  end
+
   private
 
   def production?
