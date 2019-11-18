@@ -122,9 +122,8 @@ class ItemsController < ApplicationController
   end
 
   def saler
-    item = Item.find(params[:id])
-    @user = User.find(item.user_id)
-    able_items = Item.where(user_id: @user.id)
+    @item = Item.find(params[:id])
+    able_items = Item.where(user_id: @item.user.id)
     @items_images = []
     able_items.each do |item|
       arry = Image.where(item_id: item.id)

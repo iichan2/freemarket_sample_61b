@@ -20,7 +20,7 @@
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
-          = link_to tonochi_path do
+          = link_to cardDelete_path do
             %button.payment_card_delete
               削除する
     .s-not-regist
