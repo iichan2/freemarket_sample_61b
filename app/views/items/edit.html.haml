@@ -81,7 +81,6 @@
             .bunn  商品の状態
             .hissu  必須
           .jyoutai-box
-            = "現在の状態: #{@item.status}"
             = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou'}
       .haisounituite
         .setumei  配送について
@@ -90,25 +89,21 @@
             .bunn  配送料の負担
             .hissu  必須
           .kategory-box
-            = "現在の配送料の負担: #{@item.delivery_fee}"
             = f.select :delivery_fee,[["送料込み (出品者負担)"],["着払い(購入者負担)"]],{prompt: "---" },{class: 'select_boxyou'}
           .bun-matome
             .bunn  配送方法
             .hissu  必須
           .kategory-box
-            = "現在の配送方法: #{@item.delivery_way}"
             = f.select :delivery_way,[["未定"],["クロネコヤマト"],["ゆうパック"],["ゆうメール"]],{prompt: "---" }, {class: 'select_boxyou'} 
           .bun-matome
             .bunn  発送元の地域
             .hissu  必須
-          .kategory-box
-            = "現在の発送元の地域: #{@item.area}"            
+          .kategory-box         
             = f.collection_select :area, Prefecture.all, :name,:name, {}, {class: "select_boxyou"}
           .bun-matome
             .bunn  発送までの日数
             .hissu  必須
           .kategory-box
-            = "現在の発送までの日数: #{@item.delivery_day}"
             = f.select :delivery_day,[["1~2日で発送"],["3~4日で発送"],["5~6日で発送"]],{prompt: "---" }, {class: 'select_boxyou'} 
       .hannbaikakaku
         .setumei  販売価格(300~9,999,999)
@@ -131,8 +126,9 @@
           = f.submit "編集する", class: "buttonda"
         .buttonyou2
           .modorubutton
-            = link_to "/"  do
-              %a.modo もどる
+            = link_to :back  do
+              .modo
+                もどる
   %footer.st-footer
     %ul.privacy
       %li.pf
