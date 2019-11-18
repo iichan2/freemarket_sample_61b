@@ -72,6 +72,9 @@ label input {
     display: inline;
 }
 
+.btn_wrapper{
+  width:100%;
+}
 .xxxxxbtn.delete{
     position: absolute;
     bottom:3px;
@@ -386,10 +389,10 @@ input[type="text"] {
   min-height:160px;
   position: relative;
   margin-left:2px;
-  width: 20%;
+  width: 100%;
 }
 img.edit-img {
-  margin: 3% 0 0 9%;
+  margin: 3% 0 0 0;
 }
 .xxxxxbtn.deleted {
   @extend .xxxxxbtn.delete;
