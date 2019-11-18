@@ -105,7 +105,7 @@
             .itemtop
               - kubota.images.each do |kubota_image|
                 =link_to "items/#{kubota.id}" do
-                  = image_tag("#{kubota_image.image_url}", size:"180x190")
+                  = image_tag("#{kubota_image[0].image_url}", size:"180x190")
             .itembottom
               .itembottom2
                 = link_to("#{kubota.item_name}", "items/#{kubota.id}", class: 'explanation')
@@ -120,7 +120,7 @@
             .itemtop
               - inoue.images.each do |inoue_image|
                 =link_to "items/#{inoue.id}" do
-                  = image_tag("#{inoue_image.image_url}", size:"180x190")
+                  = image_tag("#{inoue_image[0].image_url}", size:"180x190")
             .itembottom
               .itembottom2
                 = link_to("#{inoue.item_name}", "items/#{inoue.id}", class: 'explanation')
@@ -135,7 +135,7 @@
             .itemtop
               - shioya.images.each do |shioya_image|
                 =link_to "items/#{shioya.id}" do
-                  = image_tag("#{shioya_image.image_url}", size:"180x190")
+                  = image_tag("#{shioya_image[0].image_url}", size:"180x190")
             .itembottom
               .itembottom2
                 = link_to("#{shioya.item_name}", "items/#{shioya.id}/show", class: 'explanation')
@@ -150,7 +150,7 @@
             .itemtop
               - tonochi.images.each do |tonochi_image|
                 =link_to "items/#{tonochi.id}" do
-                  = image_tag("#{tonochi_image.image_url}", size:"180x190")
+                  = image_tag("#{tonochi_image[0].image_url}", size:"180x190")
             .itembottom
               .itembottom2
                 = link_to("#{tonochi.item_name}", "items/#{tonochi.id}/show", class: 'explanation')
