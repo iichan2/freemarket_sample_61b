@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted] 
   before_action :create_item, only:[:create]
+  before_action :session_clear,only:[:index]
 
   def index
     items = Item.where(exhibition_state: "出品中")
