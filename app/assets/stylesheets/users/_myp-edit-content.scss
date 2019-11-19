@@ -21,21 +21,6 @@
   text-align: center;
   line-height: 1.4;
 }
-.profile_change_completed{
-  background:#dff0d8;
-  color: #468847;
-  position: absolute;
-  top:100px;
-  left: 0;
-  right:0;
-  padding: 24px 56px;
-  text-align: center;
-  line-height: 1.5;
-  animation:fade-out ease-out 4.5s;
-  animation-fill-mode: forwards;
-  opacity: 1;
-  cursor: pointer;
-}
 .profile_icon{
   padding:72px 16px 24px;
   background-image: url('https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg');
