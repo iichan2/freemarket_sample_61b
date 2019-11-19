@@ -24,9 +24,20 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+
     @item = Item.find(params[:id])
-    @image = @item.images
+    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+    @category_grandchild = Category.find(@item.category_id)
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
+    @parents = Category.where(ancestry: nil)
+    @image = @item.images 
+    @category_gc_now = Category.find(@item.category_id)
+    @category_c_now = @category_gc_now.parent
+    @category_p_now = @category_c_now.parent
+    @p_c_children = @category_p_now.children
+    @c_gc_children = @category_c_now.children
+
   end
  
   # def create 
@@ -49,15 +60,64 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to user_path
+    if params[:item][:images_attributes][:"0"][:image_url].nil?
+      if @item.update!(update_item_params)
+        redirect_to status_sell_user_path(current_user.id)
+      else
+        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
+      end
     else
-      render :edit
+      if @item.update!(update_item_params_without_image)
+        uploaded_files = [
+          params[:item][:images_attributes][:"0"],
+          params[:item][:images_attributes][:"1"],
+          params[:item][:images_attributes][:"2"],
+          params[:item][:images_attributes][:"3"],
+          params[:item][:images_attributes][:"5"],
+          params[:item][:images_attributes][:"4"],
+          params[:item][:images_attributes][:"6"],
+          params[:item][:images_attributes][:"7"],
+          params[:item][:images_attributes][:"8"],
+          params[:item][:images_attributes][:"9"]
+        ]
+        num = 1
+        uploaded_files.each do |uf|
+          if uf.nil?
+            num += 1
+          else
+            date = DateTime.now.strftime('%Y%m%d%H%M%S').to_i
+            if uf[:image_url].kind_of?(Array)
+              uff = uf[:image_url][0]
+            else
+              uff = uf[:image_url]
+            end
+            if uff.nil?
+              num += 1
+            else
+              output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
+              File.open(output_path, 'w+b') do |fp|
+                fp.write  uff.read
+              end
+              save_path = "/#{@item.id}/#{date + num}"
+              @image = Image.create(item_id:@item.id,image_url:save_path)
+              num += 1
+            end 
+          end
+        end
+        redirect_to status_sell_user_path(current_user.id)
+      else
+        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
+      end
+      # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+      # @category_grandchild = Category.find(@item.category_id)
+      # @category_child = @category_grandchild.parent
+      # @category_parent = @category_child.parent
+      # redirect_to edit_item_path(@item)
     end
   end
   
   def create_item
-    @item = Item.create(item_params)
+    @item = Item.create!(item_params)
     @item.update(exhibition_state: "出品中")
     session[:item_id] = @item.id
   end
@@ -189,9 +249,8 @@ class ItemsController < ApplicationController
       end
       save_path = "/#{item_id}/0"
       @image = Image.create(item_id:item_id,image_url:save_path)
-
-      checknil = params[:item][:images_attributes]
     end
+    checknil = params[:item][:images_attributes]
     if checknil.nil?
     else
       uploaded_files = [
@@ -228,12 +287,17 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
   end
+
+  def update_item_params
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+  end
+  def update_item_params_without_image
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
+  end
   # def image_params
   #   params.require(:item).permit(:image[:image_url])
   # end
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
-
   end
 end
-

@@ -72,6 +72,9 @@ label input {
     display: inline;
 }
 
+.btn_wrapper{
+  width:100%;
+}
 .xxxxxbtn.delete{
     position: absolute;
     bottom:3px;
@@ -97,7 +100,6 @@ input[type="text"] {
     height: 20px;
 }
 .select_boxyou{
-
   width: 400px;
   height: 50px;
   background-color: #fff;
@@ -122,10 +124,6 @@ input[type="text"] {
 
 // 以下上から順番
   .header{
-    // background-color: #eeeeee;
-    // width: 100%;
-    // height: 120px;
-    // margin: 0 auto;
     .atamanoe{
       height: 120px;
       line-height:120px;
@@ -135,7 +133,6 @@ input[type="text"] {
     }
   }
   .atama{
-
     height: 100px;
     width: 100%;
     border-bottom: solid #bbb 1px;
@@ -154,7 +151,6 @@ input[type="text"] {
       padding:20px 30px;
       .bunn2{
         padding-right: 50px;
-
         font-size: 20px;
       }
       .gazou-okurtokoro{
@@ -232,7 +228,6 @@ input[type="text"] {
                   height: 50px;
                   border-bottom: 1px solid #eee;
               }
-          
         }
       }
     }
@@ -252,34 +247,24 @@ input[type="text"] {
         padding-left:12%;
       }
     }
-    
     .shouhinnoshousai{
       display:flex;
       min-height: 310px;
       padding:40px 30px;
       border-bottom: solid #bbb 1px;  
-
       .setumei{
         padding-bottom: 30px;
-    
       }
-    
       .kategory-box{
         padding-bottom: 20px;
         .kategory-box-wrapper{
           padding-top: 15px;
-
         }
-      }
-    
-      .jyoutai-box{
-    
       }
     }
     .haisounituite{
       display:flex;
       min-height: 500px;
-
       padding:40px 30px;
       border-bottom: solid #bbb 1px; 
       .setumei {
@@ -288,9 +273,6 @@ input[type="text"] {
       .kategory-box{
         padding-bottom: 20px;
       }
-          
-    
-          
     }
     
     .hannbaikakaku{
@@ -303,7 +285,6 @@ input[type="text"] {
         }
         .migiyose{
           flex-grow: 1;
-        
           .kakaku-kakutokoro{
             widows: 100%;
             padding-bottom: 20px;
@@ -347,7 +328,6 @@ input[type="text"] {
         }
         .buttonyou{
           text-align: center;
-        
           .buttonda{
             font-size: 14pt;       
             text-align: center;     
@@ -401,11 +381,7 @@ input[type="text"] {
       padding-bottom: 50px;
       .kiya{
         margin: 10px;
-
       }
-    }
-    .mark{
-      
     }
   }
 }
@@ -413,4 +389,28 @@ input[type="text"] {
   min-height:160px;
   position: relative;
   margin-left:2px;
+  width: 100%;
+}
+img.edit-img {
+  margin: 3% 0 0 0;
+}
+.xxxxxbtn.deleted {
+  @extend .xxxxxbtn.delete;
+  display: block;
+  max-height: 38px;
+  line-height: 38px;
+  width: 20%;
+}
+.dropzone-area3 {
+  @extend .dropzone-area;
+  display: flex;
+}
+input#item_images_attributes_0__destroy {
+  display: none;
+} 
+.c_d{
+  margin-top:15px;
+}
+.hidden{
+  display: none;
 }
