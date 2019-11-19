@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   get 'item_stop' => 'items#item_stop', as: 'item_stop'
-  get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
   get 'item_start' => 'items#item_start', as: 'item_start'
 
@@ -91,7 +90,7 @@ Rails.application.routes.draw do
     end
   end
     root 'items#index'
-    resources :items, only: [:index, :edit, :update, :new, :create, :show] do
+    resources :items do
       member do
         get "saler"
         get 'transaction'
@@ -101,7 +100,6 @@ Rails.application.routes.draw do
         get 'bought'
         post 'item_stop'
         post 'item_start'
-        post 'item_destroy'
       end
       collection do
         get 'show_deleted'

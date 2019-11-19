@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted] 
   before_action :create_item, only:[:create]
   before_action :session_clear,only:[:index]
-  before_action :check_yourItems,only:[:transaction]
-  before_action :check_itemUser,only:[:edit]
+  before_action :redirect_when_items_cant_be_bought,only:[:transaction]
+  before_action :redirect_others,only:[:edit]
 
   def index
     items = Item.where(exhibition_state: "出品中")
@@ -217,7 +217,7 @@ class ItemsController < ApplicationController
     redirect_to controller: 'items', action: 'show', id: @item.id
   end
 
-  def item_destroy
+  def destroy
     @item = Item.find(session[:item_id])
     if @item.user_id = current_user.id
       session[:item_id] = nil
@@ -310,14 +310,14 @@ class ItemsController < ApplicationController
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
   end
 
-  def check_yourItems
+  def redirect_when_items_cant_be_bought
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       redirect_to root_path
     end
   end
 
-  def check_itemUser
+  def redirect_others
     @item = Item.find(params[:id])
     unless @item.user_id == current_user.id
       redirect_to root_path
