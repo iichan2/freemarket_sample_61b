@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @inoue_items = items.where(brand_id: 3).limit(10)
     @shioya_items = items.where(brand_id: 2).limit(10)
     @tonochi_items = items.where(brand_id: 5).limit(10)
-    # トノチ記載↓
+  
   end
 
   def new
