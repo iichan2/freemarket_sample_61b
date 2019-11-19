@@ -162,5 +162,6 @@ end
     def user_params
 
       params.require(:user).permit(:nickname, :profile )
+    end
 
 end
