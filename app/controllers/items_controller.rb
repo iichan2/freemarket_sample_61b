@@ -232,9 +232,9 @@ class ItemsController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
     @delivery = Delivery.find(params[:id])
-    # @kenname = Prefecture.find(@delivery.ken)
+    @kenname = Prefecture.find(@buyer.delivery.ken).name
     
-    @del = "#{[@buyer.delivery.ken]} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
+    @del = "#{@kenname} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
     @image = @item.images.first
   end
 
