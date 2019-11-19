@@ -26,8 +26,8 @@
         }
         .oouu {
           height: 30%;
-          width: 100%;
-          background-color: white;
+          display: flex;
+          flex-wrap: wrap;
         }
         .items-box_photo__sold{
           width: 0;

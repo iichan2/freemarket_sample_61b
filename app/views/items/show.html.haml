@@ -14,6 +14,8 @@
               .items-box_photo__sold__inner
                 SOLD
         .oouu
+          - @item.images.each do |item|
+            %img{:src => "#{item.image_url}",:height => "120",:width => "92"}/
       .rgt
         .tbody
           .zx
