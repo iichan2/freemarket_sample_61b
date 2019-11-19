@@ -15,7 +15,7 @@
       %label.identification_label
         お名前
     .identification_text
-      = @user.first_name + " " + @user.last_name
+      = @user.last_name + " " + @user.first_name
     .identification_group
       %label.identification_label
         お名前カナ
@@ -30,7 +30,7 @@
       = @user.birth_month 
       %span /
       = @user.birth_day
-    = form_with url:du_update_delivery_path do |d|
+    = form_with model: @delivery do |d|
       .identification_group
         %label.identification_label
           郵便番号
@@ -42,7 +42,6 @@
           都道府県
         %span.identification_arbitrary
           任意 
-      = "現在設定の県：#{@ken.name}"
       = d.collection_select :ken, Prefecture.all, :id,:name,{}, {class: "identification_box"}
       .identification_group
         %label.identification_label
