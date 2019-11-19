@@ -108,11 +108,6 @@ class ItemsController < ApplicationController
       else
         redirect_to controller: "items", action: "edit", id:"#{@item.id}"
       end
-      # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-      # @category_grandchild = Category.find(@item.category_id)
-      # @category_child = @category_grandchild.parent
-      # @category_parent = @category_child.parent
-      # redirect_to edit_item_path(@item)
     end
   end
   
