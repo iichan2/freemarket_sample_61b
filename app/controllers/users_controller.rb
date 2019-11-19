@@ -163,4 +163,5 @@ end
 
       params.require(:user).permit(:nickname, :profile )
     end
+
 end
