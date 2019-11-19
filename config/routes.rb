@@ -78,6 +78,7 @@ Rails.application.routes.draw do
         get "sending"
         get "payment"
         get "profil"
+        get "edit"
         get 'status_sell'
         get 'status_trading'
         get 'status_sold'
