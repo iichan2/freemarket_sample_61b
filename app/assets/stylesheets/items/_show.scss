@@ -1,5 +1,5 @@
 .pppbox {
-  background-color: #EEEEEE;
+  background-color: $gray;
   padding-top: 50px;
   .allbox {
     width: 46%;
@@ -16,7 +16,7 @@
       .ortu {
         width: 42%;
         margin-left: 6%;
-        background-color: #EEEEEE;
+        background-color: $gray;
         height: 380px;
         float: left;
         .uuoo {
@@ -34,10 +34,10 @@
           height: 0;
           margin-top: 55px;
           margin-right: 20px;
-          border-top: 60px solid #ea352d ;
+          border-top: 60px solid $red;
           border-right: 60px solid transparent;
           border-bottom: 60px solid transparent;
-          border-left: 60px solid #ea352d ;
+          border-left: 60px solid $red;
           z-index:100;
           position: relative;
           top:-320px;
@@ -89,13 +89,7 @@
                 color: rgba(21, 175, 246, 0.808);
               }
               .aas {
-                color:#0099e8	;
-              }
-              .aad {
-                color:#0099e8	;
-              }
-              .aaf {
-                color:#0099e8	;
+                color: $blue;
               }
             }
           }
@@ -197,11 +191,11 @@
           }
         }
         .trouo {
-          color:#0099e8	;
+          color: $blue;
           font-size: 12px;
           margin-left: 8%;
           .vjngr {
-            color:#0099e8	;
+            color: $blue;
           }
         }
       }
@@ -249,7 +243,7 @@
       }
       .tnu {
         width:94%;
-        border-color: #0099e8;
+        border-color: $blue;
         margin-left: 3%;
         margin-top: 1%;
         border-style: thin;
@@ -266,7 +260,7 @@
     .ibox {
       margin-top: 4%;
       .iuiu {
-        color:#0099e8;
+        color: $blue;
         float: left;
         font-size: 14px;
         &:hover{
@@ -275,7 +269,7 @@
         }
       }
       .uiui {
-        color: #0099e8;
+        color: $blue;
         float: right;
         font-size: 14px;
         &:hover{
@@ -295,7 +289,7 @@
     .kbox {
       margin-top: 20px;
       .vunt {
-      color: #0099e8;
+      color: $blue;
       font-size: 20px;
       font-weight: bold;
       &:hover{

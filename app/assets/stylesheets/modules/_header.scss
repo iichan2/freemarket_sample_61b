@@ -223,8 +223,8 @@
           width: 15%;
           margin-left: 2%;
           background-color: white;
-          color: #0099e8;
-          border: 1px solid #0099e8;
+          color: $blue;
+          border: 1px solid $blue;
           border-radius: 4px;
           font-size: 13px;
           padding: 2% 1%;
@@ -232,7 +232,7 @@
           text-align: center;
           line-height: 55%;
           &:hover {
-            background-color: #0099e8;
+            background-color: $blue;
             color: white;
             transition: background-color 0.5s;
           }

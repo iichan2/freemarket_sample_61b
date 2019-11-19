@@ -42,10 +42,12 @@
     margin-top: 30px;
     position: relative;
     height: 40px;
-    padding: 0 30px 0 30px;
+    padding: 0 30px;
     line-height: 40px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    background-color: $red;
+    color: #FFFFFF;
     h1{
       font-size: 22px;
       font-weight: bold;
@@ -76,10 +78,9 @@
     }
   }
 }
-
 .grandchild{
-  color: #0099e8;
+  color: $blue;
 }
 .gradnchild:visited{
-  color: #0099e8;
+  color: $blue;
 }
