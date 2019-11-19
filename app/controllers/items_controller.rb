@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted] 
   before_action :create_item, only:[:create]
   before_action :session_clear,only:[:index]
+  before_action :check_yourItems,only:[:transaction]
+  before_action :check_itemUser,only:[:edit]
 
   def index
     items = Item.where(exhibition_state: "出品中")
@@ -208,14 +210,25 @@ class ItemsController < ApplicationController
     redirect_to controller: 'items', action: 'show', id: @item.id
   end
 
-  def item_destroy
+  def item_start
     @item = Item.find(session[:item_id])
     session[:item_id] = nil
-    if @item.update(exhibition_state: "削除済")
-      user = User.find(@item.user_id)
-      redirect_to controller: 'users', action: 'show', id: user.id
+    @item.update(exhibition_state: "出品中")
+    redirect_to controller: 'items', action: 'show', id: @item.id
+  end
+
+  def item_destroy
+    @item = Item.find(session[:item_id])
+    if @item.user_id = current_user.id
+      session[:item_id] = nil
+      if @item.update(exhibition_state: "削除済")
+        user = User.find(@item.user_id)
+        redirect_to controller: 'users', action: 'show', id: user.id
+      else
+        redirect_to error_page_items_path
+      end
     else
-      redirect_to error_page_items_path
+      redirect_to root_path
     end
   end
 
@@ -295,5 +308,19 @@ class ItemsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+  end
+
+  def check_yourItems
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def check_itemUser
+    @item = Item.find(params[:id])
+    unless @item.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 end

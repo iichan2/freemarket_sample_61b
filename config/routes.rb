@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'item_stop' => 'items#item_stop', as: 'item_stop'
   get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
+  get 'item_start' => 'items#item_start', as: 'item_start'
 
   resources :delivery do
     member do
@@ -99,6 +100,7 @@ Rails.application.routes.draw do
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
         post 'item_stop'
+        post 'item_start'
         post 'item_destroy'
       end
       collection do
