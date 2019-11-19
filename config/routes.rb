@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "sign_up", to: "users/registrations#new"
     get "sign_in", to: "users/sessions#new"
-  #   # get "sign_out", to: "users/sessions#destroy" 
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   get 'buy' => 'items#pay', as: 'buy'
@@ -26,11 +26,7 @@ Rails.application.routes.draw do
   get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
 
-  resources :delivery do
-    member do
-      post "du_update"
-    end
-  end
+  resources :delivery, only: [:update]
 
   resources :signup, only: [:new] do
     collection do
@@ -48,29 +44,19 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :user do
-    get "sign_up", to: "users/registrations#new"
-    get "sign_in", to: "users/sessions#new"
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-
-  resources :users do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get "logout"
       get "payment"
       get "identification"
-      get "trading"
-      get "sending"
       get 'status_sell'
       get 'status_trading'
       get 'status_sold'
       get 'status_delivery'
       get 'status_bought'
-      post "prof_update"
-      # get "mypage"
     end
+  end
 
-    # パン屑リスト
     resources :mypage do
       collection do
         get "mypage"
@@ -87,7 +73,7 @@ Rails.application.routes.draw do
         get 'show'
       end
     end
-  end
+    
     root 'items#index'
     resources :items, only: [:index, :edit, :update, :new, :create, :show] do
       member do
