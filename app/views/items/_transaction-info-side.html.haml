@@ -16,11 +16,11 @@
     %li.item-info-white
       %p.key 販売手数料
       %p.value
-        = "¥#{@item.price / 10.floor}"
+        = "¥#{@item.price.to_s / 10 }"
     %li.item-info-gray
       %p.key 販売利益
       %p.value
-        = "¥#{@item.price - @item.price / 10}"      
+        = "¥#{@item.price - @item.price.to_s / 10 }"      
     %li.item-info-white
       %p.key 購入日時
       %p.value 11月8日 18:51
