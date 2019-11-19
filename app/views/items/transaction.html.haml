@@ -7,9 +7,8 @@
       %h2.st-head 購入内容の確認
       %section.st-buy-item
         .st-buy-item-in
-          - @item.images.each do |image|
-            %h3.st-buy-item-image
-            = image_tag "#{image.image_url}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
+          %h3.st-buy-item-image
+          = image_tag "#{@image.image_url}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
           %p.buy-item-name #{@item.item_name}
           %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
             %span.bprice ¥#{@item.price.to_s(:delimited)}
@@ -59,6 +58,6 @@
       %li.pf
         = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
     .img-hako
-      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+      = image_tag 'logo-gray-footer.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
     %p.ff 
       %small ©︎2019 Mercari

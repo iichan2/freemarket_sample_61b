@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
 
+  resources :delivery do
+    member do
+      post "du_update"
+    end
+  end
+
   resources :signup, only: [:new] do
     collection do
       get 'new'
@@ -60,9 +66,8 @@ Rails.application.routes.draw do
       get 'status_sold'
       get 'status_delivery'
       get 'status_bought'
-      
-  
-
+      post "prof_update"
+      # get "mypage"
     end
 
     # パン屑リスト
@@ -84,7 +89,7 @@ Rails.application.routes.draw do
     end
   end
     root 'items#index'
-    resources :items, only: [:index, :edit, :new, :create, :show] do
+    resources :items, only: [:index, :edit, :update, :new, :create, :show] do
       member do
         get "saler"
         get 'transaction'
@@ -100,5 +105,5 @@ Rails.application.routes.draw do
         post 'comment_create'
         get 'error_page'
       end
-  end
+    end
 end

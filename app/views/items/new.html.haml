@@ -1,7 +1,8 @@
 .zenntai
   .header
     .atamanoe
-      =image_tag("signup-mercari.png",class: "gazou",height: "60px")
+      = link_to root_path do
+        =image_tag("signup-mercari.png",class: "gazou",height: "60px")
 
   .main
     .atama
@@ -108,6 +109,7 @@
       %li.pf
         = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
     .img-hako
-      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+      = link_to root_path do
+        = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
     %p.ff 
       %small ©︎2019 Mercari

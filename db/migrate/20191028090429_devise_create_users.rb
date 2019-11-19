@@ -9,9 +9,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :kana_last_name, null:false
       t.string :nickname, null:false
       t.string :tel_number, null:false
-      t.integer :birth_year 
-      t.integer :birth_month
-      t.integer :birth_day
+      t.integer :birth_year ,null: false
+      t.integer :birth_month ,null: false
+      t.integer :birth_day ,null: false
       t.text :profile
       t.string :password_confirmation, null: false, default: ""
       t.integer :delivery_id

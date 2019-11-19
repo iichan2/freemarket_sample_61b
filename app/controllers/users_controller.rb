@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :check_user, except:[:new]
   before_action :authenticate_user!, except:[:logout]
-  before_action :set_params, 
-  only: [:identification, :show, :edit, :update, :payment, :logout, :trading, :sending, :status_sell,:status_trading,:status_sold, :status_delivery,:status_bought]
+  before_action :set_params, only: 
+    [:identification,:show, :edit, :update, :payment, :logout, 
+      :trading, :sending, :status_sell,:status_trading,:status_sold,
+      :status_delivery,:status_bought,:prof_update]
   
   before_action :set_item_image_params, only: [:sending, :trading]
   
@@ -20,9 +22,30 @@ class UsersController < ApplicationController
   end
 
   def identification
+    @delivery = Delivery.find(params[:id])
+    @ken = Prefecture.find(@delivery.ken)
   end
 
   def edit
+    @user = User.find(current_user.id)
+
+
+  
+  end
+
+  def prof_update
+    @user.update(
+      nickname: params[:nickname],
+      profile: params[:profile]
+    )
+    if @user.update(
+      nickname: params[:nickname],
+      profile: params[:profile]
+    )
+      redirect_to user_path
+    else
+      render :edit
+    end 
   end
 
   def trading
@@ -91,9 +114,14 @@ end
   end
 
 
-  def update    
-    if @user.save
+
+
+  def update  
+    if @user.update(user_params)
+      flash[:notice] = "変更しました"
+
       render :edit
+     
     else
       flash[:notice] = "入力してください"
       render :edit

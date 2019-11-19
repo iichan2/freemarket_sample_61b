@@ -70,6 +70,13 @@
         }
       }
     }) 
+  })
+  $(document).on('click', '.deleted', function() { 
+    $(this).parent().parent().remove();
+    $(this).data("index")
+    let index = $(this).data("index");
+    $(`.js-destroy[data-index="${index}"]`).prop("checked", 1);
+  })
     //  余裕があれば触る
     // var new_image = $(`<input class="upload-image" data-image= ${images.length} name=item[images_attributes][${images.length}][image_url] type="file" >`);
     // input_area.prepend(new_image);
@@ -97,7 +104,4 @@
     // if(images.length == 3) {
     //   dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
     // }
-  })
 // });
-
-

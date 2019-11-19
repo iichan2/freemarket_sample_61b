@@ -13,10 +13,9 @@
       %h2.bought_head 購入が完了しました
       %section.bought_item_box
         .bought_item_in
-          - @item.images.each do |image|
-            %h3.bought_item_image
-            = image_tag "#{image.image_url}", height: '150', width: '150'
-            %p.bought_item_name #{@item.item_name}
+          %h3.bought_item_image
+          = image_tag "#{@image.image_url}", height: '150', width: '150'
+          %p.bought_item_name #{@item.item_name}
       %section.bought_price
         %span.bought_item_price ¥#{@item.price.to_s(:delimited)}
         %span.bought_postage 送料込み
@@ -62,6 +61,6 @@
       %li.pf
         = link_to('特定商取引に関する表記', "#", class: "privacypolicy")
     .img-hako
-      = image_tag 'logo-gray-footer', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+      = image_tag 'logo-gray-footer.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
     %p.ff 
       %small ©︎2019 Mercari
