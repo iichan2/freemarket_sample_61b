@@ -1,13 +1,6 @@
 class DeliveryController < ApplicationController
   def du_update
     @delivery = Delivery.find(params[:id])
-    @delivery.update(
-      postal_code: params[:postal_code],
-      ken: params[:ken],
-      map: params[:map],
-      banchi: params[:banchi],
-      building: params[:building],
-    )
     if @delivery.update(
       postal_code: params[:postal_code],
       ken: params[:ken],
