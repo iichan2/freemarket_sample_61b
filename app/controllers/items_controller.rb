@@ -86,14 +86,22 @@ class ItemsController < ApplicationController
             num += 1
           else
             date = DateTime.now.strftime('%Y%m%d%H%M%S').to_i
-            uff = uf[:image_url]
-            output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
-            File.open(output_path, 'w+b') do |fp|
-              fp.write  uff.read
+            if uf[:image_url].kind_of?(Array)
+              uff = uf[:image_url][0]
+            else
+              uff = uf[:image_url]
             end
-            save_path = "/#{@item.id}/#{date + num}"
-            @image = Image.create(item_id:@item.id,image_url:save_path)
-            num += 1
+            if uff.nil?
+              num += 1
+            else
+              output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
+              File.open(output_path, 'w+b') do |fp|
+                fp.write  uff.read
+              end
+              save_path = "/#{@item.id}/#{date + num}"
+              @image = Image.create(item_id:@item.id,image_url:save_path)
+              num += 1
+            end 
           end
         end
         redirect_to status_sell_user_path(current_user.id)
