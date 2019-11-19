@@ -14,12 +14,12 @@
           .hissu  必須
         .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
-          = f.fields_for :images do |i|
-            .dropzone-container.clearfix
-              .sell-uploads-drop
-                #exhibit-images-preview
+          .dropzone-container.clearfix
+            .sell-uploads-drop
+              #exhibit-images-preview
+            = f.fields_for :images do |i|
               .dropzone-area3
-                .inputs 
+                .inputs.hidden
                   = i.hidden_field :id
                   = i.check_box :_destroy, checked: false, class: 'js-destroy', "data-index": i.index
                 .iichan_box
@@ -29,10 +29,10 @@
                 = i.label :image_url, for: 'upload-image' do
                   .sell_upload__area
                     = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", 'data-image': 0
-            .dropzone-container2.clearfix
-              .sell-uploads-drop2
-                #exhibit-images-preview2
-              .dropzone-area2
+          .dropzone-container2.clearfix
+            .sell-uploads-drop2
+              #exhibit-images-preview2
+            .dropzone-area2
       .shouhinmei
         .bun-matome
           .bunn  商品名
