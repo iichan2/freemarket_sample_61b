@@ -20,11 +20,8 @@ Rails.application.routes.draw do
   #   # get "sign_out", to: "users/sessions#destroy" 
   end
 
-  get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
-  get 'item_stop' => 'items#item_stop', as: 'item_stop'
   post 'signup'  => 'signup#create', as: 'signup'
-  get 'item_start' => 'items#item_start', as: 'item_start'
 
   resources :delivery do
     member do
@@ -100,6 +97,9 @@ Rails.application.routes.draw do
         get 'bought'
         post 'item_stop'
         post 'item_start'
+        get 'hoge_pay' => 'items#pay', as: 'hoge_pay'
+        get 'hoge_item_stop' => 'items#item_stop', as: 'hoge_item_stop'
+        get 'hoge_item_start' => 'items#item_start', as: 'hoge_item_start'
       end
       collection do
         get 'show_deleted'

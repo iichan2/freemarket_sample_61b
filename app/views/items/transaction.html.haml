@@ -18,7 +18,7 @@
             .bp-cell2 ¥#{@item.price.to_s(:delimited)}
             -# %p.he-text 配送先と支払い方法の入力を完了してください。
             %button.default-btn2
-              =link_to '購入する', buy_path, item_id: @item.id,id: "transaction_link_font"
+              =link_to '購入する', hoge_pay_item_path, item_id: @item.id,id: "transaction_link_font"
       %section.stb-info
         .stb-transaction-container
           %h3.z 配送先

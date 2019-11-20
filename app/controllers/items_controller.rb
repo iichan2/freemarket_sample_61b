@@ -129,17 +129,13 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       @image = @item.images.first
       if @item.exhibition_state == "出品中"
-        session[:item_id] = @item.id
         card = Card.where(user_id: current_user.id).first
-        #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
         if card.blank?
-          #登録された情報がない場合にカード登録画面に移動
+          session[:item_id] = @item.id
           redirect_to controller: "cards", action: "new"
         else
           Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-          #保管した顧客IDでpayjpから情報取得
           customer = Payjp::Customer.retrieve(card.customer_id)
-          #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
           @default_card_information = customer.cards.retrieve(card.card_id)
         end
       else
@@ -152,17 +148,16 @@ class ItemsController < ApplicationController
 
   def pay
     require 'payjp'
-    @item = Item.find(session[:item_id])
+    @item = Item.find(params[:id])
     @user = current_user
     card = Card.where(user_id: @user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    :amount => @item.price,#購入する値段
-    :customer => card.customer_id, #顧客ID
-    :card => card.card_id,#フォームを送信すると作成・送信されてくるトークン
+    :amount => @item.price,
+    :customer => card.customer_id,
+    :card => card.card_id,
     :currency => 'jpy'
     )
-    session[:item_id] = nil
     @item.update(buyer_id: @user.id, exhibition_state: "取引中")
     redirect_to action:"bought", controller: "items", id: @item.id
   end
@@ -170,7 +165,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @saler = User.find(@item.user_id)
-    session[:item_id] = @item.id
     if @item.exhibition_state == "削除済"
       redirect_to controller: 'items', action: 'show_deleted'
     end
@@ -204,26 +198,22 @@ class ItemsController < ApplicationController
   end
 
   def item_stop
-    @item = Item.find(session[:item_id])
-    session[:item_id] = nil
+    @item = Item.find(params[:id])
     @item.update(exhibition_state: "停止中")
-    redirect_to controller: 'items', action: 'show', id: @item.id
+    redirect_to @item
   end
 
   def item_start
-    @item = Item.find(session[:item_id])
-    session[:item_id] = nil
+    @item = Item.find(params[:id])
     @item.update(exhibition_state: "出品中")
-    redirect_to controller: 'items', action: 'show', id: @item.id
+    redirect_to @item
   end
 
   def destroy
-    @item = Item.find(session[:item_id])
+    @item = Item.find(params[:id])
     if @item.user_id = current_user.id
-      session[:item_id] = nil
       if @item.update(exhibition_state: "削除済")
-        user = User.find(@item.user_id)
-        redirect_to controller: 'users', action: 'show', id: user.id
+        redirect_to user_path(current_user)
       else
         redirect_to error_page_items_path
       end
@@ -293,6 +283,7 @@ class ItemsController < ApplicationController
     end
     redirect_to root_path
   end
+
 
   private
   def item_params
