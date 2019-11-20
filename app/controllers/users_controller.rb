@@ -27,10 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
-
-
-  
+    @user = User.find(current_user.id)  
   end
 
   def prof_update
@@ -101,6 +98,7 @@ end
       @items_images << hash
     end
   end
+
   def status_bought
     items = Item.where(buyer_id: @user.id)
     able_items = items.where(exhibition_state: "売却済")
@@ -113,15 +111,10 @@ end
     end
   end
 
-
-
-
   def update  
     if @user.update(user_params)
       flash[:notice] = "変更しました"
-
       render :edit
-     
     else
       flash[:notice] = "入力してください"
       render :edit
@@ -148,8 +141,6 @@ end
     end
 
     def set_item_image_params
-      # @item = Item.find(params[:id])
-      # @image = Image.find(params[:id])
     end
 
     def check_user
@@ -160,7 +151,6 @@ end
     end
 
     def user_params
-
       params.require(:user).permit(:nickname, :profile )
     end
 

@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :comments
   has_one :delivery
   has_many :cards
+  belongs_to :sns_credential
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
