@@ -86,7 +86,6 @@ class SignupController < ApplicationController
     log_out if user_signed_in?
     @user = User.new
     # メールのユーザー登録画面
-    # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
   end
 
   def tel
@@ -108,8 +107,6 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  
-# sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
     @user = User.new

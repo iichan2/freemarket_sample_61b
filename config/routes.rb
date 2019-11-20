@@ -14,12 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :user do
-    get "sign_up", to: "users/registrations#new"
-    get "sign_in", to: "users/sessions#new"
-  #   # get "sign_out", to: "users/sessions#destroy" 
-  end
-
   get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   get 'item_stop' => 'items#item_stop', as: 'item_stop'
@@ -31,7 +25,7 @@ Rails.application.routes.draw do
       post "du_update"
     end
   end
-
+    # 新規登録画面
   resources :signup, only: [:new] do
     collection do
       get 'new'
@@ -67,9 +61,8 @@ Rails.application.routes.draw do
       get 'status_delivery'
       get 'status_bought'
       post "prof_update"
-      # get "mypage"
     end
-
+  end
     # パン屑リスト
     resources :mypage do
       collection do
@@ -88,7 +81,7 @@ Rails.application.routes.draw do
         get 'show'
       end
     end
-  end
+
     root 'items#index'
     resources :items, only: [:index, :edit, :update, :new, :create, :show] do
       member do

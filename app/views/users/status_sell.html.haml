@@ -14,10 +14,8 @@
               %li.news.active
                 =link_to "出品中", status_sell_user_path, class: "mypss"
               %li.news
-                -# %h3.myp  取引中
                 =link_to "取引中", status_trading_user_path, class: "mypss"
               %li.news
-                -# %h3.myp 売却済み
                 =link_to "売却済", status_sold_user_path, class: "mypss2"
             -if @items_images.present?
               - @items_images.each do |item_image|
