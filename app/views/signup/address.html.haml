@@ -48,7 +48,7 @@
             %span.require 必須
             .select-wrap__address
             = f.collection_select :ken, Prefecture.all, :id, :name, {}, {class: "select-default"}
-              %i.fas.fa-angle-down
+            %i.fas.fa-angle-down
           .form-group
             = f.label "市町村",class: "label"
             %span.require 必須
