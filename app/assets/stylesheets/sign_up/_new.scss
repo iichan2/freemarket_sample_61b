@@ -132,18 +132,18 @@
 .birthday-select-wrap{
   padding: 0 10px;
 }
-.select-wrap{ 
+.wata {
   position: relative;
-  margin: 8px 0 0;
   width: 76px;
   height: 48px;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  display: inline-block;
-  z-index: 2;
-}
-.select#user_birth_year {
-  display:none;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-appearance: none;
+  padding: 0 16px;
+  cursor: pointer;
 }
 .fas.fa-angle-down {
   font:25px;

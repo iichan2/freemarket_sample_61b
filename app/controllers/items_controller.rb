@@ -13,101 +13,103 @@ class ItemsController < ApplicationController
     @inoue_items = items.where(brand_id: 3).limit(10)
     @shioya_items = items.where(brand_id: 2).limit(10)
     @tonochi_items = items.where(brand_id: 5).limit(10)
-    # トノチ記載↓
+  
   end
 
   def new
     @item = Item.new
     @image = Image.new
-    # @item.images.build
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
   end
 
   def edit
-
     @item = Item.find(params[:id])
-    @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-    @category_grandchild = Category.find(@item.category_id)
-    @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
-    @parents = Category.where(ancestry: nil)
-    @image = @item.images 
-    @category_gc_now = Category.find(@item.category_id)
-    @category_c_now = @category_gc_now.parent
-    @category_p_now = @category_c_now.parent
-    @p_c_children = @category_p_now.children
-    @c_gc_children = @category_c_now.children
-
+    item_user = User.find(@item.user_id)
+    if item_user.id == current_user.id
+      @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+      @category_grandchild = Category.find(@item.category_id)
+      @category_child = @category_grandchild.parent
+      @category_parent = @category_child.parent
+      @parents = Category.where(ancestry: nil)
+      @image = @item.images 
+      @category_gc_now = Category.find(@item.category_id)
+      @category_c_now = @category_gc_now.parent
+      @category_p_now = @category_c_now.parent
+      @p_c_children = @category_p_now.children
+      @c_gc_children = @category_c_now.children
+    else
+      redirect_to root_path
+    end
   end
- 
-  # def create 
-    # item = Item.create(item_params) 
-    # @item = item.exhibition_state = "出品中" 
-      # if @item.save 
-        # redirect_to action: :index 
-      # else 
-        # redirect_to action: :new 
-      # end 
-  # end 
- 
+
   def get_category_children 
     @category_children = Category.find(params[:parent_id]).children 
   end 
- 
+
   def get_category_grandchildren 
     @category_grandchildren = Category.find(params[:child_id]).children 
   end 
   
   def update
     @item = Item.find(params[:id])
-    if params[:item][:images_attributes][:"0"][:image_url].nil?
-      if @item.update!(update_item_params)
-        redirect_to status_sell_user_path(current_user.id)
+    item_user = User.find(@item.user_id)
+    if item_user.id == current_user.id
+      if params[:item][:images_attributes][:"0"][:image_url].nil?
+        if @item.update!(update_item_params)
+          redirect_to status_sell_user_path(current_user.id)
+        else
+          redirect_to controller: "items", action: "edit", id:"#{@item.id}"
+        end
       else
-        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
+        if @item.update!(update_item_params_without_image)
+          uploaded_files = [
+            params[:item][:images_attributes][:"0"],
+            params[:item][:images_attributes][:"1"],
+            params[:item][:images_attributes][:"2"],
+            params[:item][:images_attributes][:"3"],
+            params[:item][:images_attributes][:"5"],
+            params[:item][:images_attributes][:"4"],
+            params[:item][:images_attributes][:"6"],
+            params[:item][:images_attributes][:"7"],
+            params[:item][:images_attributes][:"8"],
+            params[:item][:images_attributes][:"9"]
+          ]
+          num = 1
+          uploaded_files.each do |uf|
+            if uf.nil?
+              num += 1
+            else
+              date = DateTime.now.strftime('%Y%m%d%H%M%S').to_i
+              if uf[:image_url].kind_of?(Array)
+                uff = uf[:image_url][0]
+              else
+                uff = uf[:image_url]
+              end
+              if uff.nil?
+                num += 1
+              else
+                output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
+                File.open(output_path, 'w+b') do |fp|
+                  fp.write  uff.read
+                end
+                save_path = "/#{@item.id}/#{date + num}"
+                @image = Image.create(item_id:@item.id,image_url:save_path)
+                num += 1
+              end 
+            end
+          end
+          redirect_to status_sell_user_path(current_user.id)
+        else
+          redirect_to controller: "items", action: "edit", id:"#{@item.id}"
+        end
+        # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+        # @category_grandchild = Category.find(@item.category_id)
+        # @category_child = @category_grandchild.parent
+        # @category_parent = @category_child.parent
+        # redirect_to edit_item_path(@item)
       end
     else
-      if @item.update!(update_item_params_without_image)
-        uploaded_files = [
-          params[:item][:images_attributes][:"0"],
-          params[:item][:images_attributes][:"1"],
-          params[:item][:images_attributes][:"2"],
-          params[:item][:images_attributes][:"3"],
-          params[:item][:images_attributes][:"5"],
-          params[:item][:images_attributes][:"4"],
-          params[:item][:images_attributes][:"6"],
-          params[:item][:images_attributes][:"7"],
-          params[:item][:images_attributes][:"8"],
-          params[:item][:images_attributes][:"9"]
-        ]
-        num = 1
-        uploaded_files.each do |uf|
-          if uf.nil?
-            num += 1
-          else
-            date = DateTime.now.strftime('%Y%m%d%H%M%S').to_i
-            if uf[:image_url].kind_of?(Array)
-              uff = uf[:image_url][0]
-            else
-              uff = uf[:image_url]
-            end
-            if uff.nil?
-              num += 1
-            else
-              output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
-              File.open(output_path, 'w+b') do |fp|
-                fp.write  uff.read
-              end
-              save_path = "/#{@item.id}/#{date + num}"
-              @image = Image.create(item_id:@item.id,image_url:save_path)
-              num += 1
-            end 
-          end
-        end
-        redirect_to status_sell_user_path(current_user.id)
-      else
-        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
-      end
+      redirect_to root_path
     end
   end
   
@@ -226,8 +228,10 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
-    ken_to_name = ["海外","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"]
-    @del = "#{ken_to_name[@buyer.delivery.ken]} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
+    @delivery = Delivery.find(params[:id])
+    @kenname = Prefecture.find(@buyer.delivery.ken).name
+    
+    @del = "#{@kenname} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
     @image = @item.images.first
   end
 
@@ -245,6 +249,7 @@ class ItemsController < ApplicationController
       save_path = "/#{item_id}/0"
       @image = Image.create(item_id:item_id,image_url:save_path)
     end
+
     checknil = params[:item][:images_attributes]
     if checknil.nil?
     else
@@ -289,9 +294,7 @@ class ItemsController < ApplicationController
   def update_item_params_without_image
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
   end
-  # def image_params
-  #   params.require(:item).permit(:image[:image_url])
-  # end
+
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
   end
