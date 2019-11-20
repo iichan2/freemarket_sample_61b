@@ -26,8 +26,11 @@ class UsersController < ApplicationController
   end
 
   def update  
-    @user.update(user_params)
-    render :edit
+    if @user.update(user_params)
+        render :edit
+    else
+      render :edit
+    end
   end
 
   def status_sell
