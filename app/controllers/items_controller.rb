@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     @inoue_items = items.where(brand_id: 3).limit(10)
     @shioya_items = items.where(brand_id: 2).limit(10)
     @tonochi_items = items.where(brand_id: 5).limit(10)
-  
   end
 
   def new
@@ -155,10 +154,10 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: @user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    :amount => @item.price,#購入する値段
-    :customer => card.customer_id, #顧客ID
-    :card => card.card_id,#フォームを送信すると作成・送信されてくるトークン
-    :currency => 'jpy'
+      amount: @item.price,
+      customer: card.customer_id,
+      card: card.card_id,
+      currency: 'jpy'
     )
     session[:item_id] = nil
     @item.update(buyer_id: @user.id, exhibition_state: "取引中")
@@ -228,9 +227,8 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
-    @delivery = Delivery.find(params[:id])
+    @delivery = Delivery.find(current_user.id)
     @kenname = Prefecture.find(@buyer.delivery.ken).name
-    
     @del = "#{@kenname} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
     @image = @item.images.first
   end
@@ -284,18 +282,18 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
-  end
+    def item_params
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
+    end
 
-  def update_item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
-  end
-  def update_item_params_without_image
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
-  end
+    def update_item_params
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+    end
+    def update_item_params_without_image
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
+    end
 
-  def comment_params
-    params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
-  end
+    def comment_params
+      params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+    end
 end

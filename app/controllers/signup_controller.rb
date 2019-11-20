@@ -1,5 +1,5 @@
 class SignupController < ApplicationController
-  before_action :create_user, only: :create
+  before_action :create_user, only: [:create]
   
   def create_user
   @info_user = session
@@ -19,7 +19,6 @@ class SignupController < ApplicationController
   )
 
     if @user.save
-      # session[:id] = @user.id
       session[:payjpUser_id] = @user.id
       if session['devise.omniauth_data']
         sns = SnsCredential.find(session[:sns_id]) 
@@ -27,14 +26,9 @@ class SignupController < ApplicationController
       end
     else
     # ログインするための情報を保管
-
       redirect_to error_page_signup_index_path, flash: {notice: "入力されていない項目があります"}
-
     end
   end
-  
-
-
 
   def create
     @delivery = Delivery.new(
@@ -63,11 +57,11 @@ class SignupController < ApplicationController
       redirect_to action: "card"
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: session[:email], #なくてもOK
+      description: '登録テスト',
+      email: session[:email],
       card: session[:payjpToken],
       metadata: {user_id: session[:payjpUser_id]}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      )
       @card = Card.new(user_id: session[:payjpUser_id], customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         session[:payjpToken] = nil
@@ -79,14 +73,11 @@ class SignupController < ApplicationController
 
   def mail
     @user = User.new
-    # snsのユーザー登録画面
   end
 
-  def new
+  def new # メールのユーザー登録画面
     log_out if user_signed_in?
-    @user = User.new
-    # メールのユーザー登録画面
-    # redirect_to signup_index_path, flash: {notice: "入力されていない項目があります"} unless @user.save
+    @user = User.new 
   end
 
   def tel
@@ -108,7 +99,6 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  
 # sessionに渡された値をインスタンスに渡す
   def address
     session[:tel_number] = user_params[:tel_number]
@@ -158,32 +148,30 @@ class SignupController < ApplicationController
   end
   
   private
-  
-  def user_params
-    
-    params.require(:user).permit(
-      :nickname,
-      :last_name, 
-      :first_name, 
-      :kana_last_name, 
-      :kana_first_name,
-      :l_name, 
-      :f_name, 
-      :kana_l_name, 
-      :kana_f_name,
-      :email,
-      :tel_number,
-      :tel_number2,
-      :birth_month,
-      :birth_year,
-      :birth_day,
-      :postal_code,
-      :ken,
-      :map,
-      :banchi,
-      :building,
-      :password,
-      :payjpToken
-      )
-  end
+    def user_params
+      params.require(:user).permit(
+        :nickname,
+        :last_name, 
+        :first_name, 
+        :kana_last_name, 
+        :kana_first_name,
+        :l_name, 
+        :f_name, 
+        :kana_l_name, 
+        :kana_f_name,
+        :email,
+        :tel_number,
+        :tel_number2,
+        :birth_month,
+        :birth_year,
+        :birth_day,
+        :postal_code,
+        :ken,
+        :map,
+        :banchi,
+        :building,
+        :password,
+        :payjpToken
+        )
+    end
 end
