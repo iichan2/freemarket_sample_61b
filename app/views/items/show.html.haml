@@ -77,10 +77,8 @@
         %p.byy
           送料込み
       - if @item.exhibition_state == "出品中"
-        -if user_signed_in?
-          - unless @item.user.id ==current_user.id
-            .vmt
-              =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
+        .vmt
+          =link_to("購入画面に進む",transaction_item_path,id:@item.id,class: "iuorwe")
       - elsif @item.exhibition_state == "停止中"
         .vmt
           %p.iuorwe 出品停止中
