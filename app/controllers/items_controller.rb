@@ -49,7 +49,6 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    item_user = User.find(@item.user_id)
     if params[:item][:images_attributes][:"0"][:image_url].nil?
       if @item.update!(update_item_params)
         redirect_to status_sell_user_path(current_user.id)
