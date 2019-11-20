@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users,
-  controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
-                registrations: 'signup/new' }
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'signup/new' }
   resources :categories, only: [:index]
+  resources :delivery, only: [:update]
   
   get 'cardDelete' => 'cards#delete', as: 'cardDelete'
-  resources :cards, only: [:new,:delete] do
+  resources :cards, only: [:new, :delete] do
     collection do
       post 'pay', to: 'cards#pay'
     end
@@ -26,15 +26,13 @@ Rails.application.routes.draw do
   get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
 
-  resources :delivery, only: [:update]
-
   resources :signup, only: [:new] do
     collection do
       get 'new'
       get 'tel'
       get 'address'
       get 'card'
-      get 'newend' # ここで、入力の全てが終了する
+      get 'newend'
       post 'create_user'
       get 'choice_new'
       get 'new_card'

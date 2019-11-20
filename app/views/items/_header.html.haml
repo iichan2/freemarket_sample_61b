@@ -16,7 +16,7 @@
           =link_to "" do
             =image_tag "bar.png", size:"15x15"
         .bar2
-          = link_to('カテゴリーから探す', root_path, class: 'bar2')
+          = link_to('カテゴリーから探す', categories_path, class: 'bar2')
       .left_box2
         .bar3
           =link_to ""do
@@ -50,4 +50,3 @@
         - else
           =link_to('新規会員登録', sign_up_path, class: 'touroku')
           =link_to('ログイン', user_session_path, class: 'login')
-
