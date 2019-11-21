@@ -20,10 +20,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get 'buy' => 'items#pay', as: 'buy'
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
-  get 'item_stop' => 'items#item_stop', as: 'item_stop'
-  get 'item_destroy' => 'items#item_destroy', as: 'item_destroy'
   post 'signup'  => 'signup#create', as: 'signup'
 
   resources :signup, only: [:new] do
@@ -74,7 +71,7 @@ Rails.application.routes.draw do
     end
 
     root 'items#index'
-    resources :items, only: [:index, :edit, :update, :new, :create, :show] do
+    resources :items do
       member do
         get "saler"
         get 'transaction'
@@ -82,8 +79,9 @@ Rails.application.routes.draw do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
-        post 'item_stop'
-        post 'item_destroy'
+        get 'item_stop'
+        get 'item_start'
+        get 'pay'
       end
       collection do
         get 'show_deleted'
