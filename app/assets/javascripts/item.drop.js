@@ -5,10 +5,6 @@ var label = $(` <label for="upload-image">
                   <div class='sell_upload__area'>
                   </div>
                 </label>`);
-var new_image = $(`<input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data=${image_attaced_counts} id="upload-image" type="file" >`);
-  // inputタグの挿入先
-var input_area = $('.sell_upload__area');
-
 $(document).on('change', 'input[type= "file"].upload-image',function() {
   //画像を保存する２段目inputタグ用ラベルの作成
   if($('.iichan_box').length === 4 ){
@@ -56,16 +52,18 @@ $(document).on('change', 'input[type= "file"].upload-image',function() {
       var img_insert_target = $('#exhibit-images-preview2');
     };
     img.find('img').attr({
-      data: image_attaced_counts
+      data: (image_attaced_counts)
     });
     img_insert_target.append(image);
   });
   
-  //次の画像保存用のinputタグを挿入
-  input_area.prepend(new_image);
-
   //保存カウントを増やす
   image_attaced_counts = image_attaced_counts + 1
+  
+  //次の画像保存用のinputタグを挿入
+  var new_image = $(`<input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data=${image_attaced_counts} id="upload-image" type="file" >`);
+  $('.sell_upload__area').prepend(new_image);
+
   //ストップ解除
   $('input[type="submit"]').removeAttr("disabled")
 });
@@ -75,29 +73,23 @@ $(document).on('click', '.delete', function() {
   //削除のdivがthis
   var delete_target_image = $(this).parent().parent();
   var delete_target_input_number = delete_target_image.children('img').attr('data')
-  console.log(delete_target_input_number)
+  var new_image = $(`<input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data=${image_attaced_counts} id="upload-image" type="file" >`);
   //iichanbox以下を削除
   delete_target_image.remove();
   //inputs・images配列内部の値をnullに
   inputs[delete_target_input_number] = null
   images[delete_target_input_number] = null
-  // iichanboxの数が５以下の場合第二ラベル削除、第一ラベル挿入
+  // iichanboxの数が５以下の場合第2ラベル削除、第1ラベル挿入
   if($('.iichan_box').length === 4){
     $('label').remove();
     $('.dropzone-area').prepend(label);
-    $('.sell_upload__area').prepend(new_image)
   };
   //該当インプットタグを削除し、画像が０の場合はdata とnameを0にセットする
   $(`input[data=${delete_target_input_number}]`).remove();
-  if($('input[type="file"]').length == 0){
-    input_area.append(new_image)
-  };
   if($("iichan_box").length == 0) {
-    $('input[type= "file"].upload-image').attr({
-      data: 0,
-      name: 'item[images_attributes]["0"][image_url]'
-    });
-  } 
+    var const_image = $(`<input class="upload-image" name=item[images_attributes]["0"][image_url] data=0 id="upload-image" type="file" >`);
+    $('.sell_upload__area').append(const_image)  
+  };
 });
 
 
@@ -108,7 +100,8 @@ $(document).on('click', '.deleted', function() {
   $(`.js-destroy[data-index="${index}"]`).prop("checked", 1);
 });
 
-$(document).on('submit',function(event){
+//画像なしでsubmitした場合のストップ
+$('.buttonda').on('submit',function(event){
   if($('.iichan_box').length == 0){
     event.preventDefault();
     alert("最低１枚は画像をアップロードしてください");
