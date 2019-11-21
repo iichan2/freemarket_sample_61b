@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
     @inoue_items = items.where(brand_id: 3).limit(10)
     @shioya_items = items.where(brand_id: 2).limit(10)
     @tonochi_items = items.where(brand_id: 5).limit(10)
-    # トノチ記載↓
   end
 
   def new
@@ -135,10 +134,10 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: @user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    :amount => @item.price,
-    :customer => card.customer_id,
-    :card => card.card_id,
-    :currency => 'jpy'
+      amount: @item.price,
+      customer: card.customer_id,
+      card: card.card_id,
+      currency: 'jpy'
     )
     @item.update(buyer_id: @user.id, exhibition_state: "取引中")
     redirect_to action:"bought", controller: "items", id: @item.id
@@ -209,8 +208,9 @@ class ItemsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
-    ken_to_name = ["海外","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"]
-    @del = "#{ken_to_name[@buyer.delivery.ken]} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
+    @delivery = Delivery.find(current_user.id)
+    @kenname = Prefecture.find(@buyer.delivery.ken).name
+    @del = "#{@kenname} #{@buyer.delivery.map} #{@buyer.delivery.banchi} #{@buyer.delivery.building}"
     @image = @item.images.first
   end
 
@@ -264,16 +264,16 @@ class ItemsController < ApplicationController
 
 
   private
-  def item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
-  end
+    def item_params
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, :images_attributes).merge(user_id: current_user.id)
+    end
 
-  def update_item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
-  end
-  def update_item_params_without_image
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
-  end
+    def update_item_params
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+    end
+    def update_item_params_without_image
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
+    end
 
   def comment_params
     params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)

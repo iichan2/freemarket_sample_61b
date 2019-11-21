@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users,
-  controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
-                registrations: 'signup/new' }
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'signup/new' }
   resources :categories, only: [:index]
+  resources :delivery, only: [:update]
   
   get 'cardDelete' => 'cards#delete', as: 'cardDelete'
-  resources :cards, only: [:new,:delete] do
+  resources :cards, only: [:new, :delete] do
     collection do
       post 'pay', to: 'cards#pay'
     end
@@ -17,17 +17,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "sign_up", to: "users/registrations#new"
     get "sign_in", to: "users/sessions#new"
-  #   # get "sign_out", to: "users/sessions#destroy" 
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   get 'payjp' => 'signup#create_payjp', as: 'payjp'
   post 'signup'  => 'signup#create', as: 'signup'
-
-  resources :delivery do
-    member do
-      post "du_update"
-    end
-  end
 
   resources :signup, only: [:new] do
     collection do
@@ -35,7 +29,7 @@ Rails.application.routes.draw do
       get 'tel'
       get 'address'
       get 'card'
-      get 'newend' # ここで、入力の全てが終了する
+      get 'newend'
       post 'create_user'
       get 'choice_new'
       get 'new_card'
@@ -45,29 +39,19 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :user do
-    get "sign_up", to: "users/registrations#new"
-    get "sign_in", to: "users/sessions#new"
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-
-  resources :users do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get "logout"
       get "payment"
       get "identification"
-      get "trading"
-      get "sending"
       get 'status_sell'
       get 'status_trading'
       get 'status_sold'
       get 'status_delivery'
       get 'status_bought'
-      post "prof_update"
-      # get "mypage"
     end
+  end
 
-    # パン屑リスト
     resources :mypage do
       collection do
         get "mypage"
@@ -85,7 +69,7 @@ Rails.application.routes.draw do
         get 'show'
       end
     end
-  end
+
     root 'items#index'
     resources :items do
       member do

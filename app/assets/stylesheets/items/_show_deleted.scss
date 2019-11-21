@@ -86,8 +86,8 @@
       margin-left: 1%;
       margin-top: 1%;
       background-color: white;
-      color: #0099e8;
-      border: 1px solid #0099e8;
+      color: $blue;
+      border: 1px solid $blue;
       border-radius: 4px;
       font-size: 13px;
       padding: 0.7% 1%;
@@ -95,7 +95,7 @@
       text-align: center;
     }
     .login1:hover {
-      background-color: #0099e8;
+      background-color: $blue;
       color: white;
       transition: background-color 0.5s;
     }
@@ -146,7 +146,7 @@
   .content_g {
     margin-top: 5px;
     width: 100%;
-    background-color: #EEEEEE;
+    background-color: rgb(119, 96, 96);
     display: inline-flex;
     padding-bottom: 50px;
     .masa {
@@ -171,7 +171,7 @@
       margin-top: 11%;
       position: absolute;
       .kotoba {
-        color: #0099e8;
+        color: $blue;
         font-size: 22px;
         font-weight: bold;
       }

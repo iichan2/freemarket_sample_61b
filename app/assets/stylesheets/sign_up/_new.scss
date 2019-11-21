@@ -16,7 +16,7 @@
     &.active {
       padding-right: 20px;
       font-weight: 600;
-      color: #ea352d;
+      color: $red;
     }
     &.through {
       .progress-status:after{
@@ -67,7 +67,7 @@
         font-weight: 600; 
       }
       .require {
-        background: #ea352d;
+        background: $red;
         margin: 0 0 0 8px;
         padding: 2px 4px;
         border-radius: 2px;
@@ -103,80 +103,58 @@
         float: right;
         padding: 20px 20px;
         padding-top: 30px;
-
       }
       .input-default2 {
         width: 50%;
         margin: 8px 0 0;
         height: 48px;
-
         border-radius: 4px;
         border: 1px solid #ccc;
         background: #fff;
         line-height: 1.5;
         font-size: 16px;
-        
         display: flex;
         float: right;
         padding: 20px 20px;
-        
-        
-        
-
       }
-
     }
   }  
 }
 .in {
   padding-left: 40px;
 }
-
-
 .progress-bar li.through .progress-status {
-  background: #ea352d;
+  background: $red;
 }
 .progress-bar li.active .progress-status {
-  background: #ea352d;
+  background: $red;
 }
-
-
-
-
-
 .birthday-select-wrap{
   padding: 0 10px;
 }
-.select-wrap{ 
+.wata {
   position: relative;
-  margin: 8px 0 0;
   width: 76px;
   height: 48px;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  display: inline-block;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-appearance: none;
+  padding: 0 16px;
+  cursor: pointer;
+}
+.fas.fa-angle-down {
+  font:25px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
   z-index: 2;
+  color: #888;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
-.select#user_birth_year {
-  display:none;
-}
-
-
-
-
-      
-
-  .fas.fa-angle-down {
-    font:25px;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    z-index: 2;
-    color: #888;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-  }
-
 .form-info-text {
   margin: 8px 0 0;
   line-height: 1.5;
@@ -185,9 +163,9 @@
 }
 .btn-default {
   display: block;
-  margin: 40px 0 0;
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  margin-top: 40px;
+  background: red;
+  border: 1px solid $red;
   color: #fff;
   width: 100%;
   line-height: 48px;
@@ -203,23 +181,22 @@ a {
   text-decoration: none;
 }
 .decolation-blue {
-  color: #0099e8;
+  color: $blue;
 }
 .form-group.text-right {
   text-align: right;
 }  
 .progress-bar li.through .progress-status:before {
-  background: #ea352d;
+  background: $red;
 }
 .fa-chevron-right {
   font: normal 16px;
 }
-
 .progress-bar li.through .progress-status:after {
-  background: #ea352d;
+  background: $red;
 }
 .progress-bar li.active .progress-status:before {
-  background: #ea352d;
+  background: $red;
 }
 .progress-bar li:last-child .progress-status:after {
   background:#f5f5f5;
@@ -227,9 +204,8 @@ a {
 .progress-bar li:first-child .progress-status:before {
   background:#f5f5f5;
 } 
-
 .blue {
-  color: #0099e8;
+  color: $blue;
 }
 .checkbox-default-label {
   position: relative;

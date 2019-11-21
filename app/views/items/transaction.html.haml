@@ -16,7 +16,6 @@
             .a-toggle ポイントはありません
             .bp-cell1 支払い金額
             .bp-cell2 ¥#{@item.price.to_s(:delimited)}
-            -# %p.he-text 配送先と支払い方法の入力を完了してください。
             %button.default-btn2
               =link_to '購入する', pay_item_path, item_id: @item.id,id: "transaction_link_font"
       %section.stb-info

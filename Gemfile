@@ -74,6 +74,7 @@ gem 'zeitwerk'
 gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'erb2haml'
 gem 'faraday'
 gem "jquery-rails"

@@ -36,12 +36,12 @@
 }
 .identification_link{
   font-size:14px;
-  color:#0099e8;
+  color: $blue;
 }
 .identification_angle_right{
   display:inline-block;
   font-size:22px;
-  color:#0099e8;
+  color: $blue;
   font-weight: bold;
 }
 .identification_group{
@@ -52,8 +52,8 @@
   display:block;
   width:100%;
   margin: 40px 0px 0px;
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: $red;
+  border: 1px solid $red;
   color: #fff;
   font-size:14px;
   line-height: 48px;
