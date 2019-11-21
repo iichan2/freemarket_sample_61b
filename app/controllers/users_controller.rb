@@ -80,7 +80,7 @@ class UsersController < ApplicationController
       @items_images << hash
     end
   end
-  
+
   def status_bought
     items = Item.where(buyer_id: @user.id)
     able_items = items.where(exhibition_state: "売却済")

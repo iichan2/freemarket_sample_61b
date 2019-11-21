@@ -72,7 +72,7 @@ Rails.application.routes.draw do
         get 'show'
       end
     end
-    
+
     root 'items#index'
     resources :items, only: [:index, :edit, :update, :new, :create, :show] do
       member do
