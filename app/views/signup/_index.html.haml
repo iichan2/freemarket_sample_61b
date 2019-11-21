@@ -6,7 +6,7 @@
     %script{src:  "https://www.google.com/recaptcha/api.js"}
     %script{src:  "https://code.jquery.com/jquery-2.1.4.min.js", type: "text/javascript"}
   %body
-    %form{action:  "mail.php", method:  "post"}
+    %form{action:  "mail.php", method: :post}
       - if Rails.env.production?
         .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6LcC9r8UAAAAAIXrqId22GwrpIFsysYOU5s6cZRF"}
       - else 
