@@ -4,233 +4,171 @@
   background-color: white;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   border-bottom: 1px solid #eee;
-  .header_box {
+  position: relative;
+  z-index: 5;
+  .h_box {
     height: 100%;
-    width:70%;
+    width: 70%;
     margin: auto;
-    .h_topbox {
-      height:8%;
-      width:100%;
-    }
-    .h_center_topbox {
-      height: 40%;
+    padding: 0.5% 0;
+    .h_top_box {
+      height: 50%;
       width :100%;
-      .left_imagbox {
-        float: left;
+      display: flex;
+      justify-content: space-between;
+      img.h_top_img {
+        margin: 3% 0;
       }
-      .rightsearch {
-        height: 100%;
-        width: 100%;
-        margin-left: 20%;
-        .hoge {
+      .search {
+        width: 75%;
+        display: flex;
+        position: relative;
+        input.hoge {
           background-color: rgb(245, 245, 245);
           font-size: 16px;
-          height: 100%;
-          width: 80%;
-          border-width: 1px;
-          border-style: solid;
-          border-color: rgb(204, 204, 204);
+          width: 100%;
+          border: 1px solid rgb(204, 204, 204);
           border-radius: 4px;   
           padding: 0px 50px 0px 10px;
         }
-        .hogehoge {
-          height: 5%;
-          width: 40px;
+        button.hogehoge {
           position: absolute;
-          border-style: none;
-          right: 215px;
-          border-color: initial;
-          border-image: initial;
-          border-width: initial;
-          -webkit-appearance: none;
+          top: 26%;
+          right: 2%;
           background-color: transparent;
+          border: none;
           font-size: 15px;
           cursor: pointer;
         }
       }
     }
-    .h_bottombox {
-      height: 5px;
-      width:100%;
-      float: bottom;
-    }
-    .h_center_bottombox {
-      height: 40%;
+    .h_bottom_box {
+      height: 50%;
       width :100%;
       display: flex;
+      justify-content: space-between;
+      padding-top: 1%;
       .left_box {
-        height: 30%;
-        width: 200px;
-        padding-top: 5px;
+        width: 50%;
         display: flex;
-        .bar {
-          float: left;
-          margin-top: 2%;
+        a.bar_box {
           text-decoration: none;
-          width: 10px;
-        }
-        .bar2 {
-          font-size: 14px;
-          width: 100%;
-          font-weight: bold;
-          color: black;
-          text-decoration: none;
-          margin-left: 5%;
-          margin-top: 2%;
-          white-space: nowrap;
-        }
-      }
-      .left_box2 {
-        height: 30px;
-        width: 15%;
-        padding-top: 1%;
-        .bar3 {
-          margin-top: 2px;
-          float: left;
-        }
-        .bar4 {
-          font-size: 14px;
-          width: 100%;
-          font-weight: bold;
-          color: black;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-      }
-      .right_boxxx {
-        width: 52%;
-        margin-left: 13%;
-        display: flex;
-        text-decoration: none;
-        padding-top: 0.8%;
-        .qbox {
-          height: 100%;
-          width: 24%;
+          width: 33%;
           display: flex;
+          margin-right: 5%;
+          color: black;
+          &:hover {
+            color: $blue;
+          }
+          .h_bottom_img {
+            margin: 6% 0;
+          }
+          .bar {
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            margin: 5%;
+          }
+        }
+      }
+      .right_box {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        text-decoration: none;
+        a.box {
+          display: flex;
+          white-space: nowrap;
+          margin: 1% 0 0 5%;
+          color: black;
           &:hover .heart {
-            color: #005FFF;
+            color: $blue;
             font-weight: bold;
           }
           &:hover .iine {
-            color: #005FFF;
+            color: $blue;
             transition: 0.3s;
           }
-          .heart {
-            color: black;
+          &:hover .bell {
+            color: $blue;
+          }
+          &:hover .news {
+            color: $blue;
+            transition: 0.3s;
+          }
+          &:hover .check {
+            color: $blue;
+          }
+          &:hover .todo_list {
+            color: $blue;
+            transition: 0.3s;
+          }
+          &:hover .soccer {
+            color: $blue;
+          }
+          &:hover .mypage {
+            color: $blue;
+            transition: 0.3s;
+          }
+          p.heart {
             margin-top: 3%;
             opacity: 0.5;
           }
-          .iine {
-            color: black;
+          p.iine {
             font-size: 14px;
             opacity: 0.9;
-            margin-top: 2%;
-            margin-left: 5%;
+            margin: 2% 0 0 5%;
           }
-        }
-        .wbox {
-          height: 100%;
-          width: 24%;
-          margin-left: 5%;
-          display: flex;
-          &:hover .bell {
-            color: #005FFF;
-          }
-          &:hover .osirase {
-            color: #005FFF;
-            transition: 0.3s;
-          }
-          .bell {
-            color:black;
+          p.bell {
             margin-top: 3%;
             opacity: 0.3;
           }
-          .osirase {
-            color: black;
+          p.news {
             font-size: 14px;
             opacity: 0.9;
-            margin-top: 2%;
-            margin-left: 5%;
+            margin: 2% 0 0 5%;
           }
-        }
-        .ebox {
-          height: 100%;
-          width: 30%;
-          margin-left: 1%;
-          display: flex;
-          &:hover .check {
-            color: #005FFF;
-          }
-          &:hover .yarukotorisuto {
-            color: #005FFF;
-            transition: 0.3s;
-          }
-          .check {
-            color:black;
+          p.check {
             margin-top: 3%;
             opacity: 0.3;
           }
-          .yarukotorisuto {
-            color: black;
+          p.todo_list {
             font-size: 14px;
             opacity: 0.9;
-            margin-top: 2%;
-            margin-left: 5%;
+            margin: 2% 0 0 5%;
           }
-        }
-        .rbox {
-          height: 100%;
-          width: 24%;
-          margin-left: 5%;
-          &:hover .my {
-            color: #005FFF;
-          }
-          &:hover .mymypage {
-            color: #005FFF;
-            transition: 0.3s;
-          }
-          .my {
+          p.soccer {
             display: inline-block;
-            color:black;
             margin-top: 3%;
             opacity: 0.3;
           }
-          .mymypage {
+          p.mypage {
             display: inline-block;
-            color: black;
             font-size: 14px;
             opacity: 0.9;
-            margin-top: 2%;
-            margin-left: 5%;
+            margin: 2% 0 0 5%;
           }
         }
         .touroku {
-          background-color: rgb(234, 53, 45);
+          background-color: $red;
           color: white;
           font-size: 13px;
-          border-width: 1px;
-          border-style: 1px solid rgb(234,53,45);
           border-radius: 5px;
           padding: 6px 10px;
-          text-decoration-line: none;
           letter-spacing: 1px;
-          height: 100%;
-          margin-left: 62%;
           border-image: initial;
-          text-decoration-line: none;
         }
         .login {
-          width: 15%;
-          margin-left: 2%;
+          padding: 6px 10px;
+          letter-spacing: 1px;
+          margin-left: 3%;
           background-color: white;
           color: $blue;
           border: 1px solid $blue;
-          border-radius: 4px;
+          border-radius: 5px;
           font-size: 13px;
-          padding: 2% 1%;
-          height: 100%;
-          text-align: center;
-          line-height: 55%;
+          vertical-align: middle;
+          white-space: nowrap;
           &:hover {
             background-color: $blue;
             color: white;

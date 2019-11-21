@@ -1,8 +1,8 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to "/" do
-        =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
+      = link_to(root_path) do
+        = image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
     %nav.progress-bar
       %ol.clearfix
         %li.through
@@ -30,7 +30,6 @@
           .form-group
             = f.label "お名前(全角)",class: "label" 
             %span.require 必須
-            
             = f.text_field :f_name, placeholder: "例)山田",required: 'true',class: "input-default"
             = f.text_field :l_name, placeholder: "例)彩",required: 'true',class: "input-default"
           .form-group
@@ -41,14 +40,13 @@
           .form-group
             = f.label "郵便番号",class: "label"
             %span.require 必須
-          
             = f.text_field :postal_code, placeholder:"    例) 123-4567",class: "label",required: 'true',class: "input-default"
           .form-group
             = f.label "都道府県",class: "label"
             %span.require 必須
-            .select-wrap__address
+          .select-wrap__address
             = f.collection_select :ken, Prefecture.all, :id, :name, {}, {class: "select-default"}
-              %i.fas.fa-angle-down
+            %i.fas.fa-angle-down
           .form-group
             = f.label "市町村",class: "label"
             %span.require 必須
@@ -56,16 +54,15 @@
           .form-group
             = f.label "番地",class: "label"
             %span.require 必須
-            
             = f.text_field :banchi, placeholder: "    例) 青山1-1-1",class: "label",required: 'true',class: "input-default"
           .form-group
             = f.label "建物名",class: "label"
             %span.form-any 任意
             = f.text_field :building, placeholder: "    例) 柳ビル103",class: "label",class: "input-default"
           .form-group
-            = f.label "電話",class: "label"
+            = f.label "電話", class: "label"
             %span.form-any 任意
             = f.text_field :tel_number2, placeholder: "    例) 09012345678",class: "label",class: "input-default"  
           .form-group
-          =f.submit"次へ進む" ,class: " btn-default " 
+            = f.submit "次へ進む", class: "btn-default" 
 = render 'signup/signup-footer'

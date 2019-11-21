@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update  
     if @user.update(user_params)
-        render :edit
+      render :edit
     else
       render :edit
     end
@@ -117,6 +117,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:nickname, :profile )
+      params.require(:user).permit(:nickname, :profile)
     end
 end

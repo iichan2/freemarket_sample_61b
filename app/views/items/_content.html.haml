@@ -1,25 +1,24 @@
 .content
   .contents
     .category
-      %div.comment
+      %div.comment 
         人気のカテゴリー
         %ul.categorybox
           %li.qaz
-            .bar7
-              = link_to('レディース', href="#ladies_new", class: 'qaz')
+            .bar5
+              = link_to('レディース', href="#1", class: 'qaz')
           %li.qaz
-            .bar8
-              = link_to('メンズ', href="#mens_new", class: 'qaz')
+            .bar5
+              = link_to('メンズ', href="#2", class: 'qaz')
           %li.qaz
-            .bar9
-              = link_to('家電・スマホ・カメラ', href="#elect", class: 'qaz')
+            .bar5
+              = link_to('家電・スマホ・カメラ', href="#3", class: 'qaz')
           %li.qaz
-            .bar10
-              = link_to('おもちゃ・ホビー・グッズ', href="#toy", class: 'qaz')
+            .bar5
+              = link_to('おもちゃ・ホビー・グッズ', href="#4", class: 'qaz')
     .new_box
-      .name#ladies_new
-        %h1.title
-          レディース新着アイテム
+      .name#1
+        %h1.title レディース新着アイテム
         .more          
           = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
@@ -32,10 +31,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{ladies[:name]}", "items/#{ladies[:id]}", class: 'explanation')
-      .name#mens_new
-        %h1.title
-          メンズ新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#2
+        %h1.title メンズ新着アイテム
+        .more          
+          = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
         - @mens_items.each do |mens|
           %li.itembox
@@ -46,10 +45,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{mens[:name]}", "items/#{mens[:id]}", class: 'explanation')
-      .name#elect
-        %h1.title
-          家電・スマホ・カメラ新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#3
+        %h1.title 家電・スマホ・カメラ新着アイテム
+        .more          
+          = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
         - @appliance_items.each do |appliance|
           %li.itembox
@@ -60,10 +59,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{appliance[:name]}", "items/#{appliance[:id]}", class: 'explanation')
-      .name#toy
-        %h1.title
-          おもちゃ・ホビー・グッズ新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#4
+        %h1.title おもちゃ・ホビー・グッズ新着アイテム
+        .more          
+          = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
         - @toys_items.each do |toys|
           %li.itembox
@@ -81,21 +80,20 @@
           人気のブランド
           %ul.categorybox
             %li.qaz
-              .bar11
-                = link_to('KubooTA', href="#kubota", class: 'qaz')
+              .bar5
+                = link_to('KubooTA', href="#5", class: 'qaz')
             %li.qaz
-              .bar8
-                = link_to('エウオーニ', href="#inoue", class: 'qaz')
+              .bar5
+                = link_to('エウオーニ', href="#6", class: 'qaz')
             %li.qaz
-              .bar9
-                = link_to('NAHCII', href="#sioya", class: 'qaz')
+              .bar5
+                = link_to('NAHCII', href="#7", class: 'qaz')
             %li.qaz
-              .bar10
-                = link_to('トノッチ', href="#tonochi", class: 'qaz')
+              .bar5
+                = link_to('トノッチ', href="#8", class: 'qaz')
     .new_box
-      .name#kubota
-        %h1.title
-          KubooTA新着アイテム
+      .name#5
+        %h1.title KubooTA新着アイテム
         .more          
           = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
@@ -109,10 +107,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{kubota.item_name}", "items/#{kubota.id}", class: 'explanation')
-      .name#inoue
-        %h1.title
-          エウオーニ新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#6
+        %h1.title エウオーニ新着アイテム
+        .more
+          = link_to("もっと見る ＞", root_path, class: 'more2')
       %ul.item
         - @inoue_items.each do |inoue|
           %li.itembox
@@ -124,10 +122,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{inoue.item_name}", "items/#{inoue.id}", class: 'explanation')
-      .name#sioya
-        %h1.title
-          NAHCII新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#7
+        %h1.title NAHCII新着アイテム
+        .more          
+          = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
         - @shioya_items.each do |shioya|
           %li.itembox
@@ -139,10 +137,10 @@
             .itembottom
               .itembottom2
                 = link_to("#{shioya.item_name}", "items/#{shioya.id}/show", class: 'explanation')
-      .name#tonochi
-        %h1.title
-          トノッチ新着アイテム
-        %a.more{href: ""} もっと見る ＞
+      .name#8
+        %h1.title トノッチ新着アイテム
+        .more          
+          = link_to('もっと見る ＞', root_path, class: 'more2')
       %ul.item
         - @tonochi_items.each do |tonochi|
           %li.itembox

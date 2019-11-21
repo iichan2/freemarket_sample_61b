@@ -66,7 +66,6 @@ class SignupController < ApplicationController
       if @card.save
         session[:payjpToken] = nil
         redirect_to newend_signup_index_path
-      else
       end
     end
   end

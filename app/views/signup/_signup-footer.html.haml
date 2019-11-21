@@ -2,16 +2,16 @@
   .nv-footer-box
     .nv-footer-text-box
       .nv-footer-text1
-      =link_to "https://www.mercari.com/jp/privacy/", class: "nv-footer-link" do
+      = link_to("https://www.mercari.com/jp/privacy/", class: "nv-footer-link") do
         プライバシーポリシー
       .nv-footer-text2
-      =link_to "https://www.mercari.com/jp/tos/", class: "nv-footer-link" do
+      = link_to("https://www.mercari.com/jp/tos/", class: "nv-footer-link") do
         メルカリ利用規約
       .nv-footer-text3
-      =link_to "https://www.mercari.com/jp/tokutei/", class: "nv-footer-link" do
+      = link_to("https://www.mercari.com/jp/tokutei/", class: "nv-footer-link") do
         特定商取引に関する表記
     .nv-footer-image-box
       .nv-footer-image
-        =link_to root_path do
-          =image_tag "/images/signup-mercari-logo.png", size: "70x70"
+        = link_to(root_path) do
+          = image_tag("/images/signup-mercari-logo.png", size: "70x70")
       .nv-footer-text4 © 2019 Mercari

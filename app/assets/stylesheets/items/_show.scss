@@ -38,7 +38,7 @@
           border-right: 60px solid transparent;
           border-bottom: 60px solid transparent;
           border-left: 60px solid $red;
-          z-index:100;
+          z-index:3;
           position: relative;
           top:-320px;
           &__inner{
@@ -126,7 +126,6 @@
           padding: 20px 33%;
           background-color: rgba(245, 6, 6, 0.808);
           margin-left: 5%;
-          
           text-align: center;
           line-height: 30px;
           color: white;
@@ -369,4 +368,3 @@
     }
   }
 }
-
