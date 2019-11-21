@@ -121,7 +121,6 @@ class ItemsController < ApplicationController
   def transaction
     if user_signed_in?
       @user = User.find(current_user.id)
-      @delivery = Delivery.find(current_user.id)
       @kenname = Prefecture.find(@user.delivery.ken).name
       @del = "#{@kenname} #{@user.delivery.map} #{@user.delivery.banchi} #{@user.delivery.building}"
       @item = Item.find(params[:id])
