@@ -13,7 +13,7 @@
                 SOLD
         .oouu
           - @item.images.each do |item|
-            %img{:src => "#{item.image_url}",:height => "120",:width => "92"}/
+            %img{src: "#{item.image_url}",height:  "120",width:  "92"}/
       .rgt
         .tbody
           .zx
@@ -123,7 +123,7 @@
           .tnu
             = f.text_area :text, size: "75x6" 
             = f.hidden_field :item_id, value: @item.id
-          %input.itvu{:type => "submit", :value => "コメントする"}
+          %input.itvu{type:  "submit", value: "コメントする"}
     .ibox
       =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
       =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
@@ -140,7 +140,7 @@
       - @items.each do |item|
         .nekobox
           =link_to "",class:"neo" do
-            %img{:src => "#{item.images[0].image_url}",:height => "180",:width => "200"}/
+            %img{src:  "#{item.images[0].image_url}",height:  "180",width:  "200"}/
             .neko
               .tuhv
                 = item.item_name
