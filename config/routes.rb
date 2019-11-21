@@ -95,11 +95,9 @@ Rails.application.routes.draw do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'bought'
-        post 'item_stop'
-        post 'item_start'
-        get 'hoge_pay' => 'items#pay', as: 'hoge_pay'
-        get 'hoge_item_stop' => 'items#item_stop', as: 'hoge_item_stop'
-        get 'hoge_item_start' => 'items#item_start', as: 'hoge_item_start'
+        get 'item_stop'
+        get 'item_start'
+        get 'pay'
       end
       collection do
         get 'show_deleted'

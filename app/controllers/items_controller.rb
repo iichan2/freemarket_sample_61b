@@ -27,9 +27,6 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-    @category_grandchild = Category.find(@item.category_id)
-    @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
     @parents = Category.where(ancestry: nil)
     @image = @item.images 
     @category_gc_now = Category.find(@item.category_id)
@@ -48,7 +45,6 @@ class ItemsController < ApplicationController
   end 
   
   def update
-    @item = Item.find(params[:id])
     if params[:item][:images_attributes][:"0"][:image_url].nil?
       if @item.update!(update_item_params)
         redirect_to status_sell_user_path(current_user.id)
@@ -118,18 +114,14 @@ class ItemsController < ApplicationController
       @del = "#{ken_to_name[@user.delivery.ken]} #{@user.delivery.map} #{@user.delivery.banchi} #{@user.delivery.building}"
       @item = Item.find(params[:id])
       @image = @item.images.first
-      if @item.exhibition_state == "出品中"
-        card = Card.where(user_id: current_user.id).first
-        if card.blank?
-          session[:item_id] = @item.id
-          redirect_to controller: "cards", action: "new"
-        else
-          Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-          customer = Payjp::Customer.retrieve(card.customer_id)
-          @default_card_information = customer.cards.retrieve(card.card_id)
-        end
+      card = Card.where(user_id: current_user.id).first
+      if card.blank?
+        session[:item_id] = @item.id
+        redirect_to controller: "cards", action: "new"
       else
-        redirect_to root_path
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        @default_card_information = customer.cards.retrieve(card.card_id)
       end
     else
       redirect_to '/users/sign_in' 
@@ -289,7 +281,7 @@ class ItemsController < ApplicationController
 
   def redirect_when_items_cant_be_bought
     @item = Item.find(params[:id])
-    if @item.user_id == current_user.id
+    if @item.user_id == current_user.id || @item.exhibition_state != "出品中"
       redirect_to root_path
     end
   end
