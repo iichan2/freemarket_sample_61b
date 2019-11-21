@@ -1,107 +1,116 @@
-// $(document).on('turbolinks:load', function(){
-  // var dropzone = $('.sell_upload__area');
-  var images = [];
-  var inputs  =[];
-  // var input_area = $('.sell_upload__area');
-  // var preview = $('#exhibit-images-preview');
+var images = [];
+var inputs = [];
+var image_attaced_counts = 0;
+var label = $(` <label for="upload-image">
+                  <div class='sell_upload__area'>
+                  </div>
+                </label>`);
+var new_image = $(`<input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data=${image_attaced_counts} id="upload-image" type="file" >`);
+  // inputタグの挿入先
+var input_area = $('.sell_upload__area');
 
+$(document).on('change', 'input[type= "file"].upload-image',function() {
+  //画像を保存する２段目inputタグ用ラベルの作成
+  if($('.iichan_box').length === 4 ){
+    $('.dropzone-area2').prepend(label);
+  };
 
-  $(document).on('change', 'input[type= "file"].upload-image',function() {
-    if(images.length <= 3){
-      var input_area = $('.sell_upload__area');
+  //inputタグに配列形式で保存されているデータ群＝this 
+  //multiple ='true'でなくても配列保存
+  var file = $(this).prop('files')[0];
+  
+  //inputタグおよび中身をinputsに配列保存
+  inputs.push($(this));
+  
+  //画像挿入のためのimgタグの作成
+  var img = $(` <div class = "iichan_box">
+                  <img>
+                  <div class="btn_wrapper">
+                    <div class="xxxxxbtn delete">
+                      削 除  
+                    </div>
+                  </div>
+                </div>`);
+  
+  //JSでファイルを読み込む空間を作る
+  var reader = new FileReader();
+
+  //読み込み空間ができたら、発火 eventにFileReaderの値が入り、resultにDataURLが入る
+  reader.onload = function(event) {
+    img.find('img').attr({
+      src: event.target.result,
+      width: '120px'
+    });
+  };
+
+  //読み込み空間でファイル取得
+  reader.readAsDataURL(file);
+  //images配列にimgタグらを保存
+  images.push(img);
+  
+  //imagesの中身１つに対して連続発火
+  $.each(images, function(index,image) {  
+    if(index <= 4){
+      var img_insert_target = $('#exhibit-images-preview');
     }else{
-      var input_area = $('.sell_upload__area2');
-    }
-
-    var file = $(this).prop('files')[0];
-    var reader = new FileReader();
-    inputs.push($(this));
-    var img = $(`<div class = "iichan_box"><img></div>`);
-    reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="xxxxxbtn delete">  削 除  </div></div>');
-      img.append(btn_wrapper);
-      img.find('img').attr({
-        src: e.target.result,
-        width: '120px',
-      })
+      var img_insert_target = $('#exhibit-images-preview2');
     };
-    var label = $(`<label for="upload-image"><div class='sell_upload__area2'>`);
-    var labelend = $(`</div></label>`);
-    reader.readAsDataURL(file);
-    images.push(img);
-    $.each(images, function(index, image) {
-      image.attr('data-image', index);
-      if(index <= 4){
-        var preview = $('#exhibit-images-preview');
-      }else{
-        var preview = $('#exhibit-images-preview2');
-      }
-      if(index == 4 ){
-        $('.dropzone-area2').prepend(label)
-        $('.dropzone-area2').append(labelend)
-      };
-      preview.append(image);
-    })
-
-    // if(images.length == 5) {
-    //   dropzone.css({
-    //     'display': 'none'
-    //   })
-    //   return;
-    // }
-    var new_image = $(`<input class="upload-image" multiple=multiple data-image= ${images.length} name=item[images_attributes][${images.length}][image_url][] id="upload-image" type="file" >`);
-    input_area.prepend(new_image);
+    img.find('img').attr({
+      data: image_attaced_counts
+    });
+    img_insert_target.append(image);
   });
+  
+  //次の画像保存用のinputタグを挿入
+  input_area.prepend(new_image);
 
-  $(document).on('click', '.delete', function() {
+  //保存カウントを増やす
+  image_attaced_counts = image_attaced_counts + 1
+  //ストップ解除
+  $('input[type="submit"]').removeAttr("disabled")
+});
 
-    var target_image = $(this).parent().parent();
-    $.each(inputs, function(index, input){
-      if ($(this).data('image') == target_image.data('image')){
-        $(this).remove();
-        target_image.remove();
-        var num = $(this).data('image');
-        images.splice(num, 1);
-        inputs.splice(num, 1);
-        if(inputs.length == 0) {
-          $('input[type= "file"].upload-image').attr({
-            'data-image': 0
-          })
-        }
-      }
-    }) 
-  })
-  $(document).on('click', '.deleted', function() { 
-    $(this).parent().parent().remove();
-    $(this).data("index")
-    let index = $(this).data("index");
-    $(`.js-destroy[data-index="${index}"]`).prop("checked", 1);
-  })
-    //  余裕があれば触る
-    // var new_image = $(`<input class="upload-image" data-image= ${images.length} name=item[images_attributes][${images.length}][image_url] type="file" >`);
-    // input_area.prepend(new_image);
-    // $.each(inputs, function(index, input) {
-    //   var input = $(this)
-    //   input.attr({
-    //     'data-image': index
-    //   })
-    //   $('input[type= "file"].upload-image:first').after(input)
-    // })
 
-    //   $.each(images, function(index, image) {
-    //     image.attr('data-image', index);
-    //     preview.append(image);
-    //   })
-    //   dropzone.css({
-    //     'width': `calc(100% - (135px * ${images.length}))`
-    //   })
+$(document).on('click', '.delete', function() {
+  //削除のdivがthis
+  var delete_target_image = $(this).parent().parent();
+  var delete_target_input_number = delete_target_image.children('img').attr('data')
+  console.log(delete_target_input_number)
+  //iichanbox以下を削除
+  delete_target_image.remove();
+  //inputs・images配列内部の値をnullに
+  inputs[delete_target_input_number] = null
+  images[delete_target_input_number] = null
+  // iichanboxの数が５以下の場合第二ラベル削除、第一ラベル挿入
+  if($('.iichan_box').length === 4){
+    $('label').remove();
+    $('.dropzone-area').prepend(label);
+    $('.sell_upload__area').prepend(new_image)
+  };
+  //該当インプットタグを削除し、画像が０の場合はdata とnameを0にセットする
+  $(`input[data=${delete_target_input_number}]`).remove();
+  if($('input[type="file"]').length == 0){
+    input_area.append(new_image)
+  };
+  if($("iichan_box").length == 0) {
+    $('input[type= "file"].upload-image').attr({
+      data: 0,
+      name: 'item[images_attributes]["0"][image_url]'
+    });
+  } 
+});
 
-    // if(images.length == 4) {
-    //   dropzone.css({
-    //     'display': 'block'
-    //   })
-    // }
-    // if(images.length == 3) {
-    //   dropzone.find('i').replaceWith('<p>ココをクリックしてください</p>')
-    // }
-// });
+
+$(document).on('click', '.deleted', function() { 
+  $(this).parent().parent().remove();
+  $(this).data("index")
+  let index = $(this).data("index");
+  $(`.js-destroy[data-index="${index}"]`).prop("checked", 1);
+});
+
+$(document).on('submit',function(event){
+  if($('.iichan_box').length == 0){
+    event.preventDefault();
+    alert("最低１枚は画像をアップロードしてください");
+  };
+})

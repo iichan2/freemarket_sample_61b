@@ -7,7 +7,7 @@
 .dropzone-container {
     display: flex;
     min-height: 160px;
-    width: 610px;
+    width: 615px;
     background: #f5f5f5;
     border: 1px dashed #ccc;
     margin:0 auto;
@@ -16,7 +16,7 @@
   margin:0 auto;
   display: flex;
   max-height:160px;
-  width: 610px;
+  width: 615px;
   background: #f5f5f5;
   border: 1px dashed #ccc;
 }
@@ -27,12 +27,12 @@
   flex-grow: 1;
 }
 .dropzone-area {
-    height: 160px;
+    height: 165px;
     width: auto;
     overflow: hidden;
 }
 .dropzone-area2 {
-    max-height: 160px;
+    max-height: 165px;
     width: auto;
     overflow: hidden;
 }
@@ -41,10 +41,10 @@ label {
   color:black;
   cursor: pointer;
   display: inline-block;
-  min-width: 600px;
+  min-width: 615px;
   text-align: center;
-  height:160px;
-  line-height:160px;
+  height:165px;
+  line-height:165px;
 }
 label input {
   display: none;
@@ -57,11 +57,11 @@ label input {
 }
 .sell_upload__area {
     display: flex;
-    height: 160px;
+    height: 165px;
 }
 .sell_upload__area2 {
   display: flex;
-  max-height: 160px;
+  max-height: 165px;
 }
 
 .img_view {
