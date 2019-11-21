@@ -10,8 +10,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :nickname , presence: true
-  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true
   has_many :items 
   has_many :comments
@@ -19,8 +19,6 @@ class User < ApplicationRecord
   has_many :cards
   
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-  # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
   
   
