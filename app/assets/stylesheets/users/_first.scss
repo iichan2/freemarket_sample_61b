@@ -10,8 +10,8 @@
       color: white;
       display: block;
       margin: 8px 0 0;
-      border: 1px solid #0099e8;
-      background-color: #0099e8;
+      border: 1px solid $blue;
+      background-color: $blue;
       color: #fff;
       line-height: 40px;
     }
@@ -62,8 +62,8 @@
       }
     }
     .login {
-      background-color: #ea352d;
-      border: 1px solid #ea352d;
+      background-color: $red;
+      border: 1px solid $red;
       color: #fff;
       margin: 24px 0 0;
       display: block;
@@ -80,7 +80,7 @@
     .password-forget {
       display: block;
       margin: 40px 0 0;
-      color: #0099e8;
+      color: $blue;
       text-align: left;
 
     }

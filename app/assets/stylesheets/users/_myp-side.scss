@@ -1,5 +1,5 @@
 .myp-back-gray {
-  background: #EEEEEE;
+  background: $gray;
   width:100%;
 }
 nav.myp-nav {
@@ -12,7 +12,7 @@ ul.myp-nav-list {
   background-color: white;
   li.myp-nav-list-item {
     .flex {
-      border: 1px solid #eeeeee;
+      border: 1px solid $gray;
       a.myp-nav-list-link {
         display: flex; 
         justify-content: space-between;

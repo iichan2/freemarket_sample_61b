@@ -28,9 +28,10 @@
   }
   .myp-num {
     display: flex;
-    width: 30%;
+    width: 35%;
     height: 16px;
     margin: 0 auto;
+    padding: 0 5%;
     &:hover {
       opacity: 0.7;
       cursor: pointer;
@@ -70,7 +71,7 @@ ul.myp-tabs {
     text-align: center;
     line-height: 80px;
     &.active {
-      border-top: 2px solid #ea352d;
+      border-top: 2px solid $red;
       background-color: #fafafa;
     }
     h3.myp {
@@ -113,7 +114,5 @@ h2.purchaseditem-item {
 .mercari-image {
   height: 80px;
   width: 80px;
-  background-image: url("logo-gray-icon.svg");
   margin: 5% auto;
-  background-repeat: no-repeat;
 }

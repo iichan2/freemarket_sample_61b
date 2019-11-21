@@ -1,16 +1,14 @@
 class DeliveryController < ApplicationController
-  def du_update
+  before_action :delivery_params, only: [:update]
+  
+  def update
     @delivery = Delivery.find(params[:id])
-    if @delivery.update(
-      postal_code: params[:postal_code],
-      ken: params[:ken],
-      map: params[:map],
-      banchi: params[:banchi],
-      building: params[:building],
-    )
-      redirect_to user_path
-    else
-      render :identification
-    end
+    @delivery.update(delivery_params)
+    render :identification
   end
+
+  private
+    def delivery_params
+      params.require(:delivery).permit(:postal_code, :ken, :map, :banchi, :building)
+    end
 end

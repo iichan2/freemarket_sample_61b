@@ -21,7 +21,7 @@
             font-weight: 600;
           }
           &__require {
-            background: #ea352d;
+            background: $red;
             margin: 0 0 0 8px;
             padding: 2px 4px;
             border-radius: 2px;
@@ -89,7 +89,7 @@
             font-weight: 600;
           }
           &__require {
-            background: #ea352d;
+            background: $red;
             margin: 0 0 0 8px;
             padding: 2px 4px;
             border-radius: 2px;
@@ -175,7 +175,7 @@
             font-weight: 600;
           }
           &__require {
-            background: #ea352d;
+            background: $red;
             margin: 0 0 0 8px;
             padding: 2px 4px;
             border-radius: 2px;
@@ -196,13 +196,13 @@
           }
           &__info {
             text-align: right;
-            color: #0099e8;
+            color: $blue;
             &__question {
               display: inline-block;
               width: 14px;
               height: 14px;
               border-radius: 50%;
-              background: #0099e8;
+              background: $blue;
               color: #fff;
               line-height: 14px;
               font-size: 12px;
@@ -212,8 +212,8 @@
         }
         .form-btn {
           margin: 40px 0 0;
-          background-color:#ea352d;
-          border: 1px solid #ea352d;
+          background-color: $red;
+          border: 1px solid $red;
           color: #fff;
           display: block;
           width: 100%;
