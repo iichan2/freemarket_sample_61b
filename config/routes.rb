@@ -4,13 +4,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :delivery, only: [:update]
   
-  get 'cardDelete' => 'cards#delete', as: 'cardDelete'
-  resources :cards, only: [:new, :delete] do
+  resources :cards, only: [:new, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
-    end
-    member do
-      post 'delete', to: 'cards#delete'
     end
   end
 
@@ -34,7 +30,6 @@ Rails.application.routes.draw do
       get 'choice_new'
       get 'new_card'
       get 'show_card'
-      post 'create_delivery'
       get 'error_page'
     end
   end
