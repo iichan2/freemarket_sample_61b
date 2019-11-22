@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     able_items.each do |item|
       arry = Image.where(item_id: item.id)
       image = arry.first
-      hash = {item: item,image: item.images}
+      hash = {item: item,image: image}
       @items_images << hash
     end
   end
