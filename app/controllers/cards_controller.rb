@@ -30,7 +30,7 @@ class CardsController < ApplicationController
     end 
   end 
   
-  def delete 
+  def destroy 
     card = current_user.cards.first 
     unless card.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
