@@ -18,11 +18,6 @@ class User < ApplicationRecord
   has_one :delivery
   has_many :cards
   
-  # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-
-  
-  
-  
   
   def self.find_oauth(auth)
     uid = auth.uid
