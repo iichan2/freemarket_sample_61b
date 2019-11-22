@@ -16,12 +16,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get 'payjp' => 'signup#create_payjp', as: 'payjp'
-  post 'signup'  => 'signup#create', as: 'signup'
+  # get 'payjp' => 'signup#create_payjp', as: 'payjp'
+  # post 'signup'  => 'signup#create', as: 'signup'
 
-  resources :signup, only: [:new] do
+  resources :signup, only: [:new,:create] do
     collection do
-      get 'new'
+      # get 'new'
       get 'tel'
       get 'address'
       get 'card'

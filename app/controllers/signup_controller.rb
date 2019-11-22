@@ -70,7 +70,7 @@ class SignupController < ApplicationController
     end
   end
 
-  def mail #SNSのユーザー登録画面
+  def mail
     @user = User.new
   end
 
