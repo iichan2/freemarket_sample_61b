@@ -62,15 +62,12 @@ label input {
   display: flex;
   max-height: 160px;
 }
-
 .img_view {
-    padding: 5px;
+  padding: 5px;
 }
-
 .xxxxxbtn {
-    display: inline;
+  display: inline;
 }
-
 .btn_wrapper{
   width:100%;
 }
@@ -80,12 +77,12 @@ label input {
     width:100%;
     text-align: center;
     margin-right: 10px;
-    color: deepskyblue;
+    color: $blue;
     background-color: $gray;
 }
 .xxxxxbtn.edit{
     margin-left: 10px;
-    color: deepskyblue;
+    color: $blue;
 }
 #edit-images-preview {
     display: flex;
@@ -111,7 +108,7 @@ input[type="text"] {
       height: 24px;
       width: 40px;
       font-size:15px;
-      background-color: red;
+      background-color: $red;
       color: white;
       text-align: center;
       border-radius: 2px;
@@ -151,7 +148,7 @@ input[type="text"] {
       .gazou-okurtokoro{
           width: 700px;
           margin: 0 auto;
-          background: gr;
+          background: $gray;
           &__sell-container{
               padding: 32px 16px;
               font-size:  22px;
@@ -269,7 +266,6 @@ input[type="text"] {
         padding-bottom: 20px;
       }
     }
-    
     .hannbaikakaku{
       height: 240px;
       padding:40px 30px;
@@ -328,11 +324,11 @@ input[type="text"] {
             text-align: center;     
             cursor: pointer;     
             padding : 13px 200px;   
-            background : #ff0000;    
+            background : $red;    
             color: #ffffff;    
             line-height: 1em;       
             transition: .3s;     
-            margin :0 auto 20px;  
+            margin : 0 auto 20px;  
           }
         }
         .buttonyou2{
@@ -366,7 +362,6 @@ input[type="text"] {
     height: 120px;
     margin: 0 auto ;
     text-align: center;
-    
     .kiyaku{
       width: 40%;
       height: 30px;

@@ -26,10 +26,10 @@
       text-decoration: none;
       text-align: center;
       line-height: 48px;
-      &--icon{
+      &--icon {
         padding-right:20px;
       }
-      &--facebook{
+      &--facebook {
         position: relative;
         background: #385185;
         color: #fff;
@@ -38,12 +38,9 @@
         position: relative;
         margin: 16px 0 0;
         border: #979797 solid 1px;
-        color: #333;
+        color: $dark_gray;
       }
-    
     }
-
-    
   }
   .login-form-inner {
     padding: 24px 64px 32px;

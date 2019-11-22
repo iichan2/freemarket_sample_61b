@@ -1,17 +1,16 @@
 = render 'header'
 .content_g
   .left_auto
-    =link_to "" do
-      =image_tag "alltag.png", size: "300x250",class: "masa"
-  %p.midasi
-    この商品は削除されたか 存在しない商品です
+    = link_to "" do
+      = image_tag("alltag.png", size: "300x250",class: "masa")
+  %p.midasi この商品は削除されたか 存在しない商品です
 .adv
   .imagebox
     = link_to "" do
-      =image_tag "app.png", size: "135x42"
+      = image_tag("app.png", size: "135x42")
   .imagebox2
     = link_to "" do
-      =image_tag "google.png", size: "138x42"
+      = image_tag("google.png", size: "138x42")
 .foot
   .resize
     %ul.one
@@ -27,10 +26,10 @@
       %br
       = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'ai')
       %br
-      = link_to "https://twitter.com/login?lang=ja", class: "t-icon" do
-        =fa_icon 'twitter-square'
-      = link_to "https://ja-jp.facebook.com/", class: "f-icon" do
-        =fa_icon 'facebook-square'
+      = link_to("https://twitter.com/login?lang=ja", class: "t-icon") do
+        = fa_icon 'twitter-square'
+      = link_to("https://ja-jp.facebook.com/", class: "f-icon") do
+        = fa_icon 'facebook-square'
     %ul.two
       %li.daimoku
         ヘルプ&ガイド
@@ -78,5 +77,5 @@
       = link_to('United States', root_path, class: 'ai')
   .last
     = link_to "" do
-      =image_tag "mercari1.jpg", size: "140x35",class: "lastmark"
+      = image_tag("mercari1.jpg", size: "140x35",class: "lastmark")
     %p.lastname ©︎2019 Mercari

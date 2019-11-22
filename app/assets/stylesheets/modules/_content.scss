@@ -1,7 +1,6 @@
 .content {
   height: 5540px;
   width: 100%;
-  background-color: pink;
   .contents {
     height: 2770px;
     width: 100%;
@@ -28,18 +27,15 @@
           font-size: 14px;
           margin: auto;
           text-align: center;
-          display: flex;
-          justify-content: space-evenly;
+          @include flex-evenly;
           .qaz {
             margin-top: 20px;
-            text-decoration: none;
             color: black;
             .bar5 {
               background-color: $gray;
               font-size: 12px;
               border-radius: 30px;
               padding: 8px 16px;
-              text-decoration: none;
               font-weight: bold;
             }
           }
@@ -52,11 +48,10 @@
       margin: auto;
       .name {
         height: 100px;
-        width: 100%;
+        @include flex-between;
         .title {
-          width:70%;
-          height:40%;
-          float:left;
+          width: 70%;
+          height: 40%;
           margin-top: 50px;
           font-size: 24px;
           font-weight: 600;
@@ -64,14 +59,9 @@
         .more {
           width: 10%;
           height:10px;
-          float:right;
           font-size: 13px;
-          text-decoration: none;
-          color: $blue;
           margin-top: 65px;
-          text-decoration: none;
           .more2 {
-            text-decoration: none;
             color: $blue;
             font-size: 13px;
             font-weight: bold;
@@ -82,36 +72,27 @@
         height: 540px;
         width: 100%;
         background-color: $gray;
-        display: flex;
+        @include flex-between;
         flex-wrap: wrap;
-        justify-content: space-between;
         .itembox {
           height:45%;
           width:180px;
           background-color: white;
           .itemtop {
             height:75%;
-            width:100%;
-            background-color: white;
             position: relative;
             z-index: 0;
           }  
           .itembottom {
             height:20%;
-            width:100%;
-            background-color: white;
             text-decoration: none;
-            color: black;
             .itembottom2 {
               height: 20%;
               width: 85%;
-              background-color: white;
               font-size: 14px;
               margin: auto;
-              text-decoration: none;
               margin-top: 13px;
               .explanation {
-                text-decoration: none;
                 color: black;
               }
             }

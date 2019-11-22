@@ -1,7 +1,6 @@
-.breadcrumbs{
-  
+.breadcrumbs {
   padding-left: 18%;
-   &__container{
+  &__container {
     display: block;
     padding: 15px;
     border: 1px solid #f5f5f5;
@@ -10,26 +9,23 @@
     font-size: 14px;
     line-height: 1.2;
     padding-right: 50px;
-    
-    a{
+    a {
       margin: 0 8px;
       text-decoration: none;
       color: black;
     }
-    span{
+    span {
       margin: 0 8px;
       font-weight: 600;
     }
   }
 }
-  .breadcrumbs__inner{
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 24px;
-    height: 100%;
-    
-  
-  }
+.breadcrumbs__inner {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 100%;
+}

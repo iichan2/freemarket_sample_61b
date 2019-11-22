@@ -9,7 +9,7 @@
   .category_block_area{
     width: 700px;
     padding: 8px 0;
-    h1{
+    h1 {
       font-size:22px;
       line-height: 46px;
       font-weight:bold;
@@ -30,10 +30,10 @@
         box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
         .category{
           font-size: 16px;
-          color:#333;
+          color: $dark_gray;
         }
         .category:visited{
-          color:#333;
+          color:$dark_gray;
         }
       }
     }
@@ -48,27 +48,26 @@
     border-top-right-radius: 4px;
     background-color: $red;
     color: #FFFFFF;
-    h1{
+    h1 {
       font-size: 22px;
       font-weight: bold;
     }
   }
-  .category_c_area{
+  .category_c_area {
     width: 100%;
     padding: 24px 30px 10px;
     background: #FFFFFF;
-    h2{
+    h2 {
       width: 600px;
-      color:#333;
+      color: $dark_gray;
       font-weight:bold;
       padding: 15px 0 5px;
     }
-    .grandchild_area{
+    .grandchild_area {
       width: 100%;
       padding:0 20px 10px;
-      display: flex;
-      flex-wrap: wrap;
-      .grandchild{
+      @include flex-wrap;
+      .grandchild {
         margin: 8px 0;
         height: 16px;
         display: block;
@@ -78,9 +77,9 @@
     }
   }
 }
-.grandchild{
+.grandchild {
   color: $blue;
 }
-.gradnchild:visited{
+.gradnchild:visited {
   color: $blue;
 }

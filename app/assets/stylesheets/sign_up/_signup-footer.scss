@@ -1,6 +1,5 @@
 .nv-footer{
-  display: flex;
-  justify-content: center;
+  @include flex-center;
   background-color: rgb(245, 245, 245);
   bottom: 0;
 }
@@ -13,16 +12,14 @@
   padding: 40px, 0px;
   font-size: 12px;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  display: flex;
-  justify-content: space-around;
+  @include flex-around;
   align-items: flex-start;
 }
 .nv-footer-image-box{
   height:120px;
   padding-top: 30px;
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .nv-footer-text4{
@@ -30,6 +27,6 @@
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 .nv-footer-link{
-  color:#333;
+  color: $dark_gray;
   text-decoration: none;
 }
