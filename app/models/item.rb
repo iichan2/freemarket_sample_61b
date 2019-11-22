@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   # belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
 
-  # validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
+  validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
                       #あとで追加する項目 , :saler_id,
   # validates :images, length: { in: 1..10 }
 

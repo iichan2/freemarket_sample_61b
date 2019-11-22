@@ -209,7 +209,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(put_up_item_params)
-    if item.save
+    if item.save!
       create_image_params.each do |image_param|
         image = Image.create(item_id: item.id, image_url: image_param)
       end
@@ -218,7 +218,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   private
 
