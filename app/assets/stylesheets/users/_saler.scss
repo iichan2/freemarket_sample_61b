@@ -43,7 +43,7 @@
       cursor: pointer;
     }
     .hyo {
-      color: #333333;
+      color: $dark_gray;
       font-size: 14px;
       margin-left: 10px;
       &:hover {
@@ -134,9 +134,8 @@
     background: white;
     width: 100%;
     overflow: hidden;
-    display: flex;
+    @include flex-between;
     flex-wrap: wrap;
-    justify-content: space-between;
     .saler-items-box {
       margin-top: 5%;
       height: 330px;
@@ -163,8 +162,7 @@
           .like-font {
             position: absolute;
             right: 0;
-            display: flex;
-            justify-content: flex-end;
+            @include flex-right;
             .saler-haert {
               color: $gray;
               background: white;

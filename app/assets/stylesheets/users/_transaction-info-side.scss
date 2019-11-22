@@ -31,18 +31,17 @@ ul.tran-info-content {
       padding-bottom: 5%;
       p.tran-info-item-name {
         padding-top: 3%;
-        color: #0099EB;
+        color: $blue;
       }
       p.tran-info-item-price {
         padding-top: 3%;
-        color: #0099EB;
+        color: $blue;
       }
     }
   }
   li.item-info-gray {
     background-color: $gray;
-    display: flex;
-    justify-content: space-evenly;
+    @include flex-evenly;
     align-items: center;
     height: 70px;
     position: relative;
@@ -56,8 +55,7 @@ ul.tran-info-content {
     }
   }
   li.item-info-white {
-    display: flex;
-    justify-content: space-evenly;
+    @include flex-evenly;
     align-items: center;
     height: 80px;
     position: relative;

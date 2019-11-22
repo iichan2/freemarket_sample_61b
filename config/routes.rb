@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       get 'status_bought'
     end
   end
-
+# パン屑
     resources :mypage do
       collection do
         get "mypage"

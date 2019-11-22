@@ -1,7 +1,3 @@
-* {
-  text-decoration: none;
-}
-
 .single-container {
   position: relative;
   height: 100%;
@@ -11,7 +7,6 @@
   line-height: 1;
   background-color: rgb(245, 245, 245);
 }
-
 .single-header {
   height: 128px;
   text-align: center;
@@ -101,7 +96,7 @@
             position: relative;
             margin: 16px 0 0;
             border: #979797 solid 1px;
-            color: #333;
+            color: $dark_gray;
             &__logo {
               position: absolute;
               top: 50%;
