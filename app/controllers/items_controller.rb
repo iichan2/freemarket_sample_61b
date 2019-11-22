@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted] 
   before_action :session_clear,only:[:index]
 
-  def index
+  def index #image_url_fixed
     items = Item.where(exhibition_state: "出品中")
     @ladies_items = items.lady(1).take(10)
     @mens_items = items.lady(2).take(10)
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   
   end
 
-  def new
+  def new 
     @item = Item.new
     @image = Image.new
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
@@ -112,7 +112,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def transaction
+  def transaction #imageurl fixed
     if user_signed_in?
       @user = User.find(current_user.id)
       ken_to_name = ["海外","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"]
@@ -158,7 +158,7 @@ class ItemsController < ApplicationController
     redirect_to action:"bought", controller: "items", id: @item.id
   end
 
-  def show
+  def show # image_fixed at view
     @item = Item.find(params[:id])
     @saler = User.find(@item.user_id)
     session[:item_id] = @item.id
@@ -179,7 +179,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def saler
+  def saler #fixed 
     @item = Item.find(params[:id])
     able_items = Item.where(user_id: @item.user.id)
     @items_images = []
@@ -215,7 +215,7 @@ class ItemsController < ApplicationController
   def error_page
   end
 
-  def bought
+  def bought #fixed
     @item = Item.find(params[:id])
     @buyer = User.find(@item.buyer_id)
     card = Card.where(user_id: current_user.id).first

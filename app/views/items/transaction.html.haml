@@ -8,7 +8,7 @@
       %section.st-buy-item
         .st-buy-item-in
           %h3.st-buy-item-image
-          = image_tag "#{@image.image_url}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
+          = image_tag "#{@image.image_url.to_s}", alt: '海を売っています', height: '64', width: '64', class: 'umi'
           %p.buy-item-name #{@item.item_name}
           %form.b-form(action="#" method="POST" class="b-form" novalidate="nova")
             %span.bprice ¥#{@item.price.to_s(:delimited)}
