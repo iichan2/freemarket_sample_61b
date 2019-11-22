@@ -1,40 +1,7 @@
-// .active {
-//   background: #fff;
-//   width: 33%;
-//   text-align: center;
-//   vertical-align: top;
-//   float: left;
-// }
-.mypss{
+a.mypss {
   position: relative;
   display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
-  font-weight: bold;
-}
-
-.mypss2{
-  position: relative;
-  display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
-  font-weight: bold;
-}
-
-.mypss3{
-  position: relative;
-  display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
-  font-weight: bold;
-}
-.mypss4{
-  position: relative;
-  display: block;
-  color: #333;
+  color: $dark_gray;
   font-size: 16px;
   line-height: 72px;
   font-weight: bold;
@@ -45,21 +12,17 @@
   background-color:#f5f5f5f5;
   padding: 30px;
   font-size:20px;
-
+  font-weight: bolder;
 }
 .item-info{
   height: 100px;
-  width: 100%;
   display: flex;
   border-bottom: solid #eee 1px;
   .info-left{
-  height:100%;
   width: 15%;
   text-align: center;
-
   }
   .info-right{
-    height:100%;
     flex-grow: 1;
     .info-up{
       height:50%;
@@ -68,7 +31,6 @@
       text-decoration: none;
       color:black;
       padding-left:10px;
-      
     }
     .info-down{
       height:50%;
@@ -76,13 +38,11 @@
       .teisibox{
         height:60%;
         width: 90px;
-        background-color: red;
+        background-color: $red;
         color:white;
         text-align: center;
         border-radius: 3px;
-
       }
     }
-
   }
 }

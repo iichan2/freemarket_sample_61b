@@ -1,9 +1,9 @@
 %footer
-  %div.boxis
+  .boxis
     %nav.color
       .info
         %h2.asi メルカリについて
-        %ul.fo
+        %ul
           %li.opa
             = link_to('会社概要（運営会社)', root_path, class: 'color')
           %li.opa
@@ -14,13 +14,13 @@
             = link_to('公式ブログ', root_path, class: 'color')
           %li.opa
             = link_to('メルカリロゴ利用ガイドライン', root_path, class: 'color')
-          =link_to "https://twitter.com/login?lang=ja", class: "t-icon" do
-            =fa_icon 'twitter-square'
-          =link_to "https://ja-jp.facebook.com/", class: "f-icon" do
-            =fa_icon 'facebook-square'
+          = link_to("https://twitter.com/login?lang=ja", class: "t-icon") do
+            = fa_icon 'twitter-square'
+          = link_to("https://ja-jp.facebook.com/", class: "f-icon") do
+            = fa_icon 'facebook-square'
       .info
         %h2.asi ヘルプ＆ガイド
-        %ul.fo
+        %ul
           %li.opa
             = link_to('メルカリガイド', root_path, class: 'color')
           %li.opa
@@ -60,12 +60,12 @@
               = link_to('法令順守と犯罪抑止のために', root_path, class: 'color')
       .info    
         %h2.asi 国
-        %ul.fo
+        %ul
           %li.opa
             = link_to('日本', root_path, class: 'color')
           %li.opa
             = link_to('United States', root_path, class: 'color')
     .f-under
       = link_to "" do
-        =image_tag "mercari1.jpg", size: "140x35"
+        = image_tag("mercari1.jpg", size: "140x35")
       %span.f ©︎2019 Mercari

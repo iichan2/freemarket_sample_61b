@@ -3,7 +3,6 @@
   vertical-align: top;
   padding: 40px 0 0 44px;
   border: 0;
-  
   .clearfix {
     li {
       margin: 0 40px 0 0;
@@ -20,9 +19,8 @@
     }
     &.through {
       .progress-status:after{
-        &:last-of-type
-        {
-        content: none;
+        &:last-of-type {
+          content: none;
         }
       }
     }
