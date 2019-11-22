@@ -21,7 +21,7 @@
                 =link_to "/items/#{item_image[:item][:id]}" do
                   .item-info
                     .info-left
-                      = image_tag src="#{item_image[:image][:image_url]}", size:"99x99"
+                      = image_tag item_image[:image][:image_url], size:"99x99"
                     .info-right
                       .info-up
                         = item_image[:item][:item_name]
