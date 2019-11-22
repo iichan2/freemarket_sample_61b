@@ -10,8 +10,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :nickname , presence: true
-  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true
   has_many :items 
   has_many :comments
