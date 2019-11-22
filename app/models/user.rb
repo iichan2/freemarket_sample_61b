@@ -1,23 +1,24 @@
 class User < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-  # validates :birth_year, :birth_month, :birth_day, presence: true
-  # belongs_to :card, dependent: :destroy
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :nickname , presence: true
-  # validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
-  # validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_first_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :kana_last_name, presence: true, format: { with: /\A[ァ-ヶー－]+\z/}
   validates :tel_number, presence: true
   has_many :items 
   has_many :comments
   has_one :delivery
   has_many :cards
+  
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  # has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-  # has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
   
   

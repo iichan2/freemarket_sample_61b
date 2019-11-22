@@ -1,53 +1,41 @@
 .header
-  .header_box
-    .h_topbox
-    .h_center_topbox
-      .left_imagbox
-        = link_to root_path do
-          =image_tag "merucari.png", size: "140x35"
-      %form.rightsearch
-        %input.hoge{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
+  .h_box
+    .h_top_box
+      .left_img_box
+        = link_to(root_path) do
+          = image_tag("merucari.png", size: "140x37", class: "header_top_img")
+      %form.search
+        %input.hoge{ name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
         %button.hogehoge
-          =fa_icon "search"
-    .h_bottombox
-    .h_center_bottombox
+          = fa_icon "search"
+    .h_bottom_box
       .left_box
-        .bar
-          =link_to "" do
-            =image_tag "bar.png", size:"15x15"
-        .bar2
-          = link_to('カテゴリーから探す', root_path, class: 'bar2')
-      .left_box2
-        .bar3
-          =link_to ""do
-            =image_tag "tag.png", size:"15x15"
-        .bar4
-          =link_to "", class: "bar4" do
-            &nbsp ブランドから探す
-      .right_boxxx
+        = link_to(categories_path, class: "bar_box") do
+          = image_tag("bar.png", size: "20x15", class: "h_bottom_img")
+          %span.bar カテゴリーから探す
+        = link_to(root_path, class: "bar_box") do
+          = image_tag("tag.png", size: "20x15", class: "h_bottom_img")
+          %span.bar ブランドから探す
+      .right_box
         - if user_signed_in?
-          =link_to "",class:"qbox" do
+          = link_to("", class:"box") do
             %p.heart
-              =fa_icon "heart-o"
-            %p.iine
-              いいね！一覧
-          =link_to "",class:"wbox" do
+              = fa_icon "heart-o"
+            %p.iine いいね！一覧
+          = link_to("", class: "box") do
             %p.bell
-              =fa_icon "bell-o"
-            %p.osirase
-              お知らせ
-          =link_to "",class:"ebox" do
+              = fa_icon "bell-o"
+            %p.news お知らせ
+          = link_to("", class: "box") do
             %p.check
-              =fa_icon "check"
-            %p.yarukotorisuto
-              やることリスト
-          .rbox
-            = link_to action:"show", controller:"users", id:current_user.id do
-              %p.my
-                =fa_icon "futbol-o"
-              %p.mymypage
-                マイページ        
+              = fa_icon "check"
+            %p.todo_list やることリスト
+          = link_to(user_path(current_user.id), class: "box") do
+            %p.soccer
+              = fa_icon "futbol-o"
+            %p.mypage マイページ        
         - else
-          =link_to('新規会員登録', sign_up_path, class: 'touroku')
-          =link_to('ログイン', user_session_path, class: 'login')
-
+          = link_to(sign_up_path, class: "touroku") do
+            %span 新規会員登録
+          = link_to(user_session_path, class: 'login') do
+            %span ログイン

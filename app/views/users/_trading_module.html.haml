@@ -1,8 +1,12 @@
 .categoli_center_box1
-  =link_to "/items/#{@item.id}/edit", class: "itemcomenntts" do
+  =link_to "/items/#{@item.id}/edit", class: "hanage" do
     .cc_box 商品の編集
   .cc_top or
-  =link_to item_stop_path do
-    .cc_center 出品を一旦中止する
-  =link_to item_destroy_path do
+  - if @item.exhibition_state == "出品中"
+    =link_to item_stop_item_path do
+      .cc_center 出品を一旦中止する
+  - else
+    =link_to item_start_item_path do
+      .cc_center 出品を再開する
+  =link_to item_path ,method: :delete do
     .cc_bottom この商品を削除する

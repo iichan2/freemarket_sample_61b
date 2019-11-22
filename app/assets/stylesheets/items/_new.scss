@@ -1,8 +1,7 @@
 .zenntai{
   height: 100%;
   width: 100vw;
-  background-color:#eeeeee;;
-
+  background-color: $gray;
 // 画像投稿分
 .dropzone-container {
     display: flex;
@@ -82,18 +81,15 @@ label input {
     text-align: center;
     margin-right: 10px;
     color: deepskyblue;
-    background-color: #EEEEEE;
+    background-color: $gray;
 }
-
 .xxxxxbtn.edit{
     margin-left: 10px;
     color: deepskyblue;
 }
-
 #edit-images-preview {
     display: flex;
 }
-
   //共通部分
 input[type="text"] {
     width: 350px;
@@ -121,13 +117,12 @@ input[type="text"] {
       border-radius: 2px;
     }
   }
-
 // 以下上から順番
   .header{
     .atamanoe{
       height: 120px;
       line-height:120px;
-      background-color: #eeeeee;
+      background-color: $gray;
       padding:10px;
       text-align: center;
     }
@@ -180,7 +175,7 @@ input[type="text"] {
                   }
                   .form-require{
                       margin-right: 510px;
-                      background: #ea352d;
+                      background: $red;
                       padding: 2px 4px;
                       border-radius: 2px;
                       color: #fff;

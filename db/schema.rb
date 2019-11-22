@@ -146,9 +146,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.string "kana_last_name"
     t.string "nickname"
     t.string "tel_number"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
     t.text "profile"
     t.string "password_confirmation", default: "", null: false
     t.integer "delivery_id"
