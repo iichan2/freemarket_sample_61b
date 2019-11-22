@@ -56,9 +56,9 @@ class UsersController < ApplicationController
     able_items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
     @items_images = []
     able_items.each do |item|
-      arry = Image.where(item_id: item.id)
-      image = arry.first
-      hash = {item: item,image: image}
+      # arry = Image.where(item_id: item.id)
+      # image = arry.first
+      hash = {item: item,image: Image.find(85).image_url.to_s}
       @items_images << hash
     end
   end

@@ -46,7 +46,7 @@ class Item < ApplicationRecord
     ladies_items = []
     ladys.each do |lady|
       image = Image.find_by(item_id: lady[0].id)
-      hash = {name:lady[0].item_name,id:lady[0].id,image_url:image.image_url,price:lady[0].price}
+      hash = {name:lady[0].item_name,id:lady[0].id,image_url:image.image_url.to_s,price:lady[0].price}
       ladies_items << hash
     end
     return ladies_items
