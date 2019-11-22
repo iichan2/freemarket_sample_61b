@@ -34,9 +34,16 @@ class UsersController < ApplicationController
   end
 
   def status_sell
-    exhibition_state = "出品中"
+    exhibition_state = "出品中" 
     who_sold = "user"
-    @items_images = create_one_item_one_image(exhibition_state,who_sold)
+    items_images = create_one_item_one_image(exhibition_state,who_sold)
+    exhibition_state = "停止中"
+    items_images2 = create_one_item_one_image(exhibition_state,who_sold)
+    items_images.push(items_images2)
+    items_images.flatten!
+    @items_images = items_images
+
+
   end
 
   def status_trading
