@@ -17,7 +17,7 @@
             .bp-cell1 支払い金額
             .bp-cell2 ¥#{@item.price.to_s(:delimited)}
             %button.default-btn2
-              =link_to '購入する', buy_path, item_id: @item.id,id: "transaction_link_font"
+              =link_to '購入する', pay_item_path, item_id: @item.id,id: "transaction_link_font"
       %section.stb-info
         .stb-transaction-container
           %h3.z 配送先

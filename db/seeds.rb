@@ -37,7 +37,7 @@ num = 1
 53.times() do
   Delivery.create!(
     first_name: "安倍",
-    last_name: "心臓",
+    last_name: "晋三",
     kana_first_name: "アベ",
     kana_last_name: "シンゾウ",
     postal_code: "123-4567",

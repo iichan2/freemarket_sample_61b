@@ -1,25 +1,14 @@
 
 .profile_main
-  .profile_header
-  .profile_sidebar
   .profile_content
     %section.profile_container
       %h2.profile_head プロフィール
       = form_with model: @user , local: true do |f|
-        -# .profile_change_completed
-        -#   変更しました。
         .profile_icon
           %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png" ,height: "60", width: "60"
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60"
           = f.text_field :nickname, value: @user.nickname, class: "profile_name", placeholder:"例)AYA☆セール中"
-          %ul{class: "profile_error_text"}
-            %li
-              = render "users/notifications"
         .setting_profile_content
           = f.text_area :profile, value: @user.profile, class: "profile_textarea", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
-          = f.submit "変更する",class: "profile_btn"
-  :javascript
-    $(".profile_change_completed").click(function(){
-      this.remove();
-    });
+          = f.submit "変更する", class: "profile_btn"
   .profile_footer

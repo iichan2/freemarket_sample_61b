@@ -1,7 +1,9 @@
+.wrappers {
+  background: $gray;
+}
 .saler-over {
   width: 700px;
   margin: 0 auto;
-  background-color: #eeeeee;
   padding-top: 3%;
 }
 .saler-icon {
@@ -32,9 +34,10 @@
   }
   .myp-num {
     display: flex;
-    width: 30%;
+    width: 35%;
     height: 16px;
     margin: 0 auto;
+    padding: 0 5% 0 7%;
     &:hover {
       opacity: 0.7;
       cursor: pointer;
@@ -63,12 +66,12 @@
   margin: 0 auto;
   width: 100%;
   background: white;
-  border-bottom: 40px solid #eeeeee;
+  border-bottom: 40px solid $gray;
   .likes-box {
     width: 100%;
     height: 6%;
     padding: 3% auto;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid $gray;
     .saler-likes-detail {
       display: flex;
       width: 50%;
@@ -163,7 +166,7 @@
             display: flex;
             justify-content: flex-end;
             .saler-haert {
-              color:#eeeeee;
+              color: $gray;
               background: white;
               margin-top: 5%;
               margin-right: 15%;
