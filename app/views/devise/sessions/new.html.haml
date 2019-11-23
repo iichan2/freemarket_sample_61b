@@ -7,7 +7,7 @@
     .login-no-account
       %p アカウントをお持ちでない方はこちら
       .sign-up
-        = link_to("新規会員登録", signup_index_path, method: :get, class: "sign-up-btn") 
+        = link_to("新規会員登録", new_signup_path, method: :get, class: "sign-up-btn")
     .single-main__container__inner__content
       = link_to(user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook") do
         %i.single-main__container__inner__content__icon.fab.fa-facebook-square

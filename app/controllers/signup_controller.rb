@@ -46,31 +46,29 @@ class SignupController < ApplicationController
     )
     if @delivery.save
       @user.update(delivery_id: @delivery.id)
-      redirect_to payjp_path
-    end
-  end
-
-  def create_payjp
-    require "payjp"
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    if session[:payjpToken].blank?
-      redirect_to action: "card"
-    else
-      customer = Payjp::Customer.create(
-      description: '登録テスト',
-      email: session[:email],
-      card: session[:payjpToken],
-      metadata: {user_id: session[:payjpUser_id]}
-      )
-      @card = Card.new(user_id: session[:payjpUser_id], customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
-        session[:payjpToken] = nil
-        redirect_to newend_signup_index_path
+      require "payjp"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      if session[:payjpToken].blank?
+        redirect_to action: "card"
+      else
+        customer = Payjp::Customer.create(
+        description: '登録テスト',
+        email: session[:email],
+        card: session[:payjpToken],
+        metadata: {user_id: session[:payjpUser_id]}
+        )
+        @card = Card.new(user_id: session[:payjpUser_id], customer_id: customer.id, card_id: customer.default_card)
+        if @card.save
+          session[:payjpToken] = nil
+          redirect_to newend_signup_index_path
+        end
       end
+    else
+      redirect_to error_page_signup_index_path
     end
   end
 
-  def mail #SNSのユーザー登録画面
+  def mail
     @user = User.new
   end
 
