@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
     end
 
     def session_clear
-      session[:payjpUser_id] = nil
       session[:nickname] = nil
       session[:email] = nil
       session[:password] = nil
@@ -39,7 +38,6 @@ class ApplicationController < ActionController::Base
       session[:birth_day] = nil
       session[:tel_number] = nil
       session['devise.omniauth_data'] = nil
-      session[:payjpToken] = nil
       session[:f_name] = nil
       session[:l_name] = nil
       session[:kana_f_name] = nil

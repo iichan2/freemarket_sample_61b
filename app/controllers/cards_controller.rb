@@ -7,13 +7,13 @@ class CardsController < ApplicationController
 
   def pay 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
-    if params['payjpToken'].blank? 
+    if payjp_params['payjpToken'].blank? 
       redirect_to action: "new" 
     else 
       customer = Payjp::Customer.create( 
       description: '登録テスト', 
       email: current_user.email, 
-      card: params['payjpToken'], 
+      card: payjp_params['payjpToken'], 
       metadata: {user_id: current_user.id} 
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card) 
@@ -39,5 +39,11 @@ class CardsController < ApplicationController
       card.delete 
     end 
       redirect_to controller:"users", action: "payment",id: current_user.id 
-  end 
-end 
+  end
+  
+  private
+
+  def payjp_params
+    params.permit(:payjpToken)
+  end
+end
