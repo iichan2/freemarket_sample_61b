@@ -15,8 +15,7 @@ section.bought_notification{
   text-align: center;
   .bought_notification_message1 {
     color: $red;
-    display: flex;
-    justify-content:center;
+    @include flex-center:
     align-items: center;
     margin-bottom: 15px;
     .bought_notification_message_icon{
@@ -52,7 +51,7 @@ section.bought_item_box{
 }
 .bought_item_name{
   display:block;
-  font-weight:600;
+  font-weight: bold;
 }
 .bought_price{
   text-align: center;
