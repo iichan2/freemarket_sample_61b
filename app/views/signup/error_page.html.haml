@@ -10,6 +10,6 @@
         .registration-form__content
           %p.done.message 認証に失敗しました。
           %p.done.message お手数ですが、再度入力をお願いいたします。
-          = link_to ( signup_index_path ) do
+          = link_to new_signup_path do
             %button.btn-default.btn-red 登録画面に戻る
 = render 'signup/signup-footer'

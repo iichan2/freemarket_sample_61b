@@ -3,7 +3,6 @@
   width: 100%;
   background-color: white;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  border-bottom: 1px solid #eee;
   position: relative;
   z-index: 5;
   .h_box {
@@ -14,8 +13,7 @@
     .h_top_box {
       height: 50%;
       width :100%;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between;
       img.h_top_img {
         margin: 3% 0;
       }
@@ -44,15 +42,12 @@
     }
     .h_bottom_box {
       height: 50%;
-      width :100%;
-      display: flex;
-      justify-content: space-between;
       padding-top: 1%;
+      @include flex-between;
       .left_box {
         width: 50%;
         display: flex;
         a.bar_box {
-          text-decoration: none;
           width: 33%;
           display: flex;
           margin-right: 5%;
@@ -73,9 +68,7 @@
       }
       .right_box {
         width: 50%;
-        display: flex;
-        justify-content: flex-end;
-        text-decoration: none;
+        @include flex-right;
         a.box {
           display: flex;
           white-space: nowrap;
@@ -83,70 +76,51 @@
           color: black;
           &:hover .heart {
             color: $blue;
-            font-weight: bold;
           }
           &:hover .iine {
-            color: $blue;
-            transition: 0.3s;
+            @include slow_blue;
           }
           &:hover .bell {
             color: $blue;
           }
           &:hover .news {
-            color: $blue;
-            transition: 0.3s;
+            @include slow_blue;
           }
           &:hover .check {
             color: $blue;
           }
           &:hover .todo_list {
-            color: $blue;
-            transition: 0.3s;
+            @include slow_blue;
           }
           &:hover .soccer {
             color: $blue;
           }
           &:hover .mypage {
-            color: $blue;
-            transition: 0.3s;
+            @include slow_blue;
           }
           p.heart {
-            margin-top: 3%;
-            opacity: 0.5;
+            @include header_icon;
           }
           p.iine {
-            font-size: 14px;
-            opacity: 0.9;
-            margin: 2% 0 0 5%;
+            @include header_list;
           }
           p.bell {
-            margin-top: 3%;
-            opacity: 0.3;
+            @include header_icon;
           }
           p.news {
-            font-size: 14px;
-            opacity: 0.9;
-            margin: 2% 0 0 5%;
+            @include header_list;
           }
           p.check {
-            margin-top: 3%;
-            opacity: 0.3;
+            @include header_icon;
           }
           p.todo_list {
-            font-size: 14px;
-            opacity: 0.9;
-            margin: 2% 0 0 5%;
+            @include header_list;
           }
           p.soccer {
-            display: inline-block;
-            margin-top: 3%;
-            opacity: 0.3;
+            @include header_icon;
           }
           p.mypage {
-            display: inline-block;
-            font-size: 14px;
-            opacity: 0.9;
-            margin: 2% 0 0 5%;
+            @include header_list;
           }
         }
         .touroku {

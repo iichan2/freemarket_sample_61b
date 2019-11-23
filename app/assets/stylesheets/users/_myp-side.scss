@@ -14,25 +14,23 @@ ul.myp-nav-list {
     .flex {
       border: 1px solid $gray;
       a.myp-nav-list-link {
-        display: flex; 
-        justify-content: space-between;
+        @include flex-between;
         font-size: 14px;
         padding: 16px;
-        color: #333333;
-        text-decoration: none;
+        color: $dark_gray;
         line-height: 31px;
         cursor: pointer;
         &:hover {
-          background-color: #FAFAFA;
+          background-color: #FAFAFA;          
         }
-      }
-      .icon-angle-right {
-        margin: auto 5%;
-        font-size: 27px;
-        color: #cccccc;
-        &:hover {
-          color: #333333;
-          right: 11px;
+        &:hover .icon-angle-right {
+          color: $dark_gray;
+          margin-right: 4%;
+        }
+        .icon-angle-right {
+          margin-right: 5%;
+          font-size: 27px;
+          color: #cccccc;
         }
       }
     }
@@ -40,7 +38,7 @@ ul.myp-nav-list {
 }
 h3.myp-nav-head {
   font-size: 16px;
-  color: #333333;
+  color: $dark_gray;
   margin-top: 40px;
   font-weight: bold;
 }

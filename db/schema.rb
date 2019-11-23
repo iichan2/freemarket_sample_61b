@@ -12,23 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_11_09_040826) do
 
-  create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "kana_first_name", null: false
-    t.string "kana_last_name", null: false
-    t.string "bank_name", null: false
-    t.string "job", null: false
-    t.string "address", null: false
-    t.string "birthday", null: false
-    t.string "sex", null: false
-    t.string "country", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_banks_on_user_id"
-  end
-
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand_name"
     t.string "brand_group"
@@ -163,7 +146,6 @@ ActiveRecord::Schema.define(version: 2019_11_09_040826) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "banks", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"

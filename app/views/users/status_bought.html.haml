@@ -1,7 +1,7 @@
 .myp-back-gray
   - breadcrumb :status_bought
   = render 'items/header'
-  =render 'layouts/breadcrumbs'
+  = render 'layouts/breadcrumbs'
   .wrapper-container
     .wrapper
       = render 'myp-side'
@@ -11,24 +11,24 @@
             .content-title 購入した商品
             %ul.myp-tabs
               %li.news
-                =link_to "取引中", status_delivery_user_path, class: "mypss3"
+                = link_to("取引中", status_delivery_user_path, class: "mypss")
               %li.news.active
-                =link_to "過去の取引", status_bought_user_path, class: "mypss4"
-            -if @items_images.present?
+                = link_to("過去の取引", status_bought_user_path, class: "mypss")
+            - if @items_images.present?
               - @items_images.each do |item_image|
-                =link_to "/items/#{item_image[:item][:id]}" do
+                = link_to("/items/#{item_image[:item][:id]}") do
                   .item-info
                     .info-left
                       = image_tag item_image[:image][:image_url].to_s, size:"99x99"
                     .info-right
                       .info-up
-                        = item_image[:item][:item_name]
+                        = item_image([:item][:item_name])
                       .info-down
-            -else
+            - else
               %ul#mypage-tab-todo.myp-item-list
                 %li.myp-item-not-found_old 
                   .mercari-image
-                    = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', height: '65', width: '80', class: 'gray'
+                    = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg', alt: 'メルカリロゴ', size: '80x65', class: 'gray')
               %h3.to-do-list 取引中の商品はありません
   = render 'items/adv'
   = render 'items/footer'

@@ -9,8 +9,7 @@
           = image_tag src="#{@item.images[0].image_url}", size:"280x266"
           - if @item.exhibition_state == "売却済"
             .items-box_photo__sold
-              .items-box_photo__sold__inner
-                SOLD
+              .items-box_photo__sold__inner SOLD
         .oouu
           - @item.images.each do |item|
             %img{:src => "#{item.image_url.to_s}",:height => "120",:width => "92"}/
@@ -23,23 +22,20 @@
               =link_to("#{@item.user.nickname}",{action:"saler", controller: "items",id: @saler.id},class: "vnk")
               .jgiore
                 = image_tag src="smile.png", size: "15x15",class: "vjnl"
-                %span.dfs 
-                  7
+                %span.dfs 7
                 = image_tag src="not_smile.png", size: "15x15",class: "vjnla"
-                %span.dfsa 
-                  0
+                %span.dfsa 0
                 = image_tag src="not.png", size: "15x15",class: "vjnlq"
-                %span.dfsq
-                  0
+                %span.dfsq 0
           .zx
             .pmfo
               %p.jgjgjh カテゴリー
             .igrej
-              =link_to("#{@item.category.parent.parent.category}",root_path,class: "aas")
+              =link_to("#{@item.category.parent.parent.category}",root_path,class: "aaa")
               %br
-              =link_to(">#{@item.category.parent.category}",root_path,class: "aad")
+              =link_to(">#{@item.category.parent.category}",root_path,class: "aaa")
               %br
-              =link_to(">#{@item.category.category}",root_path,class: "aaf")
+              =link_to(">#{@item.category.category}",root_path,class: "aaa")
           .zx
             .pmfo
               %p.jgjgjh ブランド
@@ -72,10 +68,8 @@
       .bbbt
         %p.byr
           = "¥ #{@item.price.to_s(:delimited)}"
-        %p.byt
-          (税込)
-        %p.byy
-          送料込み
+        %p.byt (税込)
+        %p.byy 送料込み
       - if @item.exhibition_state == "出品中"
         -if user_signed_in?
           - unless @item.user.id ==current_user.id
@@ -89,20 +83,18 @@
           %p.iuorwe 売り切れました
       .yuyuyu
         .okjgnd
-          =@item.item_info
+          = @item.item_info
       .itjgo
-        =link_to "",class: "nefj" do
-          =fa_icon "heart-o"
+        = link_to "",class: "nefj" do
+          = fa_icon "heart-o"
           %span.vjnhh
             &nbsp;いいね！&nbsp;0
         =link_to "",class: "trouido" do
-          =fa_icon "flag"
-          %span.vjn
-            不適切な商品の報告
-        =link_to "",class: "trouo" do
+          = fa_icon "flag"
+          %span.vjn 不適切な商品の報告
+        = link_to "",class: "trouo" do
           =fa_icon "lock"
-          %span.vjngr
-            あんしん・あんぜんへの取り組み
+          %span.vjngr あんしん・あんぜんへの取り組み
     - if user_signed_in?
       - if @item.user_id == current_user.id
         = render 'users/trading_module'
@@ -117,13 +109,12 @@
                 %p=comment.text
               .honda
       = form_for(@comment, url: comment_create_items_path, method: :post) do |f|
-        %p.rfvn
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %p.rfvn 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         - if user_signed_in?
           .tnu
-            = f.text_area :text, size: "75x6" 
+            = f.text_area :text, size: "70x6" 
             = f.hidden_field :item_id, value: @item.id
-          %input.itvu{type:  "submit", value: "コメントする"}
+          %input.itvu{ type: "submit", value: "コメントする"}
     .ibox
       =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
       =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
@@ -131,9 +122,9 @@
       = link_to "https://ja-jp.facebook.com/" do
         =image_tag "face.png", size: "50x50"
       = link_to "https://twitter.com/login?lang=ja" do
-        =image_tag "tww.png", size: "50x50"
+        = image_tag "tww.png", size: "50x50"
       = link_to "https://www.pinterest.jp/" do
-        =image_tag "pinserest.png", size: "50x50"
+        = image_tag "pinserest.png", size: "50x50"
     .kbox
       = link_to("#{@item.user.nickname}さんの出品",root_path,class:"vunt")  
     .jbox
@@ -147,9 +138,8 @@
                 .nekoneko
                   %p.yhgv
                     = "¥ #{item.price.to_s(:delimited)}"
-                  =fa_icon "heart-o",class:"tgjvm"
-                  %supan.wio
-                    0
+                  = fa_icon "heart-o",class:"tgjvm"
+                  %supan.wio 0
   .mbox
     .tugv
     .rti
