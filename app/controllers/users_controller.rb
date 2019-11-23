@@ -34,46 +34,23 @@ class UsersController < ApplicationController
   end
 
   def status_sell
-    items = Item.where(user_id: @user.id)
-    able_items = items.state("出品中")+items.state("停止中")
-    @items_images = create_one_item_one_image(able_items)
-
+    @items = current_user.items.includes(:images).state('出品中')+ current_user.items.includes(:images).state('停止中')
   end
 
   def status_trading
-    items = Item.where(user_id: @user.id)
-    able_items = items.state("取引中")
-    @items_images = create_one_item_one_image(able_items)
+    @items = current_user.items.includes(:images).state('取引中')
   end
 
   def status_sold
-    items = Item.where(user_id: @user.id)
-    able_items = items.state("売却済")
-    @items_images = create_one_item_one_image(able_items)
+    @items = current_user.items.includes(:images).state('売却済')
   end
   
   def status_delivery
-    items = Item.where(buyer_id: @user.id)
-    able_items = items.state("取引中")
-    @items_images = create_one_item_one_image(able_items)
+    @items = Item.where(buyer_id: @user.id).includes(:images).state('取引中')
   end
 
   def status_bought
-    items = Item.where(buyer_id: @user.id)
-    able_items = items.state("売却済")
-    @items_images = create_one_item_one_image(able_items)
-  end
-
-
-  def create_one_item_one_image(able_items)
-    items_images = []
-    able_items.each do |item|
-      arry = Image.where(item_id: item.id)
-      image = arry.first
-      hash = {item: item,image: image}
-      items_images << hash
-    end
-    return items_images
+    @items = Item.where(buyer_id: @user.id).includes(:images).state('売却済')
   end
 
   def logout

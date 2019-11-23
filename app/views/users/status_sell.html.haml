@@ -16,17 +16,17 @@
                 = link_to("取引中", status_trading_user_path, class: "mypss")
               %li.news
                 = link_to("売却済", status_sold_user_path, class: "mypss")
-            - if @items_images.present?
-              - @items_images.each do |item_image|
-                = link_to("/items/#{item_image[:item][:id]}") do
+            - if @items.present?
+              - @items.each do |item|
+                = link_to("/items/#{item.id}") do
                   .item-info
                     .info-left
-                      = image_tag item_image[:image][:image_url], size:"99x99"
+                      = image_tag item.images.first.image_url, size:"99x99"
                     .info-right
                       .info-up
-                        = item_image[:item][:item_name]
+                        = item.item_name
                       .info-down
-                        -if item_image[:item][:exhibition_state] == "停止中"
+                        -if item.exhibition_state == "停止中"
                           .teisibox 出品停止中
             - else
               %ul#mypage-tab-todo.myp-item-list
