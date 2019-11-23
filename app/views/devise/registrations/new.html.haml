@@ -5,7 +5,6 @@
     .sign_up_new_content
       %h2.new_member_registration 新規会員登録
       .registrations
-        = link_to(signup_index_path, method: :get, class:"registration_box mail") do
         = link_to(new_signup_path, method: :get, class:"registration_box mail") do
           = fa_icon("envelope-o", class:"mail_icon")
           %p.mail_address メールアドレスで登録する
