@@ -35,32 +35,32 @@ class UsersController < ApplicationController
 
   def status_sell
     items = Item.where(user_id: @user.id)
-    able_items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
+    able_items = items.state("出品中"||"停止中")
     @items_images = create_one_item_one_image(able_items)
 
   end
 
   def status_trading
     items = Item.where(user_id: @user.id)
-    able_items = items.where(exhibition_state: "取引中")
+    able_items = items.state("取引中")
     @items_images = create_one_item_one_image(able_items)
   end
 
   def status_sold
     items = Item.where(user_id: @user.id)
-    able_items = items.where(exhibition_state: "売却済")
+    able_items = items.state("売却済")
     @items_images = create_one_item_one_image(able_items)
   end
   
   def status_delivery
     items = Item.where(buyer_id: @user.id)
-    able_items = items.where(exhibition_state: "取引中")
+    able_items = items.state("取引中")
     @items_images = create_one_item_one_image(able_items)
   end
 
   def status_bought
     items = Item.where(buyer_id: @user.id)
-    able_items = items.where(exhibition_state: "売却済")
+    able_items = items.state("売却済")
     @items_images = create_one_item_one_image(able_items)
   end
 
