@@ -1,8 +1,8 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to "/"do
-        =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
+      = link_to(root_path) do
+        = image_tag("/images/signup-mercari.png", size: "185x49", class: "mercari-logo")
     %nav.progress-bar
       %ol.clearfix
         %li.active
@@ -46,9 +46,9 @@
           .form-group
             = f.label "苗字(全角)",class: "label"
             %span.require 必須
-            .form-group
+          .form-group
             = f.text_field :last_name, placeholder: "例)山田",required: 'true',class: "input-default"
-            .form-group
+          .form-group
             = f.label "名字(全角)",class: "label"
             %span.require 必須
             = f.text_field :first_name, placeholder: "例)彩",required: 'true',class: "input-default"
@@ -74,14 +74,13 @@
             .clearfix
           %p.form-info-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .l-single-content
+            = render '/signup/index' 
             .form-group
-              = render '/signup/index' 
-              .form-group
-              %l-single-text.text-center
-                %p「次へ進む」のボタンを押すことにより、
-                = link_to '利用規約','https://www.mercari.com/jp/tos_list/', class: 'bluee'   
-                %p に同意したものとみなします
-              =f.submit"次へ進む" ,class: " btn-default " 
-              .form-group.text-right
-              =link_to "本人情報の登録について", "https://www.mercari.com/jp/help_center/article/423/",class: "decolation-blue"
+              %p
+                %span「次へ進む」のボタンを押すことにより、
+                = link_to('利用規約','https://www.mercari.com/jp/tos_list/', class: 'blue')
+                %span に
+                %span.text-center 同意したものとみなします
+            = f.submit "次へ進む" ,class: "btn-default" 
+            = link_to("本人情報の登録について", "https://www.mercari.com/jp/help_center/article/423/",class: "decolation-blue")
 = render 'signup/signup-footer'
