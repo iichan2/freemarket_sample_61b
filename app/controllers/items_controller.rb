@@ -187,15 +187,15 @@ class ItemsController < ApplicationController
   def item_start
     @item = Item.find(params[:id])
     @item.update(exhibition_state: "出品中")
-    redirect_to @item
+    redirect_to(@item)
   end
 
   def destroy
     @item = Item.find(params[:id])
     if @item.update(exhibition_state: "削除済")
-      redirect_to user_path(current_user)
+      redirect_to(user_path(current_user))
     else
-      redirect_to error_page_items_path
+      redirect_to(error_page_items_path)
     end
   end
 
@@ -259,7 +259,7 @@ class ItemsController < ApplicationController
         end
       end
     end
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
 
@@ -282,14 +282,14 @@ class ItemsController < ApplicationController
   def redirect_when_items_cant_be_bought
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id || @item.exhibition_state != "出品中"
-      redirect_to root_path
+      redirect_to(root_path)
     end
   end
 
   def redirect_others
     @item = Item.find(params[:id])
     unless @item.user_id == current_user.id
-      redirect_to root_path
+      redirect_to(root_path)
     end
   end
 end

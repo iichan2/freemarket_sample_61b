@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
@@ -19,11 +18,6 @@ class User < ApplicationRecord
   has_many :cards
   
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-
-  
-  
-  
-  
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
@@ -54,5 +48,3 @@ class User < ApplicationRecord
     # ハッシュにしてsignupコントローラーに渡す
   end
 end
-
-
