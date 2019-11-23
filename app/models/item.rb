@@ -15,7 +15,6 @@ class Item < ApplicationRecord
   # validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
                       #あとで追加する項目 , :saler_id,
   # validates :images, length: { in: 1..10 }
-  scope :state, -> (exhibit){  where(exhibition_state: (exhibit)) }
 
   def self.search(item_name)
     if item_name
