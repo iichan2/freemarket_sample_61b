@@ -210,9 +210,6 @@ class ItemsController < ApplicationController
   def create
     item = Item.new(put_up_item_params)
     if item.save!
-      create_image_params.each do |image_param|
-        image = Image.create(item_id: item.id, image_url: image_param)
-      end
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path
@@ -222,16 +219,7 @@ class ItemsController < ApplicationController
   private
 
   def put_up_item_params
-    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id, exhibition_state: "出品中")
-  end
-
-  def create_image_params
-    original_params = params[:item][:images_attributes]
-    images_arry = []
-    original_params.each do |origin|
-      images_arry << origin[1][:image_url]
-    end
-    return images_arry
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price,images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
   end
 
   def update_item_params
