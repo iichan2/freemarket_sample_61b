@@ -34,49 +34,37 @@ class UsersController < ApplicationController
   end
 
   def status_sell
-    exhibition_state = "出品中" 
-    who_sold = "user"
-    items_images = create_one_item_one_image(exhibition_state,who_sold)
-    exhibition_state = "停止中"
-    items_images2 = create_one_item_one_image(exhibition_state,who_sold)
-    items_images.push(items_images2)
-    items_images.flatten!
-    @items_images = items_images
-
+    items = Item.where(user_id: @user.id)
+    able_items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
+    @items_images = create_one_item_one_image(able_items)
 
   end
 
   def status_trading
-    exhibition_state = "取引中"
-    who_sold = "user"
-    @items_images = create_one_item_one_image(exhibition_state,who_sold)
+    items = Item.where(user_id: @user.id)
+    able_items = items.where(exhibition_state: "取引中")
+    @items_images = create_one_item_one_image(able_items)
   end
 
   def status_sold
-    exhibition_state = "売却済"
-    who_sold = "user"
-    @items_images = create_one_item_one_image(exhibition_state,who_sold)
+    items = Item.where(user_id: @user.id)
+    able_items = items.where(exhibition_state: "売却済")
+    @items_images = create_one_item_one_image(able_items)
   end
   
   def status_delivery
-    exhibition_state = "取引中"
-    who_sold = "buyer"
-    @items_images = create_one_item_one_image(exhibition_state,who_sold)
+    items = Item.where(buyer_id: @user.id)
+    able_items = items.where(exhibition_state: "取引中")
+    @items_images = create_one_item_one_image(able_items)
   end
 
   def status_bought
-    exhibition_state = "売却済"
-    who_sold = "buyer"
-    @items_images = create_one_item_one_image(exhibition_state,who_sold)
+    items = Item.where(buyer_id: @user.id)
+    able_items = items.where(exhibition_state: "売却済")
+    @items_images = create_one_item_one_image(able_items)
   end
 
-  def create_one_item_one_image(exhibition_state,who)
-    if who == "user"
-      items = Item.where(user_id: current_user.id)
-    else
-      items = Item.where(buyer_id: current_user.id)
-    end
-    able_items = items.where(exhibition_state: exhibition_state)
+  def create_one_item_one_image(able_items)
     items_images = []
     able_items.each do |item|
       arry = Image.where(item_id: item.id)

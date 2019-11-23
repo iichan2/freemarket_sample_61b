@@ -21,7 +21,7 @@ class User < ApplicationRecord
   # # has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
 
   
-  
+  scope :exhibition, -> {   items.where(exhibition_state: (exhibition)) }
   
   
   def self.find_oauth(auth)
