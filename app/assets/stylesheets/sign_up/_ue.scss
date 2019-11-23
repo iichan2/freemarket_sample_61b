@@ -2,13 +2,11 @@
 .single-container {
   position: relative;
   height: 100%;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
   color: rgb(51, 51, 51);
   line-height: 1;
-  background-color: rgb(245, 245, 245);
+  background-color: $gray;
 }
-
 .single-header {
   height: 128px;
   text-align: center;
@@ -21,7 +19,7 @@
     img.mercari-logo:hover {
       opacity: 0.7 ;
     }
-    }
+  }
 }
 .single-main {
   display: block;
@@ -36,7 +34,7 @@
       line-height: 2;
       &__red {
         font-weight: bold;
-        color: rgb(180, 21, 21);
+        color: $red;
         font-size: 20px;
       }
     }
@@ -56,14 +54,13 @@
       &__content {
         max-width: 320px;
         margin: 0 auto;
-        &__icon{
+        &__icon {
           position: absolute;
           font: normal 30px FontAwesome;
           margin-left: 5px;
           top: 50%;
           left: 16px;
-          -webkit-transform: translate(0, -50%);
-        
+          -webkit-transform-: translate(0, -50%);
           color: white;
         }
         &__mail {
@@ -72,7 +69,6 @@
           margin-left: 5px;
           top: 50%;
           left: 16px;
-          
           color: gray;
         }
         .contents__btn{
@@ -111,7 +107,6 @@
     }
   }
 }
-
 .single-footer {
   text-align: center;
   width: 456px;
@@ -127,7 +122,7 @@
     list-style: none;
     &__content {
       display: inline-block;
-      margin: 0 0 0 16px;
+      margin-left: 16px;
       &__portion {
         color: black;
       }
@@ -141,9 +136,9 @@
     padding-top: 40px;
     height: 65 ;
     width: 80px; 
-  }
-  img.footer-logo:hover {
-    opacity: 0.7 ;
+    &:hover {
+      opacity: 0.7 ;
+    }
   }
   .footer-century {
     margin: 8px 0 0;

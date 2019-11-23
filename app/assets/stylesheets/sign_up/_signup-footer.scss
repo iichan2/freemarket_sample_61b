@@ -1,6 +1,7 @@
 .nv-footer{
   @include flex-center;
   background-color: rgb(245, 245, 245);
+  background-color: $gray;
   bottom: 0;
 }
 .nv-footer-box{
