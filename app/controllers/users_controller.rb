@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def status_sell
     items = Item.where(user_id: @user.id)
-    able_items = items.state("出品中"||"停止中")
+    able_items = items.state("出品中")+items.state("停止中")
     @items_images = create_one_item_one_image(able_items)
 
   end
@@ -63,6 +63,7 @@ class UsersController < ApplicationController
     able_items = items.state("売却済")
     @items_images = create_one_item_one_image(able_items)
   end
+
 
   def create_one_item_one_image(able_items)
     items_images = []
