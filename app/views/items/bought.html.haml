@@ -14,7 +14,7 @@
       %section.bought_item_box
         .bought_item_in
           %h3.bought_item_image
-          = image_tag "#{@image.image_url}", height: '150', width: '150'
+          = image_tag @image.image_url.to_s, height: '150', width: '150'
           %p.bought_item_name #{@item.item_name}
       %section.bought_price
         %span.bought_item_price ¥#{@item.price.to_s(:delimited)}

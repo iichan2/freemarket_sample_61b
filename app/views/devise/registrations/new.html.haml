@@ -1,30 +1,24 @@
-.feuovn
-  .tgj
-    =link_to "/" do
-      =image_tag "mercaari.png",class:"ktjnr",size:"180x50"
-  .tgvrb
-    .tgdw
-      %p.rfsv 新規会員登録
-        
-    .yhb
-      =link_to new_signup_path, method: :get ,class:"fhb" do
-        =fa_icon "envelope-o",class:"ooy"
-        %span.ooy
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;メールアドレスで登録する
-      =link_to user_facebook_omniauth_authorize_path, method: :post ,class:"grgr" do
-        =fa_icon "facebook-square",class:"frfr",size:"30x30"
-        %span.ooy0
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Facebookで登録する
-      =link_to user_google_oauth2_omniauth_authorize_path, method: :post ,class:"gtgt" do
-        =image_tag "/images/google.svg",class:"ghgh",size:"45x45"
-        %span.gkgk
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Googleで登録する
-  .rlsjo
-    =link_to("プライバシーポリシー",root_path,class:"utvuha")
-    =link_to("メルカリ利用規約",root_path,class:"utvuhb")
-    =link_to("特定商取引に関する表記",root_path,class:"utvuhc")
-  .tgjtv
-    =link_to "root_path" do
-      =image_tag "merko.png",size:"70x70",class:"uklgv"
-  .hgbf
-    %p © 2019 Mercari
+.myp-back-gray
+  .sign_up_new_container
+    = link_to(root_path, class: "over_mercari_img") do
+      = image_tag("signup-mercari.png", size:"180x45", class: "mercari-logo")
+    .sign_up_new_content
+      %h2.new_member_registration 新規会員登録
+      .registrations
+        = link_to(new_signup_path, method: :get, class:"registration_box mail") do
+          = fa_icon("envelope-o", class:"mail_icon")
+          %p.mail_address メールアドレスで登録する
+        = link_to(user_facebook_omniauth_authorize_path, method: :post, class:"registration_box facebook") do
+          = fa_icon('facebook-square', class:"facebook_icon", size:"30x30")
+          %p.facebook Facebookで登録する
+        = link_to(user_google_oauth2_omniauth_authorize_path, method: :post, class:"registration_box google") do
+          = image_tag("/images/google.svg",class:"google_icon",size:"45x45")
+          %p.google Googleで登録する
+    .rule-bar
+      = link_to("プライバシーポリシー", root_path, class:"rule")
+      = link_to("メルカリ利用規約", root_path, class:"rule")
+      = link_to("特定商取引に関する表記", root_path, class:"rule")
+    .mercari_img_content
+      = link_to(root_path) do
+        = image_tag("merko.png", size:"70x70", class:"uklgv")
+    .under_mercari © 2019 Mercari
