@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
     @category_p_now = @category_c_now.parent
     @p_c_children = @category_p_now.children
     @c_gc_children = @category_c_now.children
+    @brand = Brand.find(@item.brand_id)
   end
 
   def get_category_children 

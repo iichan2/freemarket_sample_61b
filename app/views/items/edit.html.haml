@@ -78,6 +78,11 @@
                         %option{value: "#{child.id}"} 
                           = child.category
           .bun-matome
+            .bunn  ブランド
+            .any  任意
+          .brand_name_field
+            = f.text_field :brand_id, name: :brand_name, placeholder: 'ブランドの名前を入力して下さい', value: @brand.brand_name
+          .bun-matome
             .bunn  商品の状態
             .hissu  必須
           .jyoutai-box

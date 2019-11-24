@@ -405,7 +405,12 @@ img.edit-img {
   margin: 3% 0 0 0;
 }
 .xxxxxbtn.deleted {
-  @extend .xxxxxbtn.delete;
+  position: absolute;
+  bottom:3px;
+  text-align: center;
+  margin-right: 10px;
+  color: $blue;
+  background-color: $gray;
   display: block;
   max-height: 38px;
   line-height: 38px;
