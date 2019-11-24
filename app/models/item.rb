@@ -52,4 +52,15 @@ class Item < ApplicationRecord
     end
     return ladies_items
   end
+
+  def self.brand_item_search(brand_name)
+    items = []
+    same_name_brands = Brand.where(brand_name: brand_name)
+    same_name_brands.each do |a_brand|
+      a_item = Item.find_by(brand_id: a_brand.id)
+      items << a_item
+    end
+    return items
+  end
+
 end
