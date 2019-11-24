@@ -12,6 +12,7 @@ $(window).on("turbolinks:load",function(){
     $('label').attr('for', for_attribute)
     //追加用ラベルの追加
     var label = $(` <label for="upload-image${image_attaced_counts}">
+                    click here
                     <div class='sell_upload__area'>
                       <input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data-countNumber=${image_attaced_counts} id="upload-image${image_attaced_counts}" type="file" >
                     </div>
@@ -92,6 +93,7 @@ $(document).on('click', '.delete', function() {
   images[delete_target_input_number] = null
   // iichanboxの数が５以下の場合第2ラベル削除、第1ラベル挿入
   var label = $(` <label for="upload-image${image_attaced_counts}">
+                    click here
                     <div class='sell_upload__area'>
                     </div>
                   </label>`);
