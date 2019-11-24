@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def new 
     @item = Item.new
-    @image = Image.new
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
   end
 
@@ -26,7 +25,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
     @parents = Category.where(ancestry: nil)
-    @image = @item.images 
     @category_gc_now = Category.find(@item.category_id)
     @category_c_now = @category_gc_now.parent
     @category_p_now = @category_c_now.parent
@@ -43,59 +41,11 @@ class ItemsController < ApplicationController
   end 
   
   def update
-    if params[:item][:images_attributes][:"0"][:image_url].nil?
-      if @item.update!(update_item_params)
-        redirect_to status_sell_user_path(current_user.id)
-      else
-        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
-      end
+    item = Item.find(params[:id])    
+    if item.update(update_item_params)
+      redirect_to user_path(current_user.id)
     else
-      if @item.update!(update_item_params_without_image)
-        uploaded_files = [
-          params[:item][:images_attributes][:"0"],
-          params[:item][:images_attributes][:"1"],
-          params[:item][:images_attributes][:"2"],
-          params[:item][:images_attributes][:"3"],
-          params[:item][:images_attributes][:"5"],
-          params[:item][:images_attributes][:"4"],
-          params[:item][:images_attributes][:"6"],
-          params[:item][:images_attributes][:"7"],
-          params[:item][:images_attributes][:"8"],
-          params[:item][:images_attributes][:"9"]
-        ]
-        num = 1
-        uploaded_files.each do |uf|
-          if uf.nil?
-            num += 1
-          else
-            date = DateTime.now.strftime('%Y%m%d%H%M%S').to_i
-            if uf[:image_url].kind_of?(Array)
-              uff = uf[:image_url][0]
-            else
-              uff = uf[:image_url]
-            end
-            if uff.nil?
-              num += 1
-            else
-              output_path = Rails.root.join('public', "#{@item.id}", "#{date + num}")
-              File.open(output_path, 'w+b') do |fp|
-                fp.write  uff.read
-              end
-              save_path = "/#{@item.id}/#{date + num}"
-              @image = Image.create(item_id:@item.id,image_url:save_path)
-              num += 1
-            end 
-          end
-        end
-        redirect_to status_sell_user_path(current_user.id)
-      else
-        redirect_to controller: "items", action: "edit", id:"#{@item.id}"
-      end
-      # @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
-      # @category_grandchild = Category.find(@item.category_id)
-      # @category_child = @category_grandchild.parent
-      # @category_parent = @category_child.parent
-      # redirect_to edit_item_path(@item)
+      redirect_to edit_item_path(item.id)
     end
   end
 
@@ -209,7 +159,7 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(put_up_item_params)
-    if item.save!
+    if item.save
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path
@@ -218,34 +168,29 @@ class ItemsController < ApplicationController
 
   private
 
-    def put_up_item_params
-      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price,images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
+  def put_up_item_params
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
+  end
+
+  def update_item_params
+    params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
+  end
+
+  def redirect_when_items_cant_be_bought
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id || @item.exhibition_state != "出品中"
+      redirect_to root_path
     end
-  
-    def update_item_params
-      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+  end
+
+  def redirect_others
+    item = Item.find(params[:id])
+    unless item.user_id == current_user.id
+      redirect_to root_path
     end
-  
-    def update_item_params_without_image
-      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
-    end
-  
-  
-    def comment_params
-      params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
-    end
-  
-    def redirect_when_items_cant_be_bought
-      @item = Item.find(params[:id])
-      if @item.user_id == current_user.id || @item.exhibition_state != "出品中"
-        redirect_to(root_path)
-      end
-    end
-  
-    def redirect_others
-      @item = Item.find(params[:id])
-      unless @item.user_id == current_user.id
-        redirect_to(root_path)
-      end
-    end
+  end
 end

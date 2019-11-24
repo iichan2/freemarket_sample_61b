@@ -14,7 +14,7 @@
         line-height: 100px;
       }
       .ortu {
-        width: 42%;
+        width: 43%;
         margin-left: 6%;
         background-color: $gray;
         height: 380px;
@@ -26,6 +26,7 @@
         }
         .oouu {
           height: 30%;
+          background-color: white;
           @include flex-wrap;
         }
         .items-box_photo__sold {
