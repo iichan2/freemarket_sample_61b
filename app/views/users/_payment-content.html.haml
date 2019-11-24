@@ -5,25 +5,24 @@
       .is-content
         %h3.ics-head クレジットカード一覧
       %ul.is-payment-list
-    -if @card.blank?
+    - if @card.blank?
       %section.s-add-card
         .is-btn-content
-          = link_to new_card_path, class: "btn-def-submit" do
-            = fa_icon "credit-card", class: "card-icon"
+          = link_to(new_card_path, class: "btn-def-submit") do
+            = fa_icon("credit-card", class: "card-icon")
             %span.p クレジットカードを追加する
-    -else
+    - else
       %section.s-add-card
         .payment_card_box
           .payment_card_number
-            = "**** **** **** " + @default_card_information.last4
+            = "**** **** ****" + @default_card_information.last4
             %br
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
-          = link_to card_path,method: :delete do
-            %button.payment_card_delete
-              削除する
+          = link_to(card_path, method: :delete) do
+            %button.payment_card_delete 削除する
     .s-not-regist
-      = link_to "#", class: 'payment-to-info' do  
+      = link_to("#", class: 'payment-to-info') do
         %span.pa 支払い方法について
-        = fa_icon "chevron-right", class: "arrow-right2" 
+        = fa_icon("chevron-right", class: "arrow-right2") 

@@ -54,4 +54,3 @@ class ApplicationController < ActionController::Base
       session[:sns_id] = nil
     end
 end
-
