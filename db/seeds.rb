@@ -51,5 +51,5 @@ num = 1
   num += 1
 end
 
-require './db/default_items_seed.rb'
-require './db/default_images_url_seed.rb'
+# require './db/default_items_seed.rb'
+# require './db/default_images_url_seed.rb'
