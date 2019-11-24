@@ -12,9 +12,10 @@ class Item < ApplicationRecord
   # belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
 
-  # validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
+  validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
                       #あとで追加する項目 , :saler_id,
   # validates :images, length: { in: 1..10 }
+  scope :state, -> (exhibit){  where(exhibition_state: (exhibit)) }
 
   def self.search(item_name)
     if item_name
@@ -46,7 +47,7 @@ class Item < ApplicationRecord
     ladies_items = []
     ladys.each do |lady|
       image = Image.find_by(item_id: lady[0].id)
-      hash = {name:lady[0].item_name,id:lady[0].id,image_url:image.image_url,price:lady[0].price}
+      hash = {name:lady[0].item_name,id:lady[0].id,image_url:image.image_url.to_s,price:lady[0].price}
       ladies_items << hash
     end
     return ladies_items
