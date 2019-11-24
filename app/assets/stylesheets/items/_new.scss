@@ -392,7 +392,9 @@ input[type="text"] {
 }
 .dropzone-area3 {
   display: flex;
+  max-width:615px;
   flex-wrap: wrap;
+  height:165px;
 }
 input#item_images_attributes_0__destroy {
   display: none;
@@ -402,9 +404,4 @@ input#item_images_attributes_0__destroy {
 }
 .hidden{
   display: none;
-}
-.flexbox_no_warp{
-  display:flex;
-  max-width:615px;
-  flex-wrap: wrap;
 }

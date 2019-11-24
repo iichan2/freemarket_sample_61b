@@ -3,7 +3,7 @@ var inputs = [];
 var image_attaced_counts = 0;
 //items#editの場合のみ発火 documentではiichanbox表示前発火になりエラー
 $(window).on("turbolinks:load",function(){
-  if(document.URL.match("edit")&&document.URL.match("items")){
+  if(document.URL.match("items/[0-9]+/edit")){
     //既存の画像の数を取得し、制御カウントを増やす
     var already_exist_imgs_number = $('.iichan_box').length
     image_attaced_counts = image_attaced_counts + already_exist_imgs_number
@@ -111,23 +111,19 @@ $(document).on('click', '.delete', function() {
 $(document).on('click', '.deleted', function() { 
   $(this).parent().parent().remove();
   let index = $(this).data("countnumber");
-  console.log(index)
   $(`.js-destroy[data-countnumber="${index}"]`).attr("checked", "checked");
 });
 
-//画像なしでsubmitした場合のストップ
 $(document).on("turbolinks:load",function(){
+  //画像なしでsubmitした場合のストップ
   $("form[id=new_item]").on('submit',function(event){
     if($('.iichan_box').length == 0){
       event.preventDefault();
       alert("最低１枚は画像をアップロードしてください");
     };
   });
-});
-
-//同上のギミックだがeditとnewでformのidが異なるため記載。
-$(document).on("turbolinks:load",function(){
-  if(document.URL.match("edit")&&document.URL.match("items")){
+  //同上のギミックだがeditとnewでformのidが異なるため記載。
+  if(document.URL.match("items/[0-9]+/edit")){
     $("form").on('submit',function(event){
       if($('.iichan_box').length == 0){
         event.preventDefault();
@@ -135,10 +131,7 @@ $(document).on("turbolinks:load",function(){
       };  
     });
   };
-});
-
-//11枚以上の画像登録しようとする場合のストップ
-$(document).on("turbolinks:load",function(){
+  //11枚以上の画像登録しようとする場合のストップ
   $("form").on('submit',function(event){
     if($('.iichan_box').length > 10){
       event.preventDefault();
