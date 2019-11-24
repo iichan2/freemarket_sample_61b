@@ -1,22 +1,20 @@
 .single-container
   .single-header
     %h1.single-header__logo
-      = link_to "/" do
-        =image_tag  "/images/signup-mercari.png", size: "185x49", class: "mercari-logo"
+      = link_to(root_path) do
+        = image_tag("/images/signup-mercari.png", size: "185x49", class: "mercari-logo")
   .login-panel
     .login-no-account
       %p アカウントをお持ちでない方はこちら
       .sign-up
-        =link_to  new_signup_path, method: :get, class: "sign-up-btn" do
-          新規会員登録 
+        = link_to("新規会員登録", new_signup_path, method: :get, class: "sign-up-btn")
     .single-main__container__inner__content
-      = link_to  user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook" do
+      = link_to(user_facebook_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__facebook") do
         %i.single-main__container__inner__content__icon.fab.fa-facebook-square
         Facebookでログイン
-      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google" do
-        =image_tag "/images/google.svg", class: "contents__btn__google__logo"
+      = link_to(user_google_oauth2_omniauth_authorize_path, method: :post, class: "contents__btn contents__btn__google") do
+        = image_tag("/images/google.svg", class: "contents__btn__google__logo")
         Googleでログイン
-
     .login-form-inner
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
@@ -30,13 +28,12 @@
           = render '/signup/index' 
           .actions
             = f.submit "ログイン", class: "login"
-      
       -# ⬇︎session/linkをそのまま持ってきてる⬇︎
       - if controller_name != 'sessions'
-        = link_to "login", new_session_path(resource_name)
+        = link_to("login", new_session_path(resource_name))
         %br/
       - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-        = link_to "パスワードをお忘れの方", class: "password-forget"
+        = link_to("パスワードをお忘れの方", root_path, class: "password-forget")
         %br/
       - if devise_mapping.confirmable? && controller_name != 'confirmations'
         = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
