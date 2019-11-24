@@ -6,7 +6,29 @@ require './db/default_brands_seed.rb'
 require 'faker'
 
 users = []
-53.times() do 
+user = {
+  first_name: Faker::Name.last_name,
+  last_name: Faker::Name.first_name,
+  kana_first_name: "シンゾウ",
+  kana_last_name: "アベ",
+  nickname: Faker::Games::Pokemon.name,
+  tel_number: "08012345678",
+  delivery_id: 1,
+  # likes: Faker::String.random(length: 4),
+  # comments: Faker::String.random(length: 4),
+  # reviews: Faker::String.random(length: 4),
+  password: "1234567",
+  # password_confirmation: "1234567",
+  birth_year: Faker::Number.between(from: 1900, to: 2019), 
+  birth_month: Faker::Number.between(from: 1, to: 12), 
+  birth_day: Faker::Number.between(from: 1, to: 31), 
+  # profile: Faker::String.random(length: 4), 
+  email: "test@gmail.com",
+  provider: "1w",
+  uid: "1s"
+}
+users << user
+49.times() do 
   user = {
     first_name: Faker::Name.last_name,
     last_name: Faker::Name.first_name,
@@ -34,7 +56,7 @@ end
 User.create!(users)
 
 num = 1
-53.times() do
+50.times() do
   Delivery.create!(
     first_name: "安倍",
     last_name: "晋三",
