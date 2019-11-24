@@ -15,7 +15,7 @@ section.bought_notification{
   text-align: center;
   .bought_notification_message1 {
     color: $red;
-    @include flex-center:
+    @include flex-center;
     align-items: center;
     margin-bottom: 15px;
     .bought_notification_message_icon{
