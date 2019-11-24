@@ -13,5 +13,4 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'mramen'
-  config.asset_host = 'https://ap-northeast-1.amazonaws.com/mramen'
 end
