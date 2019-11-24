@@ -1,116 +1,74 @@
-.feuovn {
+.sign_up_new_container {
   height: 100vh;
-  width:100vw;
-  background-color: rgb(245, 245, 245);
   padding-top: 3%;
-  .tgj {
-    width: 13%;
-    margin:auto;
+  a.over_mercari_img {
+    width: 15%;
+    display: block;
+    margin: 0 auto;
   }
-  .tgvrb {
-    height: 60%;
-    width: 50%;
+  .sign_up_new_content {
+    height: 62%;
+    width: 55%;
     background-color: white;
-    margin:auto;
-    margin-top: 2%;
-    .tgdw {
-      text-align: center;
+    margin: 2% auto 0;
+    h2.new_member_registration {
       font-size: 23px;
       font-weight: bold;
+      text-align: center;
       line-height: 110px;
-      border-bottom: 1px rgb(245, 245, 245) solid;
+      border-bottom: 1px $gray solid;
     }
-    .yhb {
-      padding-top: 8%;
-      .fhb {
-        width: 50%;
-        height: 10%;
-        margin-left: 25%;
-        padding:20px 100px 20px 0;
-        margin-top: 10%;
-        border-radius: 5px;
-        line-height: 50px;
-        text-align: center;
-        font-size:16px;
-        color: white!important;
-        background-color: $red !important;
-        text-decoration: none;
-        .ooy {
-          margin-left: 2%;
+    .registrations {
+      padding: 5% 7% 10%;
+      .registration_box {
+        @include registration_box_base;
+        &.mail {
+          background-color: $red;
+          i.mail_icon {
+            font-size: 22px;
+            margin: 3.5%;
+          }
+          p.mail_address {
+            margin: auto 0 auto 13%;
+          }
         }
-      }
-      .grgr {
-        width: 55%;
-        margin-left: 25%;
-        padding:10px 50px 10px 10px;
-        margin-top: 5%;
-        border-radius: 5px;
-        display: block;
-        margin-top: 16px;
-        background-color: #385185;
-        color: white;
-        border-radius: 4px;
-        border: 1px solid;
-        line-height: 48px;
-        .frfr {
-          font-size: 24px;
+        &.facebook {
+          background-color: #385185;
+          i.facebook_icon {
+            font-size: 24px;
+            margin: 3.5%;
+          }
+          p.facebook {
+            margin: auto 0 auto 16%;
+          }
         }
-        .ooy0 {
-          margin-left: 2%;
-          text-align: center;
+        &.google {
+          border: 0.6px solid black;
+          color: black;
+          p.google {
+            margin: auto 0 auto 20%;
+          }
         }
-      }
-      .gtgt {
-        width: 55%;
-        margin-left: 25%;
-        margin-top: 4%;
-        color: black;
-        border-radius: 5px;
-        display: flex;
-        padding-top: 10px;;
-        border: 1px black solid;
-        .ghgh {
-          font-size: 24px;
-        }
-        .gkgk {
-          text-align: center;
-          border-radius: 4px;
-          font-size: 16px;
-          line-height: 40px;
-        }
-      }
+      } 
     }
   }
-  .rlsjo {
-    width: 100%;
-    margin-top: 3%;
-    .utvuha {
+  .rule-bar {
+    width: 33%;
+    margin: 2% auto;
+    @include flex-between;
+    .rule {
       color:black;
       opacity: 0.8;
-      font-size: 12px;
-      margin-left: 37%;
-    }
-    .utvuhb {
-      color:black;
-      opacity: 0.8;
-      font-size: 12px;
-      margin-left: 1%;
-    }
-    .utvuhc {
-      color:black;
-      opacity: 0.8;
-      font-size: 12px;
-      margin-left: 1%;
+      font-size: 13px;
     }
   }
-  .tgjtv {
-    width: 10%;
-    margin-left: 48%;
-    margin-top: 2%;
+  .mercari_img_content {
+    width: 100vw;
+    @include flex-center;
   }
-  .hgbf {
-    margin-top: 1%;
-    margin-left: 48%;
+  .under_mercari {
+    width: 100vw;
+    @include flex-center;
     font-size: 11px;
   }
 }

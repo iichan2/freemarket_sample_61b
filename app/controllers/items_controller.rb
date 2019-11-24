@@ -130,15 +130,15 @@ class ItemsController < ApplicationController
   def item_start
     @item = Item.find(params[:id])
     @item.update(exhibition_state: "出品中")
-    redirect_to @item
+    redirect_to(@item)
   end
 
   def destroy
     @item = Item.find(params[:id])
     if @item.update(exhibition_state: "削除済")
-      redirect_to user_path(current_user)
+      redirect_to(user_path(current_user))
     else
-      redirect_to error_page_items_path
+      redirect_to(error_page_items_path)
     end
   end
 

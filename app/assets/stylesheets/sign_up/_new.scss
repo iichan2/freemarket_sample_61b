@@ -62,7 +62,7 @@
     .form-group {
       margin: 8px 8px 10px 0;
       label {
-        font-weight: 600; 
+        font-weight: bold; 
       }
       .require {
         background: $red;
@@ -86,34 +86,19 @@
         background: #fff;
         line-height: 1.5;
         font-size: 16px;
-        padding-left: 16px;
+        padding: 0 0 0 16px;
       }
       .input-default1 {
+        @extend .input-default;
         width: 50%;
-        margin: 8px 0 0;
-        height: 48px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        display: flex;
-        float: right;
-        padding: 20px 20px;
-        padding-top: 30px;
+        padding: 30px 20px 20px;
+        @include flex-right;
       }
       .input-default2 {
+        @extend .input-default;
         width: 50%;
-        margin: 8px 0 0;
-        height: 48px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        display: flex;
-        float: right;
-        padding: 20px 20px;
+        padding: 20px;
+        @include flex-right;
       }
     }
   }  
@@ -162,7 +147,7 @@
 .btn-default {
   display: block;
   margin-top: 40px;
-  background: red;
+  background: $red;
   border: 1px solid $red;
   color: #fff;
   width: 100%;
@@ -175,15 +160,12 @@
   text-align: center;
   list-style: none;
 }
-a {
-  text-decoration: none;
-}
 .decolation-blue {
   color: $blue;
-}
-.form-group.text-right {
+  display: block;
+  padding: 10% 0;
   text-align: right;
-}  
+} 
 .progress-bar li.through .progress-status:before {
   background: $red;
 }
@@ -213,4 +195,7 @@ a {
   font-weight: 400;
   vertical-align: middle;
   cursor: pointer;
+}
+span.text-center {
+  @include flex-center;
 }
