@@ -217,6 +217,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
     def put_up_item_params
       params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price,images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
     end
