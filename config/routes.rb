@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
+      get 'error_page'
     end
   end
 

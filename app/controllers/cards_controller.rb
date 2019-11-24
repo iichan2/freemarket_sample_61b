@@ -1,5 +1,6 @@
 class CardsController < ApplicationController 
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
+  before_action :session_clear, only: [:error_page]
   require "payjp" 
 
   def new 
@@ -8,7 +9,7 @@ class CardsController < ApplicationController
   def pay 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] 
     if payjp_params['payjpToken'].blank? 
-      redirect_to action: "new" 
+      redirect_to error_page_cards_path
     else 
       customer = Payjp::Customer.create( 
       description: '登録テスト', 
@@ -19,13 +20,13 @@ class CardsController < ApplicationController
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card) 
       if @card.save 
         if session[:item_id].present? 
-          redirect_to controller:"items", action: "transaction",id: session[:item_id] 
+          redirect_to transaction_item_path(session[:item_id]) 
           session[:item_id] = nil 
         else 
-          redirect_to controller:"users", action: "payment",id: current_user.id 
+          redirect_to payment_user_path(current_user.id)
         end 
       else 
-        redirect_to action: "pay" 
+        redirect_to error_page_cards_path
       end 
     end 
   end 
@@ -38,9 +39,12 @@ class CardsController < ApplicationController
       customer.delete 
       card.delete 
     end 
-      redirect_to controller:"users", action: "payment",id: current_user.id 
+      redirect_to payment_user_path(current_user.id)
   end
   
+  def error_page
+  end
+
   private
 
   def payjp_params

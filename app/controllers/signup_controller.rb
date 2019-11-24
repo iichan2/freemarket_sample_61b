@@ -1,5 +1,6 @@
 class SignupController < ApplicationController
   before_action :create_user, only: [:create]
+  before_action :session_clear, only: [:newend]
   
   def create_user
   @user = User.new(
@@ -23,7 +24,7 @@ class SignupController < ApplicationController
       end
     else
     # ログインするための情報を保管
-      redirect_to error_page_signup_index_path, flash: {notice: "入力されていない項目があります"}
+      redirect_to error_page_signup_index_path
     end
   end
 
@@ -46,7 +47,8 @@ class SignupController < ApplicationController
       require "payjp"
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       if payjp_params[:payjpToken].blank?
-        redirect_to action: "card"
+        sign_in @user unless user_signed_in?
+        redirect_to error_page_cards_path
       else
         customer = Payjp::Customer.create(
         description: '登録テスト',
@@ -61,6 +63,7 @@ class SignupController < ApplicationController
         end
       end
     else
+      @user.delete
       redirect_to error_page_signup_index_path
     end
   end
@@ -112,30 +115,7 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def newend 
-    session[:nickname] = nil
-    session[:email] = nil
-    session[:password] = nil
-    session[:last_name] = nil
-    session[:first_name] = nil
-    session[:kana_last_name] = nil
-    session[:kana_first_name] = nil
-    session[:birth_year] = nil
-    session[:birth_month] = nil
-    session[:birth_day] = nil
-    session[:tel_number] = nil
-    session['devise.omniauth_data'] = nil
-    session[:f_name] = nil
-    session[:l_name] = nil
-    session[:kana_f_name] = nil
-    session[:kana_l_name] = nil
-    session[:postal_code] = nil
-    session[:ken] = nil
-    session[:map] = nil
-    session[:banchi] = nil
-    session[:building] = nil
-    session[:tel_number2] = nil
-    session[:sns_id] = nil
+  def newend
   end
   
   private
@@ -165,7 +145,7 @@ class SignupController < ApplicationController
       :password,
       )
   end
-  
+
   def payjp_params
     params.permit(:payjpToken)
   end
