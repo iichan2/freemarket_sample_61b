@@ -12,9 +12,7 @@ $(window).on("turbolinks:load",function(){
     $('label').attr('for', for_attribute)
     //追加用ラベルの追加
     var label = $(` <label for="upload-image${image_attaced_counts}">
-                    click here
                     <div class='sell_upload__area'>
-                      click here
                       <input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data-countNumber=${image_attaced_counts} id="upload-image${image_attaced_counts}" type="file" >
                     </div>
                   </label>`);
@@ -127,8 +125,8 @@ $(document).on("turbolinks:load",function(){
   });
 });
 
+//同上のギミックだがeditとnewでformのidが異なるため記載。
 $(document).on("turbolinks:load",function(){
-  //editとnewでformのidが異なるため記載。
   if(document.URL.match("edit")&&document.URL.match("items")){
     $("form").on('submit',function(event){
       if($('.iichan_box').length == 0){
@@ -137,4 +135,14 @@ $(document).on("turbolinks:load",function(){
       };  
     });
   };
+});
+
+//11枚以上の画像登録しようとする場合のストップ
+$(document).on("turbolinks:load",function(){
+  $("form").on('submit',function(event){
+    if($('.iichan_box').length > 10){
+      event.preventDefault();
+      alert("画像枚数の上限は10枚です");
+    };  
+  });
 });
