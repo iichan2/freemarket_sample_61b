@@ -3,7 +3,10 @@
     .atamanoe
       = link_to root_path do
         =image_tag("signup-mercari.png",class: "gazou",height: "60px")
-
+  -if session[:error_content]
+    .error_message_from_validation
+      = session[:error_content]
+    - session[:error_content] = nil
   .main
     .atama
       商品の情報を入力
@@ -49,9 +52,13 @@
             .kategory-serectbox
               .kategory-box-wrapper
               = f.select :category_id, @category_parents,{prompt: "---" }, {class: 'select_boxyou', id: 'parent_category', requre: "true"}
-
           .bun-matome
-            .bunn  商品の詳細
+            .bunn  ブランド
+            .any  任意
+          .brand_name_field
+            = f.text_field :brand_id, name: :brand_name, placeholder: 'ブランドの名前を入力して下さい', value: "なし"
+          .bun-matome
+            .bunn  商品の状態
             .hissu  必須
           .jyoutai-box
             = f.select :status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れなし"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---" }, {class: 'select_boxyou', requre: "true"} 

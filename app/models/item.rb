@@ -3,18 +3,16 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_many :likes
   has_many :comments
-  has_many :brands
   belongs_to :category
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
-
   belongs_to :user
   # belongs_to :saler, class_name: "User"
   # belongs_to :buyer, class_name: "User"
 
   validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
                       #あとで追加する項目 , :saler_id,
-  # validates :images, length: { in: 1..10 }
+  validates :images, length: { in: 1..10 }
   scope :state, -> (exhibit){  where(exhibition_state: (exhibit)) }
 
   def self.search(item_name)

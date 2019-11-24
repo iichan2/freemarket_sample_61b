@@ -3,6 +3,15 @@
   width: 100vw;
   background-color: $gray;
 // 画像投稿分
+.error_message_from_validation {
+  height:  100px;
+  color: $red;
+  font-size: 31px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  z-index: 6;
+}
 .dropzone-container {
     display: flex;
     min-height: 160px;
@@ -112,6 +121,10 @@ input[type="text"] {
       color: white;
       text-align: center;
       border-radius: 2px;
+    }
+    .any {
+      @extend .hissu;
+      background-color: gray;
     }
   }
 // 以下上から順番
@@ -251,6 +264,13 @@ input[type="text"] {
         padding-bottom: 20px;
         .kategory-box-wrapper{
           padding-top: 15px;
+        }
+      }
+      .brand_name_field {
+        padding: 5px 20px 20px 0;
+        #item_brand_id {
+          padding: 20px;
+          border-radius: 4px;
         }
       }
     }

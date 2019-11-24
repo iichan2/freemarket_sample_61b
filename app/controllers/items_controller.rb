@@ -148,6 +148,9 @@ class ItemsController < ApplicationController
     items = Item.where(user_id: @item.user_id)
     @items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
     @item_seller_user = User.find(@item.user_id)
+    if @item.brand_id.present?
+      @brand = Brand.find(@item.brand_id)
+    end 
   end
   
   def comment_create
@@ -209,16 +212,19 @@ class ItemsController < ApplicationController
 
   def create
     item = Item.new(put_up_item_params)
-    if item.save!
+    if item.save
+      brand = Brand.create(brand_name: params[:brand_name], brand_group: Category.find(put_up_item_params[:category_id]).category)
+      item.update(brand_id: brand.id)
       redirect_to user_path(current_user.id)
     else
-      redirect_to root_path
+      session[:error_content] = "全ての内容を記載してください" 
+      redirect_to(new_item_path)
     end
   end
 
   private
     def put_up_item_params
-      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price,images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
+      params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
     end
   
     def update_item_params
@@ -228,7 +234,6 @@ class ItemsController < ApplicationController
     def update_item_params_without_image
       params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price).merge(user_id: current_user.id)
     end
-  
   
     def comment_params
       params.require(:comment).permit(:text,:item_id).merge(user_id: current_user.id)
