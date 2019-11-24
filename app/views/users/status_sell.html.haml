@@ -24,7 +24,7 @@
                       = image_tag item_image[:image].image_url.to_s, size:"99x99"
                     .info-right
                       .info-up
-                        = item_image([:item][:item_name])
+                        = item_image[:item][:item_name]
                       .info-down
                         -if item_image[:item][:exhibition_state] == "停止中"
                           .teisibox 出品停止中
