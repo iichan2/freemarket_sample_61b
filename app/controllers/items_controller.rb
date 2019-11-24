@@ -10,10 +10,10 @@ class ItemsController < ApplicationController
     @mens_items = items.lady(2).take(10)
     @appliance_items = items.lady(8).take(10)
     @toys_items = items.lady(6).take(10)
-    @kubota_items = items.where(brand_id: 1).limit(10)
-    @inoue_items = items.where(brand_id: 3).limit(10)
-    @shioya_items = items.where(brand_id: 2).limit(10)
-    @tonochi_items = items.where(brand_id: 5).limit(10)
+    @kubota_items = items.where(brand_name: "KubooTA").limit(10)
+    @inoue_items = items.where(brand_name: "エウオーニ").limit(10)
+    @shioya_items = items.where(brand_name: "NAHCII").limit(10)
+    @tonochi_items = items.where(brand_name: "トノッチ").limit(10)
   end
 
   def new 
