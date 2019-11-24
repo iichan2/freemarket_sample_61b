@@ -16,16 +16,15 @@
         .saidai10  最大10枚までアップロードできます
         .gazou-okurtokoro
           .dropzone-container.clearfix
-            .dropzone-area3
-              .flexbox_no_warp
-                = f.fields_for :images do |i|
-                  .inputs.hidden
-                    = i.hidden_field :id
-                    = i.check_box :_destroy, class: 'js-destroy', "data-countNumber": i.index
-                  .iichan_box
-                    = image_tag i.object.image_url.to_s, alt: '商品の写真', width: "120", class: "edit-img"
-                    .btn_wrapper
-                      .xxxxxbtn.deleted{ "data-countNumber": i.index} 削 除
+            = f.fields_for :images do |i|
+              .dropzone-area3
+                .inputs.hidden
+                  = i.hidden_field :id
+                  = i.check_box :_destroy, class: 'js-destroy hidden', "data-countNumber": i.index
+                .iichan_box
+                  = image_tag i.object.image_url.to_s, alt: '商品の写真', width: "120", class: "edit-img"
+                  .btn_wrapper
+                    .xxxxxbtn.deleted{ "data-countNumber": i.index} 削 除
             .sell-uploads-drop
               #exhibit-images-preview
             .dropzone-area
