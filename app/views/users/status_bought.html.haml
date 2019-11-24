@@ -14,16 +14,15 @@
                 = link_to("取引中", status_delivery_user_path, class: "mypss")
               %li.news.active
                 = link_to("過去の取引", status_bought_user_path, class: "mypss")
-            - if @items_images.present?
-              - @items_images.each do |item_image|
-                = link_to("/items/#{item_image[:item][:id]}") do
+            - if @items.present?
+              - @items.each do |item|
+                = link_to("/items/#{item.id}") do
                   .item-info
                     .info-left
-                      = image_tag item_image[:image][:image_url].to_s, size:"99x99"
+                      = image_tag item.images.first.image_url, size:"99x99"
                     .info-right
                       .info-up
-                        = item_image([:item][:item_name])
-                      .info-down
+                        = item.item_name
             - else
               %ul#mypage-tab-todo.myp-item-list
                 %li.myp-item-not-found_old 
