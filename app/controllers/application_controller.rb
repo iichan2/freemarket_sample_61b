@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   UN = ENV['BASIC_AUTH_USER']
@@ -50,5 +51,11 @@ class ApplicationController < ActionController::Base
       session[:tel_number2] = nil
       session[:item_id] = nil
       session[:sns_id] = nil
+    end
+
+    def redirct_error_check
+      if request.referer.nil?
+        redirect_to root_path
+      end
     end
 end

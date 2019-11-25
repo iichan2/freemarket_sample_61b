@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :check_user, except:[:new]
-  before_action :authenticate_user!
   before_action :set_delivery_params, only:[:identification]
   before_action :set_params, 
     only:[:show, :edit, :update, :payment, :identification, :logout, 

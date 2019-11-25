@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
-  before_action :authenticate_user!, except:[:index, :get_category_children, :get_category_grandchildren, :transaction, :show, :show_deleted] 
+  skip_before_action :authenticate_user!, only:[:index, :get_category_children, :get_category_grandchildren, :show, :show_deleted] 
   before_action :session_clear,only:[:index]
+  before_action :redirct_error_check
   before_action :redirect_when_items_cant_be_bought,only:[:transaction]
   before_action :redirect_others,only:[:edit,:update,:destroy]
 
@@ -50,24 +51,20 @@ class ItemsController < ApplicationController
   end
 
   def transaction #imageurl fixed
-    if user_signed_in?
-      @user = User.find(current_user.id)
-      @prefecture_name = Prefecture.find(@user.delivery.ken).name
-      @del = "#{@kprefecture_name} #{@user.delivery.map} #{@user.delivery.banchi} #{@user.delivery.building}"
-      @item = Item.find(params[:id])
-      @image = @item.images.first
-      card = Card.where(user_id: current_user.id).first
-      if card.blank?
-        session[:item_id] = @item.id
-        redirect_to controller: "cards", action: "new"
-      else
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.retrieve(card.customer_id)
-        @default_card_information = customer.cards.retrieve(card.card_id)
-      end
+    @user = User.find(current_user.id)
+    @prefecture_name = Prefecture.find(@user.delivery.ken).name
+    @del = "#{@kprefecture_name} #{@user.delivery.map} #{@user.delivery.banchi} #{@user.delivery.building}"
+    @item = Item.find(params[:id])
+    @image = @item.images.first
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      session[:item_id] = @item.id
+      redirect_to controller: "cards", action: "new"
     else
-      redirect_to '/users/sign_in' 
-    end 
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
