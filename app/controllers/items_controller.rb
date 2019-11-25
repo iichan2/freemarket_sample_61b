@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController 
   skip_before_action :authenticate_user!, only:[:index, :get_category_children, :get_category_grandchildren, :show, :show_deleted] 
   before_action :session_clear,only:[:index]
+  before_action :redirct_error_check
   before_action :redirect_when_items_cant_be_bought,only:[:transaction]
   before_action :redirect_others,only:[:edit,:update,:destroy]
 

@@ -1,6 +1,7 @@
 class SignupController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :signed_in
+  before_action :redirct_error_check, only: [:error_page]
   before_action :create_user, only: [:create]
   before_action :session_clear, only: [:newend]
   
@@ -119,6 +120,9 @@ class SignupController < ApplicationController
   def newend
   end
   
+  def error_page
+  end
+
   private
 
   def signed_in

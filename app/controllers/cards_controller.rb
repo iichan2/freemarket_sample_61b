@@ -1,5 +1,5 @@
 class CardsController < ApplicationController 
-  before_action :redirct_card_error_check, only: [:error_page]
+  before_action :redirct_error_check, only: [:error_page]
   before_action :session_clear, only: [:error_page]
   require "payjp" 
 
@@ -46,12 +46,6 @@ class CardsController < ApplicationController
   end
 
   private
-
-  def redirct_card_error_check
-    if request.referer.nil?
-      redirect_to root_path
-    end
-  end
 
   def payjp_params
     params.permit(:payjpToken)

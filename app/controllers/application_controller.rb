@@ -52,4 +52,10 @@ class ApplicationController < ActionController::Base
       session[:item_id] = nil
       session[:sns_id] = nil
     end
+
+    def redirct_error_check
+      if request.referer.nil?
+        redirect_to root_path
+      end
+    end
 end
