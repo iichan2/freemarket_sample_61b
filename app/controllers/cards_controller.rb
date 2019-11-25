@@ -1,5 +1,4 @@
 class CardsController < ApplicationController 
-  before_action :authenticate_user!
   before_action :session_clear, only: [:error_page]
   require "payjp" 
 

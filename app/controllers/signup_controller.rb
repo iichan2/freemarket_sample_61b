@@ -1,4 +1,5 @@
 class SignupController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :create_user, only: [:create]
   before_action :session_clear, only: [:newend]
   
