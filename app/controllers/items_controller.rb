@@ -4,16 +4,9 @@ class ItemsController < ApplicationController
   before_action :redirect_when_items_cant_be_bought,only:[:transaction]
   before_action :redirect_others,only:[:edit,:update,:destroy]
 
-  def index #image_url_fixed
-    items = Item.where(exhibition_state: "出品中")
-    @ladies_items = items.lady(1).take(10)
-    @mens_items = items.lady(2).take(10)
-    @appliance_items = items.lady(8).take(10)
-    @toys_items = items.lady(6).take(10)
-    @kubota_items = items.brand_item_search("KubooTA").take(10)
-    @inoue_items = items.brand_item_search("エウオーニ").take(10)
-    @shioya_items = items.brand_item_search("NAHCII").take(10)
-    @tonochi_items = items.brand_item_search("トノッチ").take(10)
+  def index
+    @categories = [Category.find(1),Category.find(2),Category.find(8),Category.find(6)]
+    @brands = ["KubooTA","エウオーニ","NAHCII","トノッチ"]
   end
 
   def new 

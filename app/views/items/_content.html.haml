@@ -1,150 +1,59 @@
+- index = 0
 .content
   .contents
     .category
       %div.comment 
         人気のカテゴリー
         %ul.categorybox
-          %li.qaz
-            .bar5
-              = link_to('レディース', href="#1", class: 'qaz')
-          %li.qaz
-            .bar5
-              = link_to('メンズ', href="#2", class: 'qaz')
-          %li.qaz
-            .bar5
-              = link_to('家電・スマホ・カメラ', href="#3", class: 'qaz')
-          %li.qaz
-            .bar5
-              = link_to('おもちゃ・ホビー・グッズ', href="#4", class: 'qaz')
+          - index_for_jump = 0
+          - @categories.each do |a_parent|
+            %li.qaz
+              .bar5
+                = link_to("#{a_parent.category}", href="##{index_for_jump}", class: 'qaz')
+                - index_for_jump += 1
     .new_box
-      .name#1
-        %h1.title レディース新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @ladies_items.each do |ladies|
-          %li.itembox
-            %span.price ￥#{ladies[:price].to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{ladies[:id]}" do
-                = image_tag(ladies[:image_url], size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{ladies[:name]}", "items/#{ladies[:id]}", class: 'explanation')
-      .name#2
-        %h1.title メンズ新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @mens_items.each do |mens|
-          %li.itembox
-            %span.price ￥#{mens[:price].to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{mens[:id]}" do
-                = image_tag(mens[:image_url], size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{mens[:name]}", "items/#{mens[:id]}", class: 'explanation')
-      .name#3
-        %h1.title 家電・スマホ・カメラ新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @appliance_items.each do |appliance|
-          %li.itembox
-            %span.price ￥#{appliance[:price].to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{appliance[:id]}" do
-                = image_tag(appliance[:image_url], size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{appliance[:name]}", "items/#{appliance[:id]}", class: 'explanation')
-      .name#4
-        %h1.title おもちゃ・ホビー・グッズ新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @toys_items.each do |toys|
-          %li.itembox
-            %span.price ￥#{toys[:price].to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{toys[:id]}" do
-                = image_tag(toys[:image_url], size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{toys[:name]}", "items/#{toys[:id]}", class: 'explanation')
+      - @categories.each do |a_parent_category|
+        .name{id:"#{index}"}
+          - index += 1
+          %h1.title
+            = a_parent_category.category + "新着アイテム"
+          .more          
+            = link_to('もっと見る ＞', root_path, class: 'more2')
+        %ul.item
+          - Item.get_by_category(a_parent_category).each do |item|
+            %li.itembox
+              %span.price ￥#{item.price.to_s(:delimited)}
+              .itemtop
+                =link_to "items/#{item.id}" do
+                  = image_tag(item.images.first.image_url.to_s, size:"180x190")
+              .itembottom
+                .itembottom2
+                  = link_to("#{item.item_name}", "items/#{item.id}", class: 'explanation')
   .contents
     .category
       .category
         %div.comment
           人気のブランド
           %ul.categorybox
-            %li.qaz
-              .bar5
-                = link_to('KubooTA', href="#5", class: 'qaz')
-            %li.qaz
-              .bar5
-                = link_to('エウオーニ', href="#6", class: 'qaz')
-            %li.qaz
-              .bar5
-                = link_to('NAHCII', href="#7", class: 'qaz')
-            %li.qaz
-              .bar5
-                = link_to('トノッチ', href="#8", class: 'qaz')
+            - @brands.each do |a_brand|
+              %li.qaz
+                .bar5
+                  = link_to("#{a_brand}", href="##{index_for_jump}", class: 'qaz')
     .new_box
-      .name#5
-        %h1.title KubooTA新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @kubota_items.each do |kubota|
-          %li.itembox
-            %span.price ￥#{kubota.price.to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{kubota.id}" do
-                = image_tag(kubota.images.first.image_url.to_s, size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{kubota.item_name}", "items/#{kubota.id}", class: 'explanation')
-      .name#6
-        %h1.title エウオーニ新着アイテム
-        .more
-          = link_to("もっと見る ＞", root_path, class: 'more2')
-      %ul.item
-        - @inoue_items.each do |inoue|
-          %li.itembox
-            %span.price ￥#{inoue.price.to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{inoue.id}" do
-                = image_tag(inoue.images.first.image_url.to_s, size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{inoue.item_name}", "items/#{inoue.id}", class: 'explanation')
-      .name#7
-        %h1.title NAHCII新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @shioya_items.each do |shioya|
-          %li.itembox
-            %span.price ￥#{shioya.price.to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{shioya.id}" do
-                = image_tag(shioya.images.first.image_url.to_s, size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{shioya.item_name}", "items/#{shioya.id}/show", class: 'explanation')
-      .name#8
-        %h1.title トノッチ新着アイテム
-        .more          
-          = link_to('もっと見る ＞', root_path, class: 'more2')
-      %ul.item
-        - @tonochi_items.each do |tonochi|
-          %li.itembox
-            %span.price ￥#{tonochi.price.to_s(:delimited)}
-            .itemtop
-              =link_to "items/#{tonochi.id}" do
-                = image_tag(tonochi.images.first.image_url.to_s, size:"180x190")
-            .itembottom
-              .itembottom2
-                = link_to("#{tonochi.item_name}", "items/#{tonochi.id}/show", class: 'explanation')
+      - @brands.each do |a_brand|
+        .name{id:"#{index}"}
+          - index += 1
+          %h1.title
+            = a_brand + "新着アイテム"
+          .more          
+            = link_to('もっと見る ＞', root_path, class: 'more2')
+        %ul.item
+          - Item.get_by_brand(a_brand).each do |item|
+            %li.itembox
+              %span.price ￥#{item.price.to_s(:delimited)}
+              .itemtop
+                =link_to "items/#{item.id}" do
+                  = image_tag(item.images.first.image_url.to_s, size:"180x190")
+              .itembottom
+                .itembottom2
+                  = link_to("#{item.item_name}", "items/#{item.id}", class: 'explanation')
