@@ -1,5 +1,6 @@
 class SignupController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :signed_in
   before_action :create_user, only: [:create]
   before_action :session_clear, only: [:newend]
   
@@ -48,7 +49,7 @@ class SignupController < ApplicationController
       require "payjp"
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       if payjp_params[:payjpToken].blank?
-        sign_in @user unless user_signed_in?
+        sign_in @user 
         redirect_to error_page_cards_path
       else
         customer = Payjp::Customer.create(
@@ -59,7 +60,7 @@ class SignupController < ApplicationController
         )
         @card = Card.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
         if @card.save
-          sign_in @user unless user_signed_in?
+          sign_in @user 
           redirect_to newend_signup_index_path
         end
       end
@@ -74,7 +75,6 @@ class SignupController < ApplicationController
   end
 
   def new # メールのユーザー登録画面
-    log_out if user_signed_in?
     @user = User.new 
   end
 
@@ -120,6 +120,13 @@ class SignupController < ApplicationController
   end
   
   private
+
+  def signed_in
+    if user_signed_in?
+      redirect_to root_path
+    end
+  end
+
 
   def user_params
     params.require(:user).permit(
