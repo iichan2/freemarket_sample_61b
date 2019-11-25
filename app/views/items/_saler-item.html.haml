@@ -3,7 +3,7 @@
   .saler-items-box
     .items-box-photo
       = link_to controller: "items",action: "show",id:@item.id do
-        = image_tag(item_image[:image][:image_url].to_s, class: "saler-item-image")
+        = image_tag(item_image[:image].first.image_url.to_s, class: "saler-item-image")
       .items-box-body
         %h3.saler-item-name #{item_image[:item]["item_name"]}
         .saler-item-num
