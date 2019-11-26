@@ -22,4 +22,10 @@ class Item < ApplicationRecord
     end
     return items.take(10)
   end
+
+  def brand
+    brand = Brand.find(self.brand_id)
+    return brand
+  end
+
 end

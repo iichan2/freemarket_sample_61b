@@ -40,10 +40,10 @@
             .pmfo
               %p.jgjgjh ブランド
             .igrej
-              - if @brand.brand_name.blank?
+              - if @item.brand.brand_name.blank?
                 なし
               - else
-                = @brand.brand_name
+                = @item.brand.brand_name
           .zx
             .pmfo
               %p.jgjgjh 商品の状態

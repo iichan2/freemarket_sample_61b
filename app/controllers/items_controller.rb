@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
     @category_p_now = @category_c_now.parent
     @p_c_children = @category_p_now.children
     @c_gc_children = @category_c_now.children
-    @brand = Brand.find(@item.brand_id)
   end
 
   def get_category_children 
@@ -92,9 +91,6 @@ class ItemsController < ApplicationController
     items = Item.where(user_id: @item.user_id)
     @items = items.where("(exhibition_state = ?) OR (exhibition_state = ?)", "出品中", "停止中")
     @item_seller_user = User.find(@item.user_id)
-    if @item.brand_id.present?
-      @brand = Brand.find(@item.brand_id)
-    end 
   end
   
   def comment_create
@@ -158,6 +154,8 @@ class ItemsController < ApplicationController
     @item = Item.new(put_up_item_params)
     if @item.save
       redirect_to user_path(current_user.id)
+      brand = Brand.create(brand_name:create_brand_params[:brand_name],brand_group:Category.find(@item.category_id).category)
+      @item.update(brand_id:brand.id)
     else
       @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
       render :new
@@ -167,6 +165,12 @@ class ItemsController < ApplicationController
   private
   def put_up_item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
+  end
+
+  def create_brand_params
+    params.require(:item).permit(:brand_name)
+  end
+
   end
 
   def update_item_params
