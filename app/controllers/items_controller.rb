@@ -5,7 +5,10 @@ class ItemsController < ApplicationController
   before_action :redirect_others,only:[:edit,:update,:destroy]
 
   def index
-    @categories = [Category.find(1),Category.find(2),Category.find(8),Category.find(6)]
+    @categories = [ Category.find_by(category:"レディース"),
+                    Category.find_by(category:"メンズ"),
+                    Category.find_by(category:"家電・スマホ・カメラ"),
+                    Category.find_by(category:"おもちゃ・ホビー・グッズ")]
     @brands = ["KubooTA","エウオーニ","NAHCII","トノッチ"]
   end
 
