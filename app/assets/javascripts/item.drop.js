@@ -1,6 +1,30 @@
 var images = [];
 var inputs = [];
 var image_attaced_counts = 0;
+//items#editの場合のみ発火 documentではiichanbox表示前発火になりエラー
+$(window).on("turbolinks:load",function(){
+  if(document.URL.match("items/[0-9]+/edit")){
+    //既存の画像の数を取得し、制御カウントを増やす
+    var already_exist_imgs_number = $('.iichan_box').length
+    image_attaced_counts = image_attaced_counts + already_exist_imgs_number
+    //制御カウントに既存のラベルを合わせる
+    var for_attribute = "upload-image" + image_attaced_counts
+    $('label').attr('for', for_attribute)
+    //追加用ラベルの追加
+    var label = $(` <label for="upload-image${image_attaced_counts}">
+                    click here
+                    <div class='sell_upload__area'>
+                      <input class="upload-image" name=item[images_attributes][${image_attaced_counts}][image_url] data-countNumber=${image_attaced_counts} id="upload-image${image_attaced_counts}" type="file" >
+                    </div>
+                  </label>`);
+    if($('.iichan_box').length >= 5 ){
+      $('.dropzone-area2').prepend(label);
+    }else{
+      $('.dropzone-area').prepend(label);
+    };
+  };
+});
+
 $(document).on('change', 'input[type= "file"].upload-image',function() {
   //画像を保存する２段目inputタグ用ラベルの作成
   var label = $(` <label for="upload-image${image_attaced_counts}">
@@ -39,7 +63,6 @@ $(document).on('change', 'input[type= "file"].upload-image',function() {
   images.push(img);
   //imagesの一番最後にある最新のimgを入力する
   var add_image = images.slice(-1);
-  console.log(add_image);
   if($('.iichan_box').length < 5){
         var img_insert_target = $('#exhibit-images-preview');
       }else{
@@ -53,7 +76,7 @@ $(document).on('change', 'input[type= "file"].upload-image',function() {
   $('.sell_upload__area').append(new_image);
   //ストップ解除
   $('input[type="submit"]').removeAttr("disabled")
-  //idのズレたラベルの値の変更
+  //ラベルのforのidのズレを合わせる
   var for_attribute = "upload-image" + image_attaced_counts
   $('label').attr('for', for_attribute)
 });
@@ -70,6 +93,7 @@ $(document).on('click', '.delete', function() {
   images[delete_target_input_number] = null
   // iichanboxの数が５以下の場合第2ラベル削除、第1ラベル挿入
   var label = $(` <label for="upload-image${image_attaced_counts}">
+                    click here
                     <div class='sell_upload__area'>
                     </div>
                   </label>`);
@@ -84,18 +108,36 @@ $(document).on('click', '.delete', function() {
     $('.sell_upload__area').append(const_image)  
   };
 });
+
+//deletedの方の削除メソッド
 $(document).on('click', '.deleted', function() { 
   $(this).parent().parent().remove();
-  $(this).data("index")
-  let index = $(this).data("index");
-  $(`.js-destroy[data-index="${index}"]`).prop("checked", 1);
+  let index = $(this).data("countnumber");
+  $(`.js-destroy[data-countnumber="${index}"]`).attr("checked", "checked");
 });
 
-//画像なしでsubmitした場合のストップ
-$("form[id=new_item]").on('submit',function(event){
-  console.log("aaa")
-  if($('.iichan_box').length == 0){
-    event.preventDefault();
-    alert("最低１枚は画像をアップロードしてください");
+$(document).on("turbolinks:load",function(){
+  //画像なしでsubmitした場合のストップ
+  $("form[id=new_item]").on('submit',function(event){
+    if($('.iichan_box').length == 0){
+      event.preventDefault();
+      alert("最低１枚は画像をアップロードしてください");
+    };
+  });
+  //同上のギミックだがeditとnewでformのidが異なるため記載。
+  if(document.URL.match("items/[0-9]+/edit")){
+    $("form").on('submit',function(event){
+      if($('.iichan_box').length == 0){
+        event.preventDefault();
+        alert("最低１枚は画像をアップロードしてください");
+      };  
+    });
   };
+  //11枚以上の画像登録しようとする場合のストップ
+  $("form").on('submit',function(event){
+    if($('.iichan_box').length > 10){
+      event.preventDefault();
+      alert("画像枚数の上限は10枚です");
+    };  
+  });
 });

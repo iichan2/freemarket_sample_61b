@@ -5,11 +5,11 @@
         =image_tag "/images/signup-mercari.png", size: "185x49", class: "mercari-logo" 
   %main.single-main
     %section.single-main__container
-      %h2.single-main__container__header 認証エラー
+      %h2.single-main__container__header カード作成エラー
       %form.registration-form
         .registration-form__content
-          %p.done.message 認証に失敗しました。
+          %p.done.message クレジットカードの登録に失敗しました。
           %p.done.message お手数ですが、再度入力をお願いいたします。
-          = link_to new_signup_path do
+          = link_to new_card_path do
             %button.btn-default.btn-red 登録画面に戻る
 = render 'signup/signup-footer'

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   UN = ENV['BASIC_AUTH_USER']
@@ -26,7 +27,6 @@ class ApplicationController < ActionController::Base
     end
 
     def session_clear
-      session[:payjpUser_id] = nil
       session[:nickname] = nil
       session[:email] = nil
       session[:password] = nil
@@ -39,7 +39,6 @@ class ApplicationController < ActionController::Base
       session[:birth_day] = nil
       session[:tel_number] = nil
       session['devise.omniauth_data'] = nil
-      session[:payjpToken] = nil
       session[:f_name] = nil
       session[:l_name] = nil
       session[:kana_f_name] = nil
@@ -52,5 +51,11 @@ class ApplicationController < ActionController::Base
       session[:tel_number2] = nil
       session[:item_id] = nil
       session[:sns_id] = nil
+    end
+
+    def redirct_error_check
+      if request.referer.nil?
+        redirect_to root_path
+      end
     end
 end

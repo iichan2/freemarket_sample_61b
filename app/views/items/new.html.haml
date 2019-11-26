@@ -3,10 +3,9 @@
     .atamanoe
       = link_to root_path do
         =image_tag("signup-mercari.png",class: "gazou",height: "60px")
-  -if session[:error_content]
-    .error_message_from_validation
-      = session[:error_content]
-    - session[:error_content] = nil
+  - if @item.errors.any?
+    .items_new_error_message
+      ※※※※※ 入力内容に不備があります ※※※※※
   .main
     .atama
       商品の情報を入力
@@ -24,6 +23,7 @@
                   #exhibit-images-preview
                 .dropzone-area
                   = i.label :image_url, for: 'upload-image' do
+                    click here
                     .sell_upload__area
                       = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", requre: "true"
               .dropzone-container2.clearfix
@@ -106,7 +106,7 @@
           = f.submit "出品する", class: "buttonda"
         .buttonyou2
           .modorubutton
-            = link_to "/"  do
+            = link_to :back do
               %a.modo もどる
   %footer.st-footer
     %ul.privacy

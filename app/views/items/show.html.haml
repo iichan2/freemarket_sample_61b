@@ -134,8 +134,8 @@
     .jbox
       - @items.each do |item|
         .nekobox
-          = link_to "",class:"neo" do
-            %img{:src => "#{item.images[0].image_url.to_s}",:height => "180",:width => "200"}/
+          =link_to controller: "items",action: "show",id:item.id ,class:"neo" do
+            %img{:src => "#{item.images.first.image_url.to_s}",:height => "180",:width => "200"}/
             .neko
               .tuhv
                 = item.item_name
