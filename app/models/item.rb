@@ -16,7 +16,7 @@ class Item < ApplicationRecord
   scope :state, -> (exhibit){  where(exhibition_state: (exhibit)) }
   
   def self.get_by_category(category_parent)
-    return self.where(category_id:category_parent.descendant_ids, exhibition_state:"出品中").order("created_at DESC").includes(:category).take(10)
+    return self.where(category_id:category_parent.descendant_ids, exhibition_state:"出品中").order("created_at DESC").includes(:category,:images).take(10)
   end
 
   def self.get_by_brand(brand_name_string) #同名のブランドネームがテーブルに複数保存される構造になっているため
