@@ -51,7 +51,8 @@
         %ul.item
           - Item.get_by_brand(a_brand).each do |item|
             %li.itembox
-              %span.price ￥#{item.price.to_s(:delimited)}
+              %span.price
+                = "￥" + "#{item.price.to_s(:delimited)}"
               .itemtop
                 =link_to "items/#{item.id}" do
                   = image_tag(item.images.first.image_url.to_s, size:"180x190")
