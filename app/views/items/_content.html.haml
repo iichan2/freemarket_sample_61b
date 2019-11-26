@@ -39,6 +39,7 @@
               %li.qaz
                 .bar5
                   = link_to("#{a_brand}", href="##{index_for_jump}", class: 'qaz')
+                  - index_for_jump += 1
     .new_box
       - @brands.each do |a_brand|
         .name{id:"#{index}"}
