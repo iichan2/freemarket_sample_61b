@@ -7,7 +7,7 @@
         .center
           = image_tag src='prof.jpg', alt: 'プロフィール', size: '60x60', class: 'prof-circle'
       %h2.bold 
-        %p #{@item.user.nickname}
+        %p #{@user.nickname}
       .myp-num
         .hyo 評価
         %span.bold 0
@@ -26,7 +26,7 @@
             = image_tag src="not.png", size: "30x30"         
             %p.good-score 0
       .saler-comments-detail
-        %p.comment-content-table #{@item.user.profile}
+        %p.comment-content-table #{@user.profile}
       .social-media
         .saler-icons-box
           = fa_icon "facebook", class: "facebook-saler"
