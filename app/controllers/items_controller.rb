@@ -151,11 +151,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(put_up_item_params)
-    if item.save
+    @item = Item.new(put_up_item_params)
+    if @item.save
       redirect_to user_path(current_user.id)
     else
-      redirect_to root_path
+      @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
+      render :new
     end
   end
 

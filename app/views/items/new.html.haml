@@ -3,6 +3,9 @@
     .atamanoe
       = link_to root_path do
         =image_tag("signup-mercari.png",class: "gazou",height: "60px")
+  - if @item.errors.any?
+    .items_new_error_message
+      ※※※※※　入力内容に不備があります　※※※※※
 
   .main
     .atama
