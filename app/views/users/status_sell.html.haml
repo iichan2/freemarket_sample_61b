@@ -21,12 +21,12 @@
                 = link_to("/items/#{item.id}") do
                   .item-info
                     .info-left
-                      = image_tag item.images.first.image_url.to_s, size:"99x99"
+                      = image_tag(item.images.first.image_url.to_s, size:"99x99")
                     .info-right
                       .info-up
                         = item.item_name
                       .info-down
-                        -if item.exhibition_state == "停止中"
+                        - if item.exhibition_state == "停止中"
                           .teisibox 出品停止中
             - else
               %ul#mypage-tab-todo.myp-item-list

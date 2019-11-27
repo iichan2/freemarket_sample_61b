@@ -3,15 +3,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_many :likes
   has_many :comments
-  has_many :brands
   belongs_to :category
   has_many :images, dependent: :destroy, inverse_of: :item
   accepts_nested_attributes_for :images, allow_destroy: true
-
   belongs_to :user
-
   validates :item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :delivery_day, :price, :area, presence: true
-
   validates :images, length: { in: 1..10 }
   scope :state, -> (exhibit){  where(exhibition_state: (exhibit)) }
   
@@ -25,6 +21,11 @@ class Item < ApplicationRecord
       a_item = self.order("created_at DESC").find_by(brand_id: a_brand.id)
     end
     return items.take(10)
+  end
+
+  def brand
+    brand = Brand.find(self.brand_id)
+    return brand
   end
 
 end

@@ -6,13 +6,19 @@
         = @item.item_name
       .ortu
         .uuoo
-          = image_tag src="#{@item.images[0].image_url}", size:"280x266"
-          - if @item.exhibition_state == "売却済"
-            .items-box_photo__sold
-              .items-box_photo__sold__inner SOLD
+          - index = 0
+          - @item.images.each do|image|
+            .big_image.hidden{id:index}
+              = image_tag image.image_url.to_s, size:"280x266"
+              - index += 1
+              - if @item.exhibition_state == "売却済"
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner SOLD
         .oouu
+          - index_for_small = 0
           - @item.images.each do |item|
-            %img{:src => "#{item.image_url.to_s}",:height => "120",:width => "92"}/
+            %img{:src => "#{item.image_url.to_s}",:height => "120",:width => "92",id:index_for_small, class:"a_small_image"}/
+            - index_for_small += 1
       .rgt
         .tbody
           .zx
@@ -40,11 +46,15 @@
             .pmfo
               %p.jgjgjh ブランド
             .igrej
+              - if @item.brand.brand_name.blank?
+                なし
+              - else
+                = @item.brand.brand_name
           .zx
             .pmfo
               %p.jgjgjh 商品の状態
             .igrej 
-              =@item.status
+              = @item.status
           .zx
             .pmfo
               %p.jgjgjh 配送料の負担
@@ -116,11 +126,11 @@
             = f.hidden_field :item_id, value: @item.id
           %input.itvu{ type: "submit", value: "コメントする"}
     .ibox
-      =link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
-      =link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
+      = link_to("＜ペーパーシアター トトロセット",root_path,class:"iuiu")
+      = link_to("CAROL マルイ マルイモデル 大きいサイズ 26cm＞",root_path,class:"uiui")
     .lbox
       = link_to "https://ja-jp.facebook.com/" do
-        =image_tag "face.png", size: "50x50"
+        = image_tag "face.png", size: "50x50"
       = link_to "https://twitter.com/login?lang=ja" do
         = image_tag "tww.png", size: "50x50"
       = link_to "https://www.pinterest.jp/" do
@@ -148,3 +158,4 @@
       %p.ltg  vivienne westwood red label スカート
 = render 'adv'
 = render 'footer'
+= render 'item-circle'

@@ -9,7 +9,7 @@ $(document).on("turbolinks:load",function(){
     function appendChidrenBox(insertHTML){
       var childSelectHtml = '';
       childSelectHtml = `<div class='kategory-box-wrapper' id= 'children_wrapper'>
-                            <select class="select_boxyou" id="child_category" category_id="data-category" name="item[category_id]">
+                            <select class="select_boxyou" id="child_category" category_id="data-category" name="item[category_id]" required>
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             <select>
@@ -20,7 +20,7 @@ $(document).on("turbolinks:load",function(){
     function appendGrandchidrenBox(insertHTML){
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='kategory-box-wrapper' id= 'grandchildren_wrapper'>
-                                  <select class="select_boxyou" id="grandchild_category" category_id="data-category" name="item[category_id]">
+                                  <select class="select_boxyou" id="grandchild_category" category_id="data-category" name="item[category_id]" required>
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>

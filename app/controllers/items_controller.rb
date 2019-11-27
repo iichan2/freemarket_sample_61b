@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])    
     if item.update(update_item_params)
+      item.brand.update(brand_name:update_brand_params[:brand_name])
       redirect_to user_path(current_user.id)
     else
       redirect_to edit_item_path(item.id)
@@ -154,6 +155,8 @@ class ItemsController < ApplicationController
     @item = Item.new(put_up_item_params)
     if @item.save
       redirect_to user_path(current_user.id)
+      brand = Brand.create(brand_name:create_brand_params[:brand_name],brand_group:Category.find(@item.category_id).category)
+      @item.update(brand_id:brand.id)
     else
       @category_parents = Category.where(ancestry: nil).map{|i| [i.category, i.id]}
       render :new
@@ -161,13 +164,20 @@ class ItemsController < ApplicationController
   end
 
   private
-
   def put_up_item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id, exhibition_state: "出品中")
   end
 
+  def create_brand_params
+    params.require(:item).permit(:brand_name)
+  end
+
   def update_item_params
     params.require(:item).permit(:item_name, :item_info, :category_id, :status, :delivery_fee, :delivery_way, :area, :delivery_day, :price, images_attributes: [:image_url,:_destroy,:id]).merge(user_id: current_user.id)
+  end
+
+  def update_brand_params
+    params.require(:item).permit(:brand_name)
   end
 
   def comment_params

@@ -103,6 +103,13 @@ input[type="text"] {
     width: 350px;
     height: 20px;
 }
+#item_brand_name{
+  width: 400px;
+  height: 50px;
+  background-color: #fff;
+  border-radius:5px;
+  padding-left: 8px;
+}
 .select_boxyou{
   width: 400px;
   height: 50px;
@@ -123,6 +130,10 @@ input[type="text"] {
       color: white;
       text-align: center;
       border-radius: 2px;
+    }
+    .any {
+      @extend .hissu;
+      background-color: gray;
     }
   }
 // 以下上から順番
@@ -262,6 +273,13 @@ input[type="text"] {
         padding-bottom: 20px;
         .kategory-box-wrapper{
           padding-top: 15px;
+        }
+      }
+      .brand_name_field {
+        padding: 5px 20px 20px 0;
+        #item_brand_id {
+          padding: 20px;
+          border-radius: 4px;
         }
       }
     }
