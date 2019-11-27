@@ -26,7 +26,7 @@
                   = i.label :image_url, for: 'upload-image' do
                     click here
                     .sell_upload__area
-                      = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", requre: "true"
+                      = i.file_field :image_url, type: "file", id: "upload-image", class: "upload-image", requre: "true", data:{countnumber: 0}
               .dropzone-container2.clearfix
                 .sell-uploads-drop2
                   #exhibit-images-preview2
