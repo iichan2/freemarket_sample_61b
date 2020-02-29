@@ -98,7 +98,7 @@ group :production do
 end
 gem 'ancestry'
 gem 'active_hash'
-gem 'rake', '< 11.0'
+gem 'rake', '< 13.0'
 gem 'payjp'
 gem 'faker'
 gem 'aws-sdk-s3', require: false
